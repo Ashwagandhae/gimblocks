@@ -1,0 +1,144 @@
+{
+  "additionalProperties": {
+    "additionalProperties": false,
+    "properties": {
+      "attach": {
+        "enum": [
+          "expressionNumber",
+          "expressionString",
+          "expressionBoolean",
+          "expressionUnknown",
+          "statement"
+        ],
+        "type": "string"
+      },
+      "inputs": {
+        "additionalProperties": {
+          "enum": [
+            "expressionNumber",
+            "expressionString",
+            "expressionBoolean",
+            "expressionAny",
+            "statement"
+          ],
+          "type": "string"
+        },
+        "type": "object"
+      },
+      "customInputsType": {
+        "type": "string"
+      },
+      "customFieldsType": {
+        "type": "string"
+      },
+      "intersectWith": {
+        "type": "string"
+      },
+      "function": {
+        "type": "string"
+      },
+      "fields": {
+        "additionalProperties": {
+          "oneOf": [
+            {
+              "enum": ["number", "string", "id", "boolean"],
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "type": "object"
+      }
+    },
+    "allOf": [
+      {
+        "anyOf": [
+          {
+            "not": {
+              "required": ["customInputsType"]
+            }
+          },
+          {
+            "not": {
+              "required": ["inputs"]
+            }
+          }
+        ]
+      },
+      {
+        "anyOf": [
+          {
+            "not": {
+              "required": ["customFieldsType"]
+            }
+          },
+          {
+            "not": {
+              "required": ["fields"]
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "required": ["function"]
+        },
+        "then": {
+          "additionalProperties": false,
+          "properties": {
+            "function": {
+              "type": "string"
+            },
+            "attach": {
+              "enum": [
+                "expressionNumber",
+                "expressionString",
+                "expressionBoolean",
+                "expressionUnknown",
+                "statement"
+              ],
+              "type": "string"
+            },
+            "inputs": {
+              "additionalProperties": {
+                "enum": [
+                  "expressionNumber",
+                  "expressionString",
+                  "expressionBoolean",
+                  "expressionAny"
+                ],
+                "type": "string"
+              },
+              "type": "object"
+            },
+            "fields": {
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "enum": ["number", "string", "boolean"],
+                    "type": "string"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                ]
+              },
+              "type": "object"
+            }
+          }
+        }
+      }
+    ],
+    "required": ["attach"],
+    "type": "object"
+  },
+  "type": "object"
+}

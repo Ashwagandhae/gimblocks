@@ -1,0 +1,253 @@
+{
+  "variables_set": {
+    "inputs": {
+      "VALUE": "expressionAny"
+    },
+    "fields": {
+      "VAR": "id"
+    },
+    "attach": "statement"
+  },
+  "math_number": {
+    "fields": {
+      "NUM": "number"
+    },
+    "attach": "expressionNumber"
+  },
+  "text": {
+    "fields": {
+      "TEXT": "string"
+    },
+    "attach": "expressionString"
+  },
+  "logic_boolean": {
+    "fields": {
+      "BOOL": ["TRUE", "FALSE"]
+    },
+    "attach": "expressionBoolean"
+  },
+  "controls_if": {
+    "customInputsType": "Partial<Record<`IF${number}`, {block: ExpressionBooleanBlock | ExpressionUnknownBlock}> & Record<`DO${number}` | 'ELSE', {block: StatementBlock}>>",
+    "intersectWith": "{ extraState?: { hasElse?: true; elseIfCount?: number; } }",
+    "attach": "statement"
+  },
+  "logic_compare": {
+    "fields": {
+      "OP": ["EQ", "NEQ", "LT", "LTE", "GT", "GTE"]
+    },
+    "inputs": {
+      "A": "expressionAny",
+      "B": "expressionAny"
+    },
+    "attach": "expressionBoolean"
+  },
+  "math_arithmetic": {
+    "fields": {
+      "OP": ["ADD", "MINUS", "MULTIPLY", "DIVIDE", "POWER"]
+    },
+    "inputs": {
+      "A": "expressionNumber",
+      "B": "expressionNumber"
+    },
+    "attach": "expressionNumber"
+  },
+  "logic_operation": {
+    "fields": {
+      "OP": ["AND", "OR"]
+    },
+    "inputs": {
+      "A": "expressionBoolean",
+      "B": "expressionBoolean"
+    },
+    "attach": "expressionBoolean"
+  },
+  "variables_get": {
+    "fields": {
+      "VAR": "id"
+    },
+    "attach": "expressionUnknown"
+  },
+  "math_single": {
+    "fields": {
+      "OP": ["ROOT", "ABS", "NEG", "LN", "LOG10", "EXP", "POW10"]
+    },
+    "inputs": {
+      "NUM": "expressionNumber"
+    },
+    "function": "mathSingle",
+    "attach": "expressionNumber"
+  },
+  "math_trig": {
+    "fields": {
+      "OP": ["SIN", "COS", "TAN", "ASIN", "ACOS", "ATAN"]
+    },
+    "inputs": {
+      "NUM": "expressionNumber"
+    },
+    "function": "mathTrig",
+    "attach": "expressionNumber"
+  },
+  "math_number_property": {
+    "fields": {
+      "PROPERTY": [
+        "EVEN",
+        "ODD",
+        "PRIME",
+        "WHOLE",
+        "POSITIVE",
+        "NEGATIVE",
+        "DIVISIBLE_BY"
+      ]
+    },
+    "inputs": {
+      "NUMBER_TO_CHECK": "expressionNumber"
+    },
+    "function": "mathNumberProperty",
+    "attach": "expressionBoolean"
+  },
+  "math_round": {
+    "fields": {
+      "OP": ["ROUND", "ROUNDUP", "ROUNDDOWN"]
+    },
+    "inputs": {
+      "NUM": "expressionNumber"
+    },
+    "function": "mathRound",
+    "attach": "expressionNumber"
+  },
+  "math_random_int": {
+    "inputs": {
+      "FROM": "expressionNumber",
+      "TO": "expressionNumber"
+    },
+    "function": "randomInteger",
+    "attach": "expressionNumber"
+  },
+  "text_join": {
+    "customInputsType": "Partial<Record<`ADD${number}`, {block: ExpressionBlock}>>",
+    "intersectWith": "{ extraState?: { itemCount?: number; } }",
+    "attach": "expressionString"
+  },
+  "text_length": {
+    "inputs": {
+      "VALUE": "expressionString"
+    },
+    "attach": "expressionNumber"
+  },
+  "number_with_commas": {
+    "inputs": {
+      "convert_number_to_text_with_commas": "expressionNumber"
+    },
+    "function": "convertNumberToTextWithCommas",
+    "attach": "expressionString"
+  },
+  "text_getSubstring": {
+    "inputs": {
+      "STRING": "expressionString",
+      "AT1": "expressionNumber",
+      "AT2": "expressionNumber"
+    },
+    "fields": {
+      "WHERE1": ["FIRST", "FROM_START", "FROM_END"],
+      "WHERE2": ["LAST", "FROM_START", "FROM_END"]
+    },
+    "function": "getSubstring",
+    "attach": "expressionString"
+  },
+  "text_charAt": {
+    "inputs": {
+      "VALUE": "expressionString",
+      "AT": "expressionNumber"
+    },
+    "fields": {
+      "WHERE": ["FIRST", "LAST", "FROM_START", "FROM_END", "RANDOM"]
+    },
+    "function": "getLetter",
+    "attach": "expressionString"
+  },
+  "text_indexOf": {
+    "inputs": {
+      "VALUE": "expressionString",
+      "FIND": "expressionString"
+    },
+    "fields": {
+      "END": ["FIRST", "LAST"]
+    },
+    "function": "findOccurrenceOfText",
+    "attach": "expressionNumber"
+  },
+  "message_broadcaster": {
+    "inputs": {
+      "broadcast_message_on_channel": "expressionString"
+    },
+    "function": "broadcastMessageOnChannel",
+    "attach": "statement"
+  },
+  "set_property": {
+    "inputs": {
+      "set_property": "expressionString",
+      "value": "expressionAny"
+    },
+    "function": "setProperty",
+    "attach": "statement"
+  },
+  "get_property": {
+    "inputs": {
+      "get_property": "expressionString"
+    },
+    "function": "getProperty",
+    "attach": "expressionUnknown"
+  },
+  "add_activity_feed_item_for_everyone": {
+    "inputs": {
+      "add_activity_feed_item_for_everyone": "expressionString"
+    },
+    "function": "addActivityFeedItemForEveryone",
+    "attach": "statement"
+  },
+  "add_activity_feed_item_for_triggering_player": {
+    "inputs": {
+      "add_activity_feed_item_for_triggering_player": "expressionString"
+    },
+    "function": "addActivityFeedItemForTriggeringPlayer",
+    "attach": "statement"
+  },
+  "add_activity_feed_item_for_game_host": {
+    "inputs": {
+      "add_activity_feed_item_for_game_host": "expressionString"
+    },
+    "function": "addActivityFeedItemForGameHost",
+    "attach": "statement"
+  },
+  "current_character_name": {
+    "function": "triggeringPlayersName",
+    "attach": "expressionString"
+  },
+  "current_character_team_number": {
+    "function": "triggeringPlayersTeamNumber",
+    "attach": "expressionNumber"
+  },
+  "triggering_player_score": {
+    "function": "triggeringPlayersScore",
+    "attach": "expressionNumber"
+  },
+  "get_team_score": {
+    "inputs": {
+      "get_score_of_team": "expressionNumber"
+    },
+    "function": "getScoreOfTeam",
+    "attach": "expressionNumber"
+  },
+  "is_a_live_game": {
+    "function": "isALiveGame",
+    "attach": "expressionBoolean"
+  },
+  "is_an_assignment": {
+    "function": "isAnAssignment",
+    "attach": "expressionBoolean"
+  },
+  "seconds_into_game": {
+    "function": "secondsIntoGame",
+    "attach": "expressionNumber"
+  }
+}

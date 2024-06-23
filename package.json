@@ -1,0 +1,39 @@
+{
+  "name": "gimblocks",
+  "version": "0.0.1",
+  "description": "Converts JavaScript code to Gimkit's Blockly blocks",
+  "author": "Ashwagandhae",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./device": {
+      "import": "./dist/device.js",
+      "require": "./dist/device.cjs",
+      "types": "./dist/device.d.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest --silent=false",
+    "typecheck": "tsc --noEmit",
+    "codegen": "python3 ./codegen/generate.py && prettier --write ./src/**/generated.ts",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@tsconfig/strictest": "^2.0.5",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.5",
+    "prettier": "^2.5.1"
+  }
+}
