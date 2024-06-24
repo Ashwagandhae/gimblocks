@@ -91,7 +91,7 @@ export class ConvertError extends Error {
   node: Node | null;
   constructor(message: string, node?: Node) {
     super(message);
-    this.name = 'ConvertConvertError';
+    this.name = 'ConvertError';
     this.node = node ?? null;
   }
 }

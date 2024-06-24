@@ -5660,7 +5660,7 @@ var ConvertError = class extends Error {
   node;
   constructor(message, node) {
     super(message);
-    this.name = "ConvertConvertError";
+    this.name = "ConvertError";
     this.node = node ?? null;
   }
 };
@@ -6393,6 +6393,8 @@ function jsToBlocks(jsString, options = {}) {
   }
 }
 export {
+  AttachError,
+  ConvertError,
   functionExpressionToBlocks as acornFunctionExpressionToBlocks,
   programToBlocks as acornProgramToBlocks,
   defaultOptions2 as defaultOptions,

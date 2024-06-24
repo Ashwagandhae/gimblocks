@@ -20,6 +20,8 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
+  AttachError: () => AttachError,
+  ConvertError: () => ConvertError,
   acornFunctionExpressionToBlocks: () => functionExpressionToBlocks,
   acornProgramToBlocks: () => programToBlocks,
   defaultOptions: () => defaultOptions2,
@@ -5689,7 +5691,7 @@ var ConvertError = class extends Error {
   node;
   constructor(message, node) {
     super(message);
-    this.name = "ConvertConvertError";
+    this.name = "ConvertError";
     this.node = node ?? null;
   }
 };
@@ -6423,6 +6425,8 @@ function jsToBlocks(jsString, options = {}) {
 }
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  AttachError,
+  ConvertError,
   acornFunctionExpressionToBlocks,
   acornProgramToBlocks,
   defaultOptions,

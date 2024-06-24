@@ -1,4 +1,4 @@
-import { Expression, Program as Program$1, Options as Options$1 } from 'acorn';
+import { Expression, Program as Program$1, Node, Options as Options$1 } from 'acorn';
 
 type Value = "number" | "string" | "boolean" | "any";
 type Id = string;
@@ -697,13 +697,22 @@ type Program = {
 
 declare function functionExpressionToBlocks(functionExpression: Expression): Program;
 declare function programToBlocks(program: Program$1): Program;
+declare class ConvertError extends Error {
+    node: Node | null;
+    constructor(message: string, node?: Node);
+}
+declare class AttachError extends Error {
+    block: Block;
+    node: Node;
+    constructor(message: string, node: Node, block: Block);
+}
 
 type Options = Partial<FullOptions>;
 type FullOptions = {
-    jsStringType: "program" | "functionExpression";
+    jsStringType: 'program' | 'functionExpression';
     acornOptions: Options$1;
 };
 declare const defaultOptions: FullOptions;
 declare function jsToBlocks(jsString: string, options?: Options): Program;
 
-export { AddActivityFeedItemForEveryoneBlock, AddActivityFeedItemForGameHostBlock, AddActivityFeedItemForTriggeringPlayerBlock, Block, ControlsIfBlock, CurrentCharacterNameBlock, CurrentCharacterTeamNumberBlock, ExpressionBlock, ExpressionBooleanBlock, ExpressionNumberBlock, ExpressionStringBlock, ExpressionUnknownBlock, FullOptions, GetPropertyBlock, GetTeamScoreBlock, Id, IsALiveGameBlock, IsAnAssignmentBlock, LogicBooleanBlock, LogicCompareBlock, LogicOperationBlock, MathArithmeticBlock, MathNumberBlock, MathNumberPropertyBlock, MathRandomIntBlock, MathRoundBlock, MathSingleBlock, MathTrigBlock, MessageBroadcasterBlock, NumberWithCommasBlock, Options, Program, SecondsIntoGameBlock, SetPropertyBlock, StatementBlock, TextBlock, TextCharatBlock, TextGetsubstringBlock, TextIndexofBlock, TextJoinBlock, TextLengthBlock, TriggeringPlayerScoreBlock, Value, Variable, VariablesGetBlock, VariablesSetBlock, functionExpressionToBlocks as acornFunctionExpressionToBlocks, programToBlocks as acornProgramToBlocks, blockDefinitions, defaultOptions, isExpression, isExpressionBoolean, isExpressionBooleanOrUnknown, isExpressionNumber, isExpressionNumberOrUnknown, isExpressionString, isExpressionStringOrUnknown, isExpressionUnknown, isStatement, jsToBlocks };
+export { AddActivityFeedItemForEveryoneBlock, AddActivityFeedItemForGameHostBlock, AddActivityFeedItemForTriggeringPlayerBlock, AttachError, Block, ControlsIfBlock, ConvertError, CurrentCharacterNameBlock, CurrentCharacterTeamNumberBlock, ExpressionBlock, ExpressionBooleanBlock, ExpressionNumberBlock, ExpressionStringBlock, ExpressionUnknownBlock, FullOptions, GetPropertyBlock, GetTeamScoreBlock, Id, IsALiveGameBlock, IsAnAssignmentBlock, LogicBooleanBlock, LogicCompareBlock, LogicOperationBlock, MathArithmeticBlock, MathNumberBlock, MathNumberPropertyBlock, MathRandomIntBlock, MathRoundBlock, MathSingleBlock, MathTrigBlock, MessageBroadcasterBlock, NumberWithCommasBlock, Options, Program, SecondsIntoGameBlock, SetPropertyBlock, StatementBlock, TextBlock, TextCharatBlock, TextGetsubstringBlock, TextIndexofBlock, TextJoinBlock, TextLengthBlock, TriggeringPlayerScoreBlock, Value, Variable, VariablesGetBlock, VariablesSetBlock, functionExpressionToBlocks as acornFunctionExpressionToBlocks, programToBlocks as acornProgramToBlocks, blockDefinitions, defaultOptions, isExpression, isExpressionBoolean, isExpressionBooleanOrUnknown, isExpressionNumber, isExpressionNumberOrUnknown, isExpressionString, isExpressionStringOrUnknown, isExpressionUnknown, isStatement, jsToBlocks };

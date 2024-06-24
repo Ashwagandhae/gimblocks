@@ -1,23 +1,25 @@
-import { Options as AcornOptions, parse, parseExpressionAt } from "acorn";
+import { Options as AcornOptions, parse, parseExpressionAt } from 'acorn';
 
-import type { Program } from "./lib/blocks/index";
-import { functionExpressionToBlocks, programToBlocks } from "./lib/convert";
+import type { Program } from './lib/blocks/index';
+import { functionExpressionToBlocks, programToBlocks } from './lib/convert';
 export {
   programToBlocks as acornProgramToBlocks,
   functionExpressionToBlocks as acornFunctionExpressionToBlocks,
-} from "./lib/convert";
+  ConvertError,
+  AttachError,
+} from './lib/convert';
 
-export type * from "./lib/blocks/index";
+export type * from './lib/blocks/index';
 
 export type Options = Partial<FullOptions>;
 
 export type FullOptions = {
-  jsStringType: "program" | "functionExpression";
+  jsStringType: 'program' | 'functionExpression';
   acornOptions: AcornOptions;
 };
 
 export const defaultOptions: FullOptions = {
-  jsStringType: "program",
+  jsStringType: 'program',
   acornOptions: {
     ecmaVersion: 2020,
   },
@@ -25,7 +27,7 @@ export const defaultOptions: FullOptions = {
 
 export function jsToBlocks(jsString: string, options: Options = {}): Program {
   const optionsWithDefaults = { ...defaultOptions, ...options };
-  if (optionsWithDefaults.jsStringType === "program") {
+  if (optionsWithDefaults.jsStringType === 'program') {
     const ast = parse(jsString, optionsWithDefaults.acornOptions);
     return programToBlocks(ast);
   } else {
