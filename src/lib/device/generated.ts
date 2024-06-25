@@ -1,42 +1,42 @@
 export type Trigger = {
   mathSingle: (
-    OP: 'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10',
+    OP: "ROOT" | "ABS" | "NEG" | "LN" | "LOG10" | "EXP" | "POW10",
     NUM: number
   ) => number;
   mathTrig: (
-    OP: 'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN',
+    OP: "SIN" | "COS" | "TAN" | "ASIN" | "ACOS" | "ATAN",
     NUM: number
   ) => number;
   mathNumberProperty: (
     PROPERTY:
-      | 'EVEN'
-      | 'ODD'
-      | 'PRIME'
-      | 'WHOLE'
-      | 'POSITIVE'
-      | 'NEGATIVE'
-      | 'DIVISIBLE_BY',
+      | "EVEN"
+      | "ODD"
+      | "PRIME"
+      | "WHOLE"
+      | "POSITIVE"
+      | "NEGATIVE"
+      | "DIVISIBLE_BY",
     NUMBER_TO_CHECK: number
   ) => boolean;
-  mathRound: (OP: 'ROUND' | 'ROUNDUP' | 'ROUNDDOWN', NUM: number) => number;
+  mathRound: (OP: "ROUND" | "ROUNDUP" | "ROUNDDOWN", NUM: number) => number;
   randomInteger: (FROM: number, TO: number) => number;
   convertNumberToTextWithCommas: (
     convert_number_to_text_with_commas: number
   ) => string;
   getSubstring: (
-    WHERE1: 'FIRST' | 'FROM_START' | 'FROM_END',
-    WHERE2: 'LAST' | 'FROM_START' | 'FROM_END',
+    WHERE1: "FIRST" | "FROM_START" | "FROM_END",
+    WHERE2: "LAST" | "FROM_START" | "FROM_END",
     STRING: string,
     AT1: number,
     AT2: number
   ) => string;
   getLetter: (
-    WHERE: 'FIRST' | 'LAST' | 'FROM_START' | 'FROM_END' | 'RANDOM',
+    WHERE: "FIRST" | "LAST" | "FROM_START" | "FROM_END" | "RANDOM",
     VALUE: string,
     AT: number
   ) => string;
   findOccurrenceOfText: (
-    END: 'FIRST' | 'LAST',
+    END: "FIRST" | "LAST",
     VALUE: string,
     FIND: string
   ) => number;

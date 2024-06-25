@@ -1,0 +1,17 @@
+{
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "verbatimModuleSyntax": false,
+    "noErrorTruncation": true,
+    "declaration": false,
+    "resolveJsonModule": true
+  },
+  "include": ["./src", "../schema"],
+  "exclude": ["node_modules", "dist"],
+  "outDir": "./dist"
+}

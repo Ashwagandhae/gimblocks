@@ -2963,9 +2963,9 @@ pp$5.parseArrowExpression = function(node, params, isAsync, forInit) {
   return this.finishNode(node, "ArrowFunctionExpression");
 };
 pp$5.parseFunctionBody = function(node, isArrowFunction, isMethod, forInit) {
-  var isExpression2 = isArrowFunction && this.type !== types$1.braceL;
+  var isExpression = isArrowFunction && this.type !== types$1.braceL;
   var oldStrict = this.strict, useStrict = false;
-  if (isExpression2) {
+  if (isExpression) {
     node.body = this.parseMaybeAssign(forInit);
     node.expression = true;
     this.checkParams(node, false);
@@ -5452,189 +5452,1229 @@ function parseExpressionAt2(input, pos, options) {
 }
 
 // src/lib/blocks/generated.ts
-var blockDefinitions = {
-  variables_set: {
-    inputs: { VALUE: "expressionAny" },
-    fields: { VAR: "id" },
-    attach: "statement"
+var blockDefinitions = [
+  {
+    type: "logic_boolean",
+    message0: "%1",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "BOOL",
+        options: [
+          ["%{BKY_LOGIC_BOOLEAN_TRUE}", "TRUE"],
+          ["%{BKY_LOGIC_BOOLEAN_FALSE}", "FALSE"]
+        ]
+      }
+    ],
+    output: "Boolean",
+    style: "logic_blocks",
+    tooltip: "%{BKY_LOGIC_BOOLEAN_TOOLTIP}",
+    helpUrl: "%{BKY_LOGIC_BOOLEAN_HELPURL}"
   },
-  math_number: { fields: { NUM: "number" }, attach: "expressionNumber" },
-  text: { fields: { TEXT: "string" }, attach: "expressionString" },
-  logic_boolean: {
-    fields: { BOOL: ["TRUE", "FALSE"] },
-    attach: "expressionBoolean"
+  {
+    type: "controls_if",
+    message0: "%{BKY_CONTROLS_IF_MSG_IF} %1",
+    args0: [{ type: "input_value", name: "IF0", check: "Boolean" }],
+    message1: "%{BKY_CONTROLS_IF_MSG_THEN} %1",
+    args1: [{ type: "input_statement", name: "DO0" }],
+    previousStatement: null,
+    nextStatement: null,
+    style: "logic_blocks",
+    helpUrl: "%{BKY_CONTROLS_IF_HELPURL}",
+    suppressPrefixSuffix: true,
+    mutator: "controls_if_mutator",
+    extensions: ["controls_if_tooltip"],
+    $codegenCustomInputsType: "Partial<Record<`IF${number}`, {block: BooleanValueBlock | MaybeBooleanValueBlock}> & Record<`DO${number}` | 'ELSE', {block: StatementBlock}>>",
+    $codegenIntersectsWith: "{ extraState?: { hasElse?: true; elseIfCount?: number; } }",
+    $codegenNoFunction: true
   },
-  controls_if: {
-    customInputsType: "Partial<Record<`IF${number}`, {block: ExpressionBooleanBlock | ExpressionUnknownBlock}> & Record<`DO${number}` | 'ELSE', {block: StatementBlock}>>",
-    intersectWith: "{ extraState?: { hasElse?: true; elseIfCount?: number; } }",
-    attach: "statement"
+  {
+    type: "logic_compare",
+    message0: "%1 %2 %3",
+    args0: [
+      { type: "input_value", name: "A" },
+      {
+        type: "field_dropdown",
+        name: "OP",
+        options: [
+          ["=", "EQ"],
+          ["\u2260", "NEQ"],
+          ["\u200F<", "LT"],
+          ["\u200F\u2264", "LTE"],
+          ["\u200F>", "GT"],
+          ["\u200F\u2265", "GTE"]
+        ]
+      },
+      { type: "input_value", name: "B" }
+    ],
+    inputsInline: true,
+    output: "Boolean",
+    style: "logic_blocks",
+    helpUrl: "%{BKY_LOGIC_COMPARE_HELPURL}",
+    extensions: ["logic_compare", "logic_op_tooltip"]
   },
-  logic_compare: {
-    fields: { OP: ["EQ", "NEQ", "LT", "LTE", "GT", "GTE"] },
-    inputs: { A: "expressionAny", B: "expressionAny" },
-    attach: "expressionBoolean"
+  {
+    type: "logic_operation",
+    message0: "%1 %2 %3",
+    args0: [
+      { type: "input_value", name: "A", check: "Boolean" },
+      {
+        type: "field_dropdown",
+        name: "OP",
+        options: [
+          ["%{BKY_LOGIC_OPERATION_AND}", "AND"],
+          ["%{BKY_LOGIC_OPERATION_OR}", "OR"]
+        ]
+      },
+      { type: "input_value", name: "B", check: "Boolean" }
+    ],
+    inputsInline: true,
+    output: "Boolean",
+    style: "logic_blocks",
+    helpUrl: "%{BKY_LOGIC_OPERATION_HELPURL}",
+    extensions: ["logic_op_tooltip"]
   },
-  math_arithmetic: {
-    fields: { OP: ["ADD", "MINUS", "MULTIPLY", "DIVIDE", "POWER"] },
-    inputs: { A: "expressionNumber", B: "expressionNumber" },
-    attach: "expressionNumber"
+  {
+    type: "logic_negate",
+    message0: "%{BKY_LOGIC_NEGATE_TITLE}",
+    args0: [{ type: "input_value", name: "BOOL", check: "Boolean" }],
+    output: "Boolean",
+    style: "logic_blocks",
+    tooltip: "%{BKY_LOGIC_NEGATE_TOOLTIP}",
+    helpUrl: "%{BKY_LOGIC_NEGATE_HELPURL}"
   },
-  logic_operation: {
-    fields: { OP: ["AND", "OR"] },
-    inputs: { A: "expressionBoolean", B: "expressionBoolean" },
-    attach: "expressionBoolean"
+  {
+    type: "math_number",
+    message0: "%1",
+    args0: [{ type: "field_number", name: "NUM", value: 0 }],
+    output: "Number",
+    helpUrl: "%{BKY_MATH_NUMBER_HELPURL}",
+    style: "math_blocks",
+    tooltip: "%{BKY_MATH_NUMBER_TOOLTIP}",
+    extensions: ["parent_tooltip_when_inline"]
   },
-  variables_get: { fields: { VAR: "id" }, attach: "expressionUnknown" },
-  math_single: {
-    fields: { OP: ["ROOT", "ABS", "NEG", "LN", "LOG10", "EXP", "POW10"] },
-    inputs: { NUM: "expressionNumber" },
-    function: "mathSingle",
-    attach: "expressionNumber"
+  {
+    type: "math_arithmetic",
+    message0: "%1 %2 %3",
+    args0: [
+      { type: "input_value", name: "A", check: "Number" },
+      {
+        type: "field_dropdown",
+        name: "OP",
+        options: [
+          ["%{BKY_MATH_ADDITION_SYMBOL}", "ADD"],
+          ["%{BKY_MATH_SUBTRACTION_SYMBOL}", "MINUS"],
+          ["%{BKY_MATH_MULTIPLICATION_SYMBOL}", "MULTIPLY"],
+          ["%{BKY_MATH_DIVISION_SYMBOL}", "DIVIDE"],
+          ["%{BKY_MATH_POWER_SYMBOL}", "POWER"]
+        ]
+      },
+      { type: "input_value", name: "B", check: "Number" }
+    ],
+    inputsInline: true,
+    output: "Number",
+    style: "math_blocks",
+    helpUrl: "%{BKY_MATH_ARITHMETIC_HELPURL}",
+    extensions: ["math_op_tooltip"]
   },
-  math_trig: {
-    fields: { OP: ["SIN", "COS", "TAN", "ASIN", "ACOS", "ATAN"] },
-    inputs: { NUM: "expressionNumber" },
-    function: "mathTrig",
-    attach: "expressionNumber"
+  {
+    type: "math_single",
+    message0: "%1 %2",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "OP",
+        options: [
+          ["%{BKY_MATH_SINGLE_OP_ROOT}", "ROOT"],
+          ["%{BKY_MATH_SINGLE_OP_ABSOLUTE}", "ABS"],
+          ["-", "NEG"],
+          ["ln", "LN"],
+          ["log10", "LOG10"],
+          ["e^", "EXP"],
+          ["10^", "POW10"]
+        ]
+      },
+      { type: "input_value", name: "NUM", check: "Number" }
+    ],
+    output: "Number",
+    style: "math_blocks",
+    helpUrl: "%{BKY_MATH_SINGLE_HELPURL}",
+    extensions: ["math_op_tooltip"]
   },
-  math_number_property: {
-    fields: {
-      PROPERTY: [
-        "EVEN",
-        "ODD",
-        "PRIME",
-        "WHOLE",
-        "POSITIVE",
-        "NEGATIVE",
-        "DIVISIBLE_BY"
-      ]
-    },
-    inputs: { NUMBER_TO_CHECK: "expressionNumber" },
-    function: "mathNumberProperty",
-    attach: "expressionBoolean"
+  {
+    type: "math_trig",
+    message0: "%1 %2",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "OP",
+        options: [
+          ["%{BKY_MATH_TRIG_SIN}", "SIN"],
+          ["%{BKY_MATH_TRIG_COS}", "COS"],
+          ["%{BKY_MATH_TRIG_TAN}", "TAN"],
+          ["%{BKY_MATH_TRIG_ASIN}", "ASIN"],
+          ["%{BKY_MATH_TRIG_ACOS}", "ACOS"],
+          ["%{BKY_MATH_TRIG_ATAN}", "ATAN"]
+        ]
+      },
+      { type: "input_value", name: "NUM", check: "Number" }
+    ],
+    output: "Number",
+    style: "math_blocks",
+    helpUrl: "%{BKY_MATH_TRIG_HELPURL}",
+    extensions: ["math_op_tooltip"]
   },
-  math_round: {
-    fields: { OP: ["ROUND", "ROUNDUP", "ROUNDDOWN"] },
-    inputs: { NUM: "expressionNumber" },
-    function: "mathRound",
-    attach: "expressionNumber"
+  {
+    type: "math_constant",
+    message0: "%1",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "CONSTANT",
+        options: [
+          ["\u03C0", "PI"],
+          ["e", "E"],
+          ["\u03C6", "GOLDEN_RATIO"],
+          ["sqrt(2)", "SQRT2"],
+          ["sqrt(\xBD)", "SQRT1_2"],
+          ["\u221E", "INFINITY"]
+        ]
+      }
+    ],
+    output: "Number",
+    style: "math_blocks",
+    tooltip: "%{BKY_MATH_CONSTANT_TOOLTIP}",
+    helpUrl: "%{BKY_MATH_CONSTANT_HELPURL}"
   },
-  math_random_int: {
-    inputs: { FROM: "expressionNumber", TO: "expressionNumber" },
-    function: "randomInteger",
-    attach: "expressionNumber"
+  {
+    type: "math_number_property",
+    message0: "%1 %2",
+    args0: [
+      { type: "input_value", name: "NUMBER_TO_CHECK", check: "Number" },
+      {
+        type: "field_dropdown",
+        name: "PROPERTY",
+        options: [
+          ["%{BKY_MATH_IS_EVEN}", "EVEN"],
+          ["%{BKY_MATH_IS_ODD}", "ODD"],
+          ["%{BKY_MATH_IS_PRIME}", "PRIME"],
+          ["%{BKY_MATH_IS_WHOLE}", "WHOLE"],
+          ["%{BKY_MATH_IS_POSITIVE}", "POSITIVE"],
+          ["%{BKY_MATH_IS_NEGATIVE}", "NEGATIVE"],
+          ["%{BKY_MATH_IS_DIVISIBLE_BY}", "DIVISIBLE_BY"]
+        ]
+      }
+    ],
+    inputsInline: true,
+    output: "Boolean",
+    style: "math_blocks",
+    tooltip: "%{BKY_MATH_IS_TOOLTIP}",
+    mutator: "math_is_divisibleby_mutator"
   },
-  text_join: {
-    customInputsType: "Partial<Record<`ADD${number}`, {block: ExpressionBlock}>>",
-    intersectWith: "{ extraState?: { itemCount?: number; } }",
-    attach: "expressionString"
+  {
+    type: "math_change",
+    message0: "%{BKY_MATH_CHANGE_TITLE}",
+    args0: [
+      {
+        type: "field_variable",
+        name: "VAR",
+        variable: "%{BKY_MATH_CHANGE_TITLE_ITEM}"
+      },
+      { type: "input_value", name: "DELTA", check: "Number" }
+    ],
+    previousStatement: null,
+    nextStatement: null,
+    style: "variable_blocks",
+    helpUrl: "%{BKY_MATH_CHANGE_HELPURL}",
+    extensions: ["math_change_tooltip"]
   },
-  text_length: {
-    inputs: { VALUE: "expressionString" },
-    attach: "expressionNumber"
+  {
+    type: "math_round",
+    message0: "%1 %2",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "OP",
+        options: [
+          ["%{BKY_MATH_ROUND_OPERATOR_ROUND}", "ROUND"],
+          ["%{BKY_MATH_ROUND_OPERATOR_ROUNDUP}", "ROUNDUP"],
+          ["%{BKY_MATH_ROUND_OPERATOR_ROUNDDOWN}", "ROUNDDOWN"]
+        ]
+      },
+      { type: "input_value", name: "NUM", check: "Number" }
+    ],
+    output: "Number",
+    style: "math_blocks",
+    helpUrl: "%{BKY_MATH_ROUND_HELPURL}",
+    tooltip: "%{BKY_MATH_ROUND_TOOLTIP}"
   },
-  number_with_commas: {
-    inputs: { convert_number_to_text_with_commas: "expressionNumber" },
-    function: "convertNumberToTextWithCommas",
-    attach: "expressionString"
+  {
+    type: "math_modulo",
+    message0: "%{BKY_MATH_MODULO_TITLE}",
+    args0: [
+      { type: "input_value", name: "DIVIDEND", check: "Number" },
+      { type: "input_value", name: "DIVISOR", check: "Number" }
+    ],
+    inputsInline: true,
+    output: "Number",
+    style: "math_blocks",
+    tooltip: "%{BKY_MATH_MODULO_TOOLTIP}",
+    helpUrl: "%{BKY_MATH_MODULO_HELPURL}"
   },
-  text_getSubstring: {
-    inputs: {
-      STRING: "expressionString",
-      AT1: "expressionNumber",
-      AT2: "expressionNumber"
-    },
-    fields: {
-      WHERE1: ["FIRST", "FROM_START", "FROM_END"],
-      WHERE2: ["LAST", "FROM_START", "FROM_END"]
-    },
-    function: "getSubstring",
-    attach: "expressionString"
+  {
+    type: "math_constrain",
+    message0: "%{BKY_MATH_CONSTRAIN_TITLE}",
+    args0: [
+      { type: "input_value", name: "VALUE", check: "Number" },
+      { type: "input_value", name: "LOW", check: "Number" },
+      { type: "input_value", name: "HIGH", check: "Number" }
+    ],
+    inputsInline: true,
+    output: "Number",
+    style: "math_blocks",
+    tooltip: "%{BKY_MATH_CONSTRAIN_TOOLTIP}",
+    helpUrl: "%{BKY_MATH_CONSTRAIN_HELPURL}"
   },
-  text_charAt: {
-    inputs: { VALUE: "expressionString", AT: "expressionNumber" },
-    fields: { WHERE: ["FIRST", "LAST", "FROM_START", "FROM_END", "RANDOM"] },
-    function: "getLetter",
-    attach: "expressionString"
+  {
+    type: "math_random_int",
+    message0: "%{BKY_MATH_RANDOM_INT_TITLE}",
+    args0: [
+      { type: "input_value", name: "FROM", check: "Number" },
+      { type: "input_value", name: "TO", check: "Number" }
+    ],
+    inputsInline: true,
+    output: "Number",
+    style: "math_blocks",
+    tooltip: "%{BKY_MATH_RANDOM_INT_TOOLTIP}",
+    helpUrl: "%{BKY_MATH_RANDOM_INT_HELPURL}"
   },
-  text_indexOf: {
-    inputs: { VALUE: "expressionString", FIND: "expressionString" },
-    fields: { END: ["FIRST", "LAST"] },
-    function: "findOccurrenceOfText",
-    attach: "expressionNumber"
+  {
+    type: "math_random_float",
+    message0: "%{BKY_MATH_RANDOM_FLOAT_TITLE_RANDOM}",
+    output: "Number",
+    style: "math_blocks",
+    tooltip: "%{BKY_MATH_RANDOM_FLOAT_TOOLTIP}",
+    helpUrl: "%{BKY_MATH_RANDOM_FLOAT_HELPURL}"
   },
-  message_broadcaster: {
-    inputs: { broadcast_message_on_channel: "expressionString" },
-    function: "broadcastMessageOnChannel",
-    attach: "statement"
+  {
+    type: "math_atan2",
+    message0: "%{BKY_MATH_ATAN2_TITLE}",
+    args0: [
+      { type: "input_value", name: "X", check: "Number" },
+      { type: "input_value", name: "Y", check: "Number" }
+    ],
+    inputsInline: true,
+    output: "Number",
+    style: "math_blocks",
+    tooltip: "%{BKY_MATH_ATAN2_TOOLTIP}",
+    helpUrl: "%{BKY_MATH_ATAN2_HELPURL}"
   },
-  set_property: {
-    inputs: { set_property: "expressionString", value: "expressionAny" },
-    function: "setProperty",
-    attach: "statement"
+  {
+    type: "text",
+    message0: "%1",
+    args0: [{ type: "field_input", name: "TEXT", text: "" }],
+    output: "String",
+    style: "text_blocks",
+    helpUrl: "%{BKY_TEXT_TEXT_HELPURL}",
+    tooltip: "%{BKY_TEXT_TEXT_TOOLTIP}",
+    extensions: ["text_quotes", "parent_tooltip_when_inline"]
   },
-  get_property: {
-    inputs: { get_property: "expressionString" },
-    function: "getProperty",
-    attach: "expressionUnknown"
+  {
+    type: "text_join",
+    message0: "",
+    output: "String",
+    style: "text_blocks",
+    helpUrl: "%{BKY_TEXT_JOIN_HELPURL}",
+    tooltip: "%{BKY_TEXT_JOIN_TOOLTIP}",
+    mutator: "text_join_mutator"
   },
-  add_activity_feed_item_for_everyone: {
-    inputs: { add_activity_feed_item_for_everyone: "expressionString" },
-    function: "addActivityFeedItemForEveryone",
-    attach: "statement"
+  {
+    type: "text_append",
+    message0: "%{BKY_TEXT_APPEND_TITLE}",
+    args0: [
+      {
+        type: "field_variable",
+        name: "VAR",
+        variable: "%{BKY_TEXT_APPEND_VARIABLE}"
+      },
+      { type: "input_value", name: "TEXT" }
+    ],
+    previousStatement: null,
+    nextStatement: null,
+    style: "text_blocks",
+    extensions: ["text_append_tooltip"],
+    $codegenCustomInputsType: "Partial<Record<`ADD${number}`, {block: ValueBlock}>>",
+    $codegenIntersectsWith: "{ extraState?: { itemCount?: number; } }"
   },
-  add_activity_feed_item_for_triggering_player: {
-    inputs: {
-      add_activity_feed_item_for_triggering_player: "expressionString"
-    },
-    function: "addActivityFeedItemForTriggeringPlayer",
-    attach: "statement"
+  {
+    type: "text_length",
+    message0: "%{BKY_TEXT_LENGTH_TITLE}",
+    args0: [{ type: "input_value", name: "VALUE", check: ["String"] }],
+    output: "Number",
+    style: "text_blocks",
+    tooltip: "%{BKY_TEXT_LENGTH_TOOLTIP}",
+    helpUrl: "%{BKY_TEXT_LENGTH_HELPURL}"
   },
-  add_activity_feed_item_for_game_host: {
-    inputs: { add_activity_feed_item_for_game_host: "expressionString" },
-    function: "addActivityFeedItemForGameHost",
-    attach: "statement"
+  {
+    type: "text_isEmpty",
+    message0: "%{BKY_TEXT_ISEMPTY_TITLE}",
+    args0: [{ type: "input_value", name: "VALUE", check: ["String"] }],
+    output: "Boolean",
+    style: "text_blocks",
+    tooltip: "%{BKY_TEXT_ISEMPTY_TOOLTIP}",
+    helpUrl: "%{BKY_TEXT_ISEMPTY_HELPURL}"
   },
-  current_character_name: {
-    function: "triggeringPlayersName",
-    attach: "expressionString"
+  {
+    type: "text_indexOf",
+    message0: "%{BKY_TEXT_INDEXOF_TITLE}",
+    args0: [
+      { type: "input_value", name: "VALUE", check: "String" },
+      {
+        type: "field_dropdown",
+        name: "END",
+        options: [
+          ["%{BKY_TEXT_INDEXOF_OPERATOR_FIRST}", "FIRST"],
+          ["%{BKY_TEXT_INDEXOF_OPERATOR_LAST}", "LAST"]
+        ]
+      },
+      { type: "input_value", name: "FIND", check: "String" }
+    ],
+    output: "Number",
+    style: "text_blocks",
+    helpUrl: "%{BKY_TEXT_INDEXOF_HELPURL}",
+    inputsInline: true,
+    extensions: ["text_indexOf_tooltip"]
   },
-  current_character_team_number: {
-    function: "triggeringPlayersTeamNumber",
-    attach: "expressionNumber"
+  {
+    type: "text_charAt",
+    message0: "%{BKY_TEXT_CHARAT_TITLE}",
+    args0: [
+      { type: "input_value", name: "VALUE", check: "String" },
+      {
+        type: "field_dropdown",
+        name: "WHERE",
+        options: [
+          ["%{BKY_TEXT_CHARAT_FROM_START}", "FROM_START"],
+          ["%{BKY_TEXT_CHARAT_FROM_END}", "FROM_END"],
+          ["%{BKY_TEXT_CHARAT_FIRST}", "FIRST"],
+          ["%{BKY_TEXT_CHARAT_LAST}", "LAST"],
+          ["%{BKY_TEXT_CHARAT_RANDOM}", "RANDOM"]
+        ]
+      }
+    ],
+    output: "String",
+    style: "text_blocks",
+    helpUrl: "%{BKY_TEXT_CHARAT_HELPURL}",
+    inputsInline: true,
+    mutator: "text_charAt_mutator"
   },
-  triggering_player_score: {
-    function: "triggeringPlayersScore",
-    attach: "expressionNumber"
+  {
+    type: "variables_get",
+    message0: "%1",
+    args0: [
+      {
+        type: "field_variable",
+        name: "VAR",
+        variable: "%{BKY_VARIABLES_DEFAULT_NAME}"
+      }
+    ],
+    output: null,
+    style: "variable_blocks",
+    helpUrl: "%{BKY_VARIABLES_GET_HELPURL}",
+    tooltip: "%{BKY_VARIABLES_GET_TOOLTIP}",
+    extensions: ["contextMenu_variableSetterGetter"],
+    $codegenNoFunction: true
   },
-  get_team_score: {
-    inputs: { get_score_of_team: "expressionNumber" },
-    function: "getScoreOfTeam",
-    attach: "expressionNumber"
+  {
+    type: "variables_set",
+    message0: "%{BKY_VARIABLES_SET}",
+    args0: [
+      {
+        type: "field_variable",
+        name: "VAR",
+        variable: "%{BKY_VARIABLES_DEFAULT_NAME}"
+      },
+      { type: "input_value", name: "VALUE" }
+    ],
+    previousStatement: null,
+    nextStatement: null,
+    style: "variable_blocks",
+    tooltip: "%{BKY_VARIABLES_SET_TOOLTIP}",
+    helpUrl: "%{BKY_VARIABLES_SET_HELPURL}",
+    extensions: ["contextMenu_variableSetterGetter"],
+    $codegenNoFunction: true
   },
-  is_a_live_game: { function: "isALiveGame", attach: "expressionBoolean" },
-  is_an_assignment: { function: "isAnAssignment", attach: "expressionBoolean" },
-  seconds_into_game: {
-    function: "secondsIntoGame",
-    attach: "expressionNumber"
+  {
+    type: "message_broadcaster",
+    message0: "Broadcast Message On Channel %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "broadcast_message_on_channel",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "set_property",
+    message0: "Set Property %1 Value %2 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_property",
+        check: "String",
+        align: "RIGHT"
+      },
+      {
+        type: "input_value",
+        name: "value",
+        check: ["String", "Number", "Boolean"],
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "get_property",
+    message0: "Get Property %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "get_property",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: ["String", "Number", "Boolean"]
+  },
+  {
+    type: "current_character_name",
+    message0: "Triggering Player's Name",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "String"
+  },
+  {
+    type: "add_activity_feed_item_for_everyone",
+    message0: "Add Activity Feed Item For Everyone %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "add_activity_feed_item_for_everyone",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "add_activity_feed_item_for_triggering_player",
+    message0: "Add Activity Feed Item For Triggering Player %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "add_activity_feed_item_for_triggering_player",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "add_activity_feed_item_for_game_host",
+    message0: "Add Activity Feed Item For Game Host %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "add_activity_feed_item_for_game_host",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "current_character_team_number",
+    message0: "Triggering Player's Team Number",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "Number"
+  },
+  {
+    type: "triggering_player_score",
+    message0: "Triggering Player's Score",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "Number"
+  },
+  {
+    type: "get_team_score",
+    message0: "Get Score Of Team %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "get_score_of_team",
+        check: "Number",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "Number"
+  },
+  {
+    type: "is_a_live_game",
+    message0: "Is A Live Game",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "Boolean"
+  },
+  {
+    type: "is_an_assignment",
+    message0: "Is An Assignment",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "Boolean"
+  },
+  {
+    type: "seconds_into_game",
+    message0: "Seconds Into Game",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "Number"
+  },
+  {
+    type: "set_assignment_objective",
+    message0: "Set Objective To %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_objective_to",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "set_percentage_complete",
+    message0: "Set Percentage Complete To %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_percentage_complete_to",
+        check: "Number",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "increment_percentage_complete",
+    message0: "Increment Percentage Complete By %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "increment_percentage_complete_by",
+        check: "Number",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "send_custom_notification",
+    message0: "Send Notification %1 Title %2 Content %3 ",
+    args0: [
+      { type: "input_dummy" },
+      { type: "input_value", name: "title", check: "String", align: "RIGHT" },
+      { type: "input_value", name: "content", check: "String", align: "RIGHT" }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "other_character_name",
+    message0: "Other Player's Name",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "String"
+  },
+  {
+    type: "other_character_team_number",
+    message0: "Other Player's Team Number",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "Number"
+  },
+  {
+    type: "other_character_get_property",
+    message0: "Get Property As Other Player %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "get_property_as_other_player",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: ["String", "Number", "Boolean"]
+  },
+  {
+    type: "other_character_set_property",
+    message0: "Set Property (As Other Player) %1 Value %2 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_property_as_other_player",
+        check: "String",
+        align: "RIGHT"
+      },
+      {
+        type: "input_value",
+        name: "value",
+        check: ["String", "Number", "Boolean"],
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "other_character_message_broadcaster",
+    message0: "Broadcast Message (As Other Player) On Channel %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "broadcast_message_as_other_player_on_channel",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "grant",
+    message0: "Grant Player Selected Item",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "grant_custom",
+    message0: "Grant Player Selected Item (Custom Amount) %1 Amount %2 ",
+    args0: [
+      { type: "input_dummy" },
+      { type: "input_value", name: "amount", check: "Number", align: "RIGHT" }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "set_billboard_text",
+    message0: "Set Text %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_text",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "set_text_color",
+    message0: "Set Text Color To %1 ",
+    args0: [
+      { type: "field_colour", name: "set_text_color_to", colour: "#ff0000" }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "set_image",
+    message0: "Set Image URL %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_image_url",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "set_frame_color",
+    message0: "Set Frame Color To %1 ",
+    args0: [
+      { type: "field_colour", name: "set_frame_color_to", colour: "#ff0000" }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "question_answering_streak",
+    message0: "Questions Answered Correctly In A Row",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "Number"
+  },
+  {
+    type: "message_correct_answer",
+    message0: "Set Message Shown When Player Answers Correctly %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_message_shown_when_player_answers_correctly",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "message_incorrect_answer",
+    message0: "Set Message Shown When Player Answers Incorrectly %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_message_shown_when_player_answers_incorrectly",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "set_header",
+    message0: "Set Header %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_header",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "set_content",
+    message0: "Set Content %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_content",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "get_amount",
+    message0: "Get Amount Of Current Item %1 ",
+    args0: [{ type: "input_dummy" }],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: ["Number"]
+  },
+  {
+    type: "set_gui_text",
+    message0: "Set Text %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_text",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "get_minutes",
+    message0: "Get Minutes %1 ",
+    args0: [{ type: "input_dummy" }],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: ["Number"]
+  },
+  {
+    type: "get_seconds",
+    message0: "Get Seconds %1 ",
+    args0: [{ type: "input_dummy" }],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: ["Number"]
+  },
+  {
+    type: "get_time_left_formatted",
+    message0: "Get Time Left Formatted %1 ",
+    args0: [{ type: "input_dummy" }],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: ["String"]
+  },
+  {
+    type: "get_player_count",
+    message0: "Number Of Players On Team %1 ",
+    args0: [{ type: "input_dummy" }],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: ["Number"]
+  },
+  {
+    type: "knockout_manager_other_character_name",
+    message0: "Knocked Player's Name",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "String"
+  },
+  {
+    type: "knockout_manager_other_character_team_number",
+    message0: "Knocked Player's Team Number",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "Number"
+  },
+  {
+    type: "knockout_manager_other_character_get_property",
+    message0: "Get Property As Knocked Out Player %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "get_property_as_knocked_out_player",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: ["String", "Number", "Boolean"]
+  },
+  {
+    type: "knockout_manager_other_character_set_property",
+    message0: "Set Property (As Knocked Out Player) %1 Value %2 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "set_property_as_knocked_out_player",
+        check: "String",
+        align: "RIGHT"
+      },
+      {
+        type: "input_value",
+        name: "value",
+        check: ["String", "Number", "Boolean"],
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "knockout_manager_other_character_message_broadcaster",
+    message0: "Broadcast Message (As Knocked Out Player) On Channel %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "broadcast_message_as_knocked_out_player_on_channel",
+        check: "String",
+        align: "RIGHT"
+      }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "tag_zone_other_character_name",
+    message0: "Other Player's Name",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "String"
+  },
+  {
+    type: "tag_zone_other_character_team_number",
+    message0: "Other Player's Team Number",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: "Number"
+  },
+  {
+    type: "player_position_detector_player_x_position",
+    message0: "Player's X Position %1 ",
+    args0: [{ type: "input_dummy" }],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: ["Number"]
+  },
+  {
+    type: "player_position_detector_player_y_position",
+    message0: "Player's Y Position %1 ",
+    args0: [{ type: "input_dummy" }],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    output: ["Number"]
+  },
+  {
+    type: "damage_custom",
+    message0: "Damage Player (Custom Amount) %1 Amount %2 ",
+    args0: [
+      { type: "input_dummy" },
+      { type: "input_value", name: "amount", check: "Number", align: "RIGHT" }
+    ],
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+    previousStatement: null,
+    nextStatement: null
+  },
+  {
+    type: "number_with_commas",
+    message0: "Convert Number To Text (With Commas) %1 ",
+    args0: [
+      {
+        type: "input_value",
+        name: "convert_number_to_text_with_commas",
+        check: "Number",
+        align: "RIGHT"
+      }
+    ],
+    colour: 159.7,
+    tooltip: "",
+    helpUrl: "",
+    output: "String"
   }
+];
+var functionNameMap = {
+  logic_boolean: "logicBoolean",
+  logic_compare: "logicCompare",
+  logic_operation: "logicOperation",
+  logic_negate: "not",
+  math_number: "mathNumber",
+  math_arithmetic: "mathArithmetic",
+  math_single: "mathSingle",
+  math_trig: "mathTrig",
+  math_constant: "mathConstant",
+  math_number_property: "mathNumberProperty",
+  math_change: "changeBy",
+  math_round: "mathRound",
+  math_modulo: "remainderOf",
+  math_constrain: "constrainLowHigh",
+  math_random_int: "randomIntegerFromTo",
+  math_random_float: "randomFraction",
+  math_atan2: "atan2OfXY",
+  text: "text",
+  text_join: "textJoin",
+  text_append: "toAppendText",
+  text_length: "lengthOf",
+  text_isEmpty: "IsEmpty",
+  text_indexOf: "inText",
+  text_charAt: "inText",
+  message_broadcaster: "broadcastMessageOnChannel",
+  set_property: "setPropertyValue",
+  get_property: "getProperty",
+  current_character_name: "triggeringPlayersName",
+  add_activity_feed_item_for_everyone: "addActivityFeedItemForEveryone",
+  add_activity_feed_item_for_triggering_player: "addActivityFeedItemForTriggeringPlayer",
+  add_activity_feed_item_for_game_host: "addActivityFeedItemForGameHost",
+  current_character_team_number: "triggeringPlayersTeamNumber",
+  triggering_player_score: "triggeringPlayersScore",
+  get_team_score: "getScoreOfTeam",
+  is_a_live_game: "isALiveGame",
+  is_an_assignment: "isAnAssignment",
+  seconds_into_game: "secondsIntoGame",
+  set_assignment_objective: "setObjectiveTo",
+  set_percentage_complete: "setPercentageCompleteTo",
+  increment_percentage_complete: "incrementPercentageCompleteBy",
+  send_custom_notification: "sendNotificationTitleContent",
+  other_character_name: "otherPlayersName",
+  other_character_team_number: "otherPlayersTeamNumber",
+  other_character_get_property: "getPropertyAsOtherPlayer",
+  other_character_set_property: "setPropertyAsOtherPlayerValue",
+  other_character_message_broadcaster: "broadcastMessageAsOtherPlayerOnChannel",
+  grant: "grantPlayerSelectedItem",
+  grant_custom: "grantPlayerSelectedItemCustomAmountAmount",
+  set_billboard_text: "setText",
+  set_text_color: "setTextColorTo",
+  set_image: "setImageUrl",
+  set_frame_color: "setFrameColorTo",
+  question_answering_streak: "questionsAnsweredCorrectlyInARow",
+  message_correct_answer: "setMessageShownWhenPlayerAnswersCorrectly",
+  message_incorrect_answer: "setMessageShownWhenPlayerAnswersIncorrectly",
+  set_header: "setHeader",
+  set_content: "setContent",
+  get_amount: "getAmountOfCurrentItem",
+  set_gui_text: "setText",
+  get_minutes: "getMinutes",
+  get_seconds: "getSeconds",
+  get_time_left_formatted: "getTimeLeftFormatted",
+  get_player_count: "numberOfPlayersOnTeam",
+  knockout_manager_other_character_name: "knockedPlayersName",
+  knockout_manager_other_character_team_number: "knockedPlayersTeamNumber",
+  knockout_manager_other_character_get_property: "getPropertyAsKnockedOutPlayer",
+  knockout_manager_other_character_set_property: "setPropertyAsKnockedOutPlayerValue",
+  knockout_manager_other_character_message_broadcaster: "broadcastMessageAsKnockedOutPlayerOnChannel",
+  tag_zone_other_character_name: "otherPlayersName",
+  tag_zone_other_character_team_number: "otherPlayersTeamNumber",
+  player_position_detector_player_x_position: "playersXPosition",
+  player_position_detector_player_y_position: "playersYPosition",
+  damage_custom: "damagePlayerCustomAmountAmount",
+  number_with_commas: "convertNumberToTextWithCommas"
 };
+
+// src/lib/blocks/index.ts
+function findBlockDefinition(type) {
+  for (let def of blockDefinitions) {
+    if (def.type === type) {
+      return def;
+    }
+  }
+  throw new Error(`Block definition not found for ${type}`);
+}
+function isValue(block) {
+  return findBlockDefinition(block.type).hasOwnProperty("output");
+}
+function isNumberValue(block) {
+  return findBlockDefinition(block.type)?.output === "Number";
+}
+function isBooleanValue(block) {
+  return findBlockDefinition(block.type)?.output === "Boolean";
+}
 function isStatement(block) {
-  return "statement" === blockDefinitions[block.type].attach;
+  return !isValue(block);
 }
-function isExpressionNumberOrUnknown(block) {
-  return "expressionNumber" === blockDefinitions[block.type].attach || "expressionUnknown" === blockDefinitions[block.type].attach;
+function isUnknown(block) {
+  return isValue(block) && findBlockDefinition(block.type).output === null;
 }
-function isExpressionBooleanOrUnknown(block) {
-  return "expressionBoolean" === blockDefinitions[block.type].attach || "expressionUnknown" === blockDefinitions[block.type].attach;
+function blockValueContains(block, check) {
+  return isUnknown(block) || isValue(block) && findBlockDefinition(block.type).output === check;
 }
-function isExpression(block) {
-  return [
-    "expressionNumber",
-    "expressionString",
-    "expressionBoolean",
-    "expressionUnknown"
-  ].includes(blockDefinitions[block.type].attach);
+function isMaybeNumberValue(block) {
+  return isNumberValue(block) || blockValueContains(block, "Number");
+}
+function isMaybeBooleanValue(block) {
+  return isBooleanValue(block) || blockValueContains(block, "Boolean");
 }
 
 // src/lib/convert.ts
@@ -5854,114 +6894,132 @@ function keysOf(obj) {
   return Object.keys(obj);
 }
 function convertCallExpressionToFunctionBlock(ctx, expr, identifierName) {
-  const keys = keysOf(blockDefinitions);
-  for (const key of keys) {
-    const definition = blockDefinitions[key];
-    if (!("function" in definition) || definition.function != identifierName) {
-      continue;
-    }
-    let definitionFields = {};
-    let definitionInputs = {};
-    if ("fields" in definition) {
-      definitionFields = definition.fields;
-    }
-    if ("inputs" in definition) {
-      definitionInputs = definition.inputs;
-    }
-    const fieldKeys = keysOf(definitionFields);
-    const inputKeys = keysOf(definitionInputs);
-    if (inputKeys.length + fieldKeys.length != expr.arguments.length) {
+  let blockType = keysOf(functionNameMap).find(
+    (block) => functionNameMap[block] == identifierName
+  );
+  if (blockType == null) {
+    return null;
+  }
+  let def = findBlockDefinition(blockType);
+  let args = (def?.args0 ?? []).filter((arg) => arg.type != "input_dummy");
+  if (args.length != expr.arguments.length) {
+    throw new ConvertError(
+      `Function ${identifierName} requires ${def.args0?.length} arguments, got ${expr.arguments.length}`,
+      expr
+    );
+  }
+  let inputs = {};
+  let fields = {};
+  for (let i = 0; i < expr.arguments.length; i++) {
+    let arg = args[i];
+    let argExpr = expr.arguments[i];
+    if (argExpr.type == "SpreadElement") {
       throw new ConvertError(
-        `Number of arguments for ${identifierName} does not match; expected ${inputKeys.length + fieldKeys.length}, got ${expr.arguments.length}`,
-        expr
+        "SpreadElement in function call not supported",
+        argExpr
       );
     }
-    const fields = {};
-    for (let i = 0; i < fieldKeys.length; i++) {
-      const field = definitionFields[fieldKeys[i]];
-      const arg = expr.arguments[i];
-      if (arg.type != "Literal") {
-        throw new ConvertError(
-          "Block fields must be literals, got non literal",
-          arg
-        );
-      }
-      switch (typeof field) {
-        case "number":
-        case "string":
-        case "boolean":
-          if (typeof arg.value != typeof field) {
-            throw new ConvertError(
-              `Invalid argument type for ${identifierName}; expected ${typeof field}, got ${typeof arg.value}`,
-              arg
-            );
-          }
-          break;
-        case "object":
-          if (!Array.isArray(field)) {
-            throw new ConvertError(
-              `Invalid argument type for ${identifierName}; expected array, got object`,
-              arg
-            );
-          }
-          if (typeof arg.value != "string" || !field.includes(arg.value)) {
-            throw new ConvertError(
-              `Invalid argument value for ${identifierName}; expected ${field.join(
-                ", "
-              )}, got ${arg.value}`,
-              arg
-            );
-          }
-          break;
-        default:
-          throw new ConvertError(
-            `Invalid field type for ${identifierName}: ${typeof field}`,
-            arg
-          );
-      }
-      fields[fieldKeys[i]] = arg.value;
-    }
-    const inputs = {};
-    for (let i = 0; i < inputKeys.length; i++) {
-      const arg = expr.arguments[i + fieldKeys.length];
-      if (arg.type == "SpreadElement") {
-        throw new ConvertError("SpreadElement not supported", arg);
-      }
-      const argExpr = convertExpression(ctx, arg);
-      if (argExpr.type == "skip") {
-        throw new ConvertError("Invalid argument expression", arg);
-      }
-      if (!isExpression(argExpr)) {
-        throw new AttachError(
-          `Argument of function call must be expression, got ${argExpr.type}`,
-          arg,
-          argExpr
-        );
-      }
-      if (definitionInputs[inputKeys[i]] != blockDefinitions[argExpr.type].attach) {
-        throw new ConvertError(
-          `Invalid argument type for ${identifierName}; expected ${definitionInputs[inputKeys[i]]}, got ${argExpr.type}`,
-          arg
-        );
-      }
-      inputs[inputKeys[i]] = {
-        block: argExpr
-      };
-    }
-    return {
-      type: key,
-      id: randomId(),
-      inputs
-    };
+    addArgument(ctx, arg, argExpr, inputs, fields);
   }
-  return null;
+  let ret = {
+    id: randomId(),
+    type: blockType
+  };
+  if (Object.keys(inputs).length > 0) {
+    ret.inputs = inputs;
+  }
+  if (Object.keys(fields).length > 0) {
+    ret.fields = fields;
+  }
+  return ret;
+}
+function addArgument(ctx, arg, expr, inputs, fields) {
+  switch (arg.type) {
+    case "input_value": {
+      let block = convertExpression(ctx, expr);
+      inputs[arg.name] = { block };
+      break;
+    }
+    case "input_dummy": {
+      throw new ConvertError("Dummy argument not supported", expr);
+    }
+    case "input_statement": {
+      throw new ConvertError("Statement args not supported", expr);
+    }
+    case "field_colour": {
+      let literal2 = getLiteralString(expr);
+      if (literal2 == null) {
+        throw new ConvertError("Color argument must be literal string", expr);
+      }
+      fields[arg.name] = literal2;
+      break;
+    }
+    case "field_dropdown": {
+      let literal2 = getLiteralString(expr);
+      if (literal2 == null) {
+        throw new ConvertError(
+          "Dropdown argument must be literal string",
+          expr
+        );
+      }
+      let argOptions = arg.options.map((option) => option[1]);
+      if (!argOptions.includes(literal2)) {
+        throw new ConvertError(
+          `Dropdown argument must be one of these options: ${argOptions.join(
+            ", "
+          )}`,
+          expr
+        );
+      }
+      break;
+    }
+    case "field_number": {
+      let literal2 = getLiteralNumber(expr);
+      if (literal2 == null) {
+        throw new ConvertError("Number argument must be literal number", expr);
+      }
+      fields[arg.name] = literal2;
+      break;
+    }
+    case "field_variable": {
+      throw new ConvertError("Variable argument not supported", expr);
+    }
+    case "field_input": {
+      let literal2 = getLiteralString(expr);
+      if (literal2 == null) {
+        throw new ConvertError("Input argument must be literal string", expr);
+      }
+      fields[arg.name] = literal2;
+      break;
+    }
+    default:
+      throw new ConvertError("Unknown argument type: " + arg);
+  }
+}
+function getLiteralString(expr) {
+  if (expr.type != "Literal") {
+    return null;
+  }
+  if (typeof expr.value != "string") {
+    return null;
+  }
+  return expr.value;
+}
+function getLiteralNumber(expr) {
+  if (expr.type != "Literal") {
+    return null;
+  }
+  if (typeof expr.value != "number") {
+    return null;
+  }
+  return expr.value;
 }
 function convertAssignmentExpression(ctx, expr) {
   const rightExpr = convertExpression(ctx, expr.right);
   if (rightExpr.type == "skip") {
     throw new ConvertError("Invalid right expression", expr.right);
   }
-  if (!isExpression(rightExpr)) {
+  if (!isValue(rightExpr)) {
     throw new AttachError(
       `Right of assignment must be expression, got ${rightExpr.type}`,
       expr,
@@ -6040,14 +7098,14 @@ function convertBinaryExpression(ctx, expr) {
     throw new ConvertError("Invalid right expression", expr.right);
   }
   if (op.tag == "logic_compare") {
-    if (!isExpression(leftExpr)) {
+    if (!isValue(leftExpr)) {
       throw new AttachError(
         `Left of logic_compare must be expression, got ${leftExpr.type}`,
         left,
         leftExpr
       );
     }
-    if (!isExpression(rightExpr)) {
+    if (!isValue(rightExpr)) {
       throw new AttachError(
         `Right of logic_compare must be expression, got ${rightExpr.type}`,
         expr.right,
@@ -6070,14 +7128,14 @@ function convertBinaryExpression(ctx, expr) {
       }
     };
   } else {
-    if (!isExpressionNumberOrUnknown(leftExpr)) {
+    if (!isMaybeNumberValue(leftExpr)) {
       throw new AttachError(
         `Left of math_arithmetic must be number, got ${leftExpr.type}`,
         left,
         leftExpr
       );
     }
-    if (!isExpressionNumberOrUnknown(rightExpr)) {
+    if (!isMaybeNumberValue(rightExpr)) {
       throw new AttachError(
         `Right of math_arithmetic must be number, got ${rightExpr.type}`,
         expr.right,
@@ -6115,14 +7173,14 @@ function convertLogicalExpression(ctx, expr) {
   if (rightExpr.type == "skip") {
     throw new ConvertError("Invalid right expression", expr.right);
   }
-  if (!isExpressionBooleanOrUnknown(leftExpr)) {
+  if (!isMaybeBooleanValue(leftExpr)) {
     throw new AttachError(
       `Left of logical expression must be boolean, got ${leftExpr.type}`,
       left,
       leftExpr
     );
   }
-  if (!isExpressionBooleanOrUnknown(rightExpr)) {
+  if (!isMaybeBooleanValue(rightExpr)) {
     throw new AttachError(
       `Right of logical expression must be boolean, got ${rightExpr.type}`,
       expr.right,
@@ -6249,7 +7307,7 @@ function convertVariableDeclaration(ctx, statement) {
     if (initExpr.type == "skip") {
       throw new ConvertError("Invalid init expression", declarationInit);
     }
-    if (!isExpression(initExpr)) {
+    if (!isValue(initExpr)) {
       throw new AttachError(
         `Init of variable declaration must be expression, got ${initExpr.type}`,
         declaration,
@@ -6330,7 +7388,7 @@ function convertIfStatement(ctx, statement) {
     if (testExpr.type == "skip") {
       throw new ConvertError("Invalid test expression", current2.test);
     }
-    if (!isExpressionBooleanOrUnknown(testExpr)) {
+    if (!isMaybeBooleanValue(testExpr)) {
       throw new AttachError(
         `If test must be boolean, got ${testExpr.type}`,
         current2.test,

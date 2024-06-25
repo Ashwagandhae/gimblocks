@@ -19,12 +19,14 @@ import {
 
 import type * as Block from './blocks/index';
 import {
-  blockDefinitions,
-  isExpression,
-  isExpressionBooleanOrUnknown,
-  isExpressionNumberOrUnknown,
+  isValue,
+  isMaybeBooleanValue,
+  isMaybeNumberValue,
   isStatement,
+  functionNameMap,
+  findBlockDefinition,
 } from './blocks/index';
+import { Argument } from '../../schema/blockDefinitions';
 
 export function functionExpressionToBlocks(
   functionExpression: Expression
@@ -298,119 +300,136 @@ function convertCallExpressionToFunctionBlock(
   expr: CallExpression,
   identifierName: string
 ): Block.Block | null {
-  const keys = keysOf(blockDefinitions);
-  for (const key of keys) {
-    const definition = blockDefinitions[key];
-    if (!('function' in definition) || definition.function != identifierName) {
-      continue;
-    }
-
-    let definitionFields: {
-      [key: string]: number | string | boolean | readonly string[];
-    } = {};
-    let definitionInputs: { [key: string]: string } = {};
-    if ('fields' in definition) {
-      definitionFields = definition.fields;
-    }
-    if ('inputs' in definition) {
-      definitionInputs = definition.inputs;
-    }
-    const fieldKeys = keysOf(definitionFields);
-    const inputKeys = keysOf(definitionInputs);
-
-    if (inputKeys.length + fieldKeys.length != expr.arguments.length) {
+  let blockType = keysOf(functionNameMap).find(
+    (block) => functionNameMap[block] == identifierName
+  );
+  if (blockType == null) {
+    return null;
+  }
+  let def = findBlockDefinition(blockType);
+  let args = (def?.args0 ?? []).filter((arg) => arg.type != 'input_dummy');
+  if (args.length != expr.arguments.length) {
+    throw new ConvertError(
+      `Function ${identifierName} requires ${def.args0?.length} arguments, got ${expr.arguments.length}`,
+      expr
+    );
+  }
+  let inputs: { [key: string]: any } = {};
+  let fields: { [key: string]: any } = {};
+  for (let i = 0; i < expr.arguments.length; i++) {
+    let arg = args[i]!;
+    let argExpr = expr.arguments[i]!;
+    if (argExpr.type == 'SpreadElement') {
       throw new ConvertError(
-        `Number of arguments for ${identifierName} does not match; expected ${
-          inputKeys.length + fieldKeys.length
-        }, got ${expr.arguments.length}`,
-        expr
+        'SpreadElement in function call not supported',
+        argExpr
       );
     }
-
-    const fields: { [key: string]: any } = {};
-    for (let i = 0; i < fieldKeys.length; i++) {
-      const field = definitionFields[fieldKeys[i]!];
-      const arg = expr.arguments[i]!;
-      if (arg.type != 'Literal') {
-        throw new ConvertError(
-          'Block fields must be literals, got non literal',
-          arg
-        );
-      }
-      switch (typeof field) {
-        case 'number':
-        case 'string':
-        case 'boolean':
-          if (typeof arg.value != typeof field) {
-            throw new ConvertError(
-              `Invalid argument type for ${identifierName}; expected ${typeof field}, got ${typeof arg.value}`,
-              arg
-            );
-          }
-          break;
-        case 'object':
-          if (!Array.isArray(field)) {
-            throw new ConvertError(
-              `Invalid argument type for ${identifierName}; expected array, got object`,
-              arg
-            );
-          }
-          if (typeof arg.value != 'string' || !field.includes(arg.value)) {
-            throw new ConvertError(
-              `Invalid argument value for ${identifierName}; expected ${field.join(
-                ', '
-              )}, got ${arg.value}`,
-              arg
-            );
-          }
-          break;
-        default:
-          throw new ConvertError(
-            `Invalid field type for ${identifierName}: ${typeof field}`,
-            arg
-          );
-      }
-      fields[fieldKeys[i]!] = arg.value;
-    }
-
-    const inputs: { [key: string]: { block: Block.Block } } = {};
-    for (let i = 0; i < inputKeys.length; i++) {
-      const arg = expr.arguments[i + fieldKeys.length]!;
-      if (arg.type == 'SpreadElement') {
-        throw new ConvertError('SpreadElement not supported', arg);
-      }
-      const argExpr = convertExpression(ctx, arg);
-      if (argExpr.type == 'skip') {
-        throw new ConvertError('Invalid argument expression', arg);
-      }
-      if (!isExpression(argExpr)) {
-        throw new AttachError(
-          `Argument of function call must be expression, got ${argExpr.type}`,
-          arg,
-          argExpr
-        );
-      }
-      if (
-        definitionInputs[inputKeys[i]!] != blockDefinitions[argExpr.type].attach
-      ) {
-        throw new ConvertError(
-          `Invalid argument type for ${identifierName}; expected ${
-            definitionInputs[inputKeys[i]!]
-          }, got ${argExpr.type}`,
-          arg
-        );
-      }
-      inputs[inputKeys[i]!] = {
-        block: argExpr,
-      };
-    }
-    return {
-      type: key,
-      id: randomId(),
-      inputs: inputs,
-    } as Block.Block;
+    addArgument(ctx, arg, argExpr, inputs, fields);
   }
-  return null;
+  let ret: any = {
+    id: randomId(),
+    type: blockType as any,
+  };
+  // check if inputs is empty
+  if (Object.keys(inputs).length > 0) {
+    ret.inputs = inputs;
+  }
+  // check if fields is empty
+  if (Object.keys(fields).length > 0) {
+    ret.fields = fields;
+  }
+  return ret;
+}
+
+function addArgument(
+  ctx: Context,
+  arg: Argument,
+  expr: Expression,
+  inputs: { [key: string]: any },
+  fields: { [key: string]: any }
+): void {
+  switch (arg.type) {
+    case 'input_value': {
+      let block = convertExpression(ctx, expr);
+      inputs[arg.name] = { block };
+      break;
+    }
+    case 'input_dummy': {
+      throw new ConvertError('Dummy argument not supported', expr);
+    }
+    case 'input_statement': {
+      throw new ConvertError('Statement args not supported', expr);
+    }
+    case 'field_colour': {
+      let literal = getLiteralString(expr);
+      if (literal == null) {
+        throw new ConvertError('Color argument must be literal string', expr);
+      }
+      fields[arg.name] = literal;
+      break;
+    }
+    case 'field_dropdown': {
+      let literal = getLiteralString(expr);
+      if (literal == null) {
+        throw new ConvertError(
+          'Dropdown argument must be literal string',
+          expr
+        );
+      }
+      let argOptions = arg.options.map((option) => option[1]);
+      if (!argOptions.includes(literal)) {
+        throw new ConvertError(
+          `Dropdown argument must be one of these options: ${argOptions.join(
+            ', '
+          )}`,
+          expr
+        );
+      }
+      break;
+    }
+    case 'field_number': {
+      let literal = getLiteralNumber(expr);
+      if (literal == null) {
+        throw new ConvertError('Number argument must be literal number', expr);
+      }
+      fields[arg.name] = literal;
+      break;
+    }
+    case 'field_variable': {
+      throw new ConvertError('Variable argument not supported', expr);
+    }
+    case 'field_input': {
+      let literal = getLiteralString(expr);
+      if (literal == null) {
+        throw new ConvertError('Input argument must be literal string', expr);
+      }
+      fields[arg.name] = literal;
+      break;
+    }
+    default:
+      throw new ConvertError('Unknown argument type: ' + arg);
+  }
+}
+
+function getLiteralString(expr: Expression): string | null {
+  if (expr.type != 'Literal') {
+    return null;
+  }
+  if (typeof expr.value != 'string') {
+    return null;
+  }
+  return expr.value;
+}
+
+function getLiteralNumber(expr: Expression): number | null {
+  if (expr.type != 'Literal') {
+    return null;
+  }
+  if (typeof expr.value != 'number') {
+    return null;
+  }
+  return expr.value;
 }
 
 function convertAssignmentExpression(
@@ -421,7 +440,7 @@ function convertAssignmentExpression(
   if (rightExpr.type == 'skip') {
     throw new ConvertError('Invalid right expression', expr.right);
   }
-  if (!isExpression(rightExpr)) {
+  if (!isValue(rightExpr)) {
     throw new AttachError(
       `Right of assignment must be expression, got ${rightExpr.type}`,
       expr,
@@ -507,7 +526,7 @@ function convertBinaryExpression(
     throw new ConvertError('Invalid right expression', expr.right);
   }
   if (op.tag == 'logic_compare') {
-    if (!isExpression(leftExpr)) {
+    if (!isValue(leftExpr)) {
       throw new AttachError(
         `Left of logic_compare must be expression, got ${leftExpr.type}`,
 
@@ -515,7 +534,7 @@ function convertBinaryExpression(
         leftExpr
       );
     }
-    if (!isExpression(rightExpr)) {
+    if (!isValue(rightExpr)) {
       throw new AttachError(
         `Right of logic_compare must be expression, got ${rightExpr.type}`,
         expr.right,
@@ -538,14 +557,14 @@ function convertBinaryExpression(
       },
     };
   } else {
-    if (!isExpressionNumberOrUnknown(leftExpr)) {
+    if (!isMaybeNumberValue(leftExpr)) {
       throw new AttachError(
         `Left of math_arithmetic must be number, got ${leftExpr.type}`,
         left,
         leftExpr
       );
     }
-    if (!isExpressionNumberOrUnknown(rightExpr)) {
+    if (!isMaybeNumberValue(rightExpr)) {
       throw new AttachError(
         `Right of math_arithmetic must be number, got ${rightExpr.type}`,
         expr.right,
@@ -587,14 +606,14 @@ function convertLogicalExpression(
   if (rightExpr.type == 'skip') {
     throw new ConvertError('Invalid right expression', expr.right);
   }
-  if (!isExpressionBooleanOrUnknown(leftExpr)) {
+  if (!isMaybeBooleanValue(leftExpr)) {
     throw new AttachError(
       `Left of logical expression must be boolean, got ${leftExpr.type}`,
       left,
       leftExpr
     );
   }
-  if (!isExpressionBooleanOrUnknown(rightExpr)) {
+  if (!isMaybeBooleanValue(rightExpr)) {
     throw new AttachError(
       `Right of logical expression must be boolean, got ${rightExpr.type}`,
       expr.right,
@@ -750,7 +769,7 @@ function convertVariableDeclaration(
     if (initExpr.type == 'skip') {
       throw new ConvertError('Invalid init expression', declarationInit);
     }
-    if (!isExpression(initExpr)) {
+    if (!isValue(initExpr)) {
       throw new AttachError(
         `Init of variable declaration must be expression, got ${initExpr.type}`,
         declaration,
@@ -840,7 +859,7 @@ function convertIfStatement(
     if (testExpr.type == 'skip') {
       throw new ConvertError('Invalid test expression', current.test);
     }
-    if (!isExpressionBooleanOrUnknown(testExpr)) {
+    if (!isMaybeBooleanValue(testExpr)) {
       throw new AttachError(
         `If test must be boolean, got ${testExpr.type}`,
         current.test,

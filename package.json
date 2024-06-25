@@ -26,14 +26,16 @@
     "build": "tsup",
     "test": "vitest --silent=false",
     "typecheck": "tsc --noEmit",
-    "codegen": "python3 ./codegen/generate.py && prettier --write ./src/**/generated.ts",
+    "codegen": "cd codegen && tsup-node ./src/generate.ts --silent && cd - && node ./codegen/dist/generate.mjs && prettier --write ./src/**/generated.ts",
     "format": "prettier --write ."
   },
   "devDependencies": {
     "@tsconfig/strictest": "^2.0.5",
+    "ajv": "^8.16.0",
     "prettier": "^2.5.1",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2",
+    "typescript-json-schema": "^0.64.0",
     "vitest": "^0.34.5"
   }
 }
