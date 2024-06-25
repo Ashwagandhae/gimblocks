@@ -146,12 +146,9 @@ function definitionBlockTypeName(definition: BlockDefinition): string {
 function definitionFieldsInputs(
   definition: BlockDefinition
 ): [string | null, string | null] {
-  if (definition.args0 == null) {
-    return [null, null];
-  }
   let fields: string[] = [];
   let inputs: string[] = [];
-  for (let arg of definition.args0) {
+  for (let arg of definition.args0 ?? []) {
     switch (arg.type) {
       case 'input_value': {
         inputs.push(`${arg.name}?: { block: ${checkToBlockType(arg.check)} }`);

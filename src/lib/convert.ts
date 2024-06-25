@@ -15,6 +15,7 @@ import {
   Program,
   Statement,
   VariableDeclaration,
+  SpreadElement,
 } from 'acorn';
 
 import type * as Block from './blocks/index';
@@ -22,6 +23,7 @@ import {
   isValue,
   isMaybeBooleanValue,
   isMaybeNumberValue,
+  isMaybeStringValue,
   isStatement,
   functionNameMap,
   findBlockDefinition,
@@ -228,7 +230,7 @@ function convertIdentifierCallExpression(
           identifier
         );
       }
-      // TODO make sure primitives match exactly
+      // TODO make sure primitives specified in world match primitives primitveDefinitions exactly
       const ret = convertCallExpressionToFunctionBlock(
         ctx,
         expr,
@@ -259,6 +261,18 @@ function convertMemberCallExpression(
   switch (member.object.name + '.' + member.property.name) {
     case 'console.log':
       return { type: 'skip' };
+    case 'Math.sin':
+      return convertTrig(ctx, expr, 'SIN');
+    case 'Math.cos':
+      return convertTrig(ctx, expr, 'COS');
+    case 'Math.tan':
+      return convertTrig(ctx, expr, 'TAN');
+    case 'Math.asin':
+      return convertTrig(ctx, expr, 'ASIN');
+    case 'Math.acos':
+      return convertTrig(ctx, expr, 'ACOS');
+    case 'Math.atan':
+      return convertTrig(ctx, expr, 'ATAN');
     default: {
       if (ctx.device == null) {
         throw new ConvertError(
@@ -291,6 +305,101 @@ function convertMemberCallExpression(
   }
 }
 
+function convertFunctionArg(
+  expr: Expression | SpreadElement
+): Block.ValueBlock {
+  if (expr.type == 'SpreadElement') {
+    throw new ConvertError('SpreadElement in function argument not supported');
+  }
+  const ret = convertExpression({ device: '' }, expr);
+  if (ret.type == 'skip') {
+    throw new ConvertError('Invalid function argument', expr);
+  }
+  if (!isValue(ret)) {
+    throw new AttachError(
+      `Function argument must be value, got ${ret.type}`,
+      expr,
+      ret
+    );
+  }
+  return ret;
+}
+function convertTrig(
+  ctx: Context,
+  expr: CallExpression,
+  trigFunc: Exclude<Block.MathTrigBlock['fields']['OP'], undefined>
+): Block.Block | Skip {
+  if (expr.arguments.length != 1) {
+    throw new ConvertError(
+      `Trig function ${trigFunc} requires 1 argument, got ${expr.arguments.length}`,
+      expr
+    );
+  }
+  const argBlock = convertFunctionArg(expr.arguments[0]!);
+  if (!isMaybeNumberValue(argBlock)) {
+    throw new AttachError(
+      `Trig function argument must be number, got ${argBlock.type}`,
+      expr.arguments[0]!,
+      argBlock
+    );
+  }
+  if (trigFunc == 'SIN' || trigFunc == 'COS' || trigFunc == 'TAN') {
+    return {
+      id: randomId(),
+      type: 'math_trig',
+      fields: {
+        OP: trigFunc,
+      },
+      inputs: {
+        NUM: {
+          // 360/(2pi)
+          block: withArithmetic(argBlock, 57.2957795131, 'MULTIPLY'),
+        },
+      },
+    };
+  } else {
+    return withArithmetic(
+      {
+        id: randomId(),
+        type: 'math_trig',
+        fields: { OP: trigFunc },
+        inputs: { NUM: { block: argBlock } },
+      },
+      // 2pi/360
+      0.01745329251,
+      'MULTIPLY'
+    );
+  }
+}
+
+function withArithmetic(
+  left: Block.MaybeNumberValueBlock | Block.NumberValueBlock | number,
+  right: Block.MaybeNumberValueBlock | Block.NumberValueBlock | number,
+  arithmetic: Exclude<Block.MathArithmeticBlock['fields']['OP'], undefined>
+): Block.MathArithmeticBlock {
+  return {
+    id: randomId(),
+    type: 'math_arithmetic',
+    fields: {
+      OP: arithmetic,
+    },
+    inputs: {
+      A: {
+        block:
+          typeof left == 'number'
+            ? { type: 'math_number', id: randomId(), fields: { NUM: left } }
+            : left,
+      },
+      B: {
+        block:
+          typeof right == 'number'
+            ? { type: 'math_number', id: randomId(), fields: { NUM: right } }
+            : right,
+      },
+    },
+  };
+}
+
 // eslint-disable-next-line @typescript-eslint/ban-types
 function keysOf<T extends object>(obj: T): (keyof T)[] {
   return Object.keys(obj) as (keyof T)[];
@@ -311,7 +420,9 @@ function convertCallExpressionToFunctionBlock(
   let args = (def?.args0 ?? []).filter((arg) => arg.type != 'input_dummy');
   if (args.length != expr.arguments.length) {
     throw new ConvertError(
-      `Function ${identifierName} requires ${def.args0?.length} arguments, got ${expr.arguments.length}`,
+      `Function ${identifierName} requires ${
+        def.args0?.length ?? 0
+      } arguments, got ${expr.arguments.length}`,
       expr
     );
   }
@@ -569,7 +680,7 @@ function convertLiteral(
 function convertBinaryExpression(
   ctx: Context,
   expr: BinaryExpression
-): Block.LogicCompareBlock | Block.MathArithmeticBlock {
+): Block.LogicCompareBlock | Block.MathArithmeticBlock | Block.TextJoinBlock {
   const left = expr.left;
   if (left.type == 'PrivateIdentifier') {
     throw new ConvertError('PrivateIdentifier not supported', expr);
@@ -618,6 +729,29 @@ function convertBinaryExpression(
       },
     };
   } else {
+    // try joining strings if it will fail as a number
+    if (
+      (!isMaybeNumberValue(leftExpr) || !isMaybeNumberValue(rightExpr)) &&
+      op.operator == 'ADD'
+    ) {
+      if (isMaybeStringValue(leftExpr) && isMaybeStringValue(rightExpr)) {
+        return {
+          type: 'text_join',
+          id: randomId(),
+          inputs: {
+            ADD0: {
+              block: leftExpr,
+            },
+            ADD1: {
+              block: rightExpr,
+            },
+          },
+          extraState: {
+            itemCount: 2,
+          },
+        };
+      }
+    }
     if (!isMaybeNumberValue(leftExpr)) {
       throw new AttachError(
         `Left of math_arithmetic must be number, got ${leftExpr.type}`,
@@ -782,7 +916,7 @@ function convertStatementList(
     const nextBlock = blocks[i + 1]!;
     if (!isStatement(block) || !isStatement(nextBlock)) {
       throw new AttachError(
-        `Can't attach ${block.type} to ${block.type} sequentially`,
+        `Can't attach ${block.type} to ${nextBlock.type} sequentially`,
         statements[i]!,
         isStatement(block) ? nextBlock : block
       );

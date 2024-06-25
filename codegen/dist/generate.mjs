@@ -1242,29 +1242,30 @@ var text = [
     style: "text_blocks",
     helpUrl: "%{BKY_TEXT_JOIN_HELPURL}",
     tooltip: "%{BKY_TEXT_JOIN_TOOLTIP}",
-    mutator: "text_join_mutator"
-  },
-  {
-    type: "text_append",
-    message0: "%{BKY_TEXT_APPEND_TITLE}",
-    args0: [
-      {
-        type: "field_variable",
-        name: "VAR",
-        variable: "%{BKY_TEXT_APPEND_VARIABLE}"
-      },
-      {
-        type: "input_value",
-        name: "TEXT"
-      }
-    ],
-    previousStatement: null,
-    nextStatement: null,
-    style: "text_blocks",
-    extensions: ["text_append_tooltip"],
+    mutator: "text_join_mutator",
     $codegenCustomInputsType: "Partial<Record<`ADD${number}`, {block: ValueBlock}>>",
-    $codegenIntersectsWith: "{ extraState?: { itemCount?: number; } }"
+    $codegenIntersectsWith: "{ extraState?: { itemCount?: number; } }",
+    $codegenNoFunction: true
   },
+  // {
+  //   type: 'text_append',
+  //   message0: '%{BKY_TEXT_APPEND_TITLE}',
+  //   args0: [
+  //     {
+  //       type: 'field_variable',
+  //       name: 'VAR',
+  //       variable: '%{BKY_TEXT_APPEND_VARIABLE}',
+  //     },
+  //     {
+  //       type: 'input_value',
+  //       name: 'TEXT',
+  //     },
+  //   ],
+  //   previousStatement: null,
+  //   nextStatement: null,
+  //   style: 'text_blocks',
+  //   extensions: ['text_append_tooltip'],
+  // },
   {
     type: "text_length",
     message0: "%{BKY_TEXT_LENGTH_TITLE}",
@@ -1961,12 +1962,9 @@ function definitionBlockTypeName(definition) {
   }).join("") + "Block";
 }
 function definitionFieldsInputs(definition) {
-  if (definition.args0 == null) {
-    return [null, null];
-  }
   let fields = [];
   let inputs = [];
-  for (let arg of definition.args0) {
+  for (let arg of definition.args0 ?? []) {
     switch (arg.type) {
       case "input_value": {
         inputs.push(`${arg.name}?: { block: ${checkToBlockType(arg.check)} }`);

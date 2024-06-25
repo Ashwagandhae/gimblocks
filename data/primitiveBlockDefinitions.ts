@@ -486,29 +486,30 @@ const text: BlockDefinitions = [
     helpUrl: '%{BKY_TEXT_JOIN_HELPURL}',
     tooltip: '%{BKY_TEXT_JOIN_TOOLTIP}',
     mutator: 'text_join_mutator',
-  },
-  {
-    type: 'text_append',
-    message0: '%{BKY_TEXT_APPEND_TITLE}',
-    args0: [
-      {
-        type: 'field_variable',
-        name: 'VAR',
-        variable: '%{BKY_TEXT_APPEND_VARIABLE}',
-      },
-      {
-        type: 'input_value',
-        name: 'TEXT',
-      },
-    ],
-    previousStatement: null,
-    nextStatement: null,
-    style: 'text_blocks',
-    extensions: ['text_append_tooltip'],
     $codegenCustomInputsType:
       'Partial<Record<`ADD${number}`, {block: ValueBlock}>>',
     $codegenIntersectsWith: '{ extraState?: { itemCount?: number; } }',
+    $codegenNoFunction: true,
   },
+  // {
+  //   type: 'text_append',
+  //   message0: '%{BKY_TEXT_APPEND_TITLE}',
+  //   args0: [
+  //     {
+  //       type: 'field_variable',
+  //       name: 'VAR',
+  //       variable: '%{BKY_TEXT_APPEND_VARIABLE}',
+  //     },
+  //     {
+  //       type: 'input_value',
+  //       name: 'TEXT',
+  //     },
+  //   ],
+  //   previousStatement: null,
+  //   nextStatement: null,
+  //   style: 'text_blocks',
+  //   extensions: ['text_append_tooltip'],
+  // },
   {
     type: 'text_length',
     message0: '%{BKY_TEXT_LENGTH_TITLE}',
