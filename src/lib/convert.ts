@@ -26,7 +26,7 @@ import {
   functionNameMap,
   findBlockDefinition,
 } from './blocks/index';
-import { Argument } from '../../schema/blockDefinitions';
+import { Argument, Check } from '../../schema/blockDefinitions';
 
 export function functionExpressionToBlocks(
   functionExpression: Expression
@@ -228,6 +228,7 @@ function convertIdentifierCallExpression(
           identifier
         );
       }
+      // TODO make sure primitives match exactly
       const ret = convertCallExpressionToFunctionBlock(
         ctx,
         expr,
@@ -352,6 +353,25 @@ function addArgument(
   switch (arg.type) {
     case 'input_value': {
       let block = convertExpression(ctx, expr);
+      if (block.type == 'skip') {
+        throw new ConvertError('Invalid argument expression', expr);
+      }
+      if (!isValue(block)) {
+        throw new AttachError(
+          `Argument must be value, got ${block.type}`,
+          expr,
+          block
+        );
+      }
+      let argDef = findBlockDefinition(block.type);
+      if (!checkMatches(arg?.check, argDef.output)) {
+        throw new ConvertError(
+          `Argument type mismatch: ${displayCheck(arg.check)} != ${displayCheck(
+            argDef.output
+          )}`,
+          expr
+        );
+      }
       inputs[arg.name] = { block };
       break;
     }
@@ -410,6 +430,47 @@ function addArgument(
     default:
       throw new ConvertError('Unknown argument type: ' + arg);
   }
+}
+
+function checkMatches(
+  recieve: Check | undefined,
+  give: Check | undefined | null
+): boolean {
+  if (recieve == null || give == null) {
+    return true;
+  }
+  if (
+    typeof recieve == 'string' &&
+    typeof give == 'string' &&
+    recieve == give
+  ) {
+    return true;
+  }
+  if (typeof recieve == 'string') {
+    for (let check of give) {
+      if (check == recieve) {
+        return true;
+      }
+    }
+  }
+  if (typeof give == 'string') {
+    for (let check of recieve) {
+      if (check == give) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+function displayCheck(check: Check | undefined | null): string {
+  if (check == null) {
+    return 'any';
+  }
+  if (typeof check == 'string') {
+    return check;
+  }
+  return check.join(' | ');
 }
 
 function getLiteralString(expr: Expression): string | null {

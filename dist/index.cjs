@@ -6937,6 +6937,25 @@ function addArgument(ctx, arg, expr, inputs, fields) {
   switch (arg.type) {
     case "input_value": {
       let block = convertExpression(ctx, expr);
+      if (block.type == "skip") {
+        throw new ConvertError("Invalid argument expression", expr);
+      }
+      if (!isValue(block)) {
+        throw new AttachError(
+          `Argument must be value, got ${block.type}`,
+          expr,
+          block
+        );
+      }
+      let argDef = findBlockDefinition(block.type);
+      if (!checkMatches(arg?.check, argDef.output)) {
+        throw new ConvertError(
+          `Argument type mismatch: ${displayCheck(arg.check)} != ${displayCheck(
+            argDef.output
+          )}`,
+          expr
+        );
+      }
       inputs[arg.name] = { block };
       break;
     }
@@ -6995,6 +7014,38 @@ function addArgument(ctx, arg, expr, inputs, fields) {
     default:
       throw new ConvertError("Unknown argument type: " + arg);
   }
+}
+function checkMatches(recieve, give) {
+  if (recieve == null || give == null) {
+    return true;
+  }
+  if (typeof recieve == "string" && typeof give == "string" && recieve == give) {
+    return true;
+  }
+  if (typeof recieve == "string") {
+    for (let check of give) {
+      if (check == recieve) {
+        return true;
+      }
+    }
+  }
+  if (typeof give == "string") {
+    for (let check of recieve) {
+      if (check == give) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+function displayCheck(check) {
+  if (check == null) {
+    return "any";
+  }
+  if (typeof check == "string") {
+    return check;
+  }
+  return check.join(" | ");
 }
 function getLiteralString(expr) {
   if (expr.type != "Literal") {
