@@ -9,9 +9,9 @@ type BlockBase = {
 };
 
 type LogicBooleanBlock = BlockBase & {
-    type: 'logic_boolean';
+    type: "logic_boolean";
     fields: {
-        BOOL?: 'TRUE' | 'FALSE';
+        BOOL?: "TRUE" | "FALSE";
     };
 };
 type ControlsIfBlock = BlockBase & {
@@ -20,10 +20,10 @@ type ControlsIfBlock = BlockBase & {
         elseIfCount?: number;
     };
 } & {
-    type: 'controls_if';
+    type: "controls_if";
     inputs: Partial<Record<`IF${number}`, {
         block: BooleanValueBlock | MaybeBooleanValueBlock;
-    }> & Record<`DO${number}` | 'ELSE', {
+    }> & Record<`DO${number}` | "ELSE", {
         block: StatementBlock;
     }>>;
     next?: {
@@ -31,9 +31,9 @@ type ControlsIfBlock = BlockBase & {
     };
 };
 type LogicCompareBlock = BlockBase & {
-    type: 'logic_compare';
+    type: "logic_compare";
     fields: {
-        OP?: 'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE';
+        OP?: "EQ" | "NEQ" | "LT" | "LTE" | "GT" | "GTE";
     };
     inputs: {
         A?: {
@@ -45,9 +45,9 @@ type LogicCompareBlock = BlockBase & {
     };
 };
 type LogicOperationBlock = BlockBase & {
-    type: 'logic_operation';
+    type: "logic_operation";
     fields: {
-        OP?: 'AND' | 'OR';
+        OP?: "AND" | "OR";
     };
     inputs: {
         A?: {
@@ -59,7 +59,7 @@ type LogicOperationBlock = BlockBase & {
     };
 };
 type LogicNegateBlock = BlockBase & {
-    type: 'logic_negate';
+    type: "logic_negate";
     inputs: {
         BOOL?: {
             block: BooleanValueBlock | MaybeBooleanValueBlock;
@@ -67,15 +67,15 @@ type LogicNegateBlock = BlockBase & {
     };
 };
 type MathNumberBlock = BlockBase & {
-    type: 'math_number';
+    type: "math_number";
     fields: {
         NUM?: number;
     };
 };
 type MathArithmeticBlock = BlockBase & {
-    type: 'math_arithmetic';
+    type: "math_arithmetic";
     fields: {
-        OP?: 'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' | 'POWER';
+        OP?: "ADD" | "MINUS" | "MULTIPLY" | "DIVIDE" | "POWER";
     };
     inputs: {
         A?: {
@@ -87,9 +87,9 @@ type MathArithmeticBlock = BlockBase & {
     };
 };
 type MathSingleBlock = BlockBase & {
-    type: 'math_single';
+    type: "math_single";
     fields: {
-        OP?: 'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10';
+        OP?: "ROOT" | "ABS" | "NEG" | "LN" | "LOG10" | "EXP" | "POW10";
     };
     inputs: {
         NUM?: {
@@ -98,9 +98,9 @@ type MathSingleBlock = BlockBase & {
     };
 };
 type MathTrigBlock = BlockBase & {
-    type: 'math_trig';
+    type: "math_trig";
     fields: {
-        OP?: 'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN';
+        OP?: "SIN" | "COS" | "TAN" | "ASIN" | "ACOS" | "ATAN";
     };
     inputs: {
         NUM?: {
@@ -109,15 +109,15 @@ type MathTrigBlock = BlockBase & {
     };
 };
 type MathConstantBlock = BlockBase & {
-    type: 'math_constant';
+    type: "math_constant";
     fields: {
-        CONSTANT?: 'PI' | 'E' | 'GOLDEN_RATIO' | 'SQRT2' | 'SQRT1_2' | 'INFINITY';
+        CONSTANT?: "PI" | "E" | "GOLDEN_RATIO" | "SQRT2" | "SQRT1_2" | "INFINITY";
     };
 };
 type MathNumberPropertyBlock = BlockBase & {
-    type: 'math_number_property';
+    type: "math_number_property";
     fields: {
-        PROPERTY?: 'EVEN' | 'ODD' | 'PRIME' | 'WHOLE' | 'POSITIVE' | 'NEGATIVE' | 'DIVISIBLE_BY';
+        PROPERTY?: "EVEN" | "ODD" | "PRIME" | "WHOLE" | "POSITIVE" | "NEGATIVE" | "DIVISIBLE_BY";
     };
     inputs: {
         NUMBER_TO_CHECK?: {
@@ -126,7 +126,7 @@ type MathNumberPropertyBlock = BlockBase & {
     };
 };
 type MathChangeBlock = BlockBase & {
-    type: 'math_change';
+    type: "math_change";
     fields: {
         VAR?: {
             id: Id;
@@ -142,9 +142,9 @@ type MathChangeBlock = BlockBase & {
     };
 };
 type MathRoundBlock = BlockBase & {
-    type: 'math_round';
+    type: "math_round";
     fields: {
-        OP?: 'ROUND' | 'ROUNDUP' | 'ROUNDDOWN';
+        OP?: "ROUND" | "ROUNDUP" | "ROUNDDOWN";
     };
     inputs: {
         NUM?: {
@@ -153,7 +153,7 @@ type MathRoundBlock = BlockBase & {
     };
 };
 type MathModuloBlock = BlockBase & {
-    type: 'math_modulo';
+    type: "math_modulo";
     inputs: {
         DIVIDEND?: {
             block: NumberValueBlock | MaybeNumberValueBlock;
@@ -164,7 +164,7 @@ type MathModuloBlock = BlockBase & {
     };
 };
 type MathConstrainBlock = BlockBase & {
-    type: 'math_constrain';
+    type: "math_constrain";
     inputs: {
         VALUE?: {
             block: NumberValueBlock | MaybeNumberValueBlock;
@@ -178,7 +178,7 @@ type MathConstrainBlock = BlockBase & {
     };
 };
 type MathRandomIntBlock = BlockBase & {
-    type: 'math_random_int';
+    type: "math_random_int";
     inputs: {
         FROM?: {
             block: NumberValueBlock | MaybeNumberValueBlock;
@@ -189,10 +189,10 @@ type MathRandomIntBlock = BlockBase & {
     };
 };
 type MathRandomFloatBlock = BlockBase & {
-    type: 'math_random_float';
+    type: "math_random_float";
 };
 type MathAtan2Block = BlockBase & {
-    type: 'math_atan2';
+    type: "math_atan2";
     inputs: {
         X?: {
             block: NumberValueBlock | MaybeNumberValueBlock;
@@ -203,34 +203,23 @@ type MathAtan2Block = BlockBase & {
     };
 };
 type TextBlock = BlockBase & {
-    type: 'text';
+    type: "text";
     fields: {
         TEXT?: string;
     };
 };
 type TextJoinBlock = BlockBase & {
-    type: 'text_join';
-};
-type TextAppendBlock = BlockBase & {
     extraState?: {
         itemCount?: number;
     };
 } & {
-    type: 'text_append';
-    fields: {
-        VAR?: {
-            id: Id;
-        };
-    };
+    type: "text_join";
     inputs: Partial<Record<`ADD${number}`, {
         block: ValueBlock;
     }>>;
-    next?: {
-        block: StatementBlock;
-    };
 };
 type TextLengthBlock = BlockBase & {
-    type: 'text_length';
+    type: "text_length";
     inputs: {
         VALUE?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -238,7 +227,7 @@ type TextLengthBlock = BlockBase & {
     };
 };
 type TextIsEmptyBlock = BlockBase & {
-    type: 'text_isEmpty';
+    type: "text_isEmpty";
     inputs: {
         VALUE?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -246,9 +235,9 @@ type TextIsEmptyBlock = BlockBase & {
     };
 };
 type TextIndexOfBlock = BlockBase & {
-    type: 'text_indexOf';
+    type: "text_indexOf";
     fields: {
-        END?: 'FIRST' | 'LAST';
+        END?: "FIRST" | "LAST";
     };
     inputs: {
         VALUE?: {
@@ -260,9 +249,9 @@ type TextIndexOfBlock = BlockBase & {
     };
 };
 type TextCharAtBlock = BlockBase & {
-    type: 'text_charAt';
+    type: "text_charAt";
     fields: {
-        WHERE?: 'FROM_START' | 'FROM_END' | 'FIRST' | 'LAST' | 'RANDOM';
+        WHERE?: "FROM_START" | "FROM_END" | "FIRST" | "LAST" | "RANDOM";
     };
     inputs: {
         VALUE?: {
@@ -271,7 +260,7 @@ type TextCharAtBlock = BlockBase & {
     };
 };
 type VariablesGetBlock = BlockBase & {
-    type: 'variables_get';
+    type: "variables_get";
     fields: {
         VAR?: {
             id: Id;
@@ -279,7 +268,7 @@ type VariablesGetBlock = BlockBase & {
     };
 };
 type VariablesSetBlock = BlockBase & {
-    type: 'variables_set';
+    type: "variables_set";
     fields: {
         VAR?: {
             id: Id;
@@ -295,7 +284,7 @@ type VariablesSetBlock = BlockBase & {
     };
 };
 type MessageBroadcasterBlock = BlockBase & {
-    type: 'message_broadcaster';
+    type: "message_broadcaster";
     inputs: {
         broadcast_message_on_channel?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -306,7 +295,7 @@ type MessageBroadcasterBlock = BlockBase & {
     };
 };
 type SetPropertyBlock = BlockBase & {
-    type: 'set_property';
+    type: "set_property";
     inputs: {
         set_property?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -320,7 +309,7 @@ type SetPropertyBlock = BlockBase & {
     };
 };
 type GetPropertyBlock = BlockBase & {
-    type: 'get_property';
+    type: "get_property";
     inputs: {
         get_property?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -328,10 +317,10 @@ type GetPropertyBlock = BlockBase & {
     };
 };
 type CurrentCharacterNameBlock = BlockBase & {
-    type: 'current_character_name';
+    type: "current_character_name";
 };
 type AddActivityFeedItemForEveryoneBlock = BlockBase & {
-    type: 'add_activity_feed_item_for_everyone';
+    type: "add_activity_feed_item_for_everyone";
     inputs: {
         add_activity_feed_item_for_everyone?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -342,7 +331,7 @@ type AddActivityFeedItemForEveryoneBlock = BlockBase & {
     };
 };
 type AddActivityFeedItemForTriggeringPlayerBlock = BlockBase & {
-    type: 'add_activity_feed_item_for_triggering_player';
+    type: "add_activity_feed_item_for_triggering_player";
     inputs: {
         add_activity_feed_item_for_triggering_player?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -353,7 +342,7 @@ type AddActivityFeedItemForTriggeringPlayerBlock = BlockBase & {
     };
 };
 type AddActivityFeedItemForGameHostBlock = BlockBase & {
-    type: 'add_activity_feed_item_for_game_host';
+    type: "add_activity_feed_item_for_game_host";
     inputs: {
         add_activity_feed_item_for_game_host?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -364,13 +353,13 @@ type AddActivityFeedItemForGameHostBlock = BlockBase & {
     };
 };
 type CurrentCharacterTeamNumberBlock = BlockBase & {
-    type: 'current_character_team_number';
+    type: "current_character_team_number";
 };
 type TriggeringPlayerScoreBlock = BlockBase & {
-    type: 'triggering_player_score';
+    type: "triggering_player_score";
 };
 type GetTeamScoreBlock = BlockBase & {
-    type: 'get_team_score';
+    type: "get_team_score";
     inputs: {
         get_score_of_team?: {
             block: NumberValueBlock | MaybeNumberValueBlock;
@@ -378,16 +367,16 @@ type GetTeamScoreBlock = BlockBase & {
     };
 };
 type IsALiveGameBlock = BlockBase & {
-    type: 'is_a_live_game';
+    type: "is_a_live_game";
 };
 type IsAnAssignmentBlock = BlockBase & {
-    type: 'is_an_assignment';
+    type: "is_an_assignment";
 };
 type SecondsIntoGameBlock = BlockBase & {
-    type: 'seconds_into_game';
+    type: "seconds_into_game";
 };
 type SetAssignmentObjectiveBlock = BlockBase & {
-    type: 'set_assignment_objective';
+    type: "set_assignment_objective";
     inputs: {
         set_objective_to?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -398,7 +387,7 @@ type SetAssignmentObjectiveBlock = BlockBase & {
     };
 };
 type SetPercentageCompleteBlock = BlockBase & {
-    type: 'set_percentage_complete';
+    type: "set_percentage_complete";
     inputs: {
         set_percentage_complete_to?: {
             block: NumberValueBlock | MaybeNumberValueBlock;
@@ -409,7 +398,7 @@ type SetPercentageCompleteBlock = BlockBase & {
     };
 };
 type IncrementPercentageCompleteBlock = BlockBase & {
-    type: 'increment_percentage_complete';
+    type: "increment_percentage_complete";
     inputs: {
         increment_percentage_complete_by?: {
             block: NumberValueBlock | MaybeNumberValueBlock;
@@ -420,7 +409,7 @@ type IncrementPercentageCompleteBlock = BlockBase & {
     };
 };
 type SendCustomNotificationBlock = BlockBase & {
-    type: 'send_custom_notification';
+    type: "send_custom_notification";
     inputs: {
         title?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -434,13 +423,13 @@ type SendCustomNotificationBlock = BlockBase & {
     };
 };
 type OtherCharacterNameBlock = BlockBase & {
-    type: 'other_character_name';
+    type: "other_character_name";
 };
 type OtherCharacterTeamNumberBlock = BlockBase & {
-    type: 'other_character_team_number';
+    type: "other_character_team_number";
 };
 type OtherCharacterGetPropertyBlock = BlockBase & {
-    type: 'other_character_get_property';
+    type: "other_character_get_property";
     inputs: {
         get_property_as_other_player?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -448,7 +437,7 @@ type OtherCharacterGetPropertyBlock = BlockBase & {
     };
 };
 type OtherCharacterSetPropertyBlock = BlockBase & {
-    type: 'other_character_set_property';
+    type: "other_character_set_property";
     inputs: {
         set_property_as_other_player?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -462,7 +451,7 @@ type OtherCharacterSetPropertyBlock = BlockBase & {
     };
 };
 type OtherCharacterMessageBroadcasterBlock = BlockBase & {
-    type: 'other_character_message_broadcaster';
+    type: "other_character_message_broadcaster";
     inputs: {
         broadcast_message_as_other_player_on_channel?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -473,13 +462,13 @@ type OtherCharacterMessageBroadcasterBlock = BlockBase & {
     };
 };
 type GrantBlock = BlockBase & {
-    type: 'grant';
+    type: "grant";
     next?: {
         block: StatementBlock;
     };
 };
 type GrantCustomBlock = BlockBase & {
-    type: 'grant_custom';
+    type: "grant_custom";
     inputs: {
         amount?: {
             block: NumberValueBlock | MaybeNumberValueBlock;
@@ -490,7 +479,7 @@ type GrantCustomBlock = BlockBase & {
     };
 };
 type SetBillboardTextBlock = BlockBase & {
-    type: 'set_billboard_text';
+    type: "set_billboard_text";
     inputs: {
         set_text?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -501,7 +490,7 @@ type SetBillboardTextBlock = BlockBase & {
     };
 };
 type SetTextColorBlock = BlockBase & {
-    type: 'set_text_color';
+    type: "set_text_color";
     fields: {
         set_text_color_to?: Color;
     };
@@ -510,7 +499,7 @@ type SetTextColorBlock = BlockBase & {
     };
 };
 type SetImageBlock = BlockBase & {
-    type: 'set_image';
+    type: "set_image";
     inputs: {
         set_image_url?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -521,7 +510,7 @@ type SetImageBlock = BlockBase & {
     };
 };
 type SetFrameColorBlock = BlockBase & {
-    type: 'set_frame_color';
+    type: "set_frame_color";
     fields: {
         set_frame_color_to?: Color;
     };
@@ -530,10 +519,10 @@ type SetFrameColorBlock = BlockBase & {
     };
 };
 type QuestionAnsweringStreakBlock = BlockBase & {
-    type: 'question_answering_streak';
+    type: "question_answering_streak";
 };
 type MessageCorrectAnswerBlock = BlockBase & {
-    type: 'message_correct_answer';
+    type: "message_correct_answer";
     inputs: {
         set_message_shown_when_player_answers_correctly?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -544,7 +533,7 @@ type MessageCorrectAnswerBlock = BlockBase & {
     };
 };
 type MessageIncorrectAnswerBlock = BlockBase & {
-    type: 'message_incorrect_answer';
+    type: "message_incorrect_answer";
     inputs: {
         set_message_shown_when_player_answers_incorrectly?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -555,7 +544,7 @@ type MessageIncorrectAnswerBlock = BlockBase & {
     };
 };
 type SetHeaderBlock = BlockBase & {
-    type: 'set_header';
+    type: "set_header";
     inputs: {
         set_header?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -566,7 +555,7 @@ type SetHeaderBlock = BlockBase & {
     };
 };
 type SetContentBlock = BlockBase & {
-    type: 'set_content';
+    type: "set_content";
     inputs: {
         set_content?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -577,10 +566,10 @@ type SetContentBlock = BlockBase & {
     };
 };
 type GetAmountBlock = BlockBase & {
-    type: 'get_amount';
+    type: "get_amount";
 };
 type SetGuiTextBlock = BlockBase & {
-    type: 'set_gui_text';
+    type: "set_gui_text";
     inputs: {
         set_text?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -591,25 +580,25 @@ type SetGuiTextBlock = BlockBase & {
     };
 };
 type GetMinutesBlock = BlockBase & {
-    type: 'get_minutes';
+    type: "get_minutes";
 };
 type GetSecondsBlock = BlockBase & {
-    type: 'get_seconds';
+    type: "get_seconds";
 };
 type GetTimeLeftFormattedBlock = BlockBase & {
-    type: 'get_time_left_formatted';
+    type: "get_time_left_formatted";
 };
 type GetPlayerCountBlock = BlockBase & {
-    type: 'get_player_count';
+    type: "get_player_count";
 };
 type KnockoutManagerOtherCharacterNameBlock = BlockBase & {
-    type: 'knockout_manager_other_character_name';
+    type: "knockout_manager_other_character_name";
 };
 type KnockoutManagerOtherCharacterTeamNumberBlock = BlockBase & {
-    type: 'knockout_manager_other_character_team_number';
+    type: "knockout_manager_other_character_team_number";
 };
 type KnockoutManagerOtherCharacterGetPropertyBlock = BlockBase & {
-    type: 'knockout_manager_other_character_get_property';
+    type: "knockout_manager_other_character_get_property";
     inputs: {
         get_property_as_knocked_out_player?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -617,7 +606,7 @@ type KnockoutManagerOtherCharacterGetPropertyBlock = BlockBase & {
     };
 };
 type KnockoutManagerOtherCharacterSetPropertyBlock = BlockBase & {
-    type: 'knockout_manager_other_character_set_property';
+    type: "knockout_manager_other_character_set_property";
     inputs: {
         set_property_as_knocked_out_player?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -631,7 +620,7 @@ type KnockoutManagerOtherCharacterSetPropertyBlock = BlockBase & {
     };
 };
 type KnockoutManagerOtherCharacterMessageBroadcasterBlock = BlockBase & {
-    type: 'knockout_manager_other_character_message_broadcaster';
+    type: "knockout_manager_other_character_message_broadcaster";
     inputs: {
         broadcast_message_as_knocked_out_player_on_channel?: {
             block: StringValueBlock | MaybeStringValueBlock;
@@ -642,19 +631,19 @@ type KnockoutManagerOtherCharacterMessageBroadcasterBlock = BlockBase & {
     };
 };
 type TagZoneOtherCharacterNameBlock = BlockBase & {
-    type: 'tag_zone_other_character_name';
+    type: "tag_zone_other_character_name";
 };
 type TagZoneOtherCharacterTeamNumberBlock = BlockBase & {
-    type: 'tag_zone_other_character_team_number';
+    type: "tag_zone_other_character_team_number";
 };
 type PlayerPositionDetectorPlayerXPositionBlock = BlockBase & {
-    type: 'player_position_detector_player_x_position';
+    type: "player_position_detector_player_x_position";
 };
 type PlayerPositionDetectorPlayerYPositionBlock = BlockBase & {
-    type: 'player_position_detector_player_y_position';
+    type: "player_position_detector_player_y_position";
 };
 type DamageCustomBlock = BlockBase & {
-    type: 'damage_custom';
+    type: "damage_custom";
     inputs: {
         amount?: {
             block: NumberValueBlock | MaybeNumberValueBlock;
@@ -665,7 +654,7 @@ type DamageCustomBlock = BlockBase & {
     };
 };
 type NumberWithCommasBlock = BlockBase & {
-    type: 'number_with_commas';
+    type: "number_with_commas";
     inputs: {
         convert_number_to_text_with_commas?: {
             block: NumberValueBlock | MaybeNumberValueBlock;
@@ -679,8 +668,8 @@ type MaybeNumberValueBlock = VariablesGetBlock | GetPropertyBlock | OtherCharact
 type MaybeStringValueBlock = VariablesGetBlock | GetPropertyBlock | OtherCharacterGetPropertyBlock | GetTimeLeftFormattedBlock | KnockoutManagerOtherCharacterGetPropertyBlock;
 type MaybeBooleanValueBlock = VariablesGetBlock | GetPropertyBlock | OtherCharacterGetPropertyBlock | KnockoutManagerOtherCharacterGetPropertyBlock;
 type ValueBlock = LogicBooleanBlock | LogicCompareBlock | LogicOperationBlock | LogicNegateBlock | MathNumberBlock | MathArithmeticBlock | MathSingleBlock | MathTrigBlock | MathConstantBlock | MathNumberPropertyBlock | MathRoundBlock | MathModuloBlock | MathConstrainBlock | MathRandomIntBlock | MathRandomFloatBlock | MathAtan2Block | TextBlock | TextJoinBlock | TextLengthBlock | TextIsEmptyBlock | TextIndexOfBlock | TextCharAtBlock | VariablesGetBlock | GetPropertyBlock | CurrentCharacterNameBlock | CurrentCharacterTeamNumberBlock | TriggeringPlayerScoreBlock | GetTeamScoreBlock | IsALiveGameBlock | IsAnAssignmentBlock | SecondsIntoGameBlock | OtherCharacterNameBlock | OtherCharacterTeamNumberBlock | OtherCharacterGetPropertyBlock | QuestionAnsweringStreakBlock | GetAmountBlock | GetMinutesBlock | GetSecondsBlock | GetTimeLeftFormattedBlock | GetPlayerCountBlock | KnockoutManagerOtherCharacterNameBlock | KnockoutManagerOtherCharacterTeamNumberBlock | KnockoutManagerOtherCharacterGetPropertyBlock | TagZoneOtherCharacterNameBlock | TagZoneOtherCharacterTeamNumberBlock | PlayerPositionDetectorPlayerXPositionBlock | PlayerPositionDetectorPlayerYPositionBlock | NumberWithCommasBlock;
-type StatementBlock = ControlsIfBlock | MathChangeBlock | TextAppendBlock | VariablesSetBlock | MessageBroadcasterBlock | SetPropertyBlock | AddActivityFeedItemForEveryoneBlock | AddActivityFeedItemForTriggeringPlayerBlock | AddActivityFeedItemForGameHostBlock | SetAssignmentObjectiveBlock | SetPercentageCompleteBlock | IncrementPercentageCompleteBlock | SendCustomNotificationBlock | OtherCharacterSetPropertyBlock | OtherCharacterMessageBroadcasterBlock | GrantBlock | GrantCustomBlock | SetBillboardTextBlock | SetTextColorBlock | SetImageBlock | SetFrameColorBlock | MessageCorrectAnswerBlock | MessageIncorrectAnswerBlock | SetHeaderBlock | SetContentBlock | SetGuiTextBlock | KnockoutManagerOtherCharacterSetPropertyBlock | KnockoutManagerOtherCharacterMessageBroadcasterBlock | DamageCustomBlock;
-type Block = LogicBooleanBlock | ControlsIfBlock | LogicCompareBlock | LogicOperationBlock | LogicNegateBlock | MathNumberBlock | MathArithmeticBlock | MathSingleBlock | MathTrigBlock | MathConstantBlock | MathNumberPropertyBlock | MathChangeBlock | MathRoundBlock | MathModuloBlock | MathConstrainBlock | MathRandomIntBlock | MathRandomFloatBlock | MathAtan2Block | TextBlock | TextJoinBlock | TextAppendBlock | TextLengthBlock | TextIsEmptyBlock | TextIndexOfBlock | TextCharAtBlock | VariablesGetBlock | VariablesSetBlock | MessageBroadcasterBlock | SetPropertyBlock | GetPropertyBlock | CurrentCharacterNameBlock | AddActivityFeedItemForEveryoneBlock | AddActivityFeedItemForTriggeringPlayerBlock | AddActivityFeedItemForGameHostBlock | CurrentCharacterTeamNumberBlock | TriggeringPlayerScoreBlock | GetTeamScoreBlock | IsALiveGameBlock | IsAnAssignmentBlock | SecondsIntoGameBlock | SetAssignmentObjectiveBlock | SetPercentageCompleteBlock | IncrementPercentageCompleteBlock | SendCustomNotificationBlock | OtherCharacterNameBlock | OtherCharacterTeamNumberBlock | OtherCharacterGetPropertyBlock | OtherCharacterSetPropertyBlock | OtherCharacterMessageBroadcasterBlock | GrantBlock | GrantCustomBlock | SetBillboardTextBlock | SetTextColorBlock | SetImageBlock | SetFrameColorBlock | QuestionAnsweringStreakBlock | MessageCorrectAnswerBlock | MessageIncorrectAnswerBlock | SetHeaderBlock | SetContentBlock | GetAmountBlock | SetGuiTextBlock | GetMinutesBlock | GetSecondsBlock | GetTimeLeftFormattedBlock | GetPlayerCountBlock | KnockoutManagerOtherCharacterNameBlock | KnockoutManagerOtherCharacterTeamNumberBlock | KnockoutManagerOtherCharacterGetPropertyBlock | KnockoutManagerOtherCharacterSetPropertyBlock | KnockoutManagerOtherCharacterMessageBroadcasterBlock | TagZoneOtherCharacterNameBlock | TagZoneOtherCharacterTeamNumberBlock | PlayerPositionDetectorPlayerXPositionBlock | PlayerPositionDetectorPlayerYPositionBlock | DamageCustomBlock | NumberWithCommasBlock;
+type StatementBlock = ControlsIfBlock | MathChangeBlock | VariablesSetBlock | MessageBroadcasterBlock | SetPropertyBlock | AddActivityFeedItemForEveryoneBlock | AddActivityFeedItemForTriggeringPlayerBlock | AddActivityFeedItemForGameHostBlock | SetAssignmentObjectiveBlock | SetPercentageCompleteBlock | IncrementPercentageCompleteBlock | SendCustomNotificationBlock | OtherCharacterSetPropertyBlock | OtherCharacterMessageBroadcasterBlock | GrantBlock | GrantCustomBlock | SetBillboardTextBlock | SetTextColorBlock | SetImageBlock | SetFrameColorBlock | MessageCorrectAnswerBlock | MessageIncorrectAnswerBlock | SetHeaderBlock | SetContentBlock | SetGuiTextBlock | KnockoutManagerOtherCharacterSetPropertyBlock | KnockoutManagerOtherCharacterMessageBroadcasterBlock | DamageCustomBlock;
+type Block = LogicBooleanBlock | ControlsIfBlock | LogicCompareBlock | LogicOperationBlock | LogicNegateBlock | MathNumberBlock | MathArithmeticBlock | MathSingleBlock | MathTrigBlock | MathConstantBlock | MathNumberPropertyBlock | MathChangeBlock | MathRoundBlock | MathModuloBlock | MathConstrainBlock | MathRandomIntBlock | MathRandomFloatBlock | MathAtan2Block | TextBlock | TextJoinBlock | TextLengthBlock | TextIsEmptyBlock | TextIndexOfBlock | TextCharAtBlock | VariablesGetBlock | VariablesSetBlock | MessageBroadcasterBlock | SetPropertyBlock | GetPropertyBlock | CurrentCharacterNameBlock | AddActivityFeedItemForEveryoneBlock | AddActivityFeedItemForTriggeringPlayerBlock | AddActivityFeedItemForGameHostBlock | CurrentCharacterTeamNumberBlock | TriggeringPlayerScoreBlock | GetTeamScoreBlock | IsALiveGameBlock | IsAnAssignmentBlock | SecondsIntoGameBlock | SetAssignmentObjectiveBlock | SetPercentageCompleteBlock | IncrementPercentageCompleteBlock | SendCustomNotificationBlock | OtherCharacterNameBlock | OtherCharacterTeamNumberBlock | OtherCharacterGetPropertyBlock | OtherCharacterSetPropertyBlock | OtherCharacterMessageBroadcasterBlock | GrantBlock | GrantCustomBlock | SetBillboardTextBlock | SetTextColorBlock | SetImageBlock | SetFrameColorBlock | QuestionAnsweringStreakBlock | MessageCorrectAnswerBlock | MessageIncorrectAnswerBlock | SetHeaderBlock | SetContentBlock | GetAmountBlock | SetGuiTextBlock | GetMinutesBlock | GetSecondsBlock | GetTimeLeftFormattedBlock | GetPlayerCountBlock | KnockoutManagerOtherCharacterNameBlock | KnockoutManagerOtherCharacterTeamNumberBlock | KnockoutManagerOtherCharacterGetPropertyBlock | KnockoutManagerOtherCharacterSetPropertyBlock | KnockoutManagerOtherCharacterMessageBroadcasterBlock | TagZoneOtherCharacterNameBlock | TagZoneOtherCharacterTeamNumberBlock | PlayerPositionDetectorPlayerXPositionBlock | PlayerPositionDetectorPlayerYPositionBlock | DamageCustomBlock | NumberWithCommasBlock;
 declare const blockDefinitions: readonly [{
     readonly type: "logic_boolean";
     readonly message0: "%1";
@@ -880,6 +869,7 @@ declare const blockDefinitions: readonly [{
     readonly style: "variable_blocks";
     readonly helpUrl: "%{BKY_MATH_CHANGE_HELPURL}";
     readonly extensions: readonly ["math_change_tooltip"];
+    readonly $codegenNoFunction: true;
 }, {
     readonly type: "math_round";
     readonly message0: "%1 %2";
@@ -996,23 +986,9 @@ declare const blockDefinitions: readonly [{
     readonly helpUrl: "%{BKY_TEXT_JOIN_HELPURL}";
     readonly tooltip: "%{BKY_TEXT_JOIN_TOOLTIP}";
     readonly mutator: "text_join_mutator";
-}, {
-    readonly type: "text_append";
-    readonly message0: "%{BKY_TEXT_APPEND_TITLE}";
-    readonly args0: readonly [{
-        readonly type: "field_variable";
-        readonly name: "VAR";
-        readonly variable: "%{BKY_TEXT_APPEND_VARIABLE}";
-    }, {
-        readonly type: "input_value";
-        readonly name: "TEXT";
-    }];
-    readonly previousStatement: null;
-    readonly nextStatement: null;
-    readonly style: "text_blocks";
-    readonly extensions: readonly ["text_append_tooltip"];
     readonly $codegenCustomInputsType: "Partial<Record<`ADD${number}`, {block: ValueBlock}>>";
     readonly $codegenIntersectsWith: "{ extraState?: { itemCount?: number; } }";
+    readonly $codegenNoFunction: true;
 }, {
     readonly type: "text_length";
     readonly message0: "%{BKY_TEXT_LENGTH_TITLE}";
@@ -1075,6 +1051,7 @@ declare const blockDefinitions: readonly [{
     readonly helpUrl: "%{BKY_TEXT_CHARAT_HELPURL}";
     readonly inputsInline: true;
     readonly mutator: "text_charAt_mutator";
+    readonly $codegenNoFunction: true;
 }, {
     readonly type: "variables_get";
     readonly message0: "%1";
@@ -1811,4 +1788,4 @@ type FullOptions = {
 declare const defaultOptions: FullOptions;
 declare function jsToBlocks(jsString: string, options?: Options): Program;
 
-export { AddActivityFeedItemForEveryoneBlock, AddActivityFeedItemForGameHostBlock, AddActivityFeedItemForTriggeringPlayerBlock, AttachError, Block, BlockBase, BooleanValueBlock, Color, ControlsIfBlock, ConvertError, CurrentCharacterNameBlock, CurrentCharacterTeamNumberBlock, DamageCustomBlock, FullOptions, GetAmountBlock, GetMinutesBlock, GetPlayerCountBlock, GetPropertyBlock, GetSecondsBlock, GetTeamScoreBlock, GetTimeLeftFormattedBlock, GrantBlock, GrantCustomBlock, Id, IncrementPercentageCompleteBlock, IsALiveGameBlock, IsAnAssignmentBlock, KnockoutManagerOtherCharacterGetPropertyBlock, KnockoutManagerOtherCharacterMessageBroadcasterBlock, KnockoutManagerOtherCharacterNameBlock, KnockoutManagerOtherCharacterSetPropertyBlock, KnockoutManagerOtherCharacterTeamNumberBlock, LogicBooleanBlock, LogicCompareBlock, LogicNegateBlock, LogicOperationBlock, MathArithmeticBlock, MathAtan2Block, MathChangeBlock, MathConstantBlock, MathConstrainBlock, MathModuloBlock, MathNumberBlock, MathNumberPropertyBlock, MathRandomFloatBlock, MathRandomIntBlock, MathRoundBlock, MathSingleBlock, MathTrigBlock, MaybeBooleanValueBlock, MaybeNumberValueBlock, MaybeStringValueBlock, MessageBroadcasterBlock, MessageCorrectAnswerBlock, MessageIncorrectAnswerBlock, NumberValueBlock, NumberWithCommasBlock, Options, OtherCharacterGetPropertyBlock, OtherCharacterMessageBroadcasterBlock, OtherCharacterNameBlock, OtherCharacterSetPropertyBlock, OtherCharacterTeamNumberBlock, PlayerPositionDetectorPlayerXPositionBlock, PlayerPositionDetectorPlayerYPositionBlock, Program, QuestionAnsweringStreakBlock, SecondsIntoGameBlock, SendCustomNotificationBlock, SetAssignmentObjectiveBlock, SetBillboardTextBlock, SetContentBlock, SetFrameColorBlock, SetGuiTextBlock, SetHeaderBlock, SetImageBlock, SetPercentageCompleteBlock, SetPropertyBlock, SetTextColorBlock, StatementBlock, StringValueBlock, TagZoneOtherCharacterNameBlock, TagZoneOtherCharacterTeamNumberBlock, TextAppendBlock, TextBlock, TextCharAtBlock, TextIndexOfBlock, TextIsEmptyBlock, TextJoinBlock, TextLengthBlock, TriggeringPlayerScoreBlock, ValueBlock, Variable, VariablesGetBlock, VariablesSetBlock, functionExpressionToBlocks as acornFunctionExpressionToBlocks, programToBlocks as acornProgramToBlocks, blockDefinitions, defaultOptions, findBlockDefinition, functionNameMap, isBooleanValue, isMaybeBooleanValue, isMaybeNumberValue, isMaybeStringValue, isNumberValue, isStatement, isStringValue, isValue, jsToBlocks };
+export { AddActivityFeedItemForEveryoneBlock, AddActivityFeedItemForGameHostBlock, AddActivityFeedItemForTriggeringPlayerBlock, AttachError, Block, BlockBase, BooleanValueBlock, Color, ControlsIfBlock, ConvertError, CurrentCharacterNameBlock, CurrentCharacterTeamNumberBlock, DamageCustomBlock, FullOptions, GetAmountBlock, GetMinutesBlock, GetPlayerCountBlock, GetPropertyBlock, GetSecondsBlock, GetTeamScoreBlock, GetTimeLeftFormattedBlock, GrantBlock, GrantCustomBlock, Id, IncrementPercentageCompleteBlock, IsALiveGameBlock, IsAnAssignmentBlock, KnockoutManagerOtherCharacterGetPropertyBlock, KnockoutManagerOtherCharacterMessageBroadcasterBlock, KnockoutManagerOtherCharacterNameBlock, KnockoutManagerOtherCharacterSetPropertyBlock, KnockoutManagerOtherCharacterTeamNumberBlock, LogicBooleanBlock, LogicCompareBlock, LogicNegateBlock, LogicOperationBlock, MathArithmeticBlock, MathAtan2Block, MathChangeBlock, MathConstantBlock, MathConstrainBlock, MathModuloBlock, MathNumberBlock, MathNumberPropertyBlock, MathRandomFloatBlock, MathRandomIntBlock, MathRoundBlock, MathSingleBlock, MathTrigBlock, MaybeBooleanValueBlock, MaybeNumberValueBlock, MaybeStringValueBlock, MessageBroadcasterBlock, MessageCorrectAnswerBlock, MessageIncorrectAnswerBlock, NumberValueBlock, NumberWithCommasBlock, Options, OtherCharacterGetPropertyBlock, OtherCharacterMessageBroadcasterBlock, OtherCharacterNameBlock, OtherCharacterSetPropertyBlock, OtherCharacterTeamNumberBlock, PlayerPositionDetectorPlayerXPositionBlock, PlayerPositionDetectorPlayerYPositionBlock, Program, QuestionAnsweringStreakBlock, SecondsIntoGameBlock, SendCustomNotificationBlock, SetAssignmentObjectiveBlock, SetBillboardTextBlock, SetContentBlock, SetFrameColorBlock, SetGuiTextBlock, SetHeaderBlock, SetImageBlock, SetPercentageCompleteBlock, SetPropertyBlock, SetTextColorBlock, StatementBlock, StringValueBlock, TagZoneOtherCharacterNameBlock, TagZoneOtherCharacterTeamNumberBlock, TextBlock, TextCharAtBlock, TextIndexOfBlock, TextIsEmptyBlock, TextJoinBlock, TextLengthBlock, TriggeringPlayerScoreBlock, ValueBlock, Variable, VariablesGetBlock, VariablesSetBlock, functionExpressionToBlocks as acornFunctionExpressionToBlocks, programToBlocks as acornProgramToBlocks, blockDefinitions, defaultOptions, findBlockDefinition, functionNameMap, isBooleanValue, isMaybeBooleanValue, isMaybeNumberValue, isMaybeStringValue, isNumberValue, isStatement, isStringValue, isValue, jsToBlocks };

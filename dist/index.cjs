@@ -5686,7 +5686,8 @@ var blockDefinitions = [
     nextStatement: null,
     style: "variable_blocks",
     helpUrl: "%{BKY_MATH_CHANGE_HELPURL}",
-    extensions: ["math_change_tooltip"]
+    extensions: ["math_change_tooltip"],
+    $codegenNoFunction: true
   },
   {
     type: "math_round",
@@ -5786,25 +5787,10 @@ var blockDefinitions = [
     style: "text_blocks",
     helpUrl: "%{BKY_TEXT_JOIN_HELPURL}",
     tooltip: "%{BKY_TEXT_JOIN_TOOLTIP}",
-    mutator: "text_join_mutator"
-  },
-  {
-    type: "text_append",
-    message0: "%{BKY_TEXT_APPEND_TITLE}",
-    args0: [
-      {
-        type: "field_variable",
-        name: "VAR",
-        variable: "%{BKY_TEXT_APPEND_VARIABLE}"
-      },
-      { type: "input_value", name: "TEXT" }
-    ],
-    previousStatement: null,
-    nextStatement: null,
-    style: "text_blocks",
-    extensions: ["text_append_tooltip"],
+    mutator: "text_join_mutator",
     $codegenCustomInputsType: "Partial<Record<`ADD${number}`, {block: ValueBlock}>>",
-    $codegenIntersectsWith: "{ extraState?: { itemCount?: number; } }"
+    $codegenIntersectsWith: "{ extraState?: { itemCount?: number; } }",
+    $codegenNoFunction: true
   },
   {
     type: "text_length",
@@ -5866,7 +5852,8 @@ var blockDefinitions = [
     style: "text_blocks",
     helpUrl: "%{BKY_TEXT_CHARAT_HELPURL}",
     inputsInline: true,
-    mutator: "text_charAt_mutator"
+    mutator: "text_charAt_mutator",
+    $codegenNoFunction: true
   },
   {
     type: "variables_get",
@@ -6567,80 +6554,82 @@ var blockDefinitions = [
   }
 ];
 var functionNameMap = {
-  logic_boolean: "logicBoolean",
-  logic_compare: "logicCompare",
-  logic_operation: "logicOperation",
-  logic_negate: "not",
-  math_number: "mathNumber",
-  math_arithmetic: "mathArithmetic",
-  math_single: "mathSingle",
-  math_trig: "mathTrig",
-  math_constant: "mathConstant",
-  math_number_property: "mathNumberProperty",
-  math_change: "changeBy",
-  math_round: "mathRound",
-  math_modulo: "remainderOf",
-  math_constrain: "constrainLowHigh",
-  math_random_int: "randomIntegerFromTo",
-  math_random_float: "randomFraction",
-  math_atan2: "atan2OfXY",
+  logicBoolean: "logic_boolean",
+  if: "controls_if",
+  logicCompare: "logic_compare",
+  logicOperation: "logic_operation",
+  not: "logic_negate",
+  mathNumber: "math_number",
+  mathArithmetic: "math_arithmetic",
+  mathSingle: "math_single",
+  mathTrig: "math_trig",
+  mathConstant: "math_constant",
+  mathNumberProperty: "math_number_property",
+  changeBy: "math_change",
+  mathRound: "math_round",
+  remainderOf: "math_modulo",
+  constrainLowHigh: "math_constrain",
+  randomIntegerFromTo: "math_random_int",
+  randomFraction: "math_random_float",
+  atan2OfXY: "math_atan2",
   text: "text",
-  text_join: "textJoin",
-  text_append: "toAppendText",
-  text_length: "lengthOf",
-  text_isEmpty: "IsEmpty",
-  text_indexOf: "inText",
-  text_charAt: "inText",
-  message_broadcaster: "broadcastMessageOnChannel",
-  set_property: "setPropertyValue",
-  get_property: "getProperty",
-  current_character_name: "triggeringPlayersName",
-  add_activity_feed_item_for_everyone: "addActivityFeedItemForEveryone",
-  add_activity_feed_item_for_triggering_player: "addActivityFeedItemForTriggeringPlayer",
-  add_activity_feed_item_for_game_host: "addActivityFeedItemForGameHost",
-  current_character_team_number: "triggeringPlayersTeamNumber",
-  triggering_player_score: "triggeringPlayersScore",
-  get_team_score: "getScoreOfTeam",
-  is_a_live_game: "isALiveGame",
-  is_an_assignment: "isAnAssignment",
-  seconds_into_game: "secondsIntoGame",
-  set_assignment_objective: "setObjectiveTo",
-  set_percentage_complete: "setPercentageCompleteTo",
-  increment_percentage_complete: "incrementPercentageCompleteBy",
-  send_custom_notification: "sendNotificationTitleContent",
-  other_character_name: "otherPlayersName",
-  other_character_team_number: "otherPlayersTeamNumber",
-  other_character_get_property: "getPropertyAsOtherPlayer",
-  other_character_set_property: "setPropertyAsOtherPlayerValue",
-  other_character_message_broadcaster: "broadcastMessageAsOtherPlayerOnChannel",
-  grant: "grantPlayerSelectedItem",
-  grant_custom: "grantPlayerSelectedItemCustomAmountAmount",
-  set_billboard_text: "setText",
-  set_text_color: "setTextColorTo",
-  set_image: "setImageUrl",
-  set_frame_color: "setFrameColorTo",
-  question_answering_streak: "questionsAnsweredCorrectlyInARow",
-  message_correct_answer: "setMessageShownWhenPlayerAnswersCorrectly",
-  message_incorrect_answer: "setMessageShownWhenPlayerAnswersIncorrectly",
-  set_header: "setHeader",
-  set_content: "setContent",
-  get_amount: "getAmountOfCurrentItem",
-  set_gui_text: "setText",
-  get_minutes: "getMinutes",
-  get_seconds: "getSeconds",
-  get_time_left_formatted: "getTimeLeftFormatted",
-  get_player_count: "numberOfPlayersOnTeam",
-  knockout_manager_other_character_name: "knockedPlayersName",
-  knockout_manager_other_character_team_number: "knockedPlayersTeamNumber",
-  knockout_manager_other_character_get_property: "getPropertyAsKnockedOutPlayer",
-  knockout_manager_other_character_set_property: "setPropertyAsKnockedOutPlayerValue",
-  knockout_manager_other_character_message_broadcaster: "broadcastMessageAsKnockedOutPlayerOnChannel",
-  tag_zone_other_character_name: "otherPlayersName",
-  tag_zone_other_character_team_number: "otherPlayersTeamNumber",
-  player_position_detector_player_x_position: "playersXPosition",
-  player_position_detector_player_y_position: "playersYPosition",
-  damage_custom: "damagePlayerCustomAmountAmount",
-  number_with_commas: "convertNumberToTextWithCommas"
+  textJoin: "text_join",
+  lengthOf: "text_length",
+  IsEmpty: "text_isEmpty",
+  inText: "text_indexOf",
+  textCharAt: "text_charAt",
+  variablesGet: "variables_get",
+  setTo: "variables_set",
+  broadcastMessageOnChannel: "message_broadcaster",
+  setPropertyValue: "set_property",
+  getProperty: "get_property",
+  triggeringPlayersName: "current_character_name",
+  addActivityFeedItemForEveryone: "add_activity_feed_item_for_everyone",
+  addActivityFeedItemForTriggeringPlayer: "add_activity_feed_item_for_triggering_player",
+  addActivityFeedItemForGameHost: "add_activity_feed_item_for_game_host",
+  triggeringPlayersTeamNumber: "current_character_team_number",
+  triggeringPlayersScore: "triggering_player_score",
+  getScoreOfTeam: "get_team_score",
+  isALiveGame: "is_a_live_game",
+  isAnAssignment: "is_an_assignment",
+  secondsIntoGame: "seconds_into_game",
+  setObjectiveTo: "set_assignment_objective",
+  setPercentageCompleteTo: "set_percentage_complete",
+  incrementPercentageCompleteBy: "increment_percentage_complete",
+  sendNotificationTitleContent: "send_custom_notification",
+  otherPlayersName: "other_character_name",
+  otherPlayersTeamNumber: "other_character_team_number",
+  getPropertyAsOtherPlayer: "other_character_get_property",
+  setPropertyAsOtherPlayerValue: "other_character_set_property",
+  broadcastMessageAsOtherPlayerOnChannel: "other_character_message_broadcaster",
+  grantPlayerSelectedItem: "grant",
+  grantPlayerSelectedItemCustomAmountAmount: "grant_custom",
+  setText: "set_billboard_text",
+  setTextColorTo: "set_text_color",
+  setImageUrl: "set_image",
+  setFrameColorTo: "set_frame_color",
+  questionsAnsweredCorrectlyInARow: "question_answering_streak",
+  setMessageShownWhenPlayerAnswersCorrectly: "message_correct_answer",
+  setMessageShownWhenPlayerAnswersIncorrectly: "message_incorrect_answer",
+  setHeader: "set_header",
+  setContent: "set_content",
+  getAmountOfCurrentItem: "get_amount",
+  setGuiText: "set_gui_text",
+  getMinutes: "get_minutes",
+  getSeconds: "get_seconds",
+  getTimeLeftFormatted: "get_time_left_formatted",
+  numberOfPlayersOnTeam: "get_player_count",
+  knockedPlayersName: "knockout_manager_other_character_name",
+  knockedPlayersTeamNumber: "knockout_manager_other_character_team_number",
+  getPropertyAsKnockedOutPlayer: "knockout_manager_other_character_get_property",
+  setPropertyAsKnockedOutPlayerValue: "knockout_manager_other_character_set_property",
+  broadcastMessageAsKnockedOutPlayerOnChannel: "knockout_manager_other_character_message_broadcaster",
+  tagZoneOtherCharacterName: "tag_zone_other_character_name",
+  tagZoneOtherCharacterTeamNumber: "tag_zone_other_character_team_number",
+  playersXPosition: "player_position_detector_player_x_position",
+  playersYPosition: "player_position_detector_player_y_position",
+  damagePlayerCustomAmountAmount: "damage_custom",
+  convertNumberToTextWithCommas: "number_with_commas"
 };
 
 // src/lib/blocks/index.ts
@@ -6658,6 +6647,9 @@ function isValue(block) {
 function isNumberValue(block) {
   return findBlockDefinition(block.type)?.output === "Number";
 }
+function isStringValue(block) {
+  return findBlockDefinition(block.type)?.output === "String";
+}
 function isBooleanValue(block) {
   return findBlockDefinition(block.type)?.output === "Boolean";
 }
@@ -6672,6 +6664,9 @@ function blockValueContains(block, check) {
 }
 function isMaybeNumberValue(block) {
   return isNumberValue(block) || blockValueContains(block, "Number");
+}
+function isMaybeStringValue(block) {
+  return isStringValue(block) || blockValueContains(block, "String");
 }
 function isMaybeBooleanValue(block) {
   return isBooleanValue(block) || blockValueContains(block, "Boolean");
@@ -6862,6 +6857,18 @@ function convertMemberCallExpression(ctx, expr, member) {
   switch (member.object.name + "." + member.property.name) {
     case "console.log":
       return { type: "skip" };
+    case "Math.sin":
+      return convertTrig(ctx, expr, "SIN");
+    case "Math.cos":
+      return convertTrig(ctx, expr, "COS");
+    case "Math.tan":
+      return convertTrig(ctx, expr, "TAN");
+    case "Math.asin":
+      return convertTrig(ctx, expr, "ASIN");
+    case "Math.acos":
+      return convertTrig(ctx, expr, "ACOS");
+    case "Math.atan":
+      return convertTrig(ctx, expr, "ATAN");
     default: {
       if (ctx.device == null) {
         throw new ConvertError(
@@ -6890,6 +6897,83 @@ function convertMemberCallExpression(ctx, expr, member) {
     }
   }
 }
+function convertFunctionArg(expr) {
+  if (expr.type == "SpreadElement") {
+    throw new ConvertError("SpreadElement in function argument not supported");
+  }
+  const ret = convertExpression({ device: "" }, expr);
+  if (ret.type == "skip") {
+    throw new ConvertError("Invalid function argument", expr);
+  }
+  if (!isValue(ret)) {
+    throw new AttachError(
+      `Function argument must be value, got ${ret.type}`,
+      expr,
+      ret
+    );
+  }
+  return ret;
+}
+function convertTrig(ctx, expr, trigFunc) {
+  if (expr.arguments.length != 1) {
+    throw new ConvertError(
+      `Trig function ${trigFunc} requires 1 argument, got ${expr.arguments.length}`,
+      expr
+    );
+  }
+  const argBlock = convertFunctionArg(expr.arguments[0]);
+  if (!isMaybeNumberValue(argBlock)) {
+    throw new AttachError(
+      `Trig function argument must be number, got ${argBlock.type}`,
+      expr.arguments[0],
+      argBlock
+    );
+  }
+  if (trigFunc == "SIN" || trigFunc == "COS" || trigFunc == "TAN") {
+    return {
+      id: randomId(),
+      type: "math_trig",
+      fields: {
+        OP: trigFunc
+      },
+      inputs: {
+        NUM: {
+          // 360/(2pi)
+          block: withArithmetic(argBlock, 57.2957795131, "MULTIPLY")
+        }
+      }
+    };
+  } else {
+    return withArithmetic(
+      {
+        id: randomId(),
+        type: "math_trig",
+        fields: { OP: trigFunc },
+        inputs: { NUM: { block: argBlock } }
+      },
+      // 2pi/360
+      0.01745329251,
+      "MULTIPLY"
+    );
+  }
+}
+function withArithmetic(left, right, arithmetic) {
+  return {
+    id: randomId(),
+    type: "math_arithmetic",
+    fields: {
+      OP: arithmetic
+    },
+    inputs: {
+      A: {
+        block: typeof left == "number" ? { type: "math_number", id: randomId(), fields: { NUM: left } } : left
+      },
+      B: {
+        block: typeof right == "number" ? { type: "math_number", id: randomId(), fields: { NUM: right } } : right
+      }
+    }
+  };
+}
 function keysOf(obj) {
   return Object.keys(obj);
 }
@@ -6904,7 +6988,7 @@ function convertCallExpressionToFunctionBlock(ctx, expr, identifierName) {
   let args = (def?.args0 ?? []).filter((arg) => arg.type != "input_dummy");
   if (args.length != expr.arguments.length) {
     throw new ConvertError(
-      `Function ${identifierName} requires ${def.args0?.length} arguments, got ${expr.arguments.length}`,
+      `Function ${identifierName} requires ${def.args0?.length ?? 0} arguments, got ${expr.arguments.length}`,
       expr
     );
   }
@@ -7179,6 +7263,25 @@ function convertBinaryExpression(ctx, expr) {
       }
     };
   } else {
+    if ((!isMaybeNumberValue(leftExpr) || !isMaybeNumberValue(rightExpr)) && op.operator == "ADD") {
+      if (isMaybeStringValue(leftExpr) && isMaybeStringValue(rightExpr)) {
+        return {
+          type: "text_join",
+          id: randomId(),
+          inputs: {
+            ADD0: {
+              block: leftExpr
+            },
+            ADD1: {
+              block: rightExpr
+            }
+          },
+          extraState: {
+            itemCount: 2
+          }
+        };
+      }
+    }
     if (!isMaybeNumberValue(leftExpr)) {
       throw new AttachError(
         `Left of math_arithmetic must be number, got ${leftExpr.type}`,
@@ -7318,7 +7421,7 @@ function convertStatementList(ctx, statements) {
     const nextBlock = blocks[i + 1];
     if (!isStatement(block) || !isStatement(nextBlock)) {
       throw new AttachError(
-        `Can't attach ${block.type} to ${block.type} sequentially`,
+        `Can't attach ${block.type} to ${nextBlock.type} sequentially`,
         statements[i],
         isStatement(block) ? nextBlock : block
       );
