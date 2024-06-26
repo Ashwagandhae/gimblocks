@@ -23,9 +23,9 @@ export type Union = {
    * Function generated for "logic_compare" block.
    */
   logicCompare: (
-    A: void,
+    A: any,
     OP: "EQ" | "NEQ" | "LT" | "LTE" | "GT" | "GTE",
-    B: void
+    B: any
   ) => boolean;
   /**
    * Function generated for "logic_operation" block.

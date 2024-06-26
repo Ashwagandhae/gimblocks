@@ -113,9 +113,6 @@ function generateReturnType(def: BlockDefinition): string {
 }
 
 function checkToType(check: Check | null | undefined): string {
-  if (check == null) {
-    return 'void';
-  }
   switch (check) {
     case 'Number':
       return 'number';
@@ -124,6 +121,8 @@ function checkToType(check: Check | null | undefined): string {
     case 'Boolean':
       return 'boolean';
     case null:
+      return 'any';
+    case undefined:
       return 'any';
     default:
       return check.map(checkToType).join(' | ');

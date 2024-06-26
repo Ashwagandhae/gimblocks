@@ -2134,9 +2134,6 @@ function generateReturnType(def) {
   return checkToType(def.output);
 }
 function checkToType(check) {
-  if (check == null) {
-    return "void";
-  }
   switch (check) {
     case "Number":
       return "number";
@@ -2145,6 +2142,8 @@ function checkToType(check) {
     case "Boolean":
       return "boolean";
     case null:
+      return "any";
+    case void 0:
       return "any";
     default:
       return check.map(checkToType).join(" | ");
