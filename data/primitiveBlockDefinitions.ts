@@ -324,6 +324,7 @@ const math: BlockDefinitions = [
     style: 'variable_blocks',
     helpUrl: '%{BKY_MATH_CHANGE_HELPURL}',
     extensions: ['math_change_tooltip'],
+    $codegenNoFunction: true,
   },
 
   // Block for rounding functions.
@@ -595,6 +596,7 @@ const text: BlockDefinitions = [
     helpUrl: '%{BKY_TEXT_CHARAT_HELPURL}',
     inputsInline: true,
     mutator: 'text_charAt_mutator',
+    $codegenNoFunction: true,
   },
 ];
 const variables: BlockDefinitions = [

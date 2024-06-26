@@ -1,13 +1,31 @@
-import { BlockDefinition } from '../../../schema/blockDefinitions';
+import {
+  BlockDefinition,
+  BlockDefinitions,
+} from '../../../schema/blockDefinitions';
 import { en } from '../../../data/en';
 
-export function createFunctionName(def: BlockDefinition) {
+export function generateFunctionNameMap(
+  blockDefinitions: BlockDefinitions
+): Record<string, string> {
+  let out: Record<string, string> = {};
+  for (let def of blockDefinitions) {
+    addNewFunctionName(def, out);
+  }
+  return out;
+}
+function addNewFunctionName(def: BlockDefinition, out: Record<string, string>) {
   let message = getEn(def.message0);
   let functionName = processMessage(message).trim();
   if (functionName.length == 0) {
     functionName = processType(def.type);
   }
-  return functionName;
+  if (out[functionName] != null) {
+    functionName = processType(def.type);
+  }
+  if (out[functionName] != null) {
+    throw new Error(`Duplicate, unresolvable function name ${functionName}`);
+  }
+  out[functionName] = def.type;
 }
 
 function getEn(text: string) {

@@ -1087,7 +1087,8 @@ var math = [
     nextStatement: null,
     style: "variable_blocks",
     helpUrl: "%{BKY_MATH_CHANGE_HELPURL}",
-    extensions: ["math_change_tooltip"]
+    extensions: ["math_change_tooltip"],
+    $codegenNoFunction: true
   },
   // Block for rounding functions.
   {
@@ -1351,7 +1352,8 @@ var text = [
     style: "text_blocks",
     helpUrl: "%{BKY_TEXT_CHARAT_HELPURL}",
     inputsInline: true,
-    mutator: "text_charAt_mutator"
+    mutator: "text_charAt_mutator",
+    $codegenNoFunction: true
   }
 ];
 var variables = [
@@ -1801,13 +1803,26 @@ var en = {
 };
 
 // src/lib/function.ts
-function createFunctionName(def) {
+function generateFunctionNameMap(blockDefinitions) {
+  let out = {};
+  for (let def of blockDefinitions) {
+    addNewFunctionName(def, out);
+  }
+  return out;
+}
+function addNewFunctionName(def, out) {
   let message = getEn(def.message0);
   let functionName = processMessage(message).trim();
   if (functionName.length == 0) {
     functionName = processType(def.type);
   }
-  return functionName;
+  if (out[functionName] != null) {
+    functionName = processType(def.type);
+  }
+  if (out[functionName] != null) {
+    throw new Error(`Duplicate, unresolvable function name ${functionName}`);
+  }
+  out[functionName] = def.type;
 }
 function getEn(text2) {
   let match;
@@ -1847,7 +1862,7 @@ function processType(type) {
 
 // src/lib/blocks.ts
 function generate2(definitions2) {
-  let out2 = `import * as Basic from './basic'
+  let out = `import * as Basic from './basic'
 `;
   let groups = {
     NumberValueBlock: [],
@@ -1861,7 +1876,7 @@ function generate2(definitions2) {
     Block: []
   };
   for (let definition of definitions2) {
-    out2 += generateBlock(definition);
+    out += generateBlock(definition);
     let name = definitionBlockTypeName(definition);
     groups.Block.push(name);
     if (definition.hasOwnProperty("output")) {
@@ -1905,51 +1920,41 @@ function generate2(definitions2) {
     }
   }
   for (let [name, blocks] of Object.entries(groups)) {
-    out2 += `export type ${name} = ${blocks.join(" | ")};
+    out += `export type ${name} = ${blocks.join(" | ")};
 `;
   }
-  out2 += `export const blockDefinitions = ${JSON.stringify(
+  out += `export const blockDefinitions = ${JSON.stringify(
     definitions2
   )} as const;
 `;
-  out2 += generateFunctionNameMap(definitions2);
-  return out2;
-}
-function generateFunctionNameMap(definitions2) {
-  let out2 = "export const functionNameMap: Record<string, string> = {\n";
-  for (const def of definitions2) {
-    if (def.$codegenNoFunction) {
-      continue;
-    }
-    let name = createFunctionName(def);
-    out2 += `  '${def.type}': '${name}',
+  out += `export const functionNameMap: Record<string, string> = ${JSON.stringify(
+    generateFunctionNameMap(definitions2)
+  )};
 `;
-  }
-  out2 += "};\n";
-  return out2;
+  return out;
 }
 function generateBlock(definition) {
-  let out2 = `export type ${definitionBlockTypeName(
+  let out = `export type ${definitionBlockTypeName(
     definition
   )} = Basic.BlockBase & `;
   if (definition?.$codegenIntersectsWith != null) {
-    out2 += `(${definition.$codegenIntersectsWith}) & `;
+    out += `(${definition.$codegenIntersectsWith}) & `;
   }
-  out2 += `{
+  out += `{
   type: '${definition.type}';`;
   let [fields, inputs] = definitionFieldsInputs(definition);
   if (fields != null) {
-    out2 += `fields: ${fields};`;
+    out += `fields: ${fields};`;
   }
   if (inputs != null) {
-    out2 += `inputs: ${inputs};`;
+    out += `inputs: ${inputs};`;
   }
   if (definition.hasOwnProperty("nextStatement")) {
-    out2 += `next?: { block: StatementBlock };`;
+    out += `next?: { block: StatementBlock };`;
   }
-  out2 += `};
+  out += `};
 `;
-  return out2;
+  return out;
 }
 function definitionBlockTypeName(definition) {
   let parts = definition.type.split("_");
@@ -2028,6 +2033,124 @@ function checkToBlockType(check) {
   }
 }
 
+// src/lib/device.ts
+function generate3(defs) {
+  let map = generateFunctionNameMap(defs);
+  let reverseMap = {};
+  for (let key in map) {
+    reverseMap[map[key]] = key;
+  }
+  let out = `
+/**
+ * The color type. A hex string, rgb value, etc.
+ * 
+ * @example
+ * '#ff0000'
+ * 'rgb(255, 0, 0)'
+ */
+export type Color = string;
+
+/**
+ * The union of all possible devices.
+ * 
+ * @remarks
+ * No actual device will have all of these functions. The user
+ * must ensure that the device they are using has these functions.
+ */
+export type Union = {`;
+  for (let def of defs) {
+    let functionString = generateFunction(def, reverseMap);
+    if (functionString == null) {
+      continue;
+    }
+    out += functionString;
+  }
+  out += `
+};`;
+  return out;
+}
+function generateFunction(def, map) {
+  if (def.$codegenNoFunction) {
+    return null;
+  }
+  let functionName = map[def.type];
+  let out = `
+/**
+ * Function generated for "${def.type}" block. 
+ */
+${functionName}: (`;
+  let args = def.args0 ?? [];
+  for (let arg of args) {
+    let argString = generateArg(arg);
+    if (argString == null)
+      continue;
+    out += argString + ", ";
+  }
+  out += `) => ${generateReturnType(def)};`;
+  return out;
+}
+function generateArg(arg) {
+  if (arg.type == "input_dummy") {
+    return null;
+  }
+  let argName = arg.name;
+  let argType;
+  switch (arg.type) {
+    case "input_value": {
+      argType = checkToType(arg.check);
+      break;
+    }
+    case "input_statement": {
+      throw new Error("Statement args not supported");
+    }
+    case "field_colour": {
+      argType = "Color";
+      break;
+    }
+    case "field_dropdown": {
+      argType = arg.options.map((o) => `'${o[1]}'`).join(" | ");
+      break;
+    }
+    case "field_number": {
+      argType = "number";
+      break;
+    }
+    case "field_variable": {
+      throw new Error("Variable args not supported");
+    }
+    case "field_input": {
+      argType = "string";
+      break;
+    }
+    default:
+      throw new Error("Unknown argument type: " + arg);
+  }
+  return `${argName}: ${argType}`;
+}
+function generateReturnType(def) {
+  if (!def.hasOwnProperty("output")) {
+    return "void";
+  }
+  return checkToType(def.output);
+}
+function checkToType(check) {
+  if (check == null) {
+    return "void";
+  }
+  switch (check) {
+    case "Number":
+      return "number";
+    case "String":
+      return "string";
+    case "Boolean":
+      return "boolean";
+    case null:
+      return "any";
+    default:
+      return check.map(checkToType).join(" | ");
+  }
+}
+
 // src/generate.ts
 import { writeFileSync as writeFileSync2 } from "fs";
 import Ajv from "ajv";
@@ -2053,5 +2176,5 @@ var blockDefs = [
   ...getPrimitiveBlocks(),
   ...getCustomBlocks()
 ];
-var out = generate2(blockDefs);
-writeFileSync2("./src/lib/blocks/generated.ts", out);
+writeFileSync2("./src/lib/blocks/generated.ts", generate2(blockDefs));
+writeFileSync2("./src/lib/device/generated.ts", generate3(blockDefs));

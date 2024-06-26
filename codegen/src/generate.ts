@@ -5,6 +5,7 @@ import * as worldOptions from '../../data/worldOptions.json';
 
 import { definitions as primitiveBlockDefinitions } from '../../data/primitiveBlockDefinitions';
 import { generate as generateBlockTypes } from './lib/blocks';
+import { generate as generateDeviceTypes } from './lib/device';
 
 import { writeFileSync } from 'fs';
 
@@ -34,5 +35,6 @@ let blockDefs: BlockDefinitions = [
   ...getCustomBlocks(),
 ];
 
-let out = generateBlockTypes(blockDefs);
-writeFileSync('./src/lib/blocks/generated.ts', out);
+writeFileSync('./src/lib/blocks/generated.ts', generateBlockTypes(blockDefs));
+
+writeFileSync('./src/lib/device/generated.ts', generateDeviceTypes(blockDefs));

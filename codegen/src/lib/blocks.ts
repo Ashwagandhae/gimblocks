@@ -3,7 +3,7 @@ import {
   BlockDefinitions,
   Check,
 } from '../../../schema/blockDefinitions';
-import { createFunctionName } from './function';
+import { generateFunctionNameMap } from './function';
 
 export function generate(definitions: BlockDefinitions): string {
   let out = `import * as Basic from './basic'\n`;
@@ -85,21 +85,10 @@ export function generate(definitions: BlockDefinitions): string {
     definitions
   )} as const;\n`;
 
-  out += generateFunctionNameMap(definitions);
+  out += `export const functionNameMap: Record<string, string> = ${JSON.stringify(
+    generateFunctionNameMap(definitions)
+  )};\n`;
 
-  return out;
-}
-
-function generateFunctionNameMap(definitions: BlockDefinitions): string {
-  let out = 'export const functionNameMap: Record<string, string> = {\n';
-  for (const def of definitions) {
-    if (def.$codegenNoFunction) {
-      continue;
-    }
-    let name = createFunctionName(def);
-    out += `  '${def.type}': '${name}',\n`;
-  }
-  out += '};\n';
   return out;
 }
 
