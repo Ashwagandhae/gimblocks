@@ -5535,15 +5535,6 @@ var blockDefinitions = [
     extensions: ["logic_op_tooltip"]
   },
   {
-    type: "logic_negate",
-    message0: "%{BKY_LOGIC_NEGATE_TITLE}",
-    args0: [{ type: "input_value", name: "BOOL", check: "Boolean" }],
-    output: "Boolean",
-    style: "logic_blocks",
-    tooltip: "%{BKY_LOGIC_NEGATE_TOOLTIP}",
-    helpUrl: "%{BKY_LOGIC_NEGATE_HELPURL}"
-  },
-  {
     type: "math_number",
     message0: "%1",
     args0: [{ type: "field_number", name: "NUM", value: 0 }],
@@ -5625,28 +5616,6 @@ var blockDefinitions = [
     extensions: ["math_op_tooltip"]
   },
   {
-    type: "math_constant",
-    message0: "%1",
-    args0: [
-      {
-        type: "field_dropdown",
-        name: "CONSTANT",
-        options: [
-          ["\u03C0", "PI"],
-          ["e", "E"],
-          ["\u03C6", "GOLDEN_RATIO"],
-          ["sqrt(2)", "SQRT2"],
-          ["sqrt(\xBD)", "SQRT1_2"],
-          ["\u221E", "INFINITY"]
-        ]
-      }
-    ],
-    output: "Number",
-    style: "math_blocks",
-    tooltip: "%{BKY_MATH_CONSTANT_TOOLTIP}",
-    helpUrl: "%{BKY_MATH_CONSTANT_HELPURL}"
-  },
-  {
     type: "math_number_property",
     message0: "%1 %2",
     args0: [
@@ -5687,7 +5656,8 @@ var blockDefinitions = [
     style: "variable_blocks",
     helpUrl: "%{BKY_MATH_CHANGE_HELPURL}",
     extensions: ["math_change_tooltip"],
-    $codegenNoFunction: true
+    $codegenNoFunction: true,
+    $codegenForceInclude: true
   },
   {
     type: "math_round",
@@ -5710,33 +5680,6 @@ var blockDefinitions = [
     tooltip: "%{BKY_MATH_ROUND_TOOLTIP}"
   },
   {
-    type: "math_modulo",
-    message0: "%{BKY_MATH_MODULO_TITLE}",
-    args0: [
-      { type: "input_value", name: "DIVIDEND", check: "Number" },
-      { type: "input_value", name: "DIVISOR", check: "Number" }
-    ],
-    inputsInline: true,
-    output: "Number",
-    style: "math_blocks",
-    tooltip: "%{BKY_MATH_MODULO_TOOLTIP}",
-    helpUrl: "%{BKY_MATH_MODULO_HELPURL}"
-  },
-  {
-    type: "math_constrain",
-    message0: "%{BKY_MATH_CONSTRAIN_TITLE}",
-    args0: [
-      { type: "input_value", name: "VALUE", check: "Number" },
-      { type: "input_value", name: "LOW", check: "Number" },
-      { type: "input_value", name: "HIGH", check: "Number" }
-    ],
-    inputsInline: true,
-    output: "Number",
-    style: "math_blocks",
-    tooltip: "%{BKY_MATH_CONSTRAIN_TOOLTIP}",
-    helpUrl: "%{BKY_MATH_CONSTRAIN_HELPURL}"
-  },
-  {
     type: "math_random_int",
     message0: "%{BKY_MATH_RANDOM_INT_TITLE}",
     args0: [
@@ -5748,27 +5691,6 @@ var blockDefinitions = [
     style: "math_blocks",
     tooltip: "%{BKY_MATH_RANDOM_INT_TOOLTIP}",
     helpUrl: "%{BKY_MATH_RANDOM_INT_HELPURL}"
-  },
-  {
-    type: "math_random_float",
-    message0: "%{BKY_MATH_RANDOM_FLOAT_TITLE_RANDOM}",
-    output: "Number",
-    style: "math_blocks",
-    tooltip: "%{BKY_MATH_RANDOM_FLOAT_TOOLTIP}",
-    helpUrl: "%{BKY_MATH_RANDOM_FLOAT_HELPURL}"
-  },
-  {
-    type: "math_atan2",
-    message0: "%{BKY_MATH_ATAN2_TITLE}",
-    args0: [
-      { type: "input_value", name: "X", check: "Number" },
-      { type: "input_value", name: "Y", check: "Number" }
-    ],
-    inputsInline: true,
-    output: "Number",
-    style: "math_blocks",
-    tooltip: "%{BKY_MATH_ATAN2_TOOLTIP}",
-    helpUrl: "%{BKY_MATH_ATAN2_HELPURL}"
   },
   {
     type: "text",
@@ -5800,15 +5722,6 @@ var blockDefinitions = [
     style: "text_blocks",
     tooltip: "%{BKY_TEXT_LENGTH_TOOLTIP}",
     helpUrl: "%{BKY_TEXT_LENGTH_HELPURL}"
-  },
-  {
-    type: "text_isEmpty",
-    message0: "%{BKY_TEXT_ISEMPTY_TITLE}",
-    args0: [{ type: "input_value", name: "VALUE", check: ["String"] }],
-    output: "Boolean",
-    style: "text_blocks",
-    tooltip: "%{BKY_TEXT_ISEMPTY_TOOLTIP}",
-    helpUrl: "%{BKY_TEXT_ISEMPTY_HELPURL}"
   },
   {
     type: "text_indexOf",
@@ -5856,6 +5769,38 @@ var blockDefinitions = [
     $codegenNoFunction: true
   },
   {
+    type: "text_getSubstring",
+    message0: "get substring",
+    args0: [
+      { type: "input_value", name: "STRING", check: "String" },
+      {
+        type: "field_dropdown",
+        name: "WHERE1",
+        options: [
+          ["%{BKY_TEXT_GET_SUBSTRING_START_FROM_START}", "FROM_START"],
+          ["%{BKY_TEXT_GET_SUBSTRING_START_FROM_END}", "FROM_END"],
+          ["%{BKY_TEXT_GET_SUBSTRING_START_FIRST}", "FIRST"]
+        ]
+      },
+      { type: "input_value", name: "AT1", check: "Number" },
+      {
+        type: "field_dropdown",
+        name: "WHERE2",
+        options: [
+          ["%{BKY_TEXT_GET_SUBSTRING_END_FROM_START}", "FROM_START"],
+          ["%{BKY_TEXT_GET_SUBSTRING_END_FROM_END}", "FROM_END"],
+          ["%{BKY_TEXT_GET_SUBSTRING_END_LAST}", "LAST"]
+        ]
+      },
+      { type: "input_value", name: "AT2", check: "Number" }
+    ],
+    output: "String",
+    style: "text_blocks",
+    helpUrl: "%{BKY_TEXT_GET_SUBSTRING_HELPURL}",
+    inputsInline: true,
+    extensions: ["text_getSubstring_tooltip"]
+  },
+  {
     type: "variables_get",
     message0: "%1",
     args0: [
@@ -5870,7 +5815,8 @@ var blockDefinitions = [
     helpUrl: "%{BKY_VARIABLES_GET_HELPURL}",
     tooltip: "%{BKY_VARIABLES_GET_TOOLTIP}",
     extensions: ["contextMenu_variableSetterGetter"],
-    $codegenNoFunction: true
+    $codegenNoFunction: true,
+    $codegenForceInclude: true
   },
   {
     type: "variables_set",
@@ -5889,7 +5835,8 @@ var blockDefinitions = [
     tooltip: "%{BKY_VARIABLES_SET_TOOLTIP}",
     helpUrl: "%{BKY_VARIABLES_SET_HELPURL}",
     extensions: ["contextMenu_variableSetterGetter"],
-    $codegenNoFunction: true
+    $codegenNoFunction: true,
+    $codegenForceInclude: true
   },
   {
     type: "message_broadcaster",
@@ -6558,26 +6505,20 @@ var functionNameMap = {
   if: "controls_if",
   logicCompare: "logic_compare",
   logicOperation: "logic_operation",
-  not: "logic_negate",
   mathNumber: "math_number",
   mathArithmetic: "math_arithmetic",
   mathSingle: "math_single",
   mathTrig: "math_trig",
-  mathConstant: "math_constant",
   mathNumberProperty: "math_number_property",
   changeBy: "math_change",
   mathRound: "math_round",
-  remainderOf: "math_modulo",
-  constrainLowHigh: "math_constrain",
   randomIntegerFromTo: "math_random_int",
-  randomFraction: "math_random_float",
-  atan2OfXY: "math_atan2",
   text: "text",
   textJoin: "text_join",
   lengthOf: "text_length",
-  IsEmpty: "text_isEmpty",
   inText: "text_indexOf",
   textCharAt: "text_charAt",
+  getSubstring: "text_getSubstring",
   variablesGet: "variables_get",
   setTo: "variables_set",
   broadcastMessageOnChannel: "message_broadcaster",

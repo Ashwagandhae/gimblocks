@@ -30,6 +30,7 @@ export type BlockDefinition = {
   $codegenCustomInputsType?: string;
   $codegenIntersectsWith?: string;
   $codegenNoFunction?: boolean;
+  $codegenForceInclude?: boolean;
 };
 type Style = 'logic_blocks' | 'math_blocks' | 'variable_blocks' | 'text_blocks';
 export type Argument =

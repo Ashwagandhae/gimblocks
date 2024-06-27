@@ -29,10 +29,6 @@ export type LogicOperationBlock = Basic.BlockBase & {
     B?: { block: BooleanValueBlock | MaybeBooleanValueBlock };
   };
 };
-export type LogicNegateBlock = Basic.BlockBase & {
-  type: "logic_negate";
-  inputs: { BOOL?: { block: BooleanValueBlock | MaybeBooleanValueBlock } };
-};
 export type MathNumberBlock = Basic.BlockBase & {
   type: "math_number";
   fields: { NUM?: number };
@@ -54,12 +50,6 @@ export type MathTrigBlock = Basic.BlockBase & {
   type: "math_trig";
   fields: { OP?: "SIN" | "COS" | "TAN" | "ASIN" | "ACOS" | "ATAN" };
   inputs: { NUM?: { block: NumberValueBlock | MaybeNumberValueBlock } };
-};
-export type MathConstantBlock = Basic.BlockBase & {
-  type: "math_constant";
-  fields: {
-    CONSTANT?: "PI" | "E" | "GOLDEN_RATIO" | "SQRT2" | "SQRT1_2" | "INFINITY";
-  };
 };
 export type MathNumberPropertyBlock = Basic.BlockBase & {
   type: "math_number_property";
@@ -88,36 +78,11 @@ export type MathRoundBlock = Basic.BlockBase & {
   fields: { OP?: "ROUND" | "ROUNDUP" | "ROUNDDOWN" };
   inputs: { NUM?: { block: NumberValueBlock | MaybeNumberValueBlock } };
 };
-export type MathModuloBlock = Basic.BlockBase & {
-  type: "math_modulo";
-  inputs: {
-    DIVIDEND?: { block: NumberValueBlock | MaybeNumberValueBlock };
-    DIVISOR?: { block: NumberValueBlock | MaybeNumberValueBlock };
-  };
-};
-export type MathConstrainBlock = Basic.BlockBase & {
-  type: "math_constrain";
-  inputs: {
-    VALUE?: { block: NumberValueBlock | MaybeNumberValueBlock };
-    LOW?: { block: NumberValueBlock | MaybeNumberValueBlock };
-    HIGH?: { block: NumberValueBlock | MaybeNumberValueBlock };
-  };
-};
 export type MathRandomIntBlock = Basic.BlockBase & {
   type: "math_random_int";
   inputs: {
     FROM?: { block: NumberValueBlock | MaybeNumberValueBlock };
     TO?: { block: NumberValueBlock | MaybeNumberValueBlock };
-  };
-};
-export type MathRandomFloatBlock = Basic.BlockBase & {
-  type: "math_random_float";
-};
-export type MathAtan2Block = Basic.BlockBase & {
-  type: "math_atan2";
-  inputs: {
-    X?: { block: NumberValueBlock | MaybeNumberValueBlock };
-    Y?: { block: NumberValueBlock | MaybeNumberValueBlock };
   };
 };
 export type TextBlock = Basic.BlockBase & {
@@ -134,10 +99,6 @@ export type TextLengthBlock = Basic.BlockBase & {
   type: "text_length";
   inputs: { VALUE?: { block: StringValueBlock | MaybeStringValueBlock } };
 };
-export type TextIsEmptyBlock = Basic.BlockBase & {
-  type: "text_isEmpty";
-  inputs: { VALUE?: { block: StringValueBlock | MaybeStringValueBlock } };
-};
 export type TextIndexOfBlock = Basic.BlockBase & {
   type: "text_indexOf";
   fields: { END?: "FIRST" | "LAST" };
@@ -150,6 +111,18 @@ export type TextCharAtBlock = Basic.BlockBase & {
   type: "text_charAt";
   fields: { WHERE?: "FROM_START" | "FROM_END" | "FIRST" | "LAST" | "RANDOM" };
   inputs: { VALUE?: { block: StringValueBlock | MaybeStringValueBlock } };
+};
+export type TextGetSubstringBlock = Basic.BlockBase & {
+  type: "text_getSubstring";
+  fields: {
+    WHERE1?: "FROM_START" | "FROM_END" | "FIRST";
+    WHERE2?: "FROM_START" | "FROM_END" | "LAST";
+  };
+  inputs: {
+    STRING?: { block: StringValueBlock | MaybeStringValueBlock };
+    AT1?: { block: NumberValueBlock | MaybeNumberValueBlock };
+    AT2?: { block: NumberValueBlock | MaybeNumberValueBlock };
+  };
 };
 export type VariablesGetBlock = Basic.BlockBase & {
   type: "variables_get";
@@ -462,13 +435,8 @@ export type NumberValueBlock =
   | MathArithmeticBlock
   | MathSingleBlock
   | MathTrigBlock
-  | MathConstantBlock
   | MathRoundBlock
-  | MathModuloBlock
-  | MathConstrainBlock
   | MathRandomIntBlock
-  | MathRandomFloatBlock
-  | MathAtan2Block
   | TextLengthBlock
   | TextIndexOfBlock
   | CurrentCharacterTeamNumberBlock
@@ -483,6 +451,7 @@ export type StringValueBlock =
   | TextBlock
   | TextJoinBlock
   | TextCharAtBlock
+  | TextGetSubstringBlock
   | CurrentCharacterNameBlock
   | OtherCharacterNameBlock
   | KnockoutManagerOtherCharacterNameBlock
@@ -492,9 +461,7 @@ export type BooleanValueBlock =
   | LogicBooleanBlock
   | LogicCompareBlock
   | LogicOperationBlock
-  | LogicNegateBlock
   | MathNumberPropertyBlock
-  | TextIsEmptyBlock
   | IsALiveGameBlock
   | IsAnAssignmentBlock;
 export type MaybeNumberValueBlock =
@@ -523,25 +490,19 @@ export type ValueBlock =
   | LogicBooleanBlock
   | LogicCompareBlock
   | LogicOperationBlock
-  | LogicNegateBlock
   | MathNumberBlock
   | MathArithmeticBlock
   | MathSingleBlock
   | MathTrigBlock
-  | MathConstantBlock
   | MathNumberPropertyBlock
   | MathRoundBlock
-  | MathModuloBlock
-  | MathConstrainBlock
   | MathRandomIntBlock
-  | MathRandomFloatBlock
-  | MathAtan2Block
   | TextBlock
   | TextJoinBlock
   | TextLengthBlock
-  | TextIsEmptyBlock
   | TextIndexOfBlock
   | TextCharAtBlock
+  | TextGetSubstringBlock
   | VariablesGetBlock
   | GetPropertyBlock
   | CurrentCharacterNameBlock
@@ -602,26 +563,20 @@ export type Block =
   | ControlsIfBlock
   | LogicCompareBlock
   | LogicOperationBlock
-  | LogicNegateBlock
   | MathNumberBlock
   | MathArithmeticBlock
   | MathSingleBlock
   | MathTrigBlock
-  | MathConstantBlock
   | MathNumberPropertyBlock
   | MathChangeBlock
   | MathRoundBlock
-  | MathModuloBlock
-  | MathConstrainBlock
   | MathRandomIntBlock
-  | MathRandomFloatBlock
-  | MathAtan2Block
   | TextBlock
   | TextJoinBlock
   | TextLengthBlock
-  | TextIsEmptyBlock
   | TextIndexOfBlock
   | TextCharAtBlock
+  | TextGetSubstringBlock
   | VariablesGetBlock
   | VariablesSetBlock
   | MessageBroadcasterBlock
@@ -759,15 +714,6 @@ export const blockDefinitions = [
     extensions: ["logic_op_tooltip"],
   },
   {
-    type: "logic_negate",
-    message0: "%{BKY_LOGIC_NEGATE_TITLE}",
-    args0: [{ type: "input_value", name: "BOOL", check: "Boolean" }],
-    output: "Boolean",
-    style: "logic_blocks",
-    tooltip: "%{BKY_LOGIC_NEGATE_TOOLTIP}",
-    helpUrl: "%{BKY_LOGIC_NEGATE_HELPURL}",
-  },
-  {
     type: "math_number",
     message0: "%1",
     args0: [{ type: "field_number", name: "NUM", value: 0 }],
@@ -849,28 +795,6 @@ export const blockDefinitions = [
     extensions: ["math_op_tooltip"],
   },
   {
-    type: "math_constant",
-    message0: "%1",
-    args0: [
-      {
-        type: "field_dropdown",
-        name: "CONSTANT",
-        options: [
-          ["π", "PI"],
-          ["e", "E"],
-          ["φ", "GOLDEN_RATIO"],
-          ["sqrt(2)", "SQRT2"],
-          ["sqrt(½)", "SQRT1_2"],
-          ["∞", "INFINITY"],
-        ],
-      },
-    ],
-    output: "Number",
-    style: "math_blocks",
-    tooltip: "%{BKY_MATH_CONSTANT_TOOLTIP}",
-    helpUrl: "%{BKY_MATH_CONSTANT_HELPURL}",
-  },
-  {
     type: "math_number_property",
     message0: "%1 %2",
     args0: [
@@ -912,6 +836,7 @@ export const blockDefinitions = [
     helpUrl: "%{BKY_MATH_CHANGE_HELPURL}",
     extensions: ["math_change_tooltip"],
     $codegenNoFunction: true,
+    $codegenForceInclude: true,
   },
   {
     type: "math_round",
@@ -934,33 +859,6 @@ export const blockDefinitions = [
     tooltip: "%{BKY_MATH_ROUND_TOOLTIP}",
   },
   {
-    type: "math_modulo",
-    message0: "%{BKY_MATH_MODULO_TITLE}",
-    args0: [
-      { type: "input_value", name: "DIVIDEND", check: "Number" },
-      { type: "input_value", name: "DIVISOR", check: "Number" },
-    ],
-    inputsInline: true,
-    output: "Number",
-    style: "math_blocks",
-    tooltip: "%{BKY_MATH_MODULO_TOOLTIP}",
-    helpUrl: "%{BKY_MATH_MODULO_HELPURL}",
-  },
-  {
-    type: "math_constrain",
-    message0: "%{BKY_MATH_CONSTRAIN_TITLE}",
-    args0: [
-      { type: "input_value", name: "VALUE", check: "Number" },
-      { type: "input_value", name: "LOW", check: "Number" },
-      { type: "input_value", name: "HIGH", check: "Number" },
-    ],
-    inputsInline: true,
-    output: "Number",
-    style: "math_blocks",
-    tooltip: "%{BKY_MATH_CONSTRAIN_TOOLTIP}",
-    helpUrl: "%{BKY_MATH_CONSTRAIN_HELPURL}",
-  },
-  {
     type: "math_random_int",
     message0: "%{BKY_MATH_RANDOM_INT_TITLE}",
     args0: [
@@ -972,27 +870,6 @@ export const blockDefinitions = [
     style: "math_blocks",
     tooltip: "%{BKY_MATH_RANDOM_INT_TOOLTIP}",
     helpUrl: "%{BKY_MATH_RANDOM_INT_HELPURL}",
-  },
-  {
-    type: "math_random_float",
-    message0: "%{BKY_MATH_RANDOM_FLOAT_TITLE_RANDOM}",
-    output: "Number",
-    style: "math_blocks",
-    tooltip: "%{BKY_MATH_RANDOM_FLOAT_TOOLTIP}",
-    helpUrl: "%{BKY_MATH_RANDOM_FLOAT_HELPURL}",
-  },
-  {
-    type: "math_atan2",
-    message0: "%{BKY_MATH_ATAN2_TITLE}",
-    args0: [
-      { type: "input_value", name: "X", check: "Number" },
-      { type: "input_value", name: "Y", check: "Number" },
-    ],
-    inputsInline: true,
-    output: "Number",
-    style: "math_blocks",
-    tooltip: "%{BKY_MATH_ATAN2_TOOLTIP}",
-    helpUrl: "%{BKY_MATH_ATAN2_HELPURL}",
   },
   {
     type: "text",
@@ -1025,15 +902,6 @@ export const blockDefinitions = [
     style: "text_blocks",
     tooltip: "%{BKY_TEXT_LENGTH_TOOLTIP}",
     helpUrl: "%{BKY_TEXT_LENGTH_HELPURL}",
-  },
-  {
-    type: "text_isEmpty",
-    message0: "%{BKY_TEXT_ISEMPTY_TITLE}",
-    args0: [{ type: "input_value", name: "VALUE", check: ["String"] }],
-    output: "Boolean",
-    style: "text_blocks",
-    tooltip: "%{BKY_TEXT_ISEMPTY_TOOLTIP}",
-    helpUrl: "%{BKY_TEXT_ISEMPTY_HELPURL}",
   },
   {
     type: "text_indexOf",
@@ -1081,6 +949,38 @@ export const blockDefinitions = [
     $codegenNoFunction: true,
   },
   {
+    type: "text_getSubstring",
+    message0: "get substring",
+    args0: [
+      { type: "input_value", name: "STRING", check: "String" },
+      {
+        type: "field_dropdown",
+        name: "WHERE1",
+        options: [
+          ["%{BKY_TEXT_GET_SUBSTRING_START_FROM_START}", "FROM_START"],
+          ["%{BKY_TEXT_GET_SUBSTRING_START_FROM_END}", "FROM_END"],
+          ["%{BKY_TEXT_GET_SUBSTRING_START_FIRST}", "FIRST"],
+        ],
+      },
+      { type: "input_value", name: "AT1", check: "Number" },
+      {
+        type: "field_dropdown",
+        name: "WHERE2",
+        options: [
+          ["%{BKY_TEXT_GET_SUBSTRING_END_FROM_START}", "FROM_START"],
+          ["%{BKY_TEXT_GET_SUBSTRING_END_FROM_END}", "FROM_END"],
+          ["%{BKY_TEXT_GET_SUBSTRING_END_LAST}", "LAST"],
+        ],
+      },
+      { type: "input_value", name: "AT2", check: "Number" },
+    ],
+    output: "String",
+    style: "text_blocks",
+    helpUrl: "%{BKY_TEXT_GET_SUBSTRING_HELPURL}",
+    inputsInline: true,
+    extensions: ["text_getSubstring_tooltip"],
+  },
+  {
     type: "variables_get",
     message0: "%1",
     args0: [
@@ -1096,6 +996,7 @@ export const blockDefinitions = [
     tooltip: "%{BKY_VARIABLES_GET_TOOLTIP}",
     extensions: ["contextMenu_variableSetterGetter"],
     $codegenNoFunction: true,
+    $codegenForceInclude: true,
   },
   {
     type: "variables_set",
@@ -1115,6 +1016,7 @@ export const blockDefinitions = [
     helpUrl: "%{BKY_VARIABLES_SET_HELPURL}",
     extensions: ["contextMenu_variableSetterGetter"],
     $codegenNoFunction: true,
+    $codegenForceInclude: true,
   },
   {
     type: "message_broadcaster",
@@ -1783,26 +1685,20 @@ export const functionNameMap: Record<string, string> = {
   if: "controls_if",
   logicCompare: "logic_compare",
   logicOperation: "logic_operation",
-  not: "logic_negate",
   mathNumber: "math_number",
   mathArithmetic: "math_arithmetic",
   mathSingle: "math_single",
   mathTrig: "math_trig",
-  mathConstant: "math_constant",
   mathNumberProperty: "math_number_property",
   changeBy: "math_change",
   mathRound: "math_round",
-  remainderOf: "math_modulo",
-  constrainLowHigh: "math_constrain",
   randomIntegerFromTo: "math_random_int",
-  randomFraction: "math_random_float",
-  atan2OfXY: "math_atan2",
   text: "text",
   textJoin: "text_join",
   lengthOf: "text_length",
-  IsEmpty: "text_isEmpty",
   inText: "text_indexOf",
   textCharAt: "text_charAt",
+  getSubstring: "text_getSubstring",
   variablesGet: "variables_get",
   setTo: "variables_set",
   broadcastMessageOnChannel: "message_broadcaster",

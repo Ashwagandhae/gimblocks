@@ -15,6 +15,11 @@ const schemas: {
     typeTarget: 'BlockDefinitions',
     path: path.resolve('./schema/blockDefinitions.ts'),
   },
+  {
+    name: 'blockCategories',
+    typeTarget: 'BlockCategories',
+    path: path.resolve('./schema/blockCategories.ts'),
+  },
 ];
 
 const hashDir = path.resolve('./schema/hashes');

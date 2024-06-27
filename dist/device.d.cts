@@ -41,12 +41,6 @@ type Union = {
      */
     logicOperation: (A: boolean, OP: "AND" | "OR", B: boolean) => boolean;
     /**
-     * Function generated for "logic_negate" block.
-     *
-     * @param BOOL - An input block.
-     */
-    not: (BOOL: boolean) => boolean;
-    /**
      * Function generated for "math_number" block.
      *
      * @param NUM - A field. It must be a literal, non-dynamic value.
@@ -75,12 +69,6 @@ type Union = {
      */
     mathTrig: (OP: "SIN" | "COS" | "TAN" | "ASIN" | "ACOS" | "ATAN", NUM: number) => number;
     /**
-     * Function generated for "math_constant" block.
-     *
-     * @param CONSTANT - A field. It must be a literal, non-dynamic value.
-     */
-    mathConstant: (CONSTANT: "PI" | "E" | "GOLDEN_RATIO" | "SQRT2" | "SQRT1_2" | "INFINITY") => number;
-    /**
      * Function generated for "math_number_property" block.
      *
      * @param NUMBER_TO_CHECK - An input block.
@@ -95,39 +83,12 @@ type Union = {
      */
     mathRound: (OP: "ROUND" | "ROUNDUP" | "ROUNDDOWN", NUM: number) => number;
     /**
-     * Function generated for "math_modulo" block.
-     *
-     * @param DIVIDEND - An input block.
-     * @param DIVISOR - An input block.
-     */
-    remainderOf: (DIVIDEND: number, DIVISOR: number) => number;
-    /**
-     * Function generated for "math_constrain" block.
-     *
-     * @param VALUE - An input block.
-     * @param LOW - An input block.
-     * @param HIGH - An input block.
-     */
-    constrainLowHigh: (VALUE: number, LOW: number, HIGH: number) => number;
-    /**
      * Function generated for "math_random_int" block.
      *
      * @param FROM - An input block.
      * @param TO - An input block.
      */
     randomIntegerFromTo: (FROM: number, TO: number) => number;
-    /**
-     * Function generated for "math_random_float" block.
-     *
-     */
-    randomFraction: () => number;
-    /**
-     * Function generated for "math_atan2" block.
-     *
-     * @param X - An input block.
-     * @param Y - An input block.
-     */
-    atan2OfXY: (X: number, Y: number) => number;
     /**
      * Function generated for "text" block.
      *
@@ -141,12 +102,6 @@ type Union = {
      */
     lengthOf: (VALUE: string) => number;
     /**
-     * Function generated for "text_isEmpty" block.
-     *
-     * @param VALUE - An input block.
-     */
-    IsEmpty: (VALUE: string) => boolean;
-    /**
      * Function generated for "text_indexOf" block.
      *
      * @param VALUE - An input block.
@@ -154,6 +109,16 @@ type Union = {
      * @param FIND - An input block.
      */
     inText: (VALUE: string, END: "FIRST" | "LAST", FIND: string) => number;
+    /**
+     * Function generated for "text_getSubstring" block.
+     *
+     * @param STRING - An input block.
+     * @param WHERE1 - A field. It must be a literal, non-dynamic value.
+     * @param AT1 - An input block.
+     * @param WHERE2 - A field. It must be a literal, non-dynamic value.
+     * @param AT2 - An input block.
+     */
+    getSubstring: (STRING: string, WHERE1: "FROM_START" | "FROM_END" | "FIRST", AT1: number, WHERE2: "FROM_START" | "FROM_END" | "LAST", AT2: number) => string;
     /**
      * Function generated for "message_broadcaster" block.
      *

@@ -117,21 +117,21 @@ const logical: BlockDefinitions = [
     extensions: ['logic_op_tooltip'],
   },
   // Block for negation.
-  {
-    type: 'logic_negate',
-    message0: '%{BKY_LOGIC_NEGATE_TITLE}',
-    args0: [
-      {
-        type: 'input_value',
-        name: 'BOOL',
-        check: 'Boolean',
-      },
-    ],
-    output: 'Boolean',
-    style: 'logic_blocks',
-    tooltip: '%{BKY_LOGIC_NEGATE_TOOLTIP}',
-    helpUrl: '%{BKY_LOGIC_NEGATE_HELPURL}',
-  },
+  // {
+  //   type: 'logic_negate',
+  //   message0: '%{BKY_LOGIC_NEGATE_TITLE}',
+  //   args0: [
+  //     {
+  //       type: 'input_value',
+  //       name: 'BOOL',
+  //       check: 'Boolean',
+  //     },
+  //   ],
+  //   output: 'Boolean',
+  //   style: 'logic_blocks',
+  //   tooltip: '%{BKY_LOGIC_NEGATE_TOOLTIP}',
+  //   helpUrl: '%{BKY_LOGIC_NEGATE_HELPURL}',
+  // },
 ];
 
 // math operations
@@ -248,28 +248,28 @@ const math: BlockDefinitions = [
   },
 
   // Block for constants: PI, E, the Golden Ratio, sqrt(2), 1/sqrt(2), INFINITY.
-  {
-    type: 'math_constant',
-    message0: '%1',
-    args0: [
-      {
-        type: 'field_dropdown',
-        name: 'CONSTANT',
-        options: [
-          ['\u03c0', 'PI'],
-          ['e', 'E'],
-          ['\u03c6', 'GOLDEN_RATIO'],
-          ['sqrt(2)', 'SQRT2'],
-          ['sqrt(\u00bd)', 'SQRT1_2'],
-          ['\u221e', 'INFINITY'],
-        ],
-      },
-    ],
-    output: 'Number',
-    style: 'math_blocks',
-    tooltip: '%{BKY_MATH_CONSTANT_TOOLTIP}',
-    helpUrl: '%{BKY_MATH_CONSTANT_HELPURL}',
-  },
+  // {
+  //   type: 'math_constant',
+  //   message0: '%1',
+  //   args0: [
+  //     {
+  //       type: 'field_dropdown',
+  //       name: 'CONSTANT',
+  //       options: [
+  //         ['\u03c0', 'PI'],
+  //         ['e', 'E'],
+  //         ['\u03c6', 'GOLDEN_RATIO'],
+  //         ['sqrt(2)', 'SQRT2'],
+  //         ['sqrt(\u00bd)', 'SQRT1_2'],
+  //         ['\u221e', 'INFINITY'],
+  //       ],
+  //     },
+  //   ],
+  //   output: 'Number',
+  //   style: 'math_blocks',
+  //   tooltip: '%{BKY_MATH_CONSTANT_TOOLTIP}',
+  //   helpUrl: '%{BKY_MATH_CONSTANT_HELPURL}',
+  // },
 
   // Block for checking if a number is even, odd, prime, whole, positive,
   // negative or if it is divisible by certain number.
@@ -325,6 +325,7 @@ const math: BlockDefinitions = [
     helpUrl: '%{BKY_MATH_CHANGE_HELPURL}',
     extensions: ['math_change_tooltip'],
     $codegenNoFunction: true,
+    $codegenForceInclude: true,
   },
 
   // Block for rounding functions.
@@ -354,55 +355,55 @@ const math: BlockDefinitions = [
   },
 
   // Block for remainder of a division.
-  {
-    type: 'math_modulo',
-    message0: '%{BKY_MATH_MODULO_TITLE}',
-    args0: [
-      {
-        type: 'input_value',
-        name: 'DIVIDEND',
-        check: 'Number',
-      },
-      {
-        type: 'input_value',
-        name: 'DIVISOR',
-        check: 'Number',
-      },
-    ],
-    inputsInline: true,
-    output: 'Number',
-    style: 'math_blocks',
-    tooltip: '%{BKY_MATH_MODULO_TOOLTIP}',
-    helpUrl: '%{BKY_MATH_MODULO_HELPURL}',
-  },
+  // {
+  //   type: 'math_modulo',
+  //   message0: '%{BKY_MATH_MODULO_TITLE}',
+  //   args0: [
+  //     {
+  //       type: 'input_value',
+  //       name: 'DIVIDEND',
+  //       check: 'Number',
+  //     },
+  //     {
+  //       type: 'input_value',
+  //       name: 'DIVISOR',
+  //       check: 'Number',
+  //     },
+  //   ],
+  //   inputsInline: true,
+  //   output: 'Number',
+  //   style: 'math_blocks',
+  //   tooltip: '%{BKY_MATH_MODULO_TOOLTIP}',
+  //   helpUrl: '%{BKY_MATH_MODULO_HELPURL}',
+  // },
 
   // Block for constraining a number between two limits.
-  {
-    type: 'math_constrain',
-    message0: '%{BKY_MATH_CONSTRAIN_TITLE}',
-    args0: [
-      {
-        type: 'input_value',
-        name: 'VALUE',
-        check: 'Number',
-      },
-      {
-        type: 'input_value',
-        name: 'LOW',
-        check: 'Number',
-      },
-      {
-        type: 'input_value',
-        name: 'HIGH',
-        check: 'Number',
-      },
-    ],
-    inputsInline: true,
-    output: 'Number',
-    style: 'math_blocks',
-    tooltip: '%{BKY_MATH_CONSTRAIN_TOOLTIP}',
-    helpUrl: '%{BKY_MATH_CONSTRAIN_HELPURL}',
-  },
+  // {
+  //   type: 'math_constrain',
+  //   message0: '%{BKY_MATH_CONSTRAIN_TITLE}',
+  //   args0: [
+  //     {
+  //       type: 'input_value',
+  //       name: 'VALUE',
+  //       check: 'Number',
+  //     },
+  //     {
+  //       type: 'input_value',
+  //       name: 'LOW',
+  //       check: 'Number',
+  //     },
+  //     {
+  //       type: 'input_value',
+  //       name: 'HIGH',
+  //       check: 'Number',
+  //     },
+  //   ],
+  //   inputsInline: true,
+  //   output: 'Number',
+  //   style: 'math_blocks',
+  //   tooltip: '%{BKY_MATH_CONSTRAIN_TOOLTIP}',
+  //   helpUrl: '%{BKY_MATH_CONSTRAIN_HELPURL}',
+  // },
 
   // Block for random integer between [X] and [Y].
   {
@@ -428,37 +429,37 @@ const math: BlockDefinitions = [
   },
 
   // Block for random integer between [X] and [Y].
-  {
-    type: 'math_random_float',
-    message0: '%{BKY_MATH_RANDOM_FLOAT_TITLE_RANDOM}',
-    output: 'Number',
-    style: 'math_blocks',
-    tooltip: '%{BKY_MATH_RANDOM_FLOAT_TOOLTIP}',
-    helpUrl: '%{BKY_MATH_RANDOM_FLOAT_HELPURL}',
-  },
+  // {
+  //   type: 'math_random_float',
+  //   message0: '%{BKY_MATH_RANDOM_FLOAT_TITLE_RANDOM}',
+  //   output: 'Number',
+  //   style: 'math_blocks',
+  //   tooltip: '%{BKY_MATH_RANDOM_FLOAT_TOOLTIP}',
+  //   helpUrl: '%{BKY_MATH_RANDOM_FLOAT_HELPURL}',
+  // },
 
   // Block for calculating atan2 of [X] and [Y].
-  {
-    type: 'math_atan2',
-    message0: '%{BKY_MATH_ATAN2_TITLE}',
-    args0: [
-      {
-        type: 'input_value',
-        name: 'X',
-        check: 'Number',
-      },
-      {
-        type: 'input_value',
-        name: 'Y',
-        check: 'Number',
-      },
-    ],
-    inputsInline: true,
-    output: 'Number',
-    style: 'math_blocks',
-    tooltip: '%{BKY_MATH_ATAN2_TOOLTIP}',
-    helpUrl: '%{BKY_MATH_ATAN2_HELPURL}',
-  },
+  // {
+  //   type: 'math_atan2',
+  //   message0: '%{BKY_MATH_ATAN2_TITLE}',
+  //   args0: [
+  //     {
+  //       type: 'input_value',
+  //       name: 'X',
+  //       check: 'Number',
+  //     },
+  //     {
+  //       type: 'input_value',
+  //       name: 'Y',
+  //       check: 'Number',
+  //     },
+  //   ],
+  //   inputsInline: true,
+  //   output: 'Number',
+  //   style: 'math_blocks',
+  //   tooltip: '%{BKY_MATH_ATAN2_TOOLTIP}',
+  //   helpUrl: '%{BKY_MATH_ATAN2_HELPURL}',
+  // },
 ];
 
 const text: BlockDefinitions = [
@@ -526,21 +527,21 @@ const text: BlockDefinitions = [
     tooltip: '%{BKY_TEXT_LENGTH_TOOLTIP}',
     helpUrl: '%{BKY_TEXT_LENGTH_HELPURL}',
   },
-  {
-    type: 'text_isEmpty',
-    message0: '%{BKY_TEXT_ISEMPTY_TITLE}',
-    args0: [
-      {
-        type: 'input_value',
-        name: 'VALUE',
-        check: ['String'],
-      },
-    ],
-    output: 'Boolean',
-    style: 'text_blocks',
-    tooltip: '%{BKY_TEXT_ISEMPTY_TOOLTIP}',
-    helpUrl: '%{BKY_TEXT_ISEMPTY_HELPURL}',
-  },
+  // {
+  //   type: 'text_isEmpty',
+  //   message0: '%{BKY_TEXT_ISEMPTY_TITLE}',
+  //   args0: [
+  //     {
+  //       type: 'input_value',
+  //       name: 'VALUE',
+  //       check: ['String'],
+  //     },
+  //   ],
+  //   output: 'Boolean',
+  //   style: 'text_blocks',
+  //   tooltip: '%{BKY_TEXT_ISEMPTY_TOOLTIP}',
+  //   helpUrl: '%{BKY_TEXT_ISEMPTY_HELPURL}',
+  // },
   {
     type: 'text_indexOf',
     message0: '%{BKY_TEXT_INDEXOF_TITLE}',
@@ -598,6 +599,77 @@ const text: BlockDefinitions = [
     mutator: 'text_charAt_mutator',
     $codegenNoFunction: true,
   },
+  // function (this: GetSubstringBlock) {
+  //   this['WHERE_OPTIONS_1'] = [
+  //     [Msg['TEXT_GET_SUBSTRING_START_FROM_START'], 'FROM_START'],
+  //     [Msg['TEXT_GET_SUBSTRING_START_FROM_END'], 'FROM_END'],
+  //     [Msg['TEXT_GET_SUBSTRING_START_FIRST'], 'FIRST'],
+  //   ];
+  //   this['WHERE_OPTIONS_2'] = [
+  //     [Msg['TEXT_GET_SUBSTRING_END_FROM_START'], 'FROM_START'],
+  //     [Msg['TEXT_GET_SUBSTRING_END_FROM_END'], 'FROM_END'],
+  //     [Msg['TEXT_GET_SUBSTRING_END_LAST'], 'LAST'],
+  //   ];
+  //   this.setHelpUrl(Msg['TEXT_GET_SUBSTRING_HELPURL']);
+  //   this.setStyle('text_blocks');
+  //   this.appendValueInput('STRING')
+  //     .setCheck('String')
+  //     .appendField(Msg['TEXT_GET_SUBSTRING_INPUT_IN_TEXT']);
+  //   this.appendDummyInput('AT1');
+  //   this.appendDummyInput('AT2');
+  //   if (Msg['TEXT_GET_SUBSTRING_TAIL']) {
+  //     this.appendDummyInput('TAIL').appendField(Msg['TEXT_GET_SUBSTRING_TAIL']);
+  //   }
+  //   this.setInputsInline(true);
+  //   this.setOutput(true, 'String');
+  //   this.updateAt_(1, true);
+  //   this.updateAt_(2, true);
+  //   this.setTooltip(Msg['TEXT_GET_SUBSTRING_TOOLTIP']);
+  // }
+  {
+    type: 'text_getSubstring',
+    message0: 'get substring',
+    args0: [
+      {
+        type: 'input_value',
+        name: 'STRING',
+        check: 'String',
+      },
+      {
+        type: 'field_dropdown',
+        name: 'WHERE1',
+        options: [
+          ['%{BKY_TEXT_GET_SUBSTRING_START_FROM_START}', 'FROM_START'],
+          ['%{BKY_TEXT_GET_SUBSTRING_START_FROM_END}', 'FROM_END'],
+          ['%{BKY_TEXT_GET_SUBSTRING_START_FIRST}', 'FIRST'],
+        ],
+      },
+      {
+        type: 'input_value',
+        name: 'AT1',
+        check: 'Number',
+      },
+      {
+        type: 'field_dropdown',
+        name: 'WHERE2',
+        options: [
+          ['%{BKY_TEXT_GET_SUBSTRING_END_FROM_START}', 'FROM_START'],
+          ['%{BKY_TEXT_GET_SUBSTRING_END_FROM_END}', 'FROM_END'],
+          ['%{BKY_TEXT_GET_SUBSTRING_END_LAST}', 'LAST'],
+        ],
+      },
+      {
+        type: 'input_value',
+        name: 'AT2',
+        check: 'Number',
+      },
+    ],
+    output: 'String',
+    style: 'text_blocks',
+    helpUrl: '%{BKY_TEXT_GET_SUBSTRING_HELPURL}',
+    inputsInline: true,
+    extensions: ['text_getSubstring_tooltip'],
+  },
 ];
 const variables: BlockDefinitions = [
   // Block for variable getter.
@@ -617,6 +689,7 @@ const variables: BlockDefinitions = [
     tooltip: '%{BKY_VARIABLES_GET_TOOLTIP}',
     extensions: ['contextMenu_variableSetterGetter'],
     $codegenNoFunction: true,
+    $codegenForceInclude: true,
   },
   // Block for variable setter.
   {
@@ -640,6 +713,7 @@ const variables: BlockDefinitions = [
     helpUrl: '%{BKY_VARIABLES_SET_HELPURL}',
     extensions: ['contextMenu_variableSetterGetter'],
     $codegenNoFunction: true,
+    $codegenForceInclude: true,
   },
 ];
 export const definitions: BlockDefinitions = [
