@@ -1,4 +1,4 @@
-import { Color, LiteralString, LiteralNumber } from "./basic";
+import { Color } from "./basic";
 
 /**
  * A literal number which isn't dynamically created. Used to specify block fields, which can't be dynamic.
@@ -14,33 +14,29 @@ export type Union = {
   /**
    * Function generated for "logic_boolean" block.
    *
-   * @param BOOL - A field of type `'TRUE' | 'FALSE'`. It must be a literal, non-dynamic value.
+   * @param BOOL - An input block of type `'TRUE' | 'FALSE'`.
    */
-  logicBoolean: <T extends "TRUE" | "FALSE">(BOOL: LiteralString<T>) => boolean;
+  logicBoolean: (BOOL: "TRUE" | "FALSE") => boolean;
   /**
    * Function generated for "logic_compare" block.
    *
    * @param A - An input block of type `any`.
-   * @param OP - A field of type `'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE'`. It must be a literal, non-dynamic value.
+   * @param OP - An input block of type `'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE'`.
    * @param B - An input block of type `any`.
    */
-  logicCompare: <T extends "EQ" | "NEQ" | "LT" | "LTE" | "GT" | "GTE">(
+  logicCompare: (
     A: any,
-    OP: LiteralString<T>,
+    OP: "EQ" | "NEQ" | "LT" | "LTE" | "GT" | "GTE",
     B: any
   ) => boolean;
   /**
    * Function generated for "logic_operation" block.
    *
    * @param A - An input block of type `boolean`.
-   * @param OP - A field of type `'AND' | 'OR'`. It must be a literal, non-dynamic value.
+   * @param OP - An input block of type `'AND' | 'OR'`.
    * @param B - An input block of type `boolean`.
    */
-  logicOperation: <T extends "AND" | "OR">(
-    A: boolean,
-    OP: LiteralString<T>,
-    B: boolean
-  ) => boolean;
+  logicOperation: (A: boolean, OP: "AND" | "OR", B: boolean) => boolean;
   /**
    * Function generated for "logic_negate" block.
    *
@@ -50,61 +46,58 @@ export type Union = {
   /**
    * Function generated for "math_number" block.
    *
-   * @param NUM - A field of type `number`. It must be a literal, non-dynamic value.
+   * @param NUM - An input block of type `normal`.
    */
-  mathNumber: <T extends number>(NUM: LiteralNumber<T>) => number;
+  mathNumber: (NUM: normal) => number;
   /**
    * Function generated for "math_arithmetic" block.
    *
    * @param A - An input block of type `number`.
-   * @param OP - A field of type `'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' | 'POWER'`. It must be a literal, non-dynamic value.
+   * @param OP - An input block of type `'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' | 'POWER'`.
    * @param B - An input block of type `number`.
    */
-  mathArithmetic: <T extends "ADD" | "MINUS" | "MULTIPLY" | "DIVIDE" | "POWER">(
+  mathArithmetic: (
     A: number,
-    OP: LiteralString<T>,
+    OP: "ADD" | "MINUS" | "MULTIPLY" | "DIVIDE" | "POWER",
     B: number
   ) => number;
   /**
    * Function generated for "math_single" block.
    *
-   * @param OP - A field of type `'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10'`. It must be a literal, non-dynamic value.
+   * @param OP - An input block of type `'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10'`.
    * @param NUM - An input block of type `number`.
    */
-  mathSingle: <
-    T extends "ROOT" | "ABS" | "NEG" | "LN" | "LOG10" | "EXP" | "POW10"
-  >(
-    OP: LiteralString<T>,
+  mathSingle: (
+    OP: "ROOT" | "ABS" | "NEG" | "LN" | "LOG10" | "EXP" | "POW10",
     NUM: number
   ) => number;
   /**
    * Function generated for "math_trig" block.
    *
-   * @param OP - A field of type `'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN'`. It must be a literal, non-dynamic value.
+   * @param OP - An input block of type `'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN'`.
    * @param NUM - An input block of type `number`.
    */
-  mathTrig: <T extends "SIN" | "COS" | "TAN" | "ASIN" | "ACOS" | "ATAN">(
-    OP: LiteralString<T>,
+  mathTrig: (
+    OP: "SIN" | "COS" | "TAN" | "ASIN" | "ACOS" | "ATAN",
     NUM: number
   ) => number;
   /**
    * Function generated for "math_constant" block.
    *
-   * @param CONSTANT - A field of type `'PI' | 'E' | 'GOLDEN_RATIO' | 'SQRT2' | 'SQRT1_2' | 'INFINITY'`. It must be a literal, non-dynamic value.
+   * @param CONSTANT - An input block of type `'PI' | 'E' | 'GOLDEN_RATIO' | 'SQRT2' | 'SQRT1_2' | 'INFINITY'`.
    */
-  mathConstant: <
-    T extends "PI" | "E" | "GOLDEN_RATIO" | "SQRT2" | "SQRT1_2" | "INFINITY"
-  >(
-    CONSTANT: LiteralString<T>
+  mathConstant: (
+    CONSTANT: "PI" | "E" | "GOLDEN_RATIO" | "SQRT2" | "SQRT1_2" | "INFINITY"
   ) => number;
   /**
    * Function generated for "math_number_property" block.
    *
    * @param NUMBER_TO_CHECK - An input block of type `number`.
-   * @param PROPERTY - A field of type `'EVEN' | 'ODD' | 'PRIME' | 'WHOLE' | 'POSITIVE' | 'NEGATIVE' | 'DIVISIBLE_BY'`. It must be a literal, non-dynamic value.
+   * @param PROPERTY - An input block of type `'EVEN' | 'ODD' | 'PRIME' | 'WHOLE' | 'POSITIVE' | 'NEGATIVE' | 'DIVISIBLE_BY'`.
    */
-  mathNumberProperty: <
-    T extends
+  mathNumberProperty: (
+    NUMBER_TO_CHECK: number,
+    PROPERTY:
       | "EVEN"
       | "ODD"
       | "PRIME"
@@ -112,20 +105,14 @@ export type Union = {
       | "POSITIVE"
       | "NEGATIVE"
       | "DIVISIBLE_BY"
-  >(
-    NUMBER_TO_CHECK: number,
-    PROPERTY: LiteralString<T>
   ) => boolean;
   /**
    * Function generated for "math_round" block.
    *
-   * @param OP - A field of type `'ROUND' | 'ROUNDUP' | 'ROUNDDOWN'`. It must be a literal, non-dynamic value.
+   * @param OP - An input block of type `'ROUND' | 'ROUNDUP' | 'ROUNDDOWN'`.
    * @param NUM - An input block of type `number`.
    */
-  mathRound: <T extends "ROUND" | "ROUNDUP" | "ROUNDDOWN">(
-    OP: LiteralString<T>,
-    NUM: number
-  ) => number;
+  mathRound: (OP: "ROUND" | "ROUNDUP" | "ROUNDDOWN", NUM: number) => number;
   /**
    * Function generated for "math_modulo" block.
    *
@@ -163,9 +150,9 @@ export type Union = {
   /**
    * Function generated for "text" block.
    *
-   * @param TEXT - A field of type `string`. It must be a literal, non-dynamic value.
+   * @param TEXT - An input block of type `string`.
    */
-  text: <T extends string>(TEXT: LiteralString<T>) => string;
+  text: (TEXT: string) => string;
   /**
    * Function generated for "text_length" block.
    *
@@ -182,14 +169,10 @@ export type Union = {
    * Function generated for "text_indexOf" block.
    *
    * @param VALUE - An input block of type `string`.
-   * @param END - A field of type `'FIRST' | 'LAST'`. It must be a literal, non-dynamic value.
+   * @param END - An input block of type `'FIRST' | 'LAST'`.
    * @param FIND - An input block of type `string`.
    */
-  inText: <T extends "FIRST" | "LAST">(
-    VALUE: string,
-    END: LiteralString<T>,
-    FIND: string
-  ) => number;
+  inText: (VALUE: string, END: "FIRST" | "LAST", FIND: string) => number;
   /**
    * Function generated for "message_broadcaster" block.
    *
@@ -355,9 +338,9 @@ export type Union = {
   /**
    * Function generated for "set_text_color" block.
    *
-   * @param set_text_color_to - A field of type `string`. It must be a literal, non-dynamic value.
+   * @param set_text_color_to - An input block of type `Color`.
    */
-  setTextColorTo: <T extends string>(set_text_color_to: Color<T>) => void;
+  setTextColorTo: (set_text_color_to: Color) => void;
   /**
    * Function generated for "set_image" block.
    *
@@ -367,9 +350,9 @@ export type Union = {
   /**
    * Function generated for "set_frame_color" block.
    *
-   * @param set_frame_color_to - A field of type `string`. It must be a literal, non-dynamic value.
+   * @param set_frame_color_to - An input block of type `Color`.
    */
-  setFrameColorTo: <T extends string>(set_frame_color_to: Color<T>) => void;
+  setFrameColorTo: (set_frame_color_to: Color) => void;
   /**
    * Function generated for "question_answering_streak" block.
    *

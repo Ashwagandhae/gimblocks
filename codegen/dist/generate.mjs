@@ -2041,7 +2041,7 @@ function generate3(defs) {
     reverseMap[map[key]] = key;
   }
   let out = `
-import { Color, LiteralString, LiteralNumber } from './basic';
+import { Color } from './basic';
 
 /**
  * A literal number which isn't dynamically created. Used to specify block fields, which can't be dynamic.
@@ -2151,22 +2151,19 @@ function generateArg(arg) {
       throw new Error("Statement args not supported");
     }
     case "field_colour": {
-      return generic("Color", "string");
+      return normal("Color");
     }
     case "field_dropdown": {
-      return generic(
-        "LiteralString",
-        arg.options.map((o) => `'${o[1]}'`).join(" | ")
-      );
+      return normal(arg.options.map((o) => `'${o[1]}'`).join(" | "));
     }
     case "field_number": {
-      return generic("LiteralNumber", "number");
+      return normal("normal");
     }
     case "field_variable": {
       throw new Error("Variable args not supported");
     }
     case "field_input": {
-      return generic("LiteralString", "string");
+      return normal("string");
     }
     default:
       throw new Error("Unknown argument type: " + arg);
