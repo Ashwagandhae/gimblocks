@@ -6874,12 +6874,13 @@ function keysOf(obj) {
   return Object.keys(obj);
 }
 function convertCallExpressionToFunctionBlock(ctx, expr, identifierName) {
-  let blockType = keysOf(functionNameMap).find(
-    (block) => functionNameMap[block] == identifierName
+  const key = keysOf(functionNameMap).find(
+    (functionName) => functionName == identifierName
   );
-  if (blockType == null) {
+  if (key == null) {
     return null;
   }
+  const blockType = functionNameMap[key];
   let def = findBlockDefinition(blockType);
   let args = (def?.args0 ?? []).filter((arg) => arg.type != "input_dummy");
   if (args.length != expr.arguments.length) {
