@@ -2041,14 +2041,10 @@ function generate3(defs) {
     reverseMap[map[key]] = key;
   }
   let out = `
+import { Color, LiteralString, LiteralNumber } from './basic';
+
 /**
- * The color type. A hex string, rgb value, etc.
- * 
- * @example
- * '#ff0000'
- * 'rgb(255, 0, 0)'
- */
-export type Color = string;
+ * A literal number which isn't dynamically created. Used to specify block fields, which can't be dynamic.
 
 /**
  * The union of all possible devices.
@@ -2069,6 +2065,7 @@ export type Union = {`;
 };`;
   return out;
 }
+var genericVarNames = ["T", "U", "V", "W", "X", "Y", "Z"];
 function generateFunction(def, map) {
   if (def.$codegenNoFunction) {
     return null;
@@ -2077,15 +2074,48 @@ function generateFunction(def, map) {
   let out = `
 /**
  * Function generated for "${def.type}" block. 
- */
-${functionName}: (`;
+ * 
+`;
   let args = def.args0 ?? [];
+  let genericStrings = [];
+  let argStrings = [];
+  let argDescs = [];
+  let genericVarNameIndex = 0;
   for (let arg of args) {
-    let argString = generateArg(arg);
-    if (argString == null)
+    let res = generateArg(arg);
+    if (res == null)
       continue;
-    out += argString + ", ";
+    switch (res.tag) {
+      case "normal": {
+        argStrings.push(res.argString);
+        argDescs.push(res.argDesc);
+        break;
+      }
+      case "generic": {
+        let next = genericVarNames[genericVarNameIndex];
+        if (next == null) {
+          throw new Error(`Too many generic variables in ${def.type}`);
+        }
+        let { argString, argDesc, genericString } = res.create(next);
+        argStrings.push(argString);
+        argDescs.push(argDesc);
+        genericStrings.push(genericString);
+        break;
+      }
+    }
   }
+  for (let desc of argDescs) {
+    out += ` * ${desc}
+`;
+  }
+  out += ` */
+`;
+  out += `${functionName}: `;
+  if (genericStrings.length > 0) {
+    out += `<${genericStrings.join(", ")}>`;
+  }
+  out += `(`;
+  out += argStrings.join(", ");
   out += `) => ${generateReturnType(def)};`;
   return out;
 }
@@ -2094,38 +2124,53 @@ function generateArg(arg) {
     return null;
   }
   let argName = arg.name;
-  let argType;
+  function normal(type) {
+    return {
+      tag: "normal",
+      argString: `${argName}: ${type}`,
+      argDesc: `@param ${argName} - An input block of type \`${type}\`.`
+    };
+  }
+  function generic(generic2, bounds) {
+    return {
+      tag: "generic",
+      create: (varName) => {
+        return {
+          argString: `${argName}: ${generic2}<${varName}>`,
+          argDesc: `@param ${argName} - A field of type \`${bounds}\`. It must be a literal, non-dynamic value.`,
+          genericString: `${varName} extends ${bounds}`
+        };
+      }
+    };
+  }
   switch (arg.type) {
     case "input_value": {
-      argType = checkToType(arg.check);
-      break;
+      return normal(checkToType(arg.check));
     }
     case "input_statement": {
       throw new Error("Statement args not supported");
     }
     case "field_colour": {
-      argType = "Color";
-      break;
+      return generic("Color", "string");
     }
     case "field_dropdown": {
-      argType = arg.options.map((o) => `'${o[1]}'`).join(" | ");
-      break;
+      return generic(
+        "LiteralString",
+        arg.options.map((o) => `'${o[1]}'`).join(" | ")
+      );
     }
     case "field_number": {
-      argType = "number";
-      break;
+      return generic("LiteralNumber", "number");
     }
     case "field_variable": {
       throw new Error("Variable args not supported");
     }
     case "field_input": {
-      argType = "string";
-      break;
+      return generic("LiteralString", "string");
     }
     default:
       throw new Error("Unknown argument type: " + arg);
   }
-  return `${argName}: ${argType}`;
 }
 function generateReturnType(def) {
   if (!def.hasOwnProperty("output")) {
