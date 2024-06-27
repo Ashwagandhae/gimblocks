@@ -46,9 +46,9 @@ export type Union = {
   /**
    * Function generated for "math_number" block.
    *
-   * @param NUM - An input block of type `normal`.
+   * @param NUM - An input block of type `number`.
    */
-  mathNumber: (NUM: normal) => number;
+  mathNumber: (NUM: number) => number;
   /**
    * Function generated for "math_arithmetic" block.
    *

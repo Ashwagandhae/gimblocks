@@ -2157,7 +2157,7 @@ function generateArg(arg) {
       return normal(arg.options.map((o) => `'${o[1]}'`).join(" | "));
     }
     case "field_number": {
-      return normal("normal");
+      return normal("number");
     }
     case "field_variable": {
       throw new Error("Variable args not supported");
