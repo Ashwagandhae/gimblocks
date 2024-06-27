@@ -6736,24 +6736,10 @@ function convertIdentifierCallExpression(ctx, expr, identifier) {
     case "alert":
       return { type: "skip" };
     default: {
-      if (ctx.device != null) {
-        throw new ConvertError(
-          "Invalid function call: " + identifier.name,
-          identifier
-        );
-      }
-      const ret = convertCallExpressionToFunctionBlock(
-        ctx,
-        expr,
-        identifier.name
+      throw new ConvertError(
+        "Invalid function call: " + identifier.name,
+        identifier
       );
-      if (ret == null) {
-        throw new ConvertError(
-          "Invalid function name: " + identifier.name,
-          identifier
-        );
-      }
-      return ret;
     }
   }
 }

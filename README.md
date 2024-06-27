@@ -73,7 +73,7 @@ console.log(JSON.stringify(blocks));
 
 Outputs JSON representation of Blockly blocks:
 
-```json
+```javascript
 {
   "blocks": {
     "languageVersion": 0,
