@@ -14,14 +14,14 @@ export type Union = {
   /**
    * Function generated for "logic_boolean" block.
    *
-   * @param BOOL - An input block of type `'TRUE' | 'FALSE'`.
+   * @param BOOL - A field of type `'TRUE' | 'FALSE'`. It must be a literal, non-dynamic value.
    */
   logicBoolean: (BOOL: "TRUE" | "FALSE") => boolean;
   /**
    * Function generated for "logic_compare" block.
    *
    * @param A - An input block of type `any`.
-   * @param OP - An input block of type `'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE'`.
+   * @param OP - A field of type `'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE'`. It must be a literal, non-dynamic value.
    * @param B - An input block of type `any`.
    */
   logicCompare: (
@@ -33,7 +33,7 @@ export type Union = {
    * Function generated for "logic_operation" block.
    *
    * @param A - An input block of type `boolean`.
-   * @param OP - An input block of type `'AND' | 'OR'`.
+   * @param OP - A field of type `'AND' | 'OR'`. It must be a literal, non-dynamic value.
    * @param B - An input block of type `boolean`.
    */
   logicOperation: (A: boolean, OP: "AND" | "OR", B: boolean) => boolean;
@@ -46,14 +46,14 @@ export type Union = {
   /**
    * Function generated for "math_number" block.
    *
-   * @param NUM - An input block of type `number`.
+   * @param NUM - A field of type `number`. It must be a literal, non-dynamic value.
    */
   mathNumber: (NUM: number) => number;
   /**
    * Function generated for "math_arithmetic" block.
    *
    * @param A - An input block of type `number`.
-   * @param OP - An input block of type `'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' | 'POWER'`.
+   * @param OP - A field of type `'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' | 'POWER'`. It must be a literal, non-dynamic value.
    * @param B - An input block of type `number`.
    */
   mathArithmetic: (
@@ -64,7 +64,7 @@ export type Union = {
   /**
    * Function generated for "math_single" block.
    *
-   * @param OP - An input block of type `'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10'`.
+   * @param OP - A field of type `'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10'`. It must be a literal, non-dynamic value.
    * @param NUM - An input block of type `number`.
    */
   mathSingle: (
@@ -74,7 +74,7 @@ export type Union = {
   /**
    * Function generated for "math_trig" block.
    *
-   * @param OP - An input block of type `'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN'`.
+   * @param OP - A field of type `'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN'`. It must be a literal, non-dynamic value.
    * @param NUM - An input block of type `number`.
    */
   mathTrig: (
@@ -84,7 +84,7 @@ export type Union = {
   /**
    * Function generated for "math_constant" block.
    *
-   * @param CONSTANT - An input block of type `'PI' | 'E' | 'GOLDEN_RATIO' | 'SQRT2' | 'SQRT1_2' | 'INFINITY'`.
+   * @param CONSTANT - A field of type `'PI' | 'E' | 'GOLDEN_RATIO' | 'SQRT2' | 'SQRT1_2' | 'INFINITY'`. It must be a literal, non-dynamic value.
    */
   mathConstant: (
     CONSTANT: "PI" | "E" | "GOLDEN_RATIO" | "SQRT2" | "SQRT1_2" | "INFINITY"
@@ -93,7 +93,7 @@ export type Union = {
    * Function generated for "math_number_property" block.
    *
    * @param NUMBER_TO_CHECK - An input block of type `number`.
-   * @param PROPERTY - An input block of type `'EVEN' | 'ODD' | 'PRIME' | 'WHOLE' | 'POSITIVE' | 'NEGATIVE' | 'DIVISIBLE_BY'`.
+   * @param PROPERTY - A field of type `'EVEN' | 'ODD' | 'PRIME' | 'WHOLE' | 'POSITIVE' | 'NEGATIVE' | 'DIVISIBLE_BY'`. It must be a literal, non-dynamic value.
    */
   mathNumberProperty: (
     NUMBER_TO_CHECK: number,
@@ -109,7 +109,7 @@ export type Union = {
   /**
    * Function generated for "math_round" block.
    *
-   * @param OP - An input block of type `'ROUND' | 'ROUNDUP' | 'ROUNDDOWN'`.
+   * @param OP - A field of type `'ROUND' | 'ROUNDUP' | 'ROUNDDOWN'`. It must be a literal, non-dynamic value.
    * @param NUM - An input block of type `number`.
    */
   mathRound: (OP: "ROUND" | "ROUNDUP" | "ROUNDDOWN", NUM: number) => number;
@@ -150,7 +150,7 @@ export type Union = {
   /**
    * Function generated for "text" block.
    *
-   * @param TEXT - An input block of type `string`.
+   * @param TEXT - A field of type `string`. It must be a literal, non-dynamic value.
    */
   text: (TEXT: string) => string;
   /**
@@ -169,7 +169,7 @@ export type Union = {
    * Function generated for "text_indexOf" block.
    *
    * @param VALUE - An input block of type `string`.
-   * @param END - An input block of type `'FIRST' | 'LAST'`.
+   * @param END - A field of type `'FIRST' | 'LAST'`. It must be a literal, non-dynamic value.
    * @param FIND - An input block of type `string`.
    */
   inText: (VALUE: string, END: "FIRST" | "LAST", FIND: string) => number;
@@ -338,7 +338,7 @@ export type Union = {
   /**
    * Function generated for "set_text_color" block.
    *
-   * @param set_text_color_to - An input block of type `Color`.
+   * @param set_text_color_to - A field of type `Color`. It must be a literal, non-dynamic value.
    */
   setTextColorTo: (set_text_color_to: Color) => void;
   /**
@@ -350,7 +350,7 @@ export type Union = {
   /**
    * Function generated for "set_frame_color" block.
    *
-   * @param set_frame_color_to - An input block of type `Color`.
+   * @param set_frame_color_to - A field of type `Color`. It must be a literal, non-dynamic value.
    */
   setFrameColorTo: (set_frame_color_to: Color) => void;
   /**

@@ -2124,46 +2124,34 @@ function generateArg(arg) {
     return null;
   }
   let argName = arg.name;
-  function normal(type) {
+  function normal(type, input) {
     return {
       tag: "normal",
       argString: `${argName}: ${type}`,
-      argDesc: `@param ${argName} - An input block of type \`${type}\`.`
-    };
-  }
-  function generic(generic2, bounds) {
-    return {
-      tag: "generic",
-      create: (varName) => {
-        return {
-          argString: `${argName}: ${generic2}<${varName}>`,
-          argDesc: `@param ${argName} - A field of type \`${bounds}\`. It must be a literal, non-dynamic value.`,
-          genericString: `${varName} extends ${bounds}`
-        };
-      }
+      argDesc: input ? `@param ${argName} - An input block of type \`${type}\`.` : `@param ${argName} - A field of type \`${type}\`. It must be a literal, non-dynamic value.`
     };
   }
   switch (arg.type) {
     case "input_value": {
-      return normal(checkToType(arg.check));
+      return normal(checkToType(arg.check), true);
     }
     case "input_statement": {
       throw new Error("Statement args not supported");
     }
     case "field_colour": {
-      return normal("Color");
+      return normal("Color", false);
     }
     case "field_dropdown": {
-      return normal(arg.options.map((o) => `'${o[1]}'`).join(" | "));
+      return normal(arg.options.map((o) => `'${o[1]}'`).join(" | "), false);
     }
     case "field_number": {
-      return normal("number");
+      return normal("number", false);
     }
     case "field_variable": {
       throw new Error("Variable args not supported");
     }
     case "field_input": {
-      return normal("string");
+      return normal("string", false);
     }
     default:
       throw new Error("Unknown argument type: " + arg);

@@ -111,7 +111,10 @@ function generateArg(arg: Argument):
   }
 
   let argName = arg.name;
-  function normal(type: string): {
+  function normal(
+    type: string,
+    input: boolean
+  ): {
     tag: 'normal';
     argString: string;
     argDesc: string;
@@ -119,52 +122,54 @@ function generateArg(arg: Argument):
     return {
       tag: 'normal',
       argString: `${argName}: ${type}`,
-      argDesc: `@param ${argName} - An input block of type \`${type}\`.`,
+      argDesc: input
+        ? `@param ${argName} - An input block of type \`${type}\`.`
+        : `@param ${argName} - A field of type \`${type}\`. It must be a literal, non-dynamic value.`,
     };
   }
-  function generic(
-    generic: string,
-    bounds: string
-  ): {
-    tag: 'generic';
-    create: (varName: string) => {
-      argString: string;
-      argDesc: string;
-      genericString: string;
-    };
-  } {
-    return {
-      tag: 'generic',
-      create: (varName: string) => {
-        return {
-          argString: `${argName}: ${generic}<${varName}>`,
-          argDesc: `@param ${argName} - A field of type \`${bounds}\`. It must be a literal, non-dynamic value.`,
-          genericString: `${varName} extends ${bounds}`,
-        };
-      },
-    };
-  }
+  // function generic(
+  //   generic: string,
+  //   bounds: string
+  // ): {
+  //   tag: 'generic';
+  //   create: (varName: string) => {
+  //     argString: string;
+  //     argDesc: string;
+  //     genericString: string;
+  //   };
+  // } {
+  //   return {
+  //     tag: 'generic',
+  //     create: (varName: string) => {
+  //       return {
+  //         argString: `${argName}: ${generic}<${varName}>`,
+  //         argDesc: `@param ${argName} - A field of type \`${bounds}\`. It must be a literal, non-dynamic value.`,
+  //         genericString: `${varName} extends ${bounds}`,
+  //       };
+  //     },
+  //   };
+  // }
   switch (arg.type) {
     case 'input_value': {
-      return normal(checkToType(arg.check));
+      return normal(checkToType(arg.check), true);
     }
     case 'input_statement': {
       throw new Error('Statement args not supported');
     }
     case 'field_colour': {
-      return normal('Color');
+      return normal('Color', false);
     }
     case 'field_dropdown': {
-      return normal(arg.options.map((o) => `'${o[1]}'`).join(' | '));
+      return normal(arg.options.map((o) => `'${o[1]}'`).join(' | '), false);
     }
     case 'field_number': {
-      return normal('number');
+      return normal('number', false);
     }
     case 'field_variable': {
       throw new Error('Variable args not supported');
     }
     case 'field_input': {
-      return normal('string');
+      return normal('string', false);
     }
     default:
       throw new Error('Unknown argument type: ' + arg);
