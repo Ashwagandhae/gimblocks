@@ -123,8 +123,8 @@ function generateArg(arg: Argument):
       tag: 'normal',
       argString: `${argName}: ${type}`,
       argDesc: input
-        ? `@param ${argName} - An input block of type \`${type}\`.`
-        : `@param ${argName} - A field of type \`${type}\`. It must be a literal, non-dynamic value.`,
+        ? `@param ${argName} - An input block.`
+        : `@param ${argName} - A field. It must be a literal, non-dynamic value.`,
     };
   }
   // function generic(
