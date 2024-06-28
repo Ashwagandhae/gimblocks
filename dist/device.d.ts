@@ -118,7 +118,7 @@ type Union = {
      * @param WHERE2 - A field. It must be a literal, non-dynamic value.
      * @param AT2 - An input block.
      */
-    getSubstring: (STRING: string, WHERE1: "FROM_START" | "FROM_END" | "FIRST", AT1: number, WHERE2: "FROM_START" | "FROM_END" | "LAST", AT2: number) => string;
+    inTextGetSubstringFromTo: (STRING: string, WHERE1: "FROM_START" | "FROM_END" | "FIRST", AT1: number, WHERE2: "FROM_START" | "FROM_END" | "LAST", AT2: number) => string;
     /**
      * Function generated for "message_broadcaster" block.
      *

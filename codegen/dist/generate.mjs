@@ -829,7 +829,8 @@ var logical = [
     extensions: ["controls_if_tooltip"],
     $codegenCustomInputsType: "Partial<Record<`IF${number}`, {block: BooleanValueBlock | MaybeBooleanValueBlock}> & Record<`DO${number}` | 'ELSE', {block: StatementBlock}>>",
     $codegenIntersectsWith: "{ extraState?: { hasElse?: true; elseIfCount?: number; } }",
-    $codegenNoFunction: true
+    $codegenNoFunction: true,
+    $codegenSugar: "if { ... } else { ... }"
   },
   // Block for comparison operator.
   {
@@ -1244,7 +1245,7 @@ var text = [
   },
   {
     type: "text_join",
-    message0: "",
+    message0: "create text with",
     output: "String",
     style: "text_blocks",
     helpUrl: "%{BKY_TEXT_JOIN_HELPURL}",
@@ -1390,7 +1391,7 @@ var text = [
   // }
   {
     type: "text_getSubstring",
-    message0: "get substring",
+    message0: "in text %1 get substring from %2 %3 to %4 %5",
     args0: [
       {
         type: "input_value",
@@ -1938,6 +1939,133 @@ function processType(type) {
     }
   }).join("");
 }
+var genericVarNames = ["T", "U", "V", "W", "X", "Y", "Z"];
+function generateFunction(def, map, style = "codegen") {
+  if (def.$codegenNoFunction) {
+    return null;
+  }
+  let functionName = map[def.type];
+  let out = "";
+  if (style == "codegen") {
+    out += `
+    /**
+     * Function generated for "${def.type}" block. 
+     * 
+    `;
+  }
+  let args = def.args0 ?? [];
+  let genericStrings = [];
+  let argStrings = [];
+  let argDescs = [];
+  let genericVarNameIndex = 0;
+  for (let arg of args) {
+    let res = generateArg(arg);
+    if (res == null)
+      continue;
+    switch (res.tag) {
+      case "normal": {
+        argStrings.push(res.argString);
+        argDescs.push(res.argDesc);
+        break;
+      }
+      case "generic": {
+        let next = genericVarNames[genericVarNameIndex];
+        if (next == null) {
+          throw new Error(`Too many generic variables in ${def.type}`);
+        }
+        let { argString, argDesc, genericString } = res.create(next);
+        argStrings.push(argString);
+        argDescs.push(argDesc);
+        genericStrings.push(genericString);
+        break;
+      }
+    }
+  }
+  if (style == "codegen") {
+    for (let desc of argDescs) {
+      out += ` * ${desc}
+`;
+    }
+    out += ` */
+`;
+  }
+  if (style == "codegen") {
+    out += `${functionName}: `;
+  } else {
+    out += `function ${functionName}`;
+  }
+  if (genericStrings.length > 0) {
+    out += `<${genericStrings.join(", ")}>`;
+  }
+  out += `(`;
+  out += argStrings.join(", ");
+  if (style == "codegen") {
+    out += `) => ${generateReturnType(def)};`;
+  } else {
+    out += `): ${generateReturnType(def)};`;
+  }
+  return out;
+}
+function generateArg(arg) {
+  if (arg.type == "input_dummy") {
+    return null;
+  }
+  let argName = arg.name;
+  function normal(type, input) {
+    return {
+      tag: "normal",
+      argString: `${argName}: ${type}`,
+      argDesc: input ? `@param ${argName} - An input block.` : `@param ${argName} - A field. It must be a literal, non-dynamic value.`
+    };
+  }
+  switch (arg.type) {
+    case "input_value": {
+      return normal(checkToType(arg.check), true);
+    }
+    case "input_statement": {
+      throw new Error("Statement args not supported");
+    }
+    case "field_colour": {
+      return normal("Color", false);
+    }
+    case "field_dropdown": {
+      return normal(arg.options.map((o) => `'${o[1]}'`).join(" | "), false);
+    }
+    case "field_number": {
+      return normal("number", false);
+    }
+    case "field_variable": {
+      throw new Error("Variable args not supported");
+    }
+    case "field_input": {
+      return normal("string", false);
+    }
+    default:
+      throw new Error("Unknown argument type: " + arg);
+  }
+}
+function generateReturnType(def) {
+  if (!def.hasOwnProperty("output")) {
+    return "void";
+  }
+  return checkToType(def.output);
+}
+function checkToType(check) {
+  switch (check) {
+    case "Number":
+      return "number";
+    case "String":
+      return "string";
+    case "Boolean":
+      return "boolean";
+    case null:
+      return "any";
+    case void 0:
+      return "any";
+    default:
+      return check.map(checkToType).join(" | ");
+  }
+}
 
 // src/lib/blocks.ts
 function generate2(definitions2) {
@@ -2144,118 +2272,193 @@ export type Union = {`;
 };`;
   return out;
 }
-var genericVarNames = ["T", "U", "V", "W", "X", "Y", "Z"];
-function generateFunction(def, map) {
-  if (def.$codegenNoFunction) {
-    return null;
+
+// src/lib/docs.ts
+function generate4(defs) {
+  let map = generateFunctionNameMap(defs);
+  let reverseMap = {};
+  for (let key in map) {
+    reverseMap[map[key]] = key;
   }
-  let functionName = map[def.type];
   let out = `
-/**
- * Function generated for "${def.type}" block. 
- * 
-`;
-  let args = def.args0 ?? [];
-  let genericStrings = [];
-  let argStrings = [];
-  let argDescs = [];
-  let genericVarNameIndex = 0;
-  for (let arg of args) {
-    let res = generateArg(arg);
-    if (res == null)
-      continue;
-    switch (res.tag) {
-      case "normal": {
-        argStrings.push(res.argString);
-        argDescs.push(res.argDesc);
-        break;
-      }
-      case "generic": {
-        let next = genericVarNames[genericVarNameIndex];
-        if (next == null) {
-          throw new Error(`Too many generic variables in ${def.type}`);
-        }
-        let { argString, argDesc, genericString } = res.create(next);
-        argStrings.push(argString);
-        argDescs.push(argDesc);
-        genericStrings.push(genericString);
-        break;
-      }
-    }
+# Block to JavaScript code conversion table
+
+## Guide
+
+**Block Type**: The built-in type field of the block.
+
+**Example**: A visual representation of the block.
+
+**JavaScript Function**: The JavaScript function that converts to the block. 
+  - The function name is created using a simple algorithm:
+      - If there's text written on the block, punctuation is removed and the text is converted to camelCase to make the function name.
+      - If there's no text written on the block or there's a name collision, the function name is the block type converted to camelCase.
+  - Doesn't exist for some blocks where it's not possible (for example \`if\`)\u2014see the Sugar column in that case. 
+
+  
+**Sugar**: The shorthand syntax for the block, if it exists.
+  - Should intuitively map JavaScript features to blocks. For example, \`if { ... }\` maps to an \`if\` block.
+
+## Table
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
   }
-  for (let desc of argDescs) {
-    out += ` * ${desc}
-`;
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
   }
-  out += ` */
-`;
-  out += `${functionName}: `;
-  if (genericStrings.length > 0) {
-    out += `<${genericStrings.join(", ")}>`;
+  .text {
+    white-space: pre-wrap;
   }
-  out += `(`;
-  out += argStrings.join(", ");
-  out += `) => ${generateReturnType(def)};`;
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
+<table>
+  <tr>
+    <th>Block Type</th>
+    <th>Example</th>
+    <th>JavaScript Function</th>
+    <th>Sugar</th>
+  </tr>
+`;
+  for (let def of defs) {
+    let functionString = generateRow(def, reverseMap);
+    out += functionString;
+  }
+  out += `
+</table>
+`;
   return out;
 }
-function generateArg(arg) {
-  if (arg.type == "input_dummy") {
-    return null;
+function styleToHue(style) {
+  switch (style) {
+    case "logic_blocks":
+      return 210;
+    case "math_blocks":
+      return 230;
+    case "text_blocks":
+      return 161;
+    case "variable_blocks":
+      return 329;
+    default:
+      return 0;
   }
-  let argName = arg.name;
-  function normal(type, input) {
-    return {
-      tag: "normal",
-      argString: `${argName}: ${type}`,
-      argDesc: input ? `@param ${argName} - An input block.` : `@param ${argName} - A field. It must be a literal, non-dynamic value.`
-    };
+}
+function encloseInTypescriptOrEmpty(string) {
+  if (string == null) {
+    return "";
   }
+  return `
+
+\`\`\`typescript
+${string}
+\`\`\`
+
+`;
+}
+function generateRow(def, functionNameMap) {
+  let blockString = generateBlockHtml(def);
+  let functionString = encloseInTypescriptOrEmpty(
+    generateFunction(def, functionNameMap, "docs")
+  );
+  let sugarString = encloseInTypescriptOrEmpty(def.$codegenSugar);
+  let out = `
+<tr>
+<td>${def.type}</td>
+<td><p>
+${blockString}
+</p></td>
+<td>
+${functionString}
+</td>
+<td>
+${sugarString}
+</td>
+`;
+  return out;
+}
+function generateBlockHtml(def) {
+  let out = `
+  <div class="block"`;
+  out += ` style="--block-hue: ${def.colour ?? styleToHue(def.style ?? "")}"`;
+  out += `>`;
+  out += generateBlockMessage(def);
+  out += `</div>`;
+  return out;
+}
+function generateBlockMessage(def) {
+  let out = getEn(def.message0);
+  if (def.args0 == null)
+    return out;
+  for (let i = 0; i < def.args0.length; i++) {
+    let num = i + 1;
+    if (out.includes(`%${num}`)) {
+      out = out.replace(`%${num}`, generateArgHtml(def.args0[i]));
+    }
+  }
+  return out;
+}
+function generateArgHtml(arg) {
   switch (arg.type) {
-    case "input_value": {
-      return normal(checkToType(arg.check), true);
-    }
-    case "input_statement": {
-      throw new Error("Statement args not supported");
-    }
-    case "field_colour": {
-      return normal("Color", false);
-    }
-    case "field_dropdown": {
-      return normal(arg.options.map((o) => `'${o[1]}'`).join(" | "), false);
-    }
-    case "field_number": {
-      return normal("number", false);
-    }
-    case "field_variable": {
-      throw new Error("Variable args not supported");
-    }
-    case "field_input": {
-      return normal("string", false);
-    }
+    case "input_value":
+      return `<span class="hole"></span>`;
+    case "input_dummy":
+      return "<br>";
+    case "input_statement":
+      return `<span class="hole"></span>`;
+    case "field_colour":
+      return `<span class="field color"></span>`;
+    case "field_dropdown":
+      let optString = arg.options[0][0];
+      return `<span class="field">${getEn(optString)}</span>`;
+    case "field_number":
+      return `<span class="field">0</span>`;
+    case "field_variable":
+      return `<span class="field">x</span>`;
+    case "field_input":
+      return `<span class="field">text</span>`;
     default:
-      throw new Error("Unknown argument type: " + arg);
-  }
-}
-function generateReturnType(def) {
-  if (!def.hasOwnProperty("output")) {
-    return "void";
-  }
-  return checkToType(def.output);
-}
-function checkToType(check) {
-  switch (check) {
-    case "Number":
-      return "number";
-    case "String":
-      return "string";
-    case "Boolean":
-      return "boolean";
-    case null:
-      return "any";
-    case void 0:
-      return "any";
-    default:
-      return check.map(checkToType).join(" | ");
+      throw new Error(`Unknown arg type: ${arg}`);
   }
 }
 
@@ -2332,3 +2535,4 @@ primitiveBlocksMatchesBlockCategories(
 );
 writeFileSync2("./src/lib/blocks/generated.ts", generate2(blockDefs));
 writeFileSync2("./src/lib/device/generated.ts", generate3(blockDefs));
+writeFileSync2("./docs/functions.md", generate4(blockDefs));

@@ -135,7 +135,7 @@ export type Union = {
    * @param WHERE2 - A field. It must be a literal, non-dynamic value.
    * @param AT2 - An input block.
    */
-  getSubstring: (
+  inTextGetSubstringFromTo: (
     STRING: string,
     WHERE1: "FROM_START" | "FROM_END" | "FIRST",
     AT1: number,

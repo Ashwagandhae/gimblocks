@@ -31,6 +31,7 @@ export type BlockDefinition = {
   $codegenIntersectsWith?: string;
   $codegenNoFunction?: boolean;
   $codegenForceInclude?: boolean;
+  $codegenSugar?: string;
 };
 type Style = 'logic_blocks' | 'math_blocks' | 'variable_blocks' | 'text_blocks';
 export type Argument =

@@ -105,3 +105,13 @@ Outputs JSON representation of Blockly blocks:
 These can be injected into Gimkit's Blockly editor with a tool like [BlockConverter](https://github.com/Ashwagandhae/gimkit-block-converter), creating these blocks:
 
 <img src="./images/blocks-example.jpg" alt="blocks example" width="408"/>
+
+## Docs
+
+### Usage
+
+- [Getting Started](./docs/getting-started.md)
+
+### Reference
+
+See the [functions page](./docs/functions.md) for a block to JavaScript code conversion table.

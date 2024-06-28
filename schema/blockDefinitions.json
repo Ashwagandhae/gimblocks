@@ -81,6 +81,9 @@
       },
       "$codegenForceInclude": {
         "type": "boolean"
+      },
+      "$codegenSugar": {
+        "type": "string"
       }
     },
     "additionalProperties": false

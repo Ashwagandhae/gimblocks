@@ -666,6 +666,7 @@ export const blockDefinitions = [
     $codegenIntersectsWith:
       "{ extraState?: { hasElse?: true; elseIfCount?: number; } }",
     $codegenNoFunction: true,
+    $codegenSugar: "if { ... } else { ... }",
   },
   {
     type: "logic_compare",
@@ -883,7 +884,7 @@ export const blockDefinitions = [
   },
   {
     type: "text_join",
-    message0: "",
+    message0: "create text with",
     output: "String",
     style: "text_blocks",
     helpUrl: "%{BKY_TEXT_JOIN_HELPURL}",
@@ -950,7 +951,7 @@ export const blockDefinitions = [
   },
   {
     type: "text_getSubstring",
-    message0: "get substring",
+    message0: "in text %1 get substring from %2 %3 to %4 %5",
     args0: [
       { type: "input_value", name: "STRING", check: "String" },
       {
@@ -1694,11 +1695,11 @@ export const functionNameMap: Record<string, string> = {
   mathRound: "math_round",
   randomIntegerFromTo: "math_random_int",
   text: "text",
-  textJoin: "text_join",
+  createTextWith: "text_join",
   lengthOf: "text_length",
   inText: "text_indexOf",
   textCharAt: "text_charAt",
-  getSubstring: "text_getSubstring",
+  inTextGetSubstringFromTo: "text_getSubstring",
   variablesGet: "variables_get",
   setTo: "variables_set",
   broadcastMessageOnChannel: "message_broadcaster",

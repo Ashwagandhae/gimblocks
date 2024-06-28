@@ -53,6 +53,7 @@ const logical: BlockDefinitions = [
     $codegenIntersectsWith:
       '{ extraState?: { hasElse?: true; elseIfCount?: number; } }',
     $codegenNoFunction: true,
+    $codegenSugar: 'if { ... } else { ... }',
   },
   // Block for comparison operator.
   {
@@ -482,7 +483,7 @@ const text: BlockDefinitions = [
   },
   {
     type: 'text_join',
-    message0: '',
+    message0: 'create text with',
     output: 'String',
     style: 'text_blocks',
     helpUrl: '%{BKY_TEXT_JOIN_HELPURL}',
@@ -628,7 +629,7 @@ const text: BlockDefinitions = [
   // }
   {
     type: 'text_getSubstring',
-    message0: 'get substring',
+    message0: 'in text %1 get substring from %2 %3 to %4 %5',
     args0: [
       {
         type: 'input_value',

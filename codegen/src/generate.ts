@@ -6,6 +6,7 @@ import * as worldOptions from '../../data/worldOptions.json';
 import { definitions as primitiveBlockDefinitionsRaw } from '../../data/primitiveBlockDefinitions';
 import { generate as generateBlockTypes } from './lib/blocks';
 import { generate as generateDeviceTypes } from './lib/device';
+import { generate as generateDocs } from './lib/docs';
 
 import { writeFileSync } from 'fs';
 
@@ -59,3 +60,4 @@ primitiveBlocksMatchesBlockCategories(
 
 writeFileSync('./src/lib/blocks/generated.ts', generateBlockTypes(blockDefs));
 writeFileSync('./src/lib/device/generated.ts', generateDeviceTypes(blockDefs));
+writeFileSync('./docs/functions.md', generateDocs(blockDefs));

@@ -662,6 +662,7 @@ declare const blockDefinitions: readonly [{
     readonly $codegenCustomInputsType: "Partial<Record<`IF${number}`, {block: BooleanValueBlock | MaybeBooleanValueBlock}> & Record<`DO${number}` | 'ELSE', {block: StatementBlock}>>";
     readonly $codegenIntersectsWith: "{ extraState?: { hasElse?: true; elseIfCount?: number; } }";
     readonly $codegenNoFunction: true;
+    readonly $codegenSugar: "if { ... } else { ... }";
 }, {
     readonly type: "logic_compare";
     readonly message0: "%1 %2 %3";
@@ -852,7 +853,7 @@ declare const blockDefinitions: readonly [{
     readonly extensions: readonly ["text_quotes", "parent_tooltip_when_inline"];
 }, {
     readonly type: "text_join";
-    readonly message0: "";
+    readonly message0: "create text with";
     readonly output: "String";
     readonly style: "text_blocks";
     readonly helpUrl: "%{BKY_TEXT_JOIN_HELPURL}";
@@ -914,7 +915,7 @@ declare const blockDefinitions: readonly [{
     readonly $codegenNoFunction: true;
 }, {
     readonly type: "text_getSubstring";
-    readonly message0: "get substring";
+    readonly message0: "in text %1 get substring from %2 %3 to %4 %5";
     readonly args0: readonly [{
         readonly type: "input_value";
         readonly name: "STRING";
@@ -1602,6 +1603,7 @@ type BlockDefinition = {
     $codegenIntersectsWith?: string;
     $codegenNoFunction?: boolean;
     $codegenForceInclude?: boolean;
+    $codegenSugar?: string;
 };
 type Style = 'logic_blocks' | 'math_blocks' | 'variable_blocks' | 'text_blocks';
 type Argument = {
