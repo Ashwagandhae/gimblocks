@@ -33,7 +33,7 @@
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -85,7 +85,6 @@
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 210"><span class="field">true</span></div>
         </div>
     </foreignObject>
@@ -111,7 +110,7 @@ function logicBoolean(BOOL: 'TRUE' | 'FALSE'): boolean;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -163,7 +162,6 @@ function logicBoolean(BOOL: 'TRUE' | 'FALSE'): boolean;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 210">if <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -189,7 +187,7 @@ if { ... } else { ... }
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -241,7 +239,6 @@ if { ... } else { ... }
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 210"><span class="hole"></span> <span class="field">=</span> <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -267,7 +264,7 @@ function logicCompare(A: any, OP: 'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE', B:
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -319,7 +316,6 @@ function logicCompare(A: any, OP: 'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE', B:
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 210"><span class="hole"></span> <span class="field">and</span> <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -345,7 +341,7 @@ function logicOperation(A: boolean, OP: 'AND' | 'OR', B: boolean): boolean;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -397,7 +393,6 @@ function logicOperation(A: boolean, OP: 'AND' | 'OR', B: boolean): boolean;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="field">0</span></div>
         </div>
     </foreignObject>
@@ -423,7 +418,7 @@ function mathNumber(NUM: number): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -475,7 +470,6 @@ function mathNumber(NUM: number): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="hole"></span> <span class="field">+</span> <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -501,7 +495,7 @@ function mathArithmetic(A: number, OP: 'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' |
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -553,7 +547,6 @@ function mathArithmetic(A: number, OP: 'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' |
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="field">square root</span> <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -579,7 +572,7 @@ function mathSingle(OP: 'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -631,7 +624,6 @@ function mathSingle(OP: 'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="field">sin</span> <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -657,7 +649,7 @@ function mathTrig(OP: 'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN', NUM: num
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -709,7 +701,6 @@ function mathTrig(OP: 'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN', NUM: num
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="hole"></span> <span class="field">is even</span></div>
         </div>
     </foreignObject>
@@ -735,7 +726,7 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -787,7 +778,6 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 329">change <span class="field">x</span> by <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -807,7 +797,7 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -859,7 +849,6 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="field">round</span> <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -885,7 +874,7 @@ function mathRound(OP: 'ROUND' | 'ROUNDUP' | 'ROUNDDOWN', NUM: number): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -937,7 +926,6 @@ function mathRound(OP: 'ROUND' | 'ROUNDUP' | 'ROUNDDOWN', NUM: number): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">random integer from <span class="hole"></span> to <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -963,7 +951,7 @@ function randomIntegerFromTo(FROM: number, TO: number): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1015,7 +1003,6 @@ function randomIntegerFromTo(FROM: number, TO: number): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161"><span class="field">text</span></div>
         </div>
     </foreignObject>
@@ -1041,7 +1028,7 @@ function text(TEXT: string): string;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1093,7 +1080,6 @@ function text(TEXT: string): string;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161">create text with</div>
         </div>
     </foreignObject>
@@ -1113,7 +1099,7 @@ function text(TEXT: string): string;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1165,7 +1151,6 @@ function text(TEXT: string): string;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161">length of <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -1191,7 +1176,7 @@ function lengthOf(VALUE: string): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1243,7 +1228,6 @@ function lengthOf(VALUE: string): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161">in text <span class="hole"></span> <span class="field">find first occurrence of text</span> <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -1269,7 +1253,7 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1321,7 +1305,6 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161">in text <span class="hole"></span> <span class="field">get letter #</span></div>
         </div>
     </foreignObject>
@@ -1341,7 +1324,7 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1393,7 +1376,6 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161">in text <span class="hole"></span> get substring from <span class="field">get substring from letter #</span> <span class="hole"></span> to <span class="field">to letter #</span> <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -1419,7 +1401,7 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1471,7 +1453,6 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 329"><span class="field">x</span></div>
         </div>
     </foreignObject>
@@ -1491,7 +1472,7 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1543,7 +1524,6 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 329">set <span class="field">x</span> to <span class="hole"></span></div>
         </div>
     </foreignObject>
@@ -1563,7 +1543,7 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1615,7 +1595,6 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Broadcast Message On Channel <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -1641,7 +1620,7 @@ function broadcastMessageOnChannel(broadcast_message_on_channel: string): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1693,7 +1672,6 @@ function broadcastMessageOnChannel(broadcast_message_on_channel: string): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Property <span class="hole"></span> Value <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -1719,7 +1697,7 @@ function setPropertyValue(set_property: string, value: string | number | boolean
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1771,7 +1749,6 @@ function setPropertyValue(set_property: string, value: string | number | boolean
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Property <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -1797,7 +1774,7 @@ function getProperty(get_property: string): string | number | boolean;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1849,7 +1826,6 @@ function getProperty(get_property: string): string | number | boolean;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Triggering Player's Name</div>
         </div>
     </foreignObject>
@@ -1875,7 +1851,7 @@ function triggeringPlayersName(): string;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -1927,7 +1903,6 @@ function triggeringPlayersName(): string;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Add Activity Feed Item For Everyone <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -1953,7 +1928,7 @@ function addActivityFeedItemForEveryone(add_activity_feed_item_for_everyone: str
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2005,7 +1980,6 @@ function addActivityFeedItemForEveryone(add_activity_feed_item_for_everyone: str
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Add Activity Feed Item For Triggering Player <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -2031,7 +2005,7 @@ function addActivityFeedItemForTriggeringPlayer(add_activity_feed_item_for_trigg
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2083,7 +2057,6 @@ function addActivityFeedItemForTriggeringPlayer(add_activity_feed_item_for_trigg
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Add Activity Feed Item For Game Host <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -2109,7 +2082,7 @@ function addActivityFeedItemForGameHost(add_activity_feed_item_for_game_host: st
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2161,7 +2134,6 @@ function addActivityFeedItemForGameHost(add_activity_feed_item_for_game_host: st
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Triggering Player's Team Number</div>
         </div>
     </foreignObject>
@@ -2187,7 +2159,7 @@ function triggeringPlayersTeamNumber(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2239,7 +2211,6 @@ function triggeringPlayersTeamNumber(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Triggering Player's Score</div>
         </div>
     </foreignObject>
@@ -2265,7 +2236,7 @@ function triggeringPlayersScore(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2317,7 +2288,6 @@ function triggeringPlayersScore(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Score Of Team <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -2343,7 +2313,7 @@ function getScoreOfTeam(get_score_of_team: number): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2395,7 +2365,6 @@ function getScoreOfTeam(get_score_of_team: number): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Is A Live Game</div>
         </div>
     </foreignObject>
@@ -2421,7 +2390,7 @@ function isALiveGame(): boolean;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2473,7 +2442,6 @@ function isALiveGame(): boolean;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Is An Assignment</div>
         </div>
     </foreignObject>
@@ -2499,7 +2467,7 @@ function isAnAssignment(): boolean;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2551,7 +2519,6 @@ function isAnAssignment(): boolean;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Seconds Into Game</div>
         </div>
     </foreignObject>
@@ -2577,7 +2544,7 @@ function secondsIntoGame(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2629,7 +2596,6 @@ function secondsIntoGame(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Objective To <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -2655,7 +2621,7 @@ function setObjectiveTo(set_objective_to: string): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2707,7 +2673,6 @@ function setObjectiveTo(set_objective_to: string): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Percentage Complete To <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -2733,7 +2698,7 @@ function setPercentageCompleteTo(set_percentage_complete_to: number): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2785,7 +2750,6 @@ function setPercentageCompleteTo(set_percentage_complete_to: number): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Increment Percentage Complete By <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -2811,7 +2775,7 @@ function incrementPercentageCompleteBy(increment_percentage_complete_by: number)
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2863,7 +2827,6 @@ function incrementPercentageCompleteBy(increment_percentage_complete_by: number)
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Send Notification <br> Title <span class="hole"></span> Content <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -2889,7 +2852,7 @@ function sendNotificationTitleContent(title: string, content: string): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -2941,7 +2904,6 @@ function sendNotificationTitleContent(title: string, content: string): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Other Player's Name</div>
         </div>
     </foreignObject>
@@ -2967,7 +2929,7 @@ function otherPlayersName(): string;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3019,7 +2981,6 @@ function otherPlayersName(): string;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Other Player's Team Number</div>
         </div>
     </foreignObject>
@@ -3045,7 +3006,7 @@ function otherPlayersTeamNumber(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3097,7 +3058,6 @@ function otherPlayersTeamNumber(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Property As Other Player <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -3123,7 +3083,7 @@ function getPropertyAsOtherPlayer(get_property_as_other_player: string): string 
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3175,7 +3135,6 @@ function getPropertyAsOtherPlayer(get_property_as_other_player: string): string 
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Property (As Other Player) <span class="hole"></span> Value <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -3201,7 +3160,7 @@ function setPropertyAsOtherPlayerValue(set_property_as_other_player: string, val
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3253,7 +3212,6 @@ function setPropertyAsOtherPlayerValue(set_property_as_other_player: string, val
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Broadcast Message (As Other Player) On Channel <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -3279,7 +3237,7 @@ function broadcastMessageAsOtherPlayerOnChannel(broadcast_message_as_other_playe
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3331,7 +3289,6 @@ function broadcastMessageAsOtherPlayerOnChannel(broadcast_message_as_other_playe
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Grant Player Selected Item</div>
         </div>
     </foreignObject>
@@ -3357,7 +3314,7 @@ function grantPlayerSelectedItem(): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3409,7 +3366,6 @@ function grantPlayerSelectedItem(): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Grant Player Selected Item (Custom Amount) <br> Amount <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -3435,7 +3391,7 @@ function grantPlayerSelectedItemCustomAmountAmount(amount: number): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3487,7 +3443,6 @@ function grantPlayerSelectedItemCustomAmountAmount(amount: number): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Text <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -3513,7 +3468,7 @@ function setText(set_text: string): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3565,7 +3520,6 @@ function setText(set_text: string): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Text Color To <span class="field color"></span> </div>
         </div>
     </foreignObject>
@@ -3591,7 +3545,7 @@ function setTextColorTo(set_text_color_to: Color): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3643,7 +3597,6 @@ function setTextColorTo(set_text_color_to: Color): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Image URL <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -3669,7 +3622,7 @@ function setImageUrl(set_image_url: string): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3721,7 +3674,6 @@ function setImageUrl(set_image_url: string): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Frame Color To <span class="field color"></span> </div>
         </div>
     </foreignObject>
@@ -3747,7 +3699,7 @@ function setFrameColorTo(set_frame_color_to: Color): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3799,7 +3751,6 @@ function setFrameColorTo(set_frame_color_to: Color): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Questions Answered Correctly In A Row</div>
         </div>
     </foreignObject>
@@ -3825,7 +3776,7 @@ function questionsAnsweredCorrectlyInARow(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3877,7 +3828,6 @@ function questionsAnsweredCorrectlyInARow(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Message Shown When Player Answers Correctly <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -3903,7 +3853,7 @@ function setMessageShownWhenPlayerAnswersCorrectly(set_message_shown_when_player
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -3955,7 +3905,6 @@ function setMessageShownWhenPlayerAnswersCorrectly(set_message_shown_when_player
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Message Shown When Player Answers Incorrectly <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -3981,7 +3930,7 @@ function setMessageShownWhenPlayerAnswersIncorrectly(set_message_shown_when_play
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4033,7 +3982,6 @@ function setMessageShownWhenPlayerAnswersIncorrectly(set_message_shown_when_play
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Header <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -4059,7 +4007,7 @@ function setHeader(set_header: string): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4111,7 +4059,6 @@ function setHeader(set_header: string): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Content <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -4137,7 +4084,7 @@ function setContent(set_content: string): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4189,7 +4136,6 @@ function setContent(set_content: string): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Amount Of Current Item <br> </div>
         </div>
     </foreignObject>
@@ -4215,7 +4161,7 @@ function getAmountOfCurrentItem(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4267,7 +4213,6 @@ function getAmountOfCurrentItem(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Text <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -4293,7 +4238,7 @@ function setGuiText(set_text: string): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4345,7 +4290,6 @@ function setGuiText(set_text: string): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Minutes <br> </div>
         </div>
     </foreignObject>
@@ -4371,7 +4315,7 @@ function getMinutes(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4423,7 +4367,6 @@ function getMinutes(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Seconds <br> </div>
         </div>
     </foreignObject>
@@ -4449,7 +4392,7 @@ function getSeconds(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4501,7 +4444,6 @@ function getSeconds(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Time Left Formatted <br> </div>
         </div>
     </foreignObject>
@@ -4527,7 +4469,7 @@ function getTimeLeftFormatted(): string;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4579,7 +4521,6 @@ function getTimeLeftFormatted(): string;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Number Of Players On Team <br> </div>
         </div>
     </foreignObject>
@@ -4605,7 +4546,7 @@ function numberOfPlayersOnTeam(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4657,7 +4598,6 @@ function numberOfPlayersOnTeam(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Knocked Player's Name</div>
         </div>
     </foreignObject>
@@ -4683,7 +4623,7 @@ function knockedPlayersName(): string;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4735,7 +4675,6 @@ function knockedPlayersName(): string;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Knocked Player's Team Number</div>
         </div>
     </foreignObject>
@@ -4761,7 +4700,7 @@ function knockedPlayersTeamNumber(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4813,7 +4752,6 @@ function knockedPlayersTeamNumber(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Property As Knocked Out Player <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -4839,7 +4777,7 @@ function getPropertyAsKnockedOutPlayer(get_property_as_knocked_out_player: strin
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4891,7 +4829,6 @@ function getPropertyAsKnockedOutPlayer(get_property_as_knocked_out_player: strin
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Property (As Knocked Out Player) <span class="hole"></span> Value <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -4917,7 +4854,7 @@ function setPropertyAsKnockedOutPlayerValue(set_property_as_knocked_out_player: 
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -4969,7 +4906,6 @@ function setPropertyAsKnockedOutPlayerValue(set_property_as_knocked_out_player: 
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Broadcast Message (As Knocked Out Player) On Channel <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -4995,7 +4931,7 @@ function broadcastMessageAsKnockedOutPlayerOnChannel(broadcast_message_as_knocke
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -5047,7 +4983,6 @@ function broadcastMessageAsKnockedOutPlayerOnChannel(broadcast_message_as_knocke
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Other Player's Name</div>
         </div>
     </foreignObject>
@@ -5073,7 +5008,7 @@ function tagZoneOtherCharacterName(): string;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -5125,7 +5060,6 @@ function tagZoneOtherCharacterName(): string;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Other Player's Team Number</div>
         </div>
     </foreignObject>
@@ -5151,7 +5085,7 @@ function tagZoneOtherCharacterTeamNumber(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -5203,7 +5137,6 @@ function tagZoneOtherCharacterTeamNumber(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Player's X Position <br> </div>
         </div>
     </foreignObject>
@@ -5229,7 +5162,7 @@ function playersXPosition(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -5281,7 +5214,6 @@ function playersXPosition(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Player's Y Position <br> </div>
         </div>
     </foreignObject>
@@ -5307,7 +5239,7 @@ function playersYPosition(): number;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -5359,7 +5291,6 @@ function playersYPosition(): number;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Damage Player (Custom Amount) <br> Amount <span class="hole"></span> </div>
         </div>
     </foreignObject>
@@ -5385,7 +5316,7 @@ function damagePlayerCustomAmountAmount(amount: number): void;
 
   <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
-        
+        <div xmlns="http://www.w3.org/1999/xhtml">
 <style>
   table {
     width: 100%;
@@ -5437,7 +5368,6 @@ function damagePlayerCustomAmountAmount(amount: number): void;
     vertical-align: top; 
   }
 </style>
-        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 159.7">Convert Number To Text (With Commas) <span class="hole"></span> </div>
         </div>
     </foreignObject>
