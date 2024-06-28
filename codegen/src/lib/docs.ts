@@ -82,7 +82,7 @@ export function generate(defs: BlockDefinitions): string {
 <table>
   <tr>
     <th>Block Type</th>
-    <th>Example</th>
+    <th>Example___________________________________________</th>
     <th>JavaScript Function</th>
     <th>Sugar</th>
   </tr>
@@ -168,9 +168,8 @@ function wrapInSvg(html: string, name: string): string {
   `;
   writeFileSync(`./docs/svg/${name}.svg`, out);
   return `
-  <div style="width: 500px">
-  <img src="./svg/${name}.svg" width="500" height="40" alt="css-in-readme">
-  </div>`;
+  <img src="./svg/${name}.svg" width="500" alt="css-in-readme">
+`;
 }
 
 function generateBlockHtml(def: BlockDefinition): string {

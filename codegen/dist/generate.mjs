@@ -2349,7 +2349,7 @@ function generate4(defs) {
 <table>
   <tr>
     <th>Block Type</th>
-    <th>Example</th>
+    <th>Example___________________________________________</th>
     <th>JavaScript Function</th>
     <th>Sugar</th>
   </tr>
@@ -2424,9 +2424,8 @@ function wrapInSvg(html, name) {
   `;
   writeFileSync2(`./docs/svg/${name}.svg`, out);
   return `
-  <div style="width: 500px">
-  <img src="./svg/${name}.svg" width="500" height="40" alt="css-in-readme">
-  </div>`;
+  <img src="./svg/${name}.svg" width="500" alt="css-in-readme">
+`;
 }
 function generateBlockHtml(def) {
   let out = `
