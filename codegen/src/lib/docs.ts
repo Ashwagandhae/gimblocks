@@ -156,7 +156,7 @@ ${sugarString}
 
 function wrapInSvg(html: string, name: string): string {
   let out = `
-  <svg fill="none" viewBox="0 0 300 40" width="300" height="40" xmlns="http://www.w3.org/2000/svg">
+  <svg fill="none" viewBox="0 0 500 40" width="500" height="40" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">`;
   out += html;
@@ -167,7 +167,10 @@ function wrapInSvg(html: string, name: string): string {
   </svg>
   `;
   writeFileSync(`./docs/svg/${name}.svg`, out);
-  return `<img src="./svg/${name}.svg" width="300" height="40" alt="css-in-readme">`;
+  return `
+  <div style="width: 500px">
+  <img src="./svg/${name}.svg" width="500" height="40" alt="css-in-readme">
+  </div>`;
 }
 
 function generateBlockHtml(def: BlockDefinition): string {

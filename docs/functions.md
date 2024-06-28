@@ -30,7 +30,10 @@
 <tr>
 <td>logic_boolean</td>
 <td><p>
-<img src="./svg/logic_boolean.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/logic_boolean.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -48,7 +51,10 @@ function logicBoolean(BOOL: 'TRUE' | 'FALSE'): boolean;
 <tr>
 <td>controls_if</td>
 <td><p>
-<img src="./svg/controls_if.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/controls_if.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -66,7 +72,10 @@ if { ... } else { ... }
 <tr>
 <td>logic_compare</td>
 <td><p>
-<img src="./svg/logic_compare.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/logic_compare.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -84,7 +93,10 @@ function logicCompare(A: any, OP: 'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE', B:
 <tr>
 <td>logic_operation</td>
 <td><p>
-<img src="./svg/logic_operation.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/logic_operation.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -102,7 +114,10 @@ function logicOperation(A: boolean, OP: 'AND' | 'OR', B: boolean): boolean;
 <tr>
 <td>math_number</td>
 <td><p>
-<img src="./svg/math_number.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/math_number.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -120,7 +135,10 @@ function mathNumber(NUM: number): number;
 <tr>
 <td>math_arithmetic</td>
 <td><p>
-<img src="./svg/math_arithmetic.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/math_arithmetic.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -138,7 +156,10 @@ function mathArithmetic(A: number, OP: 'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' |
 <tr>
 <td>math_single</td>
 <td><p>
-<img src="./svg/math_single.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/math_single.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -156,7 +177,10 @@ function mathSingle(OP: 'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10
 <tr>
 <td>math_trig</td>
 <td><p>
-<img src="./svg/math_trig.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/math_trig.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -174,7 +198,10 @@ function mathTrig(OP: 'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN', NUM: num
 <tr>
 <td>math_number_property</td>
 <td><p>
-<img src="./svg/math_number_property.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/math_number_property.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -192,7 +219,10 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
 <tr>
 <td>math_change</td>
 <td><p>
-<img src="./svg/math_change.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/math_change.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -204,7 +234,10 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
 <tr>
 <td>math_round</td>
 <td><p>
-<img src="./svg/math_round.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/math_round.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -222,7 +255,10 @@ function mathRound(OP: 'ROUND' | 'ROUNDUP' | 'ROUNDDOWN', NUM: number): number;
 <tr>
 <td>math_random_int</td>
 <td><p>
-<img src="./svg/math_random_int.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/math_random_int.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -240,7 +276,10 @@ function randomIntegerFromTo(FROM: number, TO: number): number;
 <tr>
 <td>text</td>
 <td><p>
-<img src="./svg/text.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/text.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -258,7 +297,10 @@ function text(TEXT: string): string;
 <tr>
 <td>text_join</td>
 <td><p>
-<img src="./svg/text_join.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/text_join.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -270,7 +312,10 @@ function text(TEXT: string): string;
 <tr>
 <td>text_length</td>
 <td><p>
-<img src="./svg/text_length.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/text_length.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -288,7 +333,10 @@ function lengthOf(VALUE: string): number;
 <tr>
 <td>text_indexOf</td>
 <td><p>
-<img src="./svg/text_indexOf.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/text_indexOf.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -306,7 +354,10 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
 <tr>
 <td>text_charAt</td>
 <td><p>
-<img src="./svg/text_charAt.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/text_charAt.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -318,7 +369,10 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
 <tr>
 <td>text_getSubstring</td>
 <td><p>
-<img src="./svg/text_getSubstring.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/text_getSubstring.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -336,7 +390,10 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 <tr>
 <td>variables_get</td>
 <td><p>
-<img src="./svg/variables_get.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/variables_get.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -348,7 +405,10 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 <tr>
 <td>variables_set</td>
 <td><p>
-<img src="./svg/variables_set.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/variables_set.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -360,7 +420,10 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 <tr>
 <td>message_broadcaster</td>
 <td><p>
-<img src="./svg/message_broadcaster.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/message_broadcaster.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -378,7 +441,10 @@ function broadcastMessageOnChannel(broadcast_message_on_channel: string): void;
 <tr>
 <td>set_property</td>
 <td><p>
-<img src="./svg/set_property.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/set_property.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -396,7 +462,10 @@ function setPropertyValue(set_property: string, value: string | number | boolean
 <tr>
 <td>get_property</td>
 <td><p>
-<img src="./svg/get_property.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/get_property.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -414,7 +483,10 @@ function getProperty(get_property: string): string | number | boolean;
 <tr>
 <td>current_character_name</td>
 <td><p>
-<img src="./svg/current_character_name.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/current_character_name.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -432,7 +504,10 @@ function triggeringPlayersName(): string;
 <tr>
 <td>add_activity_feed_item_for_everyone</td>
 <td><p>
-<img src="./svg/add_activity_feed_item_for_everyone.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/add_activity_feed_item_for_everyone.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -450,7 +525,10 @@ function addActivityFeedItemForEveryone(add_activity_feed_item_for_everyone: str
 <tr>
 <td>add_activity_feed_item_for_triggering_player</td>
 <td><p>
-<img src="./svg/add_activity_feed_item_for_triggering_player.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/add_activity_feed_item_for_triggering_player.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -468,7 +546,10 @@ function addActivityFeedItemForTriggeringPlayer(add_activity_feed_item_for_trigg
 <tr>
 <td>add_activity_feed_item_for_game_host</td>
 <td><p>
-<img src="./svg/add_activity_feed_item_for_game_host.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/add_activity_feed_item_for_game_host.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -486,7 +567,10 @@ function addActivityFeedItemForGameHost(add_activity_feed_item_for_game_host: st
 <tr>
 <td>current_character_team_number</td>
 <td><p>
-<img src="./svg/current_character_team_number.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/current_character_team_number.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -504,7 +588,10 @@ function triggeringPlayersTeamNumber(): number;
 <tr>
 <td>triggering_player_score</td>
 <td><p>
-<img src="./svg/triggering_player_score.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/triggering_player_score.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -522,7 +609,10 @@ function triggeringPlayersScore(): number;
 <tr>
 <td>get_team_score</td>
 <td><p>
-<img src="./svg/get_team_score.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/get_team_score.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -540,7 +630,10 @@ function getScoreOfTeam(get_score_of_team: number): number;
 <tr>
 <td>is_a_live_game</td>
 <td><p>
-<img src="./svg/is_a_live_game.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/is_a_live_game.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -558,7 +651,10 @@ function isALiveGame(): boolean;
 <tr>
 <td>is_an_assignment</td>
 <td><p>
-<img src="./svg/is_an_assignment.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/is_an_assignment.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -576,7 +672,10 @@ function isAnAssignment(): boolean;
 <tr>
 <td>seconds_into_game</td>
 <td><p>
-<img src="./svg/seconds_into_game.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/seconds_into_game.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -594,7 +693,10 @@ function secondsIntoGame(): number;
 <tr>
 <td>set_assignment_objective</td>
 <td><p>
-<img src="./svg/set_assignment_objective.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/set_assignment_objective.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -612,7 +714,10 @@ function setObjectiveTo(set_objective_to: string): void;
 <tr>
 <td>set_percentage_complete</td>
 <td><p>
-<img src="./svg/set_percentage_complete.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/set_percentage_complete.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -630,7 +735,10 @@ function setPercentageCompleteTo(set_percentage_complete_to: number): void;
 <tr>
 <td>increment_percentage_complete</td>
 <td><p>
-<img src="./svg/increment_percentage_complete.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/increment_percentage_complete.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -648,7 +756,10 @@ function incrementPercentageCompleteBy(increment_percentage_complete_by: number)
 <tr>
 <td>send_custom_notification</td>
 <td><p>
-<img src="./svg/send_custom_notification.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/send_custom_notification.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -666,7 +777,10 @@ function sendNotificationTitleContent(title: string, content: string): void;
 <tr>
 <td>other_character_name</td>
 <td><p>
-<img src="./svg/other_character_name.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/other_character_name.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -684,7 +798,10 @@ function otherPlayersName(): string;
 <tr>
 <td>other_character_team_number</td>
 <td><p>
-<img src="./svg/other_character_team_number.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/other_character_team_number.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -702,7 +819,10 @@ function otherPlayersTeamNumber(): number;
 <tr>
 <td>other_character_get_property</td>
 <td><p>
-<img src="./svg/other_character_get_property.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/other_character_get_property.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -720,7 +840,10 @@ function getPropertyAsOtherPlayer(get_property_as_other_player: string): string 
 <tr>
 <td>other_character_set_property</td>
 <td><p>
-<img src="./svg/other_character_set_property.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/other_character_set_property.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -738,7 +861,10 @@ function setPropertyAsOtherPlayerValue(set_property_as_other_player: string, val
 <tr>
 <td>other_character_message_broadcaster</td>
 <td><p>
-<img src="./svg/other_character_message_broadcaster.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/other_character_message_broadcaster.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -756,7 +882,10 @@ function broadcastMessageAsOtherPlayerOnChannel(broadcast_message_as_other_playe
 <tr>
 <td>grant</td>
 <td><p>
-<img src="./svg/grant.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/grant.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -774,7 +903,10 @@ function grantPlayerSelectedItem(): void;
 <tr>
 <td>grant_custom</td>
 <td><p>
-<img src="./svg/grant_custom.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/grant_custom.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -792,7 +924,10 @@ function grantPlayerSelectedItemCustomAmountAmount(amount: number): void;
 <tr>
 <td>set_billboard_text</td>
 <td><p>
-<img src="./svg/set_billboard_text.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/set_billboard_text.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -810,7 +945,10 @@ function setText(set_text: string): void;
 <tr>
 <td>set_text_color</td>
 <td><p>
-<img src="./svg/set_text_color.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/set_text_color.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -828,7 +966,10 @@ function setTextColorTo(set_text_color_to: Color): void;
 <tr>
 <td>set_image</td>
 <td><p>
-<img src="./svg/set_image.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/set_image.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -846,7 +987,10 @@ function setImageUrl(set_image_url: string): void;
 <tr>
 <td>set_frame_color</td>
 <td><p>
-<img src="./svg/set_frame_color.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/set_frame_color.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -864,7 +1008,10 @@ function setFrameColorTo(set_frame_color_to: Color): void;
 <tr>
 <td>question_answering_streak</td>
 <td><p>
-<img src="./svg/question_answering_streak.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/question_answering_streak.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -882,7 +1029,10 @@ function questionsAnsweredCorrectlyInARow(): number;
 <tr>
 <td>message_correct_answer</td>
 <td><p>
-<img src="./svg/message_correct_answer.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/message_correct_answer.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -900,7 +1050,10 @@ function setMessageShownWhenPlayerAnswersCorrectly(set_message_shown_when_player
 <tr>
 <td>message_incorrect_answer</td>
 <td><p>
-<img src="./svg/message_incorrect_answer.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/message_incorrect_answer.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -918,7 +1071,10 @@ function setMessageShownWhenPlayerAnswersIncorrectly(set_message_shown_when_play
 <tr>
 <td>set_header</td>
 <td><p>
-<img src="./svg/set_header.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/set_header.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -936,7 +1092,10 @@ function setHeader(set_header: string): void;
 <tr>
 <td>set_content</td>
 <td><p>
-<img src="./svg/set_content.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/set_content.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -954,7 +1113,10 @@ function setContent(set_content: string): void;
 <tr>
 <td>get_amount</td>
 <td><p>
-<img src="./svg/get_amount.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/get_amount.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -972,7 +1134,10 @@ function getAmountOfCurrentItem(): number;
 <tr>
 <td>set_gui_text</td>
 <td><p>
-<img src="./svg/set_gui_text.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/set_gui_text.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -990,7 +1155,10 @@ function setGuiText(set_text: string): void;
 <tr>
 <td>get_minutes</td>
 <td><p>
-<img src="./svg/get_minutes.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/get_minutes.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1008,7 +1176,10 @@ function getMinutes(): number;
 <tr>
 <td>get_seconds</td>
 <td><p>
-<img src="./svg/get_seconds.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/get_seconds.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1026,7 +1197,10 @@ function getSeconds(): number;
 <tr>
 <td>get_time_left_formatted</td>
 <td><p>
-<img src="./svg/get_time_left_formatted.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/get_time_left_formatted.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1044,7 +1218,10 @@ function getTimeLeftFormatted(): string;
 <tr>
 <td>get_player_count</td>
 <td><p>
-<img src="./svg/get_player_count.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/get_player_count.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1062,7 +1239,10 @@ function numberOfPlayersOnTeam(): number;
 <tr>
 <td>knockout_manager_other_character_name</td>
 <td><p>
-<img src="./svg/knockout_manager_other_character_name.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/knockout_manager_other_character_name.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1080,7 +1260,10 @@ function knockedPlayersName(): string;
 <tr>
 <td>knockout_manager_other_character_team_number</td>
 <td><p>
-<img src="./svg/knockout_manager_other_character_team_number.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/knockout_manager_other_character_team_number.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1098,7 +1281,10 @@ function knockedPlayersTeamNumber(): number;
 <tr>
 <td>knockout_manager_other_character_get_property</td>
 <td><p>
-<img src="./svg/knockout_manager_other_character_get_property.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/knockout_manager_other_character_get_property.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1116,7 +1302,10 @@ function getPropertyAsKnockedOutPlayer(get_property_as_knocked_out_player: strin
 <tr>
 <td>knockout_manager_other_character_set_property</td>
 <td><p>
-<img src="./svg/knockout_manager_other_character_set_property.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/knockout_manager_other_character_set_property.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1134,7 +1323,10 @@ function setPropertyAsKnockedOutPlayerValue(set_property_as_knocked_out_player: 
 <tr>
 <td>knockout_manager_other_character_message_broadcaster</td>
 <td><p>
-<img src="./svg/knockout_manager_other_character_message_broadcaster.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/knockout_manager_other_character_message_broadcaster.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1152,7 +1344,10 @@ function broadcastMessageAsKnockedOutPlayerOnChannel(broadcast_message_as_knocke
 <tr>
 <td>tag_zone_other_character_name</td>
 <td><p>
-<img src="./svg/tag_zone_other_character_name.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/tag_zone_other_character_name.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1170,7 +1365,10 @@ function tagZoneOtherCharacterName(): string;
 <tr>
 <td>tag_zone_other_character_team_number</td>
 <td><p>
-<img src="./svg/tag_zone_other_character_team_number.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/tag_zone_other_character_team_number.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1188,7 +1386,10 @@ function tagZoneOtherCharacterTeamNumber(): number;
 <tr>
 <td>player_position_detector_player_x_position</td>
 <td><p>
-<img src="./svg/player_position_detector_player_x_position.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/player_position_detector_player_x_position.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1206,7 +1407,10 @@ function playersXPosition(): number;
 <tr>
 <td>player_position_detector_player_y_position</td>
 <td><p>
-<img src="./svg/player_position_detector_player_y_position.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/player_position_detector_player_y_position.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1224,7 +1428,10 @@ function playersYPosition(): number;
 <tr>
 <td>damage_custom</td>
 <td><p>
-<img src="./svg/damage_custom.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/damage_custom.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
@@ -1242,7 +1449,10 @@ function damagePlayerCustomAmountAmount(amount: number): void;
 <tr>
 <td>number_with_commas</td>
 <td><p>
-<img src="./svg/number_with_commas.svg" width="300" height="40" alt="css-in-readme">
+
+  <div style="width: 500px">
+  <img src="./svg/number_with_commas.svg" width="500" height="40" alt="css-in-readme">
+  </div>
 </p></td>
 <td>
 
