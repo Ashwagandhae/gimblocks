@@ -31,7 +31,66 @@
 <td>logic_boolean</td>
 <td><p>
 
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 210"><span class="field">true</span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -46,6 +105,13 @@ function logicBoolean(BOOL: 'TRUE' | 'FALSE'): boolean;
 
 </td>
 
+<tr>
+<td>controls_if</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -97,12 +163,12 @@ function logicBoolean(BOOL: 'TRUE' | 'FALSE'): boolean;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>controls_if</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 210">if <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -117,6 +183,13 @@ if { ... } else { ... }
 
 </td>
 
+<tr>
+<td>logic_compare</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -168,12 +241,12 @@ if { ... } else { ... }
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>logic_compare</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 210"><span class="hole"></span> <span class="field">=</span> <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -188,6 +261,13 @@ function logicCompare(A: any, OP: 'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE', B:
 
 </td>
 
+<tr>
+<td>logic_operation</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -239,12 +319,12 @@ function logicCompare(A: any, OP: 'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE', B:
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>logic_operation</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 210"><span class="hole"></span> <span class="field">and</span> <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -259,6 +339,13 @@ function logicOperation(A: boolean, OP: 'AND' | 'OR', B: boolean): boolean;
 
 </td>
 
+<tr>
+<td>math_number</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -310,12 +397,12 @@ function logicOperation(A: boolean, OP: 'AND' | 'OR', B: boolean): boolean;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>math_number</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="field">0</span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -330,6 +417,13 @@ function mathNumber(NUM: number): number;
 
 </td>
 
+<tr>
+<td>math_arithmetic</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -381,12 +475,12 @@ function mathNumber(NUM: number): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>math_arithmetic</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="hole"></span> <span class="field">+</span> <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -401,6 +495,13 @@ function mathArithmetic(A: number, OP: 'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' |
 
 </td>
 
+<tr>
+<td>math_single</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -452,12 +553,12 @@ function mathArithmetic(A: number, OP: 'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' |
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>math_single</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="field">square root</span> <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -472,6 +573,13 @@ function mathSingle(OP: 'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10
 
 </td>
 
+<tr>
+<td>math_trig</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -523,12 +631,12 @@ function mathSingle(OP: 'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>math_trig</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="field">sin</span> <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -543,6 +651,13 @@ function mathTrig(OP: 'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN', NUM: num
 
 </td>
 
+<tr>
+<td>math_number_property</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -594,12 +709,12 @@ function mathTrig(OP: 'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN', NUM: num
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>math_number_property</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="hole"></span> <span class="field">is even</span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -614,6 +729,13 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
 
 </td>
 
+<tr>
+<td>math_change</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -665,12 +787,12 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>math_change</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 329">change <span class="field">x</span> by <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -679,6 +801,13 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
 
 </td>
 
+<tr>
+<td>math_round</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -730,12 +859,12 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>math_round</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230"><span class="field">round</span> <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -750,6 +879,13 @@ function mathRound(OP: 'ROUND' | 'ROUNDUP' | 'ROUNDDOWN', NUM: number): number;
 
 </td>
 
+<tr>
+<td>math_random_int</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -801,12 +937,12 @@ function mathRound(OP: 'ROUND' | 'ROUNDUP' | 'ROUNDDOWN', NUM: number): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>math_random_int</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">random integer from <span class="hole"></span> to <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -821,6 +957,13 @@ function randomIntegerFromTo(FROM: number, TO: number): number;
 
 </td>
 
+<tr>
+<td>text</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -872,12 +1015,12 @@ function randomIntegerFromTo(FROM: number, TO: number): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>text</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161"><span class="field">text</span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -892,6 +1035,13 @@ function text(TEXT: string): string;
 
 </td>
 
+<tr>
+<td>text_join</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -943,12 +1093,12 @@ function text(TEXT: string): string;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>text_join</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161">create text with</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -957,6 +1107,13 @@ function text(TEXT: string): string;
 
 </td>
 
+<tr>
+<td>text_length</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1008,12 +1165,12 @@ function text(TEXT: string): string;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>text_length</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161">length of <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1028,6 +1185,13 @@ function lengthOf(VALUE: string): number;
 
 </td>
 
+<tr>
+<td>text_indexOf</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1079,12 +1243,12 @@ function lengthOf(VALUE: string): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>text_indexOf</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161">in text <span class="hole"></span> <span class="field">find first occurrence of text</span> <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1099,6 +1263,13 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
 
 </td>
 
+<tr>
+<td>text_charAt</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1150,12 +1321,12 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>text_charAt</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161">in text <span class="hole"></span> <span class="field">get letter #</span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1164,6 +1335,13 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
 
 </td>
 
+<tr>
+<td>text_getSubstring</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1215,12 +1393,12 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>text_getSubstring</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 161">in text <span class="hole"></span> get substring from <span class="field">get substring from letter #</span> <span class="hole"></span> to <span class="field">to letter #</span> <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1235,6 +1413,13 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 
 </td>
 
+<tr>
+<td>variables_get</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1286,12 +1471,12 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>variables_get</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 329"><span class="field">x</span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1299,72 +1484,14 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 <td>
 
 </td>
-
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
 
 <tr>
 <td>variables_set</td>
 <td><p>
 
-  <div class="block" style="--block-hue: 329">set <span class="field">x</span> to <span class="hole"></span></div>
-</p></td>
-<td>
-
-</td>
-<td>
-
-</td>
-
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1416,12 +1543,84 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
     vertical-align: top; 
   }
 </style>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+  <div class="block" style="--block-hue: 329">set <span class="field">x</span> to <span class="hole"></span></div>
+        </div>
+    </foreignObject>
+  </svg>
+  
+</p></td>
+<td>
+
+</td>
+<td>
+
+</td>
 
 <tr>
 <td>message_broadcaster</td>
 <td><p>
 
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Broadcast Message On Channel <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1436,6 +1635,13 @@ function broadcastMessageOnChannel(broadcast_message_on_channel: string): void;
 
 </td>
 
+<tr>
+<td>set_property</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1487,12 +1693,12 @@ function broadcastMessageOnChannel(broadcast_message_on_channel: string): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>set_property</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Property <span class="hole"></span> Value <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1507,6 +1713,13 @@ function setPropertyValue(set_property: string, value: string | number | boolean
 
 </td>
 
+<tr>
+<td>get_property</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1558,12 +1771,12 @@ function setPropertyValue(set_property: string, value: string | number | boolean
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>get_property</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Property <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1578,6 +1791,13 @@ function getProperty(get_property: string): string | number | boolean;
 
 </td>
 
+<tr>
+<td>current_character_name</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1629,12 +1849,12 @@ function getProperty(get_property: string): string | number | boolean;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>current_character_name</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Triggering Player's Name</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1649,6 +1869,13 @@ function triggeringPlayersName(): string;
 
 </td>
 
+<tr>
+<td>add_activity_feed_item_for_everyone</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1700,12 +1927,12 @@ function triggeringPlayersName(): string;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>add_activity_feed_item_for_everyone</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Add Activity Feed Item For Everyone <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1720,6 +1947,13 @@ function addActivityFeedItemForEveryone(add_activity_feed_item_for_everyone: str
 
 </td>
 
+<tr>
+<td>add_activity_feed_item_for_triggering_player</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1771,12 +2005,12 @@ function addActivityFeedItemForEveryone(add_activity_feed_item_for_everyone: str
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>add_activity_feed_item_for_triggering_player</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Add Activity Feed Item For Triggering Player <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1791,6 +2025,13 @@ function addActivityFeedItemForTriggeringPlayer(add_activity_feed_item_for_trigg
 
 </td>
 
+<tr>
+<td>add_activity_feed_item_for_game_host</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1842,12 +2083,12 @@ function addActivityFeedItemForTriggeringPlayer(add_activity_feed_item_for_trigg
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>add_activity_feed_item_for_game_host</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Add Activity Feed Item For Game Host <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1862,6 +2103,13 @@ function addActivityFeedItemForGameHost(add_activity_feed_item_for_game_host: st
 
 </td>
 
+<tr>
+<td>current_character_team_number</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1913,12 +2161,12 @@ function addActivityFeedItemForGameHost(add_activity_feed_item_for_game_host: st
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>current_character_team_number</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Triggering Player's Team Number</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -1933,6 +2181,13 @@ function triggeringPlayersTeamNumber(): number;
 
 </td>
 
+<tr>
+<td>triggering_player_score</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -1984,12 +2239,12 @@ function triggeringPlayersTeamNumber(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>triggering_player_score</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Triggering Player's Score</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2004,6 +2259,13 @@ function triggeringPlayersScore(): number;
 
 </td>
 
+<tr>
+<td>get_team_score</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2055,12 +2317,12 @@ function triggeringPlayersScore(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>get_team_score</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Score Of Team <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2075,6 +2337,13 @@ function getScoreOfTeam(get_score_of_team: number): number;
 
 </td>
 
+<tr>
+<td>is_a_live_game</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2126,12 +2395,12 @@ function getScoreOfTeam(get_score_of_team: number): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>is_a_live_game</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Is A Live Game</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2146,6 +2415,13 @@ function isALiveGame(): boolean;
 
 </td>
 
+<tr>
+<td>is_an_assignment</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2197,12 +2473,12 @@ function isALiveGame(): boolean;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>is_an_assignment</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Is An Assignment</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2217,6 +2493,13 @@ function isAnAssignment(): boolean;
 
 </td>
 
+<tr>
+<td>seconds_into_game</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2268,12 +2551,12 @@ function isAnAssignment(): boolean;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>seconds_into_game</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Seconds Into Game</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2288,6 +2571,13 @@ function secondsIntoGame(): number;
 
 </td>
 
+<tr>
+<td>set_assignment_objective</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2339,12 +2629,12 @@ function secondsIntoGame(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>set_assignment_objective</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Objective To <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2359,6 +2649,13 @@ function setObjectiveTo(set_objective_to: string): void;
 
 </td>
 
+<tr>
+<td>set_percentage_complete</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2410,12 +2707,12 @@ function setObjectiveTo(set_objective_to: string): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>set_percentage_complete</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Percentage Complete To <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2430,6 +2727,13 @@ function setPercentageCompleteTo(set_percentage_complete_to: number): void;
 
 </td>
 
+<tr>
+<td>increment_percentage_complete</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2481,12 +2785,12 @@ function setPercentageCompleteTo(set_percentage_complete_to: number): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>increment_percentage_complete</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Increment Percentage Complete By <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2501,6 +2805,13 @@ function incrementPercentageCompleteBy(increment_percentage_complete_by: number)
 
 </td>
 
+<tr>
+<td>send_custom_notification</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2552,12 +2863,12 @@ function incrementPercentageCompleteBy(increment_percentage_complete_by: number)
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>send_custom_notification</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Send Notification <br> Title <span class="hole"></span> Content <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2572,6 +2883,13 @@ function sendNotificationTitleContent(title: string, content: string): void;
 
 </td>
 
+<tr>
+<td>other_character_name</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2623,12 +2941,12 @@ function sendNotificationTitleContent(title: string, content: string): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>other_character_name</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Other Player's Name</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2643,6 +2961,13 @@ function otherPlayersName(): string;
 
 </td>
 
+<tr>
+<td>other_character_team_number</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2694,12 +3019,12 @@ function otherPlayersName(): string;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>other_character_team_number</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Other Player's Team Number</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2714,6 +3039,13 @@ function otherPlayersTeamNumber(): number;
 
 </td>
 
+<tr>
+<td>other_character_get_property</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2765,12 +3097,12 @@ function otherPlayersTeamNumber(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>other_character_get_property</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Property As Other Player <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2785,6 +3117,13 @@ function getPropertyAsOtherPlayer(get_property_as_other_player: string): string 
 
 </td>
 
+<tr>
+<td>other_character_set_property</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2836,12 +3175,12 @@ function getPropertyAsOtherPlayer(get_property_as_other_player: string): string 
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>other_character_set_property</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Property (As Other Player) <span class="hole"></span> Value <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2856,6 +3195,13 @@ function setPropertyAsOtherPlayerValue(set_property_as_other_player: string, val
 
 </td>
 
+<tr>
+<td>other_character_message_broadcaster</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2907,12 +3253,12 @@ function setPropertyAsOtherPlayerValue(set_property_as_other_player: string, val
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>other_character_message_broadcaster</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Broadcast Message (As Other Player) On Channel <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2927,6 +3273,13 @@ function broadcastMessageAsOtherPlayerOnChannel(broadcast_message_as_other_playe
 
 </td>
 
+<tr>
+<td>grant</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -2978,12 +3331,12 @@ function broadcastMessageAsOtherPlayerOnChannel(broadcast_message_as_other_playe
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>grant</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Grant Player Selected Item</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -2998,6 +3351,13 @@ function grantPlayerSelectedItem(): void;
 
 </td>
 
+<tr>
+<td>grant_custom</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3049,12 +3409,12 @@ function grantPlayerSelectedItem(): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>grant_custom</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Grant Player Selected Item (Custom Amount) <br> Amount <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3069,6 +3429,13 @@ function grantPlayerSelectedItemCustomAmountAmount(amount: number): void;
 
 </td>
 
+<tr>
+<td>set_billboard_text</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3120,12 +3487,12 @@ function grantPlayerSelectedItemCustomAmountAmount(amount: number): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>set_billboard_text</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Text <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3140,6 +3507,13 @@ function setText(set_text: string): void;
 
 </td>
 
+<tr>
+<td>set_text_color</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3191,12 +3565,12 @@ function setText(set_text: string): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>set_text_color</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Text Color To <span class="field color"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3211,6 +3585,13 @@ function setTextColorTo(set_text_color_to: Color): void;
 
 </td>
 
+<tr>
+<td>set_image</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3262,12 +3643,12 @@ function setTextColorTo(set_text_color_to: Color): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>set_image</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Image URL <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3282,6 +3663,13 @@ function setImageUrl(set_image_url: string): void;
 
 </td>
 
+<tr>
+<td>set_frame_color</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3333,12 +3721,12 @@ function setImageUrl(set_image_url: string): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>set_frame_color</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Frame Color To <span class="field color"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3353,6 +3741,13 @@ function setFrameColorTo(set_frame_color_to: Color): void;
 
 </td>
 
+<tr>
+<td>question_answering_streak</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3404,12 +3799,12 @@ function setFrameColorTo(set_frame_color_to: Color): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>question_answering_streak</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Questions Answered Correctly In A Row</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3424,6 +3819,13 @@ function questionsAnsweredCorrectlyInARow(): number;
 
 </td>
 
+<tr>
+<td>message_correct_answer</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3475,12 +3877,12 @@ function questionsAnsweredCorrectlyInARow(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>message_correct_answer</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Message Shown When Player Answers Correctly <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3495,6 +3897,13 @@ function setMessageShownWhenPlayerAnswersCorrectly(set_message_shown_when_player
 
 </td>
 
+<tr>
+<td>message_incorrect_answer</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3546,12 +3955,12 @@ function setMessageShownWhenPlayerAnswersCorrectly(set_message_shown_when_player
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>message_incorrect_answer</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Message Shown When Player Answers Incorrectly <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3566,6 +3975,13 @@ function setMessageShownWhenPlayerAnswersIncorrectly(set_message_shown_when_play
 
 </td>
 
+<tr>
+<td>set_header</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3617,12 +4033,12 @@ function setMessageShownWhenPlayerAnswersIncorrectly(set_message_shown_when_play
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>set_header</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Header <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3637,6 +4053,13 @@ function setHeader(set_header: string): void;
 
 </td>
 
+<tr>
+<td>set_content</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3688,12 +4111,12 @@ function setHeader(set_header: string): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>set_content</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Content <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3708,6 +4131,13 @@ function setContent(set_content: string): void;
 
 </td>
 
+<tr>
+<td>get_amount</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3759,12 +4189,12 @@ function setContent(set_content: string): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>get_amount</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Amount Of Current Item <br> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3779,6 +4209,13 @@ function getAmountOfCurrentItem(): number;
 
 </td>
 
+<tr>
+<td>set_gui_text</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3830,12 +4267,12 @@ function getAmountOfCurrentItem(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>set_gui_text</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Text <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3850,6 +4287,13 @@ function setGuiText(set_text: string): void;
 
 </td>
 
+<tr>
+<td>get_minutes</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3901,12 +4345,12 @@ function setGuiText(set_text: string): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>get_minutes</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Minutes <br> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3921,6 +4365,13 @@ function getMinutes(): number;
 
 </td>
 
+<tr>
+<td>get_seconds</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -3972,12 +4423,12 @@ function getMinutes(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>get_seconds</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Seconds <br> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -3992,6 +4443,13 @@ function getSeconds(): number;
 
 </td>
 
+<tr>
+<td>get_time_left_formatted</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4043,12 +4501,12 @@ function getSeconds(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>get_time_left_formatted</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Time Left Formatted <br> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4063,6 +4521,13 @@ function getTimeLeftFormatted(): string;
 
 </td>
 
+<tr>
+<td>get_player_count</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4114,12 +4579,12 @@ function getTimeLeftFormatted(): string;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>get_player_count</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Number Of Players On Team <br> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4134,6 +4599,13 @@ function numberOfPlayersOnTeam(): number;
 
 </td>
 
+<tr>
+<td>knockout_manager_other_character_name</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4185,12 +4657,12 @@ function numberOfPlayersOnTeam(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>knockout_manager_other_character_name</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Knocked Player's Name</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4205,6 +4677,13 @@ function knockedPlayersName(): string;
 
 </td>
 
+<tr>
+<td>knockout_manager_other_character_team_number</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4256,12 +4735,12 @@ function knockedPlayersName(): string;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>knockout_manager_other_character_team_number</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Knocked Player's Team Number</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4276,6 +4755,13 @@ function knockedPlayersTeamNumber(): number;
 
 </td>
 
+<tr>
+<td>knockout_manager_other_character_get_property</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4327,12 +4813,12 @@ function knockedPlayersTeamNumber(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>knockout_manager_other_character_get_property</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Get Property As Knocked Out Player <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4347,6 +4833,13 @@ function getPropertyAsKnockedOutPlayer(get_property_as_knocked_out_player: strin
 
 </td>
 
+<tr>
+<td>knockout_manager_other_character_set_property</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4398,12 +4891,12 @@ function getPropertyAsKnockedOutPlayer(get_property_as_knocked_out_player: strin
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>knockout_manager_other_character_set_property</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Set Property (As Knocked Out Player) <span class="hole"></span> Value <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4418,6 +4911,13 @@ function setPropertyAsKnockedOutPlayerValue(set_property_as_knocked_out_player: 
 
 </td>
 
+<tr>
+<td>knockout_manager_other_character_message_broadcaster</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4469,12 +4969,12 @@ function setPropertyAsKnockedOutPlayerValue(set_property_as_knocked_out_player: 
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>knockout_manager_other_character_message_broadcaster</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Broadcast Message (As Knocked Out Player) On Channel <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4489,6 +4989,13 @@ function broadcastMessageAsKnockedOutPlayerOnChannel(broadcast_message_as_knocke
 
 </td>
 
+<tr>
+<td>tag_zone_other_character_name</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4540,12 +5047,12 @@ function broadcastMessageAsKnockedOutPlayerOnChannel(broadcast_message_as_knocke
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>tag_zone_other_character_name</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Other Player's Name</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4560,6 +5067,13 @@ function tagZoneOtherCharacterName(): string;
 
 </td>
 
+<tr>
+<td>tag_zone_other_character_team_number</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4611,12 +5125,12 @@ function tagZoneOtherCharacterName(): string;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>tag_zone_other_character_team_number</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Other Player's Team Number</div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4631,6 +5145,13 @@ function tagZoneOtherCharacterTeamNumber(): number;
 
 </td>
 
+<tr>
+<td>player_position_detector_player_x_position</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4682,12 +5203,12 @@ function tagZoneOtherCharacterTeamNumber(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>player_position_detector_player_x_position</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Player's X Position <br> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4702,6 +5223,13 @@ function playersXPosition(): number;
 
 </td>
 
+<tr>
+<td>player_position_detector_player_y_position</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4753,12 +5281,12 @@ function playersXPosition(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>player_position_detector_player_y_position</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Player's Y Position <br> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4773,6 +5301,13 @@ function playersYPosition(): number;
 
 </td>
 
+<tr>
+<td>damage_custom</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4824,12 +5359,12 @@ function playersYPosition(): number;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>damage_custom</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 230">Damage Player (Custom Amount) <br> Amount <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4844,6 +5379,13 @@ function damagePlayerCustomAmountAmount(amount: number): void;
 
 </td>
 
+<tr>
+<td>number_with_commas</td>
+<td><p>
+
+  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        
 <style>
   table {
     width: 100%;
@@ -4895,12 +5437,12 @@ function damagePlayerCustomAmountAmount(amount: number): void;
     vertical-align: top; 
   }
 </style>
-
-<tr>
-<td>number_with_commas</td>
-<td><p>
-
+        <div xmlns="http://www.w3.org/1999/xhtml">
   <div class="block" style="--block-hue: 159.7">Convert Number To Text (With Commas) <span class="hole"></span> </div>
+        </div>
+    </foreignObject>
+  </svg>
+  
 </p></td>
 <td>
 
@@ -4914,57 +5456,5 @@ function convertNumberToTextWithCommas(convert_number_to_text_with_commas: numbe
 <td>
 
 </td>
-
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
 
 </table>
