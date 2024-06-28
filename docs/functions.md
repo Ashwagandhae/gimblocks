@@ -19,6 +19,33 @@
 
 ## Table
 
+<table>
+  <tr>
+    <th>Block Type</th>
+    <th>Example</th>
+    <th>JavaScript Function</th>
+    <th>Sugar</th>
+  </tr>
+
+<tr>
+<td>logic_boolean</td>
+<td><p>
+
+  <div class="block" style="--block-hue: 210"><span class="field">true</span></div>
+</p></td>
+<td>
+
+
+```typescript
+function logicBoolean(BOOL: 'TRUE' | 'FALSE'): boolean;
+```
+
+
+</td>
+<td>
+
+</td>
+
 <style>
   table {
     width: 100%;
@@ -71,33 +98,6 @@
   }
 </style>
 
-<table>
-  <tr>
-    <th>Block Type</th>
-    <th>Example</th>
-    <th>JavaScript Function</th>
-    <th>Sugar</th>
-  </tr>
-
-<tr>
-<td>logic_boolean</td>
-<td><p>
-
-  <div class="block" style="--block-hue: 210"><span class="field">true</span></div>
-</p></td>
-<td>
-
-
-```typescript
-function logicBoolean(BOOL: 'TRUE' | 'FALSE'): boolean;
-```
-
-
-</td>
-<td>
-
-</td>
-
 <tr>
 <td>controls_if</td>
 <td><p>
@@ -116,6 +116,58 @@ if { ... } else { ... }
 
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>logic_compare</td>
@@ -136,6 +188,58 @@ function logicCompare(A: any, OP: 'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE', B:
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>logic_operation</td>
 <td><p>
@@ -154,6 +258,58 @@ function logicOperation(A: boolean, OP: 'AND' | 'OR', B: boolean): boolean;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>math_number</td>
@@ -174,6 +330,58 @@ function mathNumber(NUM: number): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>math_arithmetic</td>
 <td><p>
@@ -192,6 +400,58 @@ function mathArithmetic(A: number, OP: 'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' |
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>math_single</td>
@@ -212,6 +472,58 @@ function mathSingle(OP: 'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>math_trig</td>
 <td><p>
@@ -230,6 +542,58 @@ function mathTrig(OP: 'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN', NUM: num
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>math_number_property</td>
@@ -250,6 +614,58 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>math_change</td>
 <td><p>
@@ -262,6 +678,58 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>math_round</td>
@@ -282,6 +750,58 @@ function mathRound(OP: 'ROUND' | 'ROUNDUP' | 'ROUNDDOWN', NUM: number): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>math_random_int</td>
 <td><p>
@@ -300,6 +820,58 @@ function randomIntegerFromTo(FROM: number, TO: number): number;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>text</td>
@@ -320,6 +892,58 @@ function text(TEXT: string): string;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>text_join</td>
 <td><p>
@@ -332,6 +956,58 @@ function text(TEXT: string): string;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>text_length</td>
@@ -352,6 +1028,58 @@ function lengthOf(VALUE: string): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>text_indexOf</td>
 <td><p>
@@ -371,6 +1099,58 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>text_charAt</td>
 <td><p>
@@ -383,6 +1163,58 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>text_getSubstring</td>
@@ -403,6 +1235,58 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>variables_get</td>
 <td><p>
@@ -416,6 +1300,58 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>variables_set</td>
 <td><p>
@@ -428,6 +1364,58 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>message_broadcaster</td>
@@ -448,6 +1436,58 @@ function broadcastMessageOnChannel(broadcast_message_on_channel: string): void;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>set_property</td>
 <td><p>
@@ -466,6 +1506,58 @@ function setPropertyValue(set_property: string, value: string | number | boolean
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>get_property</td>
@@ -486,6 +1578,58 @@ function getProperty(get_property: string): string | number | boolean;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>current_character_name</td>
 <td><p>
@@ -504,6 +1648,58 @@ function triggeringPlayersName(): string;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>add_activity_feed_item_for_everyone</td>
@@ -524,6 +1720,58 @@ function addActivityFeedItemForEveryone(add_activity_feed_item_for_everyone: str
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>add_activity_feed_item_for_triggering_player</td>
 <td><p>
@@ -542,6 +1790,58 @@ function addActivityFeedItemForTriggeringPlayer(add_activity_feed_item_for_trigg
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>add_activity_feed_item_for_game_host</td>
@@ -562,6 +1862,58 @@ function addActivityFeedItemForGameHost(add_activity_feed_item_for_game_host: st
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>current_character_team_number</td>
 <td><p>
@@ -580,6 +1932,58 @@ function triggeringPlayersTeamNumber(): number;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>triggering_player_score</td>
@@ -600,6 +2004,58 @@ function triggeringPlayersScore(): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>get_team_score</td>
 <td><p>
@@ -618,6 +2074,58 @@ function getScoreOfTeam(get_score_of_team: number): number;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>is_a_live_game</td>
@@ -638,6 +2146,58 @@ function isALiveGame(): boolean;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>is_an_assignment</td>
 <td><p>
@@ -656,6 +2216,58 @@ function isAnAssignment(): boolean;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>seconds_into_game</td>
@@ -676,6 +2288,58 @@ function secondsIntoGame(): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>set_assignment_objective</td>
 <td><p>
@@ -694,6 +2358,58 @@ function setObjectiveTo(set_objective_to: string): void;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>set_percentage_complete</td>
@@ -714,6 +2430,58 @@ function setPercentageCompleteTo(set_percentage_complete_to: number): void;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>increment_percentage_complete</td>
 <td><p>
@@ -732,6 +2500,58 @@ function incrementPercentageCompleteBy(increment_percentage_complete_by: number)
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>send_custom_notification</td>
@@ -752,6 +2572,58 @@ function sendNotificationTitleContent(title: string, content: string): void;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>other_character_name</td>
 <td><p>
@@ -770,6 +2642,58 @@ function otherPlayersName(): string;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>other_character_team_number</td>
@@ -790,6 +2714,58 @@ function otherPlayersTeamNumber(): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>other_character_get_property</td>
 <td><p>
@@ -808,6 +2784,58 @@ function getPropertyAsOtherPlayer(get_property_as_other_player: string): string 
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>other_character_set_property</td>
@@ -828,6 +2856,58 @@ function setPropertyAsOtherPlayerValue(set_property_as_other_player: string, val
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>other_character_message_broadcaster</td>
 <td><p>
@@ -846,6 +2926,58 @@ function broadcastMessageAsOtherPlayerOnChannel(broadcast_message_as_other_playe
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>grant</td>
@@ -866,6 +2998,58 @@ function grantPlayerSelectedItem(): void;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>grant_custom</td>
 <td><p>
@@ -884,6 +3068,58 @@ function grantPlayerSelectedItemCustomAmountAmount(amount: number): void;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>set_billboard_text</td>
@@ -904,6 +3140,58 @@ function setText(set_text: string): void;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>set_text_color</td>
 <td><p>
@@ -922,6 +3210,58 @@ function setTextColorTo(set_text_color_to: Color): void;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>set_image</td>
@@ -942,6 +3282,58 @@ function setImageUrl(set_image_url: string): void;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>set_frame_color</td>
 <td><p>
@@ -960,6 +3352,58 @@ function setFrameColorTo(set_frame_color_to: Color): void;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>question_answering_streak</td>
@@ -980,6 +3424,58 @@ function questionsAnsweredCorrectlyInARow(): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>message_correct_answer</td>
 <td><p>
@@ -998,6 +3494,58 @@ function setMessageShownWhenPlayerAnswersCorrectly(set_message_shown_when_player
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>message_incorrect_answer</td>
@@ -1018,6 +3566,58 @@ function setMessageShownWhenPlayerAnswersIncorrectly(set_message_shown_when_play
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>set_header</td>
 <td><p>
@@ -1036,6 +3636,58 @@ function setHeader(set_header: string): void;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>set_content</td>
@@ -1056,6 +3708,58 @@ function setContent(set_content: string): void;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>get_amount</td>
 <td><p>
@@ -1074,6 +3778,58 @@ function getAmountOfCurrentItem(): number;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>set_gui_text</td>
@@ -1094,6 +3850,58 @@ function setGuiText(set_text: string): void;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>get_minutes</td>
 <td><p>
@@ -1112,6 +3920,58 @@ function getMinutes(): number;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>get_seconds</td>
@@ -1132,6 +3992,58 @@ function getSeconds(): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>get_time_left_formatted</td>
 <td><p>
@@ -1150,6 +4062,58 @@ function getTimeLeftFormatted(): string;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>get_player_count</td>
@@ -1170,6 +4134,58 @@ function numberOfPlayersOnTeam(): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>knockout_manager_other_character_name</td>
 <td><p>
@@ -1188,6 +4204,58 @@ function knockedPlayersName(): string;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>knockout_manager_other_character_team_number</td>
@@ -1208,6 +4276,58 @@ function knockedPlayersTeamNumber(): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>knockout_manager_other_character_get_property</td>
 <td><p>
@@ -1226,6 +4346,58 @@ function getPropertyAsKnockedOutPlayer(get_property_as_knocked_out_player: strin
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>knockout_manager_other_character_set_property</td>
@@ -1246,6 +4418,58 @@ function setPropertyAsKnockedOutPlayerValue(set_property_as_knocked_out_player: 
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>knockout_manager_other_character_message_broadcaster</td>
 <td><p>
@@ -1264,6 +4488,58 @@ function broadcastMessageAsKnockedOutPlayerOnChannel(broadcast_message_as_knocke
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>tag_zone_other_character_name</td>
@@ -1284,6 +4560,58 @@ function tagZoneOtherCharacterName(): string;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>tag_zone_other_character_team_number</td>
 <td><p>
@@ -1302,6 +4630,58 @@ function tagZoneOtherCharacterTeamNumber(): number;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>player_position_detector_player_x_position</td>
@@ -1322,6 +4702,58 @@ function playersXPosition(): number;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>player_position_detector_player_y_position</td>
 <td><p>
@@ -1340,6 +4772,58 @@ function playersYPosition(): number;
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 <tr>
 <td>damage_custom</td>
@@ -1360,6 +4844,58 @@ function damagePlayerCustomAmountAmount(amount: number): void;
 
 </td>
 
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
+
 <tr>
 <td>number_with_commas</td>
 <td><p>
@@ -1378,5 +4914,57 @@ function convertNumberToTextWithCommas(convert_number_to_text_with_commas: numbe
 <td>
 
 </td>
+
+<style>
+  table {
+    width: 100%;
+    --block-hue: 0;
+  }
+
+  .block {
+    font-size: 14px;
+    padding: 4px;
+    white-space: nowrap;
+    color: white;
+    width: min-content;
+    background: hsl(var(--block-hue), 30%, 50%);
+    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+  .text {
+    white-space: pre-wrap;
+  }
+  .field {
+    color: black;
+    background: hsl(var(--block-hue), 29%, 81%);
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  .field.color {
+    background: red;
+    width: 18px;
+    height: 18px;
+  }
+  .hole {
+    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
+    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
+    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
+    background: black;
+    height: 18px;
+    width: 18px;
+  }
+
+  td {
+    vertical-align: top; 
+  }
+</style>
 
 </table>
