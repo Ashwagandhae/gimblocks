@@ -4,14 +4,10 @@ import {
   BlockDefinitions,
 } from '../../../schema/blockDefinitions';
 import { generateFunction, generateFunctionNameMap, getEn } from './function';
+import { writeFileSync } from 'fs';
 
 const STYLES = `
 <style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
   .block {
     font-size: 14px;
     padding: 4px;
@@ -27,6 +23,7 @@ const STYLES = `
     flex-direction: row;
     align-items: center;
     gap: 4px;
+    font-family: sans-serif;
   }
   .text {
     white-space: pre-wrap;
@@ -51,10 +48,6 @@ const STYLES = `
     background: black;
     height: 18px;
     width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
   }
 </style>`;
 
@@ -161,19 +154,20 @@ ${sugarString}
   return out;
 }
 
-function wrapInSvg(html: string): string {
+function wrapInSvg(html: string, name: string): string {
   let out = `
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <svg fill="none" viewBox="0 0 300 40" width="300" height="40" xmlns="http://www.w3.org/2000/svg">
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">`;
-  out += STYLES;
   out += html;
+  out += STYLES;
   out += `
         </div>
     </foreignObject>
   </svg>
   `;
-  return out;
+  writeFileSync(`./docs/svg/${name}.svg`, out);
+  return `<img src="./svg/${name}.svg" width="300" height="40" alt="css-in-readme">`;
 }
 
 function generateBlockHtml(def: BlockDefinition): string {
@@ -184,7 +178,7 @@ function generateBlockHtml(def: BlockDefinition): string {
   out += generateBlockMessage(def);
 
   out += `</div>`;
-  return wrapInSvg(out);
+  return wrapInSvg(out, def.type);
 }
 
 function generateBlockMessage(def: BlockDefinition): string {
@@ -205,7 +199,7 @@ function generateArgHtml(arg: Argument): string {
     case 'input_value':
       return `<span class="hole"></span>`;
     case 'input_dummy':
-      return '<br>';
+      return '';
     case 'input_statement':
       return `<span class="hole"></span>`;
     case 'field_colour':

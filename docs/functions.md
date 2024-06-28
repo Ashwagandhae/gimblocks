@@ -30,66 +30,7 @@
 <tr>
 <td>logic_boolean</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 210"><span class="field">true</span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/logic_boolean.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -107,66 +48,7 @@ function logicBoolean(BOOL: 'TRUE' | 'FALSE'): boolean;
 <tr>
 <td>controls_if</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 210">if <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/controls_if.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -184,66 +66,7 @@ if { ... } else { ... }
 <tr>
 <td>logic_compare</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 210"><span class="hole"></span> <span class="field">=</span> <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/logic_compare.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -261,66 +84,7 @@ function logicCompare(A: any, OP: 'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE', B:
 <tr>
 <td>logic_operation</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 210"><span class="hole"></span> <span class="field">and</span> <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/logic_operation.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -338,66 +102,7 @@ function logicOperation(A: boolean, OP: 'AND' | 'OR', B: boolean): boolean;
 <tr>
 <td>math_number</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230"><span class="field">0</span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/math_number.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -415,66 +120,7 @@ function mathNumber(NUM: number): number;
 <tr>
 <td>math_arithmetic</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230"><span class="hole"></span> <span class="field">+</span> <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/math_arithmetic.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -492,66 +138,7 @@ function mathArithmetic(A: number, OP: 'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' |
 <tr>
 <td>math_single</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230"><span class="field">square root</span> <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/math_single.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -569,66 +156,7 @@ function mathSingle(OP: 'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10
 <tr>
 <td>math_trig</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230"><span class="field">sin</span> <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/math_trig.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -646,66 +174,7 @@ function mathTrig(OP: 'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN', NUM: num
 <tr>
 <td>math_number_property</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230"><span class="hole"></span> <span class="field">is even</span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/math_number_property.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -723,66 +192,7 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
 <tr>
 <td>math_change</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 329">change <span class="field">x</span> by <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/math_change.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -794,66 +204,7 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
 <tr>
 <td>math_round</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230"><span class="field">round</span> <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/math_round.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -871,66 +222,7 @@ function mathRound(OP: 'ROUND' | 'ROUNDUP' | 'ROUNDDOWN', NUM: number): number;
 <tr>
 <td>math_random_int</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">random integer from <span class="hole"></span> to <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/math_random_int.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -948,66 +240,7 @@ function randomIntegerFromTo(FROM: number, TO: number): number;
 <tr>
 <td>text</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 161"><span class="field">text</span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/text.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1025,66 +258,7 @@ function text(TEXT: string): string;
 <tr>
 <td>text_join</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 161">create text with</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/text_join.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1096,66 +270,7 @@ function text(TEXT: string): string;
 <tr>
 <td>text_length</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 161">length of <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/text_length.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1173,66 +288,7 @@ function lengthOf(VALUE: string): number;
 <tr>
 <td>text_indexOf</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 161">in text <span class="hole"></span> <span class="field">find first occurrence of text</span> <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/text_indexOf.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1250,66 +306,7 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
 <tr>
 <td>text_charAt</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 161">in text <span class="hole"></span> <span class="field">get letter #</span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/text_charAt.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1321,66 +318,7 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
 <tr>
 <td>text_getSubstring</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 161">in text <span class="hole"></span> get substring from <span class="field">get substring from letter #</span> <span class="hole"></span> to <span class="field">to letter #</span> <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/text_getSubstring.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1398,66 +336,7 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 <tr>
 <td>variables_get</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 329"><span class="field">x</span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/variables_get.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1469,66 +348,7 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 <tr>
 <td>variables_set</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 329">set <span class="field">x</span> to <span class="hole"></span></div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/variables_set.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1540,66 +360,7 @@ function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_E
 <tr>
 <td>message_broadcaster</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Broadcast Message On Channel <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/message_broadcaster.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1617,66 +378,7 @@ function broadcastMessageOnChannel(broadcast_message_on_channel: string): void;
 <tr>
 <td>set_property</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Property <span class="hole"></span> Value <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/set_property.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1694,66 +396,7 @@ function setPropertyValue(set_property: string, value: string | number | boolean
 <tr>
 <td>get_property</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Get Property <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/get_property.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1771,66 +414,7 @@ function getProperty(get_property: string): string | number | boolean;
 <tr>
 <td>current_character_name</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Triggering Player's Name</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/current_character_name.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1848,66 +432,7 @@ function triggeringPlayersName(): string;
 <tr>
 <td>add_activity_feed_item_for_everyone</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Add Activity Feed Item For Everyone <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/add_activity_feed_item_for_everyone.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -1925,66 +450,7 @@ function addActivityFeedItemForEveryone(add_activity_feed_item_for_everyone: str
 <tr>
 <td>add_activity_feed_item_for_triggering_player</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Add Activity Feed Item For Triggering Player <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/add_activity_feed_item_for_triggering_player.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2002,66 +468,7 @@ function addActivityFeedItemForTriggeringPlayer(add_activity_feed_item_for_trigg
 <tr>
 <td>add_activity_feed_item_for_game_host</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Add Activity Feed Item For Game Host <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/add_activity_feed_item_for_game_host.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2079,66 +486,7 @@ function addActivityFeedItemForGameHost(add_activity_feed_item_for_game_host: st
 <tr>
 <td>current_character_team_number</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Triggering Player's Team Number</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/current_character_team_number.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2156,66 +504,7 @@ function triggeringPlayersTeamNumber(): number;
 <tr>
 <td>triggering_player_score</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Triggering Player's Score</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/triggering_player_score.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2233,66 +522,7 @@ function triggeringPlayersScore(): number;
 <tr>
 <td>get_team_score</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Get Score Of Team <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/get_team_score.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2310,66 +540,7 @@ function getScoreOfTeam(get_score_of_team: number): number;
 <tr>
 <td>is_a_live_game</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Is A Live Game</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/is_a_live_game.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2387,66 +558,7 @@ function isALiveGame(): boolean;
 <tr>
 <td>is_an_assignment</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Is An Assignment</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/is_an_assignment.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2464,66 +576,7 @@ function isAnAssignment(): boolean;
 <tr>
 <td>seconds_into_game</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Seconds Into Game</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/seconds_into_game.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2541,66 +594,7 @@ function secondsIntoGame(): number;
 <tr>
 <td>set_assignment_objective</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Objective To <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/set_assignment_objective.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2618,66 +612,7 @@ function setObjectiveTo(set_objective_to: string): void;
 <tr>
 <td>set_percentage_complete</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Percentage Complete To <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/set_percentage_complete.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2695,66 +630,7 @@ function setPercentageCompleteTo(set_percentage_complete_to: number): void;
 <tr>
 <td>increment_percentage_complete</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Increment Percentage Complete By <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/increment_percentage_complete.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2772,66 +648,7 @@ function incrementPercentageCompleteBy(increment_percentage_complete_by: number)
 <tr>
 <td>send_custom_notification</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Send Notification <br> Title <span class="hole"></span> Content <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/send_custom_notification.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2849,66 +666,7 @@ function sendNotificationTitleContent(title: string, content: string): void;
 <tr>
 <td>other_character_name</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Other Player's Name</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/other_character_name.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -2926,66 +684,7 @@ function otherPlayersName(): string;
 <tr>
 <td>other_character_team_number</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Other Player's Team Number</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/other_character_team_number.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3003,66 +702,7 @@ function otherPlayersTeamNumber(): number;
 <tr>
 <td>other_character_get_property</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Get Property As Other Player <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/other_character_get_property.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3080,66 +720,7 @@ function getPropertyAsOtherPlayer(get_property_as_other_player: string): string 
 <tr>
 <td>other_character_set_property</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Property (As Other Player) <span class="hole"></span> Value <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/other_character_set_property.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3157,66 +738,7 @@ function setPropertyAsOtherPlayerValue(set_property_as_other_player: string, val
 <tr>
 <td>other_character_message_broadcaster</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Broadcast Message (As Other Player) On Channel <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/other_character_message_broadcaster.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3234,66 +756,7 @@ function broadcastMessageAsOtherPlayerOnChannel(broadcast_message_as_other_playe
 <tr>
 <td>grant</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Grant Player Selected Item</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/grant.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3311,66 +774,7 @@ function grantPlayerSelectedItem(): void;
 <tr>
 <td>grant_custom</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Grant Player Selected Item (Custom Amount) <br> Amount <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/grant_custom.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3388,66 +792,7 @@ function grantPlayerSelectedItemCustomAmountAmount(amount: number): void;
 <tr>
 <td>set_billboard_text</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Text <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/set_billboard_text.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3465,66 +810,7 @@ function setText(set_text: string): void;
 <tr>
 <td>set_text_color</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Text Color To <span class="field color"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/set_text_color.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3542,66 +828,7 @@ function setTextColorTo(set_text_color_to: Color): void;
 <tr>
 <td>set_image</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Image URL <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/set_image.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3619,66 +846,7 @@ function setImageUrl(set_image_url: string): void;
 <tr>
 <td>set_frame_color</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Frame Color To <span class="field color"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/set_frame_color.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3696,66 +864,7 @@ function setFrameColorTo(set_frame_color_to: Color): void;
 <tr>
 <td>question_answering_streak</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Questions Answered Correctly In A Row</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/question_answering_streak.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3773,66 +882,7 @@ function questionsAnsweredCorrectlyInARow(): number;
 <tr>
 <td>message_correct_answer</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Message Shown When Player Answers Correctly <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/message_correct_answer.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3850,66 +900,7 @@ function setMessageShownWhenPlayerAnswersCorrectly(set_message_shown_when_player
 <tr>
 <td>message_incorrect_answer</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Message Shown When Player Answers Incorrectly <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/message_incorrect_answer.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -3927,66 +918,7 @@ function setMessageShownWhenPlayerAnswersIncorrectly(set_message_shown_when_play
 <tr>
 <td>set_header</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Header <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/set_header.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4004,66 +936,7 @@ function setHeader(set_header: string): void;
 <tr>
 <td>set_content</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Content <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/set_content.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4081,66 +954,7 @@ function setContent(set_content: string): void;
 <tr>
 <td>get_amount</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Get Amount Of Current Item <br> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/get_amount.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4158,66 +972,7 @@ function getAmountOfCurrentItem(): number;
 <tr>
 <td>set_gui_text</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Text <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/set_gui_text.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4235,66 +990,7 @@ function setGuiText(set_text: string): void;
 <tr>
 <td>get_minutes</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Get Minutes <br> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/get_minutes.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4312,66 +1008,7 @@ function getMinutes(): number;
 <tr>
 <td>get_seconds</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Get Seconds <br> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/get_seconds.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4389,66 +1026,7 @@ function getSeconds(): number;
 <tr>
 <td>get_time_left_formatted</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Get Time Left Formatted <br> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/get_time_left_formatted.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4466,66 +1044,7 @@ function getTimeLeftFormatted(): string;
 <tr>
 <td>get_player_count</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Number Of Players On Team <br> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/get_player_count.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4543,66 +1062,7 @@ function numberOfPlayersOnTeam(): number;
 <tr>
 <td>knockout_manager_other_character_name</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Knocked Player's Name</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/knockout_manager_other_character_name.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4620,66 +1080,7 @@ function knockedPlayersName(): string;
 <tr>
 <td>knockout_manager_other_character_team_number</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Knocked Player's Team Number</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/knockout_manager_other_character_team_number.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4697,66 +1098,7 @@ function knockedPlayersTeamNumber(): number;
 <tr>
 <td>knockout_manager_other_character_get_property</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Get Property As Knocked Out Player <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/knockout_manager_other_character_get_property.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4774,66 +1116,7 @@ function getPropertyAsKnockedOutPlayer(get_property_as_knocked_out_player: strin
 <tr>
 <td>knockout_manager_other_character_set_property</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Set Property (As Knocked Out Player) <span class="hole"></span> Value <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/knockout_manager_other_character_set_property.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4851,66 +1134,7 @@ function setPropertyAsKnockedOutPlayerValue(set_property_as_knocked_out_player: 
 <tr>
 <td>knockout_manager_other_character_message_broadcaster</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Broadcast Message (As Knocked Out Player) On Channel <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/knockout_manager_other_character_message_broadcaster.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -4928,66 +1152,7 @@ function broadcastMessageAsKnockedOutPlayerOnChannel(broadcast_message_as_knocke
 <tr>
 <td>tag_zone_other_character_name</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Other Player's Name</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/tag_zone_other_character_name.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -5005,66 +1170,7 @@ function tagZoneOtherCharacterName(): string;
 <tr>
 <td>tag_zone_other_character_team_number</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Other Player's Team Number</div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/tag_zone_other_character_team_number.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -5082,66 +1188,7 @@ function tagZoneOtherCharacterTeamNumber(): number;
 <tr>
 <td>player_position_detector_player_x_position</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Player's X Position <br> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/player_position_detector_player_x_position.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -5159,66 +1206,7 @@ function playersXPosition(): number;
 <tr>
 <td>player_position_detector_player_y_position</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Player's Y Position <br> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/player_position_detector_player_y_position.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -5236,66 +1224,7 @@ function playersYPosition(): number;
 <tr>
 <td>damage_custom</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 230">Damage Player (Custom Amount) <br> Amount <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/damage_custom.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
@@ -5313,66 +1242,7 @@ function damagePlayerCustomAmountAmount(amount: number): void;
 <tr>
 <td>number_with_commas</td>
 <td><p>
-
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-<style>
-  table {
-    width: 100%;
-    --block-hue: 0;
-  }
-
-  .block {
-    font-size: 14px;
-    padding: 4px;
-    white-space: nowrap;
-    color: white;
-    width: min-content;
-    background: hsl(var(--block-hue), 30%, 50%);
-    border-top: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-left: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-bottom: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-right: 1px solid hsl(var(--block-hue), 29%, 42%);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 4px;
-  }
-  .text {
-    white-space: pre-wrap;
-  }
-  .field {
-    color: black;
-    background: hsl(var(--block-hue), 29%, 81%);
-    font-size: 12px;
-    border-radius: 4px;
-    padding: 0 4px;
-  }
-  .field.color {
-    background: red;
-    width: 18px;
-    height: 18px;
-  }
-  .hole {
-    border-bottom: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-right: 1px solid hsl(var(--block-hue), 34%, 68%);
-    border-top: 1px solid hsl(var(--block-hue), 29%, 42%);
-    border-left: 1px solid hsl(var(--block-hue), 29%, 42%);
-    background: black;
-    height: 18px;
-    width: 18px;
-  }
-
-  td {
-    vertical-align: top; 
-  }
-</style>
-  <div class="block" style="--block-hue: 159.7">Convert Number To Text (With Commas) <span class="hole"></span> </div>
-        </div>
-    </foreignObject>
-  </svg>
-  
+<img src="./svg/number_with_commas.svg" width="300" height="40" alt="css-in-readme">
 </p></td>
 <td>
 
