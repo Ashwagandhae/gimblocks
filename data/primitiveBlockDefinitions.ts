@@ -22,6 +22,7 @@ const logical: BlockDefinitions = [
     style: 'logic_blocks',
     tooltip: '%{BKY_LOGIC_BOOLEAN_TOOLTIP}',
     helpUrl: '%{BKY_LOGIC_BOOLEAN_HELPURL}',
+    $codegenSugar: 'true;\nfalse;',
   },
   // Block for if/elseif/else condition.
   {
@@ -86,6 +87,8 @@ const logical: BlockDefinitions = [
     style: 'logic_blocks',
     helpUrl: '%{BKY_LOGIC_COMPARE_HELPURL}',
     extensions: ['logic_compare', 'logic_op_tooltip'],
+    $codegenSugar:
+      'x == y; // or ===\nx != y; // or !==\nx < y;\nx <= y;\nx > y;\nx >= y;',
   },
   // Block for logical operations: 'and', 'or'.
   {
@@ -116,6 +119,7 @@ const logical: BlockDefinitions = [
     style: 'logic_blocks',
     helpUrl: '%{BKY_LOGIC_OPERATION_HELPURL}',
     extensions: ['logic_op_tooltip'],
+    $codegenSugar: 'x && y;\nx || y;',
   },
   // Block for negation.
   // {
@@ -153,6 +157,7 @@ const math: BlockDefinitions = [
     style: 'math_blocks',
     tooltip: '%{BKY_MATH_NUMBER_TOOLTIP}',
     extensions: ['parent_tooltip_when_inline'],
+    $codegenSugar: '42;\n21.5;\n// or any number',
   },
 
   // Block for basic arithmetic operator.
@@ -187,6 +192,7 @@ const math: BlockDefinitions = [
     style: 'math_blocks',
     helpUrl: '%{BKY_MATH_ARITHMETIC_HELPURL}',
     extensions: ['math_op_tooltip'],
+    $codegenSugar: 'x + y;\nx - y;\nx * y;\nx / y;\nx ** y;',
   },
 
   // Block for advanced math operators with single operand.
@@ -246,6 +252,8 @@ const math: BlockDefinitions = [
     style: 'math_blocks',
     helpUrl: '%{BKY_MATH_TRIG_HELPURL}',
     extensions: ['math_op_tooltip'],
+    $codegenSugar:
+      'Math.sin(x);\nMath.cos(x);\n// etc.\n// Will preserve JS behaviour by multiplying by Math.PI / 180',
   },
 
   // Block for constants: PI, E, the Golden Ratio, sqrt(2), 1/sqrt(2), INFINITY.
@@ -327,6 +335,7 @@ const math: BlockDefinitions = [
     extensions: ['math_change_tooltip'],
     $codegenNoFunction: true,
     $codegenForceInclude: true,
+    $codegenSugar: 'x += y;',
   },
 
   // Block for rounding functions.
@@ -480,6 +489,7 @@ const text: BlockDefinitions = [
     helpUrl: '%{BKY_TEXT_TEXT_HELPURL}',
     tooltip: '%{BKY_TEXT_TEXT_TOOLTIP}',
     extensions: ['text_quotes', 'parent_tooltip_when_inline'],
+    $codegenSugar: '\'Hello\';\n"World";\n// or any text',
   },
   {
     type: 'text_join',
@@ -492,7 +502,7 @@ const text: BlockDefinitions = [
     $codegenCustomInputsType:
       'Partial<Record<`ADD${number}`, {block: ValueBlock}>>',
     $codegenIntersectsWith: '{ extraState?: { itemCount?: number; } }',
-    $codegenNoFunction: true,
+    $codegenCustomFunctionArgs: '...args: any[]',
   },
   // {
   //   type: 'text_append',
@@ -598,7 +608,6 @@ const text: BlockDefinitions = [
     helpUrl: '%{BKY_TEXT_CHARAT_HELPURL}',
     inputsInline: true,
     mutator: 'text_charAt_mutator',
-    $codegenNoFunction: true,
   },
   // function (this: GetSubstringBlock) {
   //   this['WHERE_OPTIONS_1'] = [
@@ -690,6 +699,7 @@ const variables: BlockDefinitions = [
     tooltip: '%{BKY_VARIABLES_GET_TOOLTIP}',
     extensions: ['contextMenu_variableSetterGetter'],
     $codegenNoFunction: true,
+    $codegenSugar: 'x // just use the variable name',
     $codegenForceInclude: true,
   },
   // Block for variable setter.
@@ -715,6 +725,7 @@ const variables: BlockDefinitions = [
     extensions: ['contextMenu_variableSetterGetter'],
     $codegenNoFunction: true,
     $codegenForceInclude: true,
+    $codegenSugar: 'let x = ...;\nvar x = ...;\nconst x = ...;\nx = ...;',
   },
 ];
 export const definitions: BlockDefinitions = [

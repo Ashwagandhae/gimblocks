@@ -32,6 +32,7 @@ export type BlockDefinition = {
   $codegenNoFunction?: boolean;
   $codegenForceInclude?: boolean;
   $codegenSugar?: string;
+  $codegenCustomFunctionArgs?: string;
 };
 type Style = 'logic_blocks' | 'math_blocks' | 'variable_blocks' | 'text_blocks';
 export type Argument =

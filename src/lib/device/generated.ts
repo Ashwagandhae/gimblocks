@@ -27,7 +27,7 @@ export type Union = {
   logicCompare: (
     A: any,
     OP: "EQ" | "NEQ" | "LT" | "LTE" | "GT" | "GTE",
-    B: any
+    B: any,
   ) => boolean;
   /**
    * Function generated for "logic_operation" block.
@@ -53,7 +53,7 @@ export type Union = {
   mathArithmetic: (
     A: number,
     OP: "ADD" | "MINUS" | "MULTIPLY" | "DIVIDE" | "POWER",
-    B: number
+    B: number,
   ) => number;
   /**
    * Function generated for "math_single" block.
@@ -63,7 +63,7 @@ export type Union = {
    */
   mathSingle: (
     OP: "ROOT" | "ABS" | "NEG" | "LN" | "LOG10" | "EXP" | "POW10",
-    NUM: number
+    NUM: number,
   ) => number;
   /**
    * Function generated for "math_trig" block.
@@ -73,7 +73,7 @@ export type Union = {
    */
   mathTrig: (
     OP: "SIN" | "COS" | "TAN" | "ASIN" | "ACOS" | "ATAN",
-    NUM: number
+    NUM: number,
   ) => number;
   /**
    * Function generated for "math_number_property" block.
@@ -90,7 +90,7 @@ export type Union = {
       | "WHOLE"
       | "POSITIVE"
       | "NEGATIVE"
-      | "DIVISIBLE_BY"
+      | "DIVISIBLE_BY",
   ) => boolean;
   /**
    * Function generated for "math_round" block.
@@ -113,6 +113,11 @@ export type Union = {
    */
   text: (TEXT: string) => string;
   /**
+   * Function generated for "text_join" block.
+   *
+   */
+  createTextWith: (...args: any[]) => string;
+  /**
    * Function generated for "text_length" block.
    *
    * @param VALUE - An input block.
@@ -127,6 +132,16 @@ export type Union = {
    */
   inText: (VALUE: string, END: "FIRST" | "LAST", FIND: string) => number;
   /**
+   * Function generated for "text_charAt" block.
+   *
+   * @param VALUE - An input block.
+   * @param WHERE - A field. It must be a literal, non-dynamic value.
+   */
+  textCharAt: (
+    VALUE: string,
+    WHERE: "FROM_START" | "FROM_END" | "FIRST" | "LAST" | "RANDOM",
+  ) => string;
+  /**
    * Function generated for "text_getSubstring" block.
    *
    * @param STRING - An input block.
@@ -140,7 +155,7 @@ export type Union = {
     WHERE1: "FROM_START" | "FROM_END" | "FIRST",
     AT1: number,
     WHERE2: "FROM_START" | "FROM_END" | "LAST",
-    AT2: number
+    AT2: number,
   ) => string;
   /**
    * Function generated for "message_broadcaster" block.
@@ -156,7 +171,7 @@ export type Union = {
    */
   setPropertyValue: (
     set_property: string,
-    value: string | number | boolean
+    value: string | number | boolean,
   ) => void;
   /**
    * Function generated for "get_property" block.
@@ -175,7 +190,7 @@ export type Union = {
    * @param add_activity_feed_item_for_everyone - An input block.
    */
   addActivityFeedItemForEveryone: (
-    add_activity_feed_item_for_everyone: string
+    add_activity_feed_item_for_everyone: string,
   ) => void;
   /**
    * Function generated for "add_activity_feed_item_for_triggering_player" block.
@@ -183,7 +198,7 @@ export type Union = {
    * @param add_activity_feed_item_for_triggering_player - An input block.
    */
   addActivityFeedItemForTriggeringPlayer: (
-    add_activity_feed_item_for_triggering_player: string
+    add_activity_feed_item_for_triggering_player: string,
   ) => void;
   /**
    * Function generated for "add_activity_feed_item_for_game_host" block.
@@ -191,7 +206,7 @@ export type Union = {
    * @param add_activity_feed_item_for_game_host - An input block.
    */
   addActivityFeedItemForGameHost: (
-    add_activity_feed_item_for_game_host: string
+    add_activity_feed_item_for_game_host: string,
   ) => void;
   /**
    * Function generated for "current_character_team_number" block.
@@ -242,7 +257,7 @@ export type Union = {
    * @param increment_percentage_complete_by - An input block.
    */
   incrementPercentageCompleteBy: (
-    increment_percentage_complete_by: number
+    increment_percentage_complete_by: number,
   ) => void;
   /**
    * Function generated for "send_custom_notification" block.
@@ -267,7 +282,7 @@ export type Union = {
    * @param get_property_as_other_player - An input block.
    */
   getPropertyAsOtherPlayer: (
-    get_property_as_other_player: string
+    get_property_as_other_player: string,
   ) => string | number | boolean;
   /**
    * Function generated for "other_character_set_property" block.
@@ -277,7 +292,7 @@ export type Union = {
    */
   setPropertyAsOtherPlayerValue: (
     set_property_as_other_player: string,
-    value: string | number | boolean
+    value: string | number | boolean,
   ) => void;
   /**
    * Function generated for "other_character_message_broadcaster" block.
@@ -285,7 +300,7 @@ export type Union = {
    * @param broadcast_message_as_other_player_on_channel - An input block.
    */
   broadcastMessageAsOtherPlayerOnChannel: (
-    broadcast_message_as_other_player_on_channel: string
+    broadcast_message_as_other_player_on_channel: string,
   ) => void;
   /**
    * Function generated for "grant" block.
@@ -333,7 +348,7 @@ export type Union = {
    * @param set_message_shown_when_player_answers_correctly - An input block.
    */
   setMessageShownWhenPlayerAnswersCorrectly: (
-    set_message_shown_when_player_answers_correctly: string
+    set_message_shown_when_player_answers_correctly: string,
   ) => void;
   /**
    * Function generated for "message_incorrect_answer" block.
@@ -341,7 +356,7 @@ export type Union = {
    * @param set_message_shown_when_player_answers_incorrectly - An input block.
    */
   setMessageShownWhenPlayerAnswersIncorrectly: (
-    set_message_shown_when_player_answers_incorrectly: string
+    set_message_shown_when_player_answers_incorrectly: string,
   ) => void;
   /**
    * Function generated for "set_header" block.
@@ -402,7 +417,7 @@ export type Union = {
    * @param get_property_as_knocked_out_player - An input block.
    */
   getPropertyAsKnockedOutPlayer: (
-    get_property_as_knocked_out_player: string
+    get_property_as_knocked_out_player: string,
   ) => string | number | boolean;
   /**
    * Function generated for "knockout_manager_other_character_set_property" block.
@@ -412,7 +427,7 @@ export type Union = {
    */
   setPropertyAsKnockedOutPlayerValue: (
     set_property_as_knocked_out_player: string,
-    value: string | number | boolean
+    value: string | number | boolean,
   ) => void;
   /**
    * Function generated for "knockout_manager_other_character_message_broadcaster" block.
@@ -420,7 +435,7 @@ export type Union = {
    * @param broadcast_message_as_knocked_out_player_on_channel - An input block.
    */
   broadcastMessageAsKnockedOutPlayerOnChannel: (
-    broadcast_message_as_knocked_out_player_on_channel: string
+    broadcast_message_as_knocked_out_player_on_channel: string,
   ) => void;
   /**
    * Function generated for "tag_zone_other_character_name" block.
@@ -454,6 +469,6 @@ export type Union = {
    * @param convert_number_to_text_with_commas - An input block.
    */
   convertNumberToTextWithCommas: (
-    convert_number_to_text_with_commas: number
+    convert_number_to_text_with_commas: number,
   ) => string;
 };

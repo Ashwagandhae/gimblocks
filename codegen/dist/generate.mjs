@@ -800,7 +800,8 @@ var logical = [
     output: "Boolean",
     style: "logic_blocks",
     tooltip: "%{BKY_LOGIC_BOOLEAN_TOOLTIP}",
-    helpUrl: "%{BKY_LOGIC_BOOLEAN_HELPURL}"
+    helpUrl: "%{BKY_LOGIC_BOOLEAN_HELPURL}",
+    $codegenSugar: "true;\nfalse;"
   },
   // Block for if/elseif/else condition.
   {
@@ -862,7 +863,8 @@ var logical = [
     output: "Boolean",
     style: "logic_blocks",
     helpUrl: "%{BKY_LOGIC_COMPARE_HELPURL}",
-    extensions: ["logic_compare", "logic_op_tooltip"]
+    extensions: ["logic_compare", "logic_op_tooltip"],
+    $codegenSugar: "x == y; // or ===\nx != y; // or !==\nx < y;\nx <= y;\nx > y;\nx >= y;"
   },
   // Block for logical operations: 'and', 'or'.
   {
@@ -892,7 +894,8 @@ var logical = [
     output: "Boolean",
     style: "logic_blocks",
     helpUrl: "%{BKY_LOGIC_OPERATION_HELPURL}",
-    extensions: ["logic_op_tooltip"]
+    extensions: ["logic_op_tooltip"],
+    $codegenSugar: "x && y;\nx || y;"
   }
   // Block for negation.
   // {
@@ -927,7 +930,8 @@ var math = [
     helpUrl: "%{BKY_MATH_NUMBER_HELPURL}",
     style: "math_blocks",
     tooltip: "%{BKY_MATH_NUMBER_TOOLTIP}",
-    extensions: ["parent_tooltip_when_inline"]
+    extensions: ["parent_tooltip_when_inline"],
+    $codegenSugar: "42;\n21.5;\n// or any number"
   },
   // Block for basic arithmetic operator.
   {
@@ -960,7 +964,8 @@ var math = [
     output: "Number",
     style: "math_blocks",
     helpUrl: "%{BKY_MATH_ARITHMETIC_HELPURL}",
-    extensions: ["math_op_tooltip"]
+    extensions: ["math_op_tooltip"],
+    $codegenSugar: "x + y;\nx - y;\nx * y;\nx / y;\nx ** y;"
   },
   // Block for advanced math operators with single operand.
   {
@@ -1017,7 +1022,8 @@ var math = [
     output: "Number",
     style: "math_blocks",
     helpUrl: "%{BKY_MATH_TRIG_HELPURL}",
-    extensions: ["math_op_tooltip"]
+    extensions: ["math_op_tooltip"],
+    $codegenSugar: "Math.sin(x);\nMath.cos(x);\n// etc.\n// Will preserve JS behaviour by multiplying by Math.PI / 180"
   },
   // Block for constants: PI, E, the Golden Ratio, sqrt(2), 1/sqrt(2), INFINITY.
   // {
@@ -1095,7 +1101,8 @@ var math = [
     helpUrl: "%{BKY_MATH_CHANGE_HELPURL}",
     extensions: ["math_change_tooltip"],
     $codegenNoFunction: true,
-    $codegenForceInclude: true
+    $codegenForceInclude: true,
+    $codegenSugar: "x += y;"
   },
   // Block for rounding functions.
   {
@@ -1241,7 +1248,10 @@ var text = [
     style: "text_blocks",
     helpUrl: "%{BKY_TEXT_TEXT_HELPURL}",
     tooltip: "%{BKY_TEXT_TEXT_TOOLTIP}",
-    extensions: ["text_quotes", "parent_tooltip_when_inline"]
+    extensions: ["text_quotes", "parent_tooltip_when_inline"],
+    $codegenSugar: `'Hello';
+"World";
+// or any text`
   },
   {
     type: "text_join",
@@ -1253,7 +1263,7 @@ var text = [
     mutator: "text_join_mutator",
     $codegenCustomInputsType: "Partial<Record<`ADD${number}`, {block: ValueBlock}>>",
     $codegenIntersectsWith: "{ extraState?: { itemCount?: number; } }",
-    $codegenNoFunction: true
+    $codegenCustomFunctionArgs: "...args: any[]"
   },
   // {
   //   type: 'text_append',
@@ -1359,8 +1369,7 @@ var text = [
     style: "text_blocks",
     helpUrl: "%{BKY_TEXT_CHARAT_HELPURL}",
     inputsInline: true,
-    mutator: "text_charAt_mutator",
-    $codegenNoFunction: true
+    mutator: "text_charAt_mutator"
   },
   // function (this: GetSubstringBlock) {
   //   this['WHERE_OPTIONS_1'] = [
@@ -1452,6 +1461,7 @@ var variables = [
     tooltip: "%{BKY_VARIABLES_GET_TOOLTIP}",
     extensions: ["contextMenu_variableSetterGetter"],
     $codegenNoFunction: true,
+    $codegenSugar: "x // just use the variable name",
     $codegenForceInclude: true
   },
   // Block for variable setter.
@@ -1476,7 +1486,8 @@ var variables = [
     helpUrl: "%{BKY_VARIABLES_SET_HELPURL}",
     extensions: ["contextMenu_variableSetterGetter"],
     $codegenNoFunction: true,
-    $codegenForceInclude: true
+    $codegenForceInclude: true,
+    $codegenSugar: "let x = ...;\nvar x = ...;\nconst x = ...;\nx = ...;"
   }
 ];
 var definitions = [
@@ -1998,7 +2009,11 @@ function generateFunction(def, map, style = "codegen") {
     out += `<${genericStrings.join(", ")}>`;
   }
   out += `(`;
-  out += argStrings.join(", ");
+  if (def.$codegenCustomFunctionArgs) {
+    out += def.$codegenCustomFunctionArgs;
+  } else {
+    out += argStrings.join(", ");
+  }
   if (style == "codegen") {
     out += `) => ${generateReturnType(def)};`;
   } else {
@@ -2275,6 +2290,7 @@ export type Union = {`;
 
 // src/lib/docs.ts
 import { writeFileSync as writeFileSync2 } from "fs";
+import * as prettier from "prettier";
 var STYLES = `
 <style>
   .block {
@@ -2319,7 +2335,7 @@ var STYLES = `
     width: 18px;
   }
 </style>`;
-function generate4(defs) {
+async function generate4(defs) {
   let map = generateFunctionNameMap(defs);
   let reverseMap = {};
   for (let key in map) {
@@ -2330,9 +2346,7 @@ function generate4(defs) {
 
 ## Guide
 
-**Block Type**: The built-in type field of the block.
-
-**Example**: A visual representation of the block.
+**Block Type & Example**: The built-in type field of the block, and a visual representation of the block.
 
 **JavaScript Function**: The JavaScript function that converts to the block. 
   - The function name is created using a simple algorithm:
@@ -2348,14 +2362,13 @@ function generate4(defs) {
 
 <table>
   <tr>
-    <th>Block Type</th>
-    <th>Example___________________________________________</th>
+    <th>Block Type & Example_________________________________________________________</th>
     <th>JavaScript Function</th>
     <th>Sugar</th>
   </tr>
 `;
   for (let def of defs) {
-    let functionString = generateRow(def, reverseMap);
+    let functionString = await generateRow(def, reverseMap);
     out += functionString;
   }
   out += `
@@ -2377,9 +2390,9 @@ function styleToHue(style) {
       return 0;
   }
 }
-function encloseInTypescriptOrEmpty(string) {
+function encloseInTypescriptOrEmpty(string, empty) {
   if (string == null) {
-    return "";
+    return empty;
   }
   return `
 
@@ -2389,16 +2402,26 @@ ${string}
 
 `;
 }
-function generateRow(def, functionNameMap) {
+async function generateRow(def, functionNameMap) {
   let blockString = generateBlockHtml(def);
-  let functionString = encloseInTypescriptOrEmpty(
-    generateFunction(def, functionNameMap, "docs")
+  let unformattedFunctionString = generateFunction(
+    def,
+    functionNameMap,
+    "docs"
   );
-  let sugarString = encloseInTypescriptOrEmpty(def.$codegenSugar);
+  let functionString = encloseInTypescriptOrEmpty(
+    unformattedFunctionString == null ? null : (await prettier.format(unformattedFunctionString, {
+      parser: "typescript"
+    })).trim(),
+    "no function"
+  );
+  let sugarString = encloseInTypescriptOrEmpty(def.$codegenSugar, "no sugar");
   let out = `
 <tr>
-<td>${def.type}</td>
 <td><p>
+
+${def.type}
+
 ${blockString}
 </p></td>
 <td>
@@ -2545,4 +2568,4 @@ primitiveBlocksMatchesBlockCategories(
 );
 writeFileSync3("./src/lib/blocks/generated.ts", generate2(blockDefs));
 writeFileSync3("./src/lib/device/generated.ts", generate3(blockDefs));
-writeFileSync3("./docs/functions.md", generate4(blockDefs));
+writeFileSync3("./docs/functions.md", await generate4(blockDefs));

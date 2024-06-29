@@ -84,6 +84,9 @@
       },
       "$codegenSugar": {
         "type": "string"
+      },
+      "$codegenCustomFunctionArgs": {
+        "type": "string"
       }
     },
     "additionalProperties": false

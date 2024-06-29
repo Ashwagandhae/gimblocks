@@ -5469,7 +5469,8 @@ var blockDefinitions = [
     output: "Boolean",
     style: "logic_blocks",
     tooltip: "%{BKY_LOGIC_BOOLEAN_TOOLTIP}",
-    helpUrl: "%{BKY_LOGIC_BOOLEAN_HELPURL}"
+    helpUrl: "%{BKY_LOGIC_BOOLEAN_HELPURL}",
+    $codegenSugar: "true;\nfalse;"
   },
   {
     type: "controls_if",
@@ -5512,7 +5513,8 @@ var blockDefinitions = [
     output: "Boolean",
     style: "logic_blocks",
     helpUrl: "%{BKY_LOGIC_COMPARE_HELPURL}",
-    extensions: ["logic_compare", "logic_op_tooltip"]
+    extensions: ["logic_compare", "logic_op_tooltip"],
+    $codegenSugar: "x == y; // or ===\nx != y; // or !==\nx < y;\nx <= y;\nx > y;\nx >= y;"
   },
   {
     type: "logic_operation",
@@ -5533,7 +5535,8 @@ var blockDefinitions = [
     output: "Boolean",
     style: "logic_blocks",
     helpUrl: "%{BKY_LOGIC_OPERATION_HELPURL}",
-    extensions: ["logic_op_tooltip"]
+    extensions: ["logic_op_tooltip"],
+    $codegenSugar: "x && y;\nx || y;"
   },
   {
     type: "math_number",
@@ -5543,7 +5546,8 @@ var blockDefinitions = [
     helpUrl: "%{BKY_MATH_NUMBER_HELPURL}",
     style: "math_blocks",
     tooltip: "%{BKY_MATH_NUMBER_TOOLTIP}",
-    extensions: ["parent_tooltip_when_inline"]
+    extensions: ["parent_tooltip_when_inline"],
+    $codegenSugar: "42;\n21.5;\n// or any number"
   },
   {
     type: "math_arithmetic",
@@ -5567,7 +5571,8 @@ var blockDefinitions = [
     output: "Number",
     style: "math_blocks",
     helpUrl: "%{BKY_MATH_ARITHMETIC_HELPURL}",
-    extensions: ["math_op_tooltip"]
+    extensions: ["math_op_tooltip"],
+    $codegenSugar: "x + y;\nx - y;\nx * y;\nx / y;\nx ** y;"
   },
   {
     type: "math_single",
@@ -5614,7 +5619,8 @@ var blockDefinitions = [
     output: "Number",
     style: "math_blocks",
     helpUrl: "%{BKY_MATH_TRIG_HELPURL}",
-    extensions: ["math_op_tooltip"]
+    extensions: ["math_op_tooltip"],
+    $codegenSugar: "Math.sin(x);\nMath.cos(x);\n// etc.\n// Will preserve JS behaviour by multiplying by Math.PI / 180"
   },
   {
     type: "math_number_property",
@@ -5658,7 +5664,8 @@ var blockDefinitions = [
     helpUrl: "%{BKY_MATH_CHANGE_HELPURL}",
     extensions: ["math_change_tooltip"],
     $codegenNoFunction: true,
-    $codegenForceInclude: true
+    $codegenForceInclude: true,
+    $codegenSugar: "x += y;"
   },
   {
     type: "math_round",
@@ -5701,7 +5708,10 @@ var blockDefinitions = [
     style: "text_blocks",
     helpUrl: "%{BKY_TEXT_TEXT_HELPURL}",
     tooltip: "%{BKY_TEXT_TEXT_TOOLTIP}",
-    extensions: ["text_quotes", "parent_tooltip_when_inline"]
+    extensions: ["text_quotes", "parent_tooltip_when_inline"],
+    $codegenSugar: `'Hello';
+"World";
+// or any text`
   },
   {
     type: "text_join",
@@ -5713,7 +5723,7 @@ var blockDefinitions = [
     mutator: "text_join_mutator",
     $codegenCustomInputsType: "Partial<Record<`ADD${number}`, {block: ValueBlock}>>",
     $codegenIntersectsWith: "{ extraState?: { itemCount?: number; } }",
-    $codegenNoFunction: true
+    $codegenCustomFunctionArgs: "...args: any[]"
   },
   {
     type: "text_length",
@@ -5766,8 +5776,7 @@ var blockDefinitions = [
     style: "text_blocks",
     helpUrl: "%{BKY_TEXT_CHARAT_HELPURL}",
     inputsInline: true,
-    mutator: "text_charAt_mutator",
-    $codegenNoFunction: true
+    mutator: "text_charAt_mutator"
   },
   {
     type: "text_getSubstring",
@@ -5817,6 +5826,7 @@ var blockDefinitions = [
     tooltip: "%{BKY_VARIABLES_GET_TOOLTIP}",
     extensions: ["contextMenu_variableSetterGetter"],
     $codegenNoFunction: true,
+    $codegenSugar: "x // just use the variable name",
     $codegenForceInclude: true
   },
   {
@@ -5837,7 +5847,8 @@ var blockDefinitions = [
     helpUrl: "%{BKY_VARIABLES_SET_HELPURL}",
     extensions: ["contextMenu_variableSetterGetter"],
     $codegenNoFunction: true,
-    $codegenForceInclude: true
+    $codegenForceInclude: true,
+    $codegenSugar: "let x = ...;\nvar x = ...;\nconst x = ...;\nx = ...;"
   },
   {
     type: "message_broadcaster",
@@ -6715,7 +6726,7 @@ function convertFunctionExpressionTop(expr) {
       if (param.type != "Identifier") {
         throw new ConvertError("Invalid function argument", param);
       }
-      const ctx = { device: param.name };
+      const ctx = { device: param.name, topLevel: true };
       if (expr.body.type == "BlockStatement") {
         return convertBlockStatement(ctx, expr.body);
       } else {
@@ -6825,11 +6836,11 @@ function convertMemberCallExpression(ctx, expr, member) {
     }
   }
 }
-function convertFunctionArg(expr) {
+function convertFunctionArg(ctx, expr) {
   if (expr.type == "SpreadElement") {
     throw new ConvertError("SpreadElement in function argument not supported");
   }
-  const ret = convertExpression({ device: "" }, expr);
+  const ret = convertExpression(ctx, expr);
   if (ret.type == "skip") {
     throw new ConvertError("Invalid function argument", expr);
   }
@@ -6849,7 +6860,7 @@ function convertTrig(ctx, expr, trigFunc) {
       expr
     );
   }
-  const argBlock = convertFunctionArg(expr.arguments[0]);
+  const argBlock = convertFunctionArg(ctx, expr.arguments[0]);
   if (!isMaybeNumberValue(argBlock)) {
     throw new AttachError(
       `Trig function argument must be number, got ${argBlock.type}`,
@@ -6913,11 +6924,15 @@ function convertCallExpressionToFunctionBlock(ctx, expr, identifierName) {
     return null;
   }
   const blockType = functionNameMap[key];
+  if (blockType == "text_join") {
+    return convertTextJoin(ctx, expr);
+  }
   let def = findBlockDefinition(blockType);
-  let args = (def?.args0 ?? []).filter((arg) => arg.type != "input_dummy");
+  let defArgs = def?.args0 ?? [];
+  let args = defArgs.filter((arg) => arg.type != "input_dummy");
   if (args.length != expr.arguments.length) {
     throw new ConvertError(
-      `Function ${identifierName} requires ${def.args0?.length ?? 0} arguments, got ${expr.arguments.length}`,
+      `Function ${identifierName} requires ${defArgs.length} arguments, got ${expr.arguments.length}`,
       expr
     );
   }
@@ -6945,6 +6960,29 @@ function convertCallExpressionToFunctionBlock(ctx, expr, identifierName) {
     ret.fields = fields;
   }
   return ret;
+}
+function convertTextJoin(ctx, expr) {
+  let inputs = {};
+  for (let i = 0; i < expr.arguments.length; i++) {
+    let argExpr = expr.arguments[i];
+    let block = convertFunctionArg(ctx, argExpr);
+    if (!isMaybeStringValue(block)) {
+      throw new AttachError(
+        `Argument of text_join must be string, got ${block.type}`,
+        argExpr,
+        block
+      );
+    }
+    inputs[`ADD${i}`] = { block };
+  }
+  return {
+    id: randomId(),
+    type: "text_join",
+    inputs,
+    extraState: {
+      itemCount: expr.arguments.length
+    }
+  };
 }
 function addArgument(ctx, arg, expr, inputs, fields) {
   switch (arg.type) {
@@ -7097,19 +7135,46 @@ function convertAssignmentExpression(ctx, expr) {
       expr.left
     );
   }
-  const block = {
-    id: randomId(),
-    type: "variables_set",
-    fields: {
-      VAR: {
-        id: name
+  switch (expr.operator) {
+    case "=":
+      return {
+        id: randomId(),
+        type: "variables_set",
+        fields: {
+          VAR: {
+            id: name
+          }
+        },
+        inputs: {
+          VALUE: { block: rightExpr }
+        }
+      };
+    case "+=": {
+      if (!isMaybeNumberValue(rightExpr)) {
+        throw new AttachError(
+          `Right of math_change must be number, got ${rightExpr.type}`,
+          expr.right,
+          rightExpr
+        );
       }
-    },
-    inputs: {
-      VALUE: { block: rightExpr }
+      return {
+        id: randomId(),
+        type: "math_change",
+        fields: {
+          VAR: {
+            id: name
+          }
+        },
+        inputs: {
+          DELTA: { block: rightExpr }
+        }
+      };
     }
-  };
-  return block;
+    default:
+      throw new ConvertError(
+        "Unsupported assignment operator: " + expr.operator
+      );
+  }
 }
 function convertLiteral(expr) {
   switch (typeof expr.value) {
@@ -7307,6 +7372,8 @@ function convertBinaryOperator(operator) {
       return ret("logic_compare", "EQ");
     case "!=":
       return ret("logic_compare", "NEQ");
+    case "!==":
+      return ret("logic_compare", "NEQ");
     case "<":
       return ret("logic_compare", "LT");
     case "<=":
@@ -7330,7 +7397,7 @@ function convertBinaryOperator(operator) {
   }
 }
 function convertBlockStatement(ctx, blockStatement) {
-  return convertStatementList(ctx, blockStatement.body);
+  return convertStatementList({ ...ctx, topLevel: false }, blockStatement.body);
 }
 function convertStatementList(ctx, statements) {
   const blocks = [];
@@ -7378,6 +7445,12 @@ function convertStatement(ctx, statement) {
 }
 function convertVariableDeclaration(ctx, statement) {
   const declarations = [];
+  if (!ctx.topLevel && (statement.kind == "let" || statement.kind == "const")) {
+    throw new ConvertError(
+      "Let and const are only allowed in top level block (Blockly variables don't have block scope)",
+      statement
+    );
+  }
   for (const declaration of statement.declarations) {
     const declarationInit = declaration.init;
     if (declarationInit == null) {
@@ -7478,7 +7551,10 @@ function convertIfStatement(ctx, statement) {
         testExpr
       );
     }
-    const doExpr = convertStatement(ctx, current2.consequent);
+    const doExpr = convertStatement(
+      { ...ctx, topLevel: false },
+      current2.consequent
+    );
     if (doExpr.type == "skip") {
       throw new ConvertError("Invalid do expression", current2.consequent);
     }
@@ -7498,7 +7574,10 @@ function convertIfStatement(ctx, statement) {
   }
   const lastFlattened = flattened[flattened.length - 1];
   if (lastFlattened.alternate != null) {
-    const elseExpr = convertStatement(ctx, lastFlattened.alternate);
+    const elseExpr = convertStatement(
+      { ...ctx, topLevel: false },
+      lastFlattened.alternate
+    );
     if (elseExpr.type == "skip") {
       throw new ConvertError(
         "Invalid else expression",

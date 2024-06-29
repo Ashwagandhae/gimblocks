@@ -96,6 +96,11 @@ type Union = {
      */
     text: (TEXT: string) => string;
     /**
+     * Function generated for "text_join" block.
+     *
+     */
+    createTextWith: (...args: any[]) => string;
+    /**
      * Function generated for "text_length" block.
      *
      * @param VALUE - An input block.
@@ -109,6 +114,13 @@ type Union = {
      * @param FIND - An input block.
      */
     inText: (VALUE: string, END: "FIRST" | "LAST", FIND: string) => number;
+    /**
+     * Function generated for "text_charAt" block.
+     *
+     * @param VALUE - An input block.
+     * @param WHERE - A field. It must be a literal, non-dynamic value.
+     */
+    textCharAt: (VALUE: string, WHERE: "FROM_START" | "FROM_END" | "FIRST" | "LAST" | "RANDOM") => string;
     /**
      * Function generated for "text_getSubstring" block.
      *

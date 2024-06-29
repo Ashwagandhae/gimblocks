@@ -60,4 +60,4 @@ primitiveBlocksMatchesBlockCategories(
 
 writeFileSync('./src/lib/blocks/generated.ts', generateBlockTypes(blockDefs));
 writeFileSync('./src/lib/device/generated.ts', generateDeviceTypes(blockDefs));
-writeFileSync('./docs/functions.md', generateDocs(blockDefs));
+writeFileSync('./docs/functions.md', await generateDocs(blockDefs));

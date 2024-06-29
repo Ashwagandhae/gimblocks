@@ -647,6 +647,7 @@ export const blockDefinitions = [
     style: "logic_blocks",
     tooltip: "%{BKY_LOGIC_BOOLEAN_TOOLTIP}",
     helpUrl: "%{BKY_LOGIC_BOOLEAN_HELPURL}",
+    $codegenSugar: "true;\nfalse;",
   },
   {
     type: "controls_if",
@@ -692,6 +693,8 @@ export const blockDefinitions = [
     style: "logic_blocks",
     helpUrl: "%{BKY_LOGIC_COMPARE_HELPURL}",
     extensions: ["logic_compare", "logic_op_tooltip"],
+    $codegenSugar:
+      "x == y; // or ===\nx != y; // or !==\nx < y;\nx <= y;\nx > y;\nx >= y;",
   },
   {
     type: "logic_operation",
@@ -713,6 +716,7 @@ export const blockDefinitions = [
     style: "logic_blocks",
     helpUrl: "%{BKY_LOGIC_OPERATION_HELPURL}",
     extensions: ["logic_op_tooltip"],
+    $codegenSugar: "x && y;\nx || y;",
   },
   {
     type: "math_number",
@@ -723,6 +727,7 @@ export const blockDefinitions = [
     style: "math_blocks",
     tooltip: "%{BKY_MATH_NUMBER_TOOLTIP}",
     extensions: ["parent_tooltip_when_inline"],
+    $codegenSugar: "42;\n21.5;\n// or any number",
   },
   {
     type: "math_arithmetic",
@@ -747,6 +752,7 @@ export const blockDefinitions = [
     style: "math_blocks",
     helpUrl: "%{BKY_MATH_ARITHMETIC_HELPURL}",
     extensions: ["math_op_tooltip"],
+    $codegenSugar: "x + y;\nx - y;\nx * y;\nx / y;\nx ** y;",
   },
   {
     type: "math_single",
@@ -794,6 +800,8 @@ export const blockDefinitions = [
     style: "math_blocks",
     helpUrl: "%{BKY_MATH_TRIG_HELPURL}",
     extensions: ["math_op_tooltip"],
+    $codegenSugar:
+      "Math.sin(x);\nMath.cos(x);\n// etc.\n// Will preserve JS behaviour by multiplying by Math.PI / 180",
   },
   {
     type: "math_number_property",
@@ -838,6 +846,7 @@ export const blockDefinitions = [
     extensions: ["math_change_tooltip"],
     $codegenNoFunction: true,
     $codegenForceInclude: true,
+    $codegenSugar: "x += y;",
   },
   {
     type: "math_round",
@@ -881,6 +890,7 @@ export const blockDefinitions = [
     helpUrl: "%{BKY_TEXT_TEXT_HELPURL}",
     tooltip: "%{BKY_TEXT_TEXT_TOOLTIP}",
     extensions: ["text_quotes", "parent_tooltip_when_inline"],
+    $codegenSugar: "'Hello';\n\"World\";\n// or any text",
   },
   {
     type: "text_join",
@@ -893,7 +903,7 @@ export const blockDefinitions = [
     $codegenCustomInputsType:
       "Partial<Record<`ADD${number}`, {block: ValueBlock}>>",
     $codegenIntersectsWith: "{ extraState?: { itemCount?: number; } }",
-    $codegenNoFunction: true,
+    $codegenCustomFunctionArgs: "...args: any[]",
   },
   {
     type: "text_length",
@@ -947,7 +957,6 @@ export const blockDefinitions = [
     helpUrl: "%{BKY_TEXT_CHARAT_HELPURL}",
     inputsInline: true,
     mutator: "text_charAt_mutator",
-    $codegenNoFunction: true,
   },
   {
     type: "text_getSubstring",
@@ -997,6 +1006,7 @@ export const blockDefinitions = [
     tooltip: "%{BKY_VARIABLES_GET_TOOLTIP}",
     extensions: ["contextMenu_variableSetterGetter"],
     $codegenNoFunction: true,
+    $codegenSugar: "x // just use the variable name",
     $codegenForceInclude: true,
   },
   {
@@ -1018,6 +1028,7 @@ export const blockDefinitions = [
     extensions: ["contextMenu_variableSetterGetter"],
     $codegenNoFunction: true,
     $codegenForceInclude: true,
+    $codegenSugar: "let x = ...;\nvar x = ...;\nconst x = ...;\nx = ...;",
   },
   {
     type: "message_broadcaster",

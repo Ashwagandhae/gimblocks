@@ -639,6 +639,7 @@ declare const blockDefinitions: readonly [{
     readonly style: "logic_blocks";
     readonly tooltip: "%{BKY_LOGIC_BOOLEAN_TOOLTIP}";
     readonly helpUrl: "%{BKY_LOGIC_BOOLEAN_HELPURL}";
+    readonly $codegenSugar: "true;\nfalse;";
 }, {
     readonly type: "controls_if";
     readonly message0: "%{BKY_CONTROLS_IF_MSG_IF} %1";
@@ -682,6 +683,7 @@ declare const blockDefinitions: readonly [{
     readonly style: "logic_blocks";
     readonly helpUrl: "%{BKY_LOGIC_COMPARE_HELPURL}";
     readonly extensions: readonly ["logic_compare", "logic_op_tooltip"];
+    readonly $codegenSugar: "x == y; // or ===\nx != y; // or !==\nx < y;\nx <= y;\nx > y;\nx >= y;";
 }, {
     readonly type: "logic_operation";
     readonly message0: "%1 %2 %3";
@@ -703,6 +705,7 @@ declare const blockDefinitions: readonly [{
     readonly style: "logic_blocks";
     readonly helpUrl: "%{BKY_LOGIC_OPERATION_HELPURL}";
     readonly extensions: readonly ["logic_op_tooltip"];
+    readonly $codegenSugar: "x && y;\nx || y;";
 }, {
     readonly type: "math_number";
     readonly message0: "%1";
@@ -716,6 +719,7 @@ declare const blockDefinitions: readonly [{
     readonly style: "math_blocks";
     readonly tooltip: "%{BKY_MATH_NUMBER_TOOLTIP}";
     readonly extensions: readonly ["parent_tooltip_when_inline"];
+    readonly $codegenSugar: "42;\n21.5;\n// or any number";
 }, {
     readonly type: "math_arithmetic";
     readonly message0: "%1 %2 %3";
@@ -737,6 +741,7 @@ declare const blockDefinitions: readonly [{
     readonly style: "math_blocks";
     readonly helpUrl: "%{BKY_MATH_ARITHMETIC_HELPURL}";
     readonly extensions: readonly ["math_op_tooltip"];
+    readonly $codegenSugar: "x + y;\nx - y;\nx * y;\nx / y;\nx ** y;";
 }, {
     readonly type: "math_single";
     readonly message0: "%1 %2";
@@ -769,6 +774,7 @@ declare const blockDefinitions: readonly [{
     readonly style: "math_blocks";
     readonly helpUrl: "%{BKY_MATH_TRIG_HELPURL}";
     readonly extensions: readonly ["math_op_tooltip"];
+    readonly $codegenSugar: "Math.sin(x);\nMath.cos(x);\n// etc.\n// Will preserve JS behaviour by multiplying by Math.PI / 180";
 }, {
     readonly type: "math_number_property";
     readonly message0: "%1 %2";
@@ -805,6 +811,7 @@ declare const blockDefinitions: readonly [{
     readonly extensions: readonly ["math_change_tooltip"];
     readonly $codegenNoFunction: true;
     readonly $codegenForceInclude: true;
+    readonly $codegenSugar: "x += y;";
 }, {
     readonly type: "math_round";
     readonly message0: "%1 %2";
@@ -851,6 +858,7 @@ declare const blockDefinitions: readonly [{
     readonly helpUrl: "%{BKY_TEXT_TEXT_HELPURL}";
     readonly tooltip: "%{BKY_TEXT_TEXT_TOOLTIP}";
     readonly extensions: readonly ["text_quotes", "parent_tooltip_when_inline"];
+    readonly $codegenSugar: "'Hello';\n\"World\";\n// or any text";
 }, {
     readonly type: "text_join";
     readonly message0: "create text with";
@@ -861,7 +869,7 @@ declare const blockDefinitions: readonly [{
     readonly mutator: "text_join_mutator";
     readonly $codegenCustomInputsType: "Partial<Record<`ADD${number}`, {block: ValueBlock}>>";
     readonly $codegenIntersectsWith: "{ extraState?: { itemCount?: number; } }";
-    readonly $codegenNoFunction: true;
+    readonly $codegenCustomFunctionArgs: "...args: any[]";
 }, {
     readonly type: "text_length";
     readonly message0: "%{BKY_TEXT_LENGTH_TITLE}";
@@ -912,7 +920,6 @@ declare const blockDefinitions: readonly [{
     readonly helpUrl: "%{BKY_TEXT_CHARAT_HELPURL}";
     readonly inputsInline: true;
     readonly mutator: "text_charAt_mutator";
-    readonly $codegenNoFunction: true;
 }, {
     readonly type: "text_getSubstring";
     readonly message0: "in text %1 get substring from %2 %3 to %4 %5";
@@ -956,6 +963,7 @@ declare const blockDefinitions: readonly [{
     readonly tooltip: "%{BKY_VARIABLES_GET_TOOLTIP}";
     readonly extensions: readonly ["contextMenu_variableSetterGetter"];
     readonly $codegenNoFunction: true;
+    readonly $codegenSugar: "x // just use the variable name";
     readonly $codegenForceInclude: true;
 }, {
     readonly type: "variables_set";
@@ -976,6 +984,7 @@ declare const blockDefinitions: readonly [{
     readonly extensions: readonly ["contextMenu_variableSetterGetter"];
     readonly $codegenNoFunction: true;
     readonly $codegenForceInclude: true;
+    readonly $codegenSugar: "let x = ...;\nvar x = ...;\nconst x = ...;\nx = ...;";
 }, {
     readonly type: "message_broadcaster";
     readonly message0: "Broadcast Message On Channel %1 ";
@@ -1604,6 +1613,7 @@ type BlockDefinition = {
     $codegenNoFunction?: boolean;
     $codegenForceInclude?: boolean;
     $codegenSugar?: string;
+    $codegenCustomFunctionArgs?: string;
 };
 type Style = 'logic_blocks' | 'math_blocks' | 'variable_blocks' | 'text_blocks';
 type Argument = {

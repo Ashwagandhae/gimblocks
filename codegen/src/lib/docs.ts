@@ -5,6 +5,7 @@ import {
 } from '../../../schema/blockDefinitions';
 import { generateFunction, generateFunctionNameMap, getEn } from './function';
 import { writeFileSync } from 'fs';
+import * as prettier from 'prettier';
 
 const STYLES = `
 <style>
@@ -51,7 +52,7 @@ const STYLES = `
   }
 </style>`;
 
-export function generate(defs: BlockDefinitions): string {
+export async function generate(defs: BlockDefinitions): Promise<string> {
   let map = generateFunctionNameMap(defs);
   // reverese the map
   let reverseMap: Record<string, string> = {};
@@ -63,9 +64,7 @@ export function generate(defs: BlockDefinitions): string {
 
 ## Guide
 
-**Block Type**: The built-in type field of the block.
-
-**Example**: A visual representation of the block.
+**Block Type & Example**: The built-in type field of the block, and a visual representation of the block.
 
 **JavaScript Function**: The JavaScript function that converts to the block. 
   - The function name is created using a simple algorithm:
@@ -81,15 +80,14 @@ export function generate(defs: BlockDefinitions): string {
 
 <table>
   <tr>
-    <th>Block Type</th>
-    <th>Example___________________________________________</th>
+    <th>Block Type & Example_________________________________________________________</th>
     <th>JavaScript Function</th>
     <th>Sugar</th>
   </tr>
 `;
 
   for (let def of defs) {
-    let functionString = generateRow(def, reverseMap);
+    let functionString = await generateRow(def, reverseMap);
     out += functionString;
   }
 
@@ -115,9 +113,12 @@ function styleToHue(style: string): number {
   }
 }
 
-function encloseInTypescriptOrEmpty(string: string | null | undefined): string {
+function encloseInTypescriptOrEmpty(
+  string: string | null | undefined,
+  empty: string
+): string {
   if (string == null) {
-    return '';
+    return empty;
   }
   return `
 
@@ -128,20 +129,34 @@ ${string}
 `;
 }
 
-function generateRow(
+async function generateRow(
   def: BlockDefinition,
   functionNameMap: Record<string, string>
-): string {
+): Promise<string> {
   let blockString = generateBlockHtml(def);
-  let functionString = encloseInTypescriptOrEmpty(
-    generateFunction(def, functionNameMap, 'docs')
+  let unformattedFunctionString = generateFunction(
+    def,
+    functionNameMap,
+    'docs'
   );
-  let sugarString = encloseInTypescriptOrEmpty(def.$codegenSugar);
+  let functionString = encloseInTypescriptOrEmpty(
+    unformattedFunctionString == null
+      ? null
+      : (
+          await prettier.format(unformattedFunctionString, {
+            parser: 'typescript',
+          })
+        ).trim(),
+    'no function'
+  );
+  let sugarString = encloseInTypescriptOrEmpty(def.$codegenSugar, 'no sugar');
 
   let out = `
 <tr>
-<td>${def.type}</td>
 <td><p>
+
+${def.type}
+
 ${blockString}
 </p></td>
 <td>

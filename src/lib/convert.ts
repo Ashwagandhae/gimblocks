@@ -115,6 +115,7 @@ type Skip = { type: 'skip' };
 
 type Context = {
   device: string;
+  topLevel: boolean;
 };
 function convertProgramTop(program: Program): Block.Block {
   const statements: Statement[] = [];
@@ -162,7 +163,7 @@ function convertFunctionExpressionTop(
       if (param.type != 'Identifier') {
         throw new ConvertError('Invalid function argument', param);
       }
-      const ctx: Context = { device: param.name };
+      const ctx: Context = { device: param.name, topLevel: true };
       if (expr.body.type == 'BlockStatement') {
         return convertBlockStatement(ctx, expr.body);
       } else {
@@ -291,12 +292,13 @@ function convertMemberCallExpression(
 }
 
 function convertFunctionArg(
+  ctx: Context,
   expr: Expression | SpreadElement
 ): Block.ValueBlock {
   if (expr.type == 'SpreadElement') {
     throw new ConvertError('SpreadElement in function argument not supported');
   }
-  const ret = convertExpression({ device: '' }, expr);
+  const ret = convertExpression(ctx, expr);
   if (ret.type == 'skip') {
     throw new ConvertError('Invalid function argument', expr);
   }
@@ -320,7 +322,7 @@ function convertTrig(
       expr
     );
   }
-  const argBlock = convertFunctionArg(expr.arguments[0]!);
+  const argBlock = convertFunctionArg(ctx, expr.arguments[0]!);
   if (!isMaybeNumberValue(argBlock)) {
     throw new AttachError(
       `Trig function argument must be number, got ${argBlock.type}`,
@@ -402,12 +404,16 @@ function convertCallExpressionToFunctionBlock(
     return null;
   }
   const blockType = functionNameMap[key]!;
+  if (blockType == 'text_join') {
+    return convertTextJoin(ctx, expr);
+  }
   let def = findBlockDefinition(blockType);
-  let args = (def?.args0 ?? []).filter((arg) => arg.type != 'input_dummy');
+  let defArgs = def?.args0 ?? [];
+  let args = defArgs.filter((arg) => arg.type != 'input_dummy');
   if (args.length != expr.arguments.length) {
     throw new ConvertError(
       `Function ${identifierName} requires ${
-        def.args0?.length ?? 0
+        defArgs.length
       } arguments, got ${expr.arguments.length}`,
       expr
     );
@@ -438,6 +444,33 @@ function convertCallExpressionToFunctionBlock(
     ret.fields = fields;
   }
   return ret;
+}
+
+function convertTextJoin(
+  ctx: Context,
+  expr: CallExpression
+): Block.TextJoinBlock | null {
+  let inputs: Block.TextJoinBlock['inputs'] = {};
+  for (let i = 0; i < expr.arguments.length; i++) {
+    let argExpr = expr.arguments[i]!;
+    let block = convertFunctionArg(ctx, argExpr);
+    if (!isMaybeStringValue(block)) {
+      throw new AttachError(
+        `Argument of text_join must be string, got ${block.type}`,
+        argExpr,
+        block
+      );
+    }
+    inputs[`ADD${i}`] = { block };
+  }
+  return {
+    id: randomId(),
+    type: 'text_join',
+    inputs,
+    extraState: {
+      itemCount: expr.arguments.length,
+    },
+  };
 }
 
 function addArgument(
@@ -593,7 +626,7 @@ function getLiteralNumber(expr: Expression): number | null {
 function convertAssignmentExpression(
   ctx: Context,
   expr: AssignmentExpression
-): Block.VariablesSetBlock {
+): Block.VariablesSetBlock | Block.MathChangeBlock {
   const rightExpr = convertExpression(ctx, expr.right);
   if (rightExpr.type == 'skip') {
     throw new ConvertError('Invalid right expression', expr.right);
@@ -612,19 +645,46 @@ function convertAssignmentExpression(
       expr.left
     );
   }
-  const block: Block.VariablesSetBlock = {
-    id: randomId(),
-    type: 'variables_set',
-    fields: {
-      VAR: {
-        id: name,
-      },
-    },
-    inputs: {
-      VALUE: { block: rightExpr },
-    },
-  };
-  return block;
+  switch (expr.operator) {
+    case '=':
+      return {
+        id: randomId(),
+        type: 'variables_set',
+        fields: {
+          VAR: {
+            id: name,
+          },
+        },
+        inputs: {
+          VALUE: { block: rightExpr },
+        },
+      };
+    case '+=': {
+      if (!isMaybeNumberValue(rightExpr)) {
+        throw new AttachError(
+          `Right of math_change must be number, got ${rightExpr.type}`,
+          expr.right,
+          rightExpr
+        );
+      }
+      return {
+        id: randomId(),
+        type: 'math_change',
+        fields: {
+          VAR: {
+            id: name,
+          },
+        },
+        inputs: {
+          DELTA: { block: rightExpr },
+        },
+      };
+    }
+    default:
+      throw new ConvertError(
+        'Unsupported assignment operator: ' + expr.operator
+      );
+  }
 }
 
 function convertLiteral(
@@ -851,6 +911,8 @@ function convertBinaryOperator(operator: string):
       return ret('logic_compare', 'EQ');
     case '!=':
       return ret('logic_compare', 'NEQ');
+    case '!==':
+      return ret('logic_compare', 'NEQ');
     case '<':
       return ret('logic_compare', 'LT');
     case '<=':
@@ -878,7 +940,7 @@ function convertBlockStatement(
   ctx: Context,
   blockStatement: BlockStatement
 ): Block.Block {
-  return convertStatementList(ctx, blockStatement.body);
+  return convertStatementList({ ...ctx, topLevel: false }, blockStatement.body);
 }
 
 function convertStatementList(
@@ -938,6 +1000,12 @@ function convertVariableDeclaration(
   statement: VariableDeclaration
 ): Block.VariablesSetBlock {
   const declarations: Block.VariablesSetBlock[] = [];
+  if (!ctx.topLevel && (statement.kind == 'let' || statement.kind == 'const')) {
+    throw new ConvertError(
+      "Let and const are only allowed in top level block (Blockly variables don't have block scope)",
+      statement
+    );
+  }
   for (const declaration of statement.declarations) {
     const declarationInit = declaration.init;
     if (declarationInit == null) {
@@ -1047,7 +1115,10 @@ function convertIfStatement(
         testExpr
       );
     }
-    const doExpr = convertStatement(ctx, current.consequent);
+    const doExpr = convertStatement(
+      { ...ctx, topLevel: false },
+      current.consequent
+    );
     if (doExpr.type == 'skip') {
       throw new ConvertError('Invalid do expression', current.consequent);
     }
@@ -1068,7 +1139,10 @@ function convertIfStatement(
   }
   const lastFlattened = flattened[flattened.length - 1]!;
   if (lastFlattened.alternate != null) {
-    const elseExpr = convertStatement(ctx, lastFlattened.alternate);
+    const elseExpr = convertStatement(
+      { ...ctx, topLevel: false },
+      lastFlattened.alternate
+    );
     if (elseExpr.type == 'skip') {
       throw new ConvertError(
         'Invalid else expression',

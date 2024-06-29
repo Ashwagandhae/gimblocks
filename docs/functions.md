@@ -3,9 +3,7 @@
 
 ## Guide
 
-**Block Type**: The built-in type field of the block.
-
-**Example**: A visual representation of the block.
+**Block Type & Example**: The built-in type field of the block, and a visual representation of the block.
 
 **JavaScript Function**: The JavaScript function that converts to the block. 
   - The function name is created using a simple algorithm:
@@ -21,15 +19,16 @@
 
 <table>
   <tr>
-    <th>Block Type</th>
-    <th>Example___________________________________________</th>
+    <th>Block Type & Example_________________________________________________________</th>
     <th>JavaScript Function</th>
     <th>Sugar</th>
   </tr>
 
 <tr>
-<td>logic_boolean</td>
 <td><p>
+
+logic_boolean
+
 
   <img src="./svg/logic_boolean.svg" width="500" alt="css-in-readme">
 
@@ -38,24 +37,33 @@
 
 
 ```typescript
-function logicBoolean(BOOL: 'TRUE' | 'FALSE'): boolean;
+function logicBoolean(BOOL: "TRUE" | "FALSE"): boolean;
 ```
 
 
 </td>
 <td>
 
+
+```typescript
+true;
+false;
+```
+
+
 </td>
 
 <tr>
-<td>controls_if</td>
 <td><p>
+
+controls_if
+
 
   <img src="./svg/controls_if.svg" width="500" alt="css-in-readme">
 
 </p></td>
 <td>
-
+no function
 </td>
 <td>
 
@@ -68,8 +76,10 @@ if { ... } else { ... }
 </td>
 
 <tr>
-<td>logic_compare</td>
 <td><p>
+
+logic_compare
+
 
   <img src="./svg/logic_compare.svg" width="500" alt="css-in-readme">
 
@@ -78,18 +88,35 @@ if { ... } else { ... }
 
 
 ```typescript
-function logicCompare(A: any, OP: 'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE', B: any): boolean;
+function logicCompare(
+  A: any,
+  OP: "EQ" | "NEQ" | "LT" | "LTE" | "GT" | "GTE",
+  B: any,
+): boolean;
 ```
 
 
 </td>
 <td>
 
+
+```typescript
+x == y; // or ===
+x != y; // or !==
+x < y;
+x <= y;
+x > y;
+x >= y;
+```
+
+
 </td>
 
 <tr>
-<td>logic_operation</td>
 <td><p>
+
+logic_operation
+
 
   <img src="./svg/logic_operation.svg" width="500" alt="css-in-readme">
 
@@ -98,18 +125,27 @@ function logicCompare(A: any, OP: 'EQ' | 'NEQ' | 'LT' | 'LTE' | 'GT' | 'GTE', B:
 
 
 ```typescript
-function logicOperation(A: boolean, OP: 'AND' | 'OR', B: boolean): boolean;
+function logicOperation(A: boolean, OP: "AND" | "OR", B: boolean): boolean;
 ```
 
 
 </td>
 <td>
 
+
+```typescript
+x && y;
+x || y;
+```
+
+
 </td>
 
 <tr>
-<td>math_number</td>
 <td><p>
+
+math_number
+
 
   <img src="./svg/math_number.svg" width="500" alt="css-in-readme">
 
@@ -125,11 +161,21 @@ function mathNumber(NUM: number): number;
 </td>
 <td>
 
+
+```typescript
+42;
+21.5;
+// or any number
+```
+
+
 </td>
 
 <tr>
-<td>math_arithmetic</td>
 <td><p>
+
+math_arithmetic
+
 
   <img src="./svg/math_arithmetic.svg" width="500" alt="css-in-readme">
 
@@ -138,18 +184,34 @@ function mathNumber(NUM: number): number;
 
 
 ```typescript
-function mathArithmetic(A: number, OP: 'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' | 'POWER', B: number): number;
+function mathArithmetic(
+  A: number,
+  OP: "ADD" | "MINUS" | "MULTIPLY" | "DIVIDE" | "POWER",
+  B: number,
+): number;
 ```
 
 
 </td>
 <td>
 
+
+```typescript
+x + y;
+x - y;
+x * y;
+x / y;
+x ** y;
+```
+
+
 </td>
 
 <tr>
-<td>math_single</td>
 <td><p>
+
+math_single
+
 
   <img src="./svg/math_single.svg" width="500" alt="css-in-readme">
 
@@ -158,18 +220,23 @@ function mathArithmetic(A: number, OP: 'ADD' | 'MINUS' | 'MULTIPLY' | 'DIVIDE' |
 
 
 ```typescript
-function mathSingle(OP: 'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10', NUM: number): number;
+function mathSingle(
+  OP: "ROOT" | "ABS" | "NEG" | "LN" | "LOG10" | "EXP" | "POW10",
+  NUM: number,
+): number;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>math_trig</td>
 <td><p>
+
+math_trig
+
 
   <img src="./svg/math_trig.svg" width="500" alt="css-in-readme">
 
@@ -178,18 +245,32 @@ function mathSingle(OP: 'ROOT' | 'ABS' | 'NEG' | 'LN' | 'LOG10' | 'EXP' | 'POW10
 
 
 ```typescript
-function mathTrig(OP: 'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN', NUM: number): number;
+function mathTrig(
+  OP: "SIN" | "COS" | "TAN" | "ASIN" | "ACOS" | "ATAN",
+  NUM: number,
+): number;
 ```
 
 
 </td>
 <td>
 
+
+```typescript
+Math.sin(x);
+Math.cos(x);
+// etc.
+// Will preserve JS behaviour by multiplying by Math.PI / 180
+```
+
+
 </td>
 
 <tr>
-<td>math_number_property</td>
 <td><p>
+
+math_number_property
+
 
   <img src="./svg/math_number_property.svg" width="500" alt="css-in-readme">
 
@@ -198,32 +279,52 @@ function mathTrig(OP: 'SIN' | 'COS' | 'TAN' | 'ASIN' | 'ACOS' | 'ATAN', NUM: num
 
 
 ```typescript
-function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 'PRIME' | 'WHOLE' | 'POSITIVE' | 'NEGATIVE' | 'DIVISIBLE_BY'): boolean;
+function mathNumberProperty(
+  NUMBER_TO_CHECK: number,
+  PROPERTY:
+    | "EVEN"
+    | "ODD"
+    | "PRIME"
+    | "WHOLE"
+    | "POSITIVE"
+    | "NEGATIVE"
+    | "DIVISIBLE_BY",
+): boolean;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>math_change</td>
 <td><p>
+
+math_change
+
 
   <img src="./svg/math_change.svg" width="500" alt="css-in-readme">
 
 </p></td>
 <td>
-
+no function
 </td>
 <td>
+
+
+```typescript
+x += y;
+```
+
 
 </td>
 
 <tr>
-<td>math_round</td>
 <td><p>
+
+math_round
+
 
   <img src="./svg/math_round.svg" width="500" alt="css-in-readme">
 
@@ -232,18 +333,20 @@ function mathNumberProperty(NUMBER_TO_CHECK: number, PROPERTY: 'EVEN' | 'ODD' | 
 
 
 ```typescript
-function mathRound(OP: 'ROUND' | 'ROUNDUP' | 'ROUNDDOWN', NUM: number): number;
+function mathRound(OP: "ROUND" | "ROUNDUP" | "ROUNDDOWN", NUM: number): number;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>math_random_int</td>
 <td><p>
+
+math_random_int
+
 
   <img src="./svg/math_random_int.svg" width="500" alt="css-in-readme">
 
@@ -258,12 +361,14 @@ function randomIntegerFromTo(FROM: number, TO: number): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>text</td>
 <td><p>
+
+text
+
 
   <img src="./svg/text.svg" width="500" alt="css-in-readme">
 
@@ -279,25 +384,43 @@ function text(TEXT: string): string;
 </td>
 <td>
 
+
+```typescript
+'Hello';
+"World";
+// or any text
+```
+
+
 </td>
 
 <tr>
-<td>text_join</td>
 <td><p>
+
+text_join
+
 
   <img src="./svg/text_join.svg" width="500" alt="css-in-readme">
 
 </p></td>
 <td>
 
+
+```typescript
+function createTextWith(...args: any[]): string;
+```
+
+
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>text_length</td>
 <td><p>
+
+text_length
+
 
   <img src="./svg/text_length.svg" width="500" alt="css-in-readme">
 
@@ -312,12 +435,14 @@ function lengthOf(VALUE: string): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>text_indexOf</td>
 <td><p>
+
+text_indexOf
+
 
   <img src="./svg/text_indexOf.svg" width="500" alt="css-in-readme">
 
@@ -326,32 +451,45 @@ function lengthOf(VALUE: string): number;
 
 
 ```typescript
-function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
+function inText(VALUE: string, END: "FIRST" | "LAST", FIND: string): number;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>text_charAt</td>
 <td><p>
+
+text_charAt
+
 
   <img src="./svg/text_charAt.svg" width="500" alt="css-in-readme">
 
 </p></td>
 <td>
 
+
+```typescript
+function textCharAt(
+  VALUE: string,
+  WHERE: "FROM_START" | "FROM_END" | "FIRST" | "LAST" | "RANDOM",
+): string;
+```
+
+
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>text_getSubstring</td>
 <td><p>
+
+text_getSubstring
+
 
   <img src="./svg/text_getSubstring.svg" width="500" alt="css-in-readme">
 
@@ -360,46 +498,73 @@ function inText(VALUE: string, END: 'FIRST' | 'LAST', FIND: string): number;
 
 
 ```typescript
-function inTextGetSubstringFromTo(STRING: string, WHERE1: 'FROM_START' | 'FROM_END' | 'FIRST', AT1: number, WHERE2: 'FROM_START' | 'FROM_END' | 'LAST', AT2: number): string;
+function inTextGetSubstringFromTo(
+  STRING: string,
+  WHERE1: "FROM_START" | "FROM_END" | "FIRST",
+  AT1: number,
+  WHERE2: "FROM_START" | "FROM_END" | "LAST",
+  AT2: number,
+): string;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>variables_get</td>
 <td><p>
+
+variables_get
+
 
   <img src="./svg/variables_get.svg" width="500" alt="css-in-readme">
 
 </p></td>
 <td>
-
+no function
 </td>
 <td>
+
+
+```typescript
+x // just use the variable name
+```
+
 
 </td>
 
 <tr>
-<td>variables_set</td>
 <td><p>
+
+variables_set
+
 
   <img src="./svg/variables_set.svg" width="500" alt="css-in-readme">
 
 </p></td>
 <td>
-
+no function
 </td>
 <td>
+
+
+```typescript
+let x = ...;
+var x = ...;
+const x = ...;
+x = ...;
+```
+
 
 </td>
 
 <tr>
-<td>message_broadcaster</td>
 <td><p>
+
+message_broadcaster
+
 
   <img src="./svg/message_broadcaster.svg" width="500" alt="css-in-readme">
 
@@ -414,12 +579,14 @@ function broadcastMessageOnChannel(broadcast_message_on_channel: string): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>set_property</td>
 <td><p>
+
+set_property
+
 
   <img src="./svg/set_property.svg" width="500" alt="css-in-readme">
 
@@ -428,18 +595,23 @@ function broadcastMessageOnChannel(broadcast_message_on_channel: string): void;
 
 
 ```typescript
-function setPropertyValue(set_property: string, value: string | number | boolean): void;
+function setPropertyValue(
+  set_property: string,
+  value: string | number | boolean,
+): void;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>get_property</td>
 <td><p>
+
+get_property
+
 
   <img src="./svg/get_property.svg" width="500" alt="css-in-readme">
 
@@ -454,12 +626,14 @@ function getProperty(get_property: string): string | number | boolean;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>current_character_name</td>
 <td><p>
+
+current_character_name
+
 
   <img src="./svg/current_character_name.svg" width="500" alt="css-in-readme">
 
@@ -474,12 +648,14 @@ function triggeringPlayersName(): string;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>add_activity_feed_item_for_everyone</td>
 <td><p>
+
+add_activity_feed_item_for_everyone
+
 
   <img src="./svg/add_activity_feed_item_for_everyone.svg" width="500" alt="css-in-readme">
 
@@ -488,18 +664,22 @@ function triggeringPlayersName(): string;
 
 
 ```typescript
-function addActivityFeedItemForEveryone(add_activity_feed_item_for_everyone: string): void;
+function addActivityFeedItemForEveryone(
+  add_activity_feed_item_for_everyone: string,
+): void;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>add_activity_feed_item_for_triggering_player</td>
 <td><p>
+
+add_activity_feed_item_for_triggering_player
+
 
   <img src="./svg/add_activity_feed_item_for_triggering_player.svg" width="500" alt="css-in-readme">
 
@@ -508,18 +688,22 @@ function addActivityFeedItemForEveryone(add_activity_feed_item_for_everyone: str
 
 
 ```typescript
-function addActivityFeedItemForTriggeringPlayer(add_activity_feed_item_for_triggering_player: string): void;
+function addActivityFeedItemForTriggeringPlayer(
+  add_activity_feed_item_for_triggering_player: string,
+): void;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>add_activity_feed_item_for_game_host</td>
 <td><p>
+
+add_activity_feed_item_for_game_host
+
 
   <img src="./svg/add_activity_feed_item_for_game_host.svg" width="500" alt="css-in-readme">
 
@@ -528,18 +712,22 @@ function addActivityFeedItemForTriggeringPlayer(add_activity_feed_item_for_trigg
 
 
 ```typescript
-function addActivityFeedItemForGameHost(add_activity_feed_item_for_game_host: string): void;
+function addActivityFeedItemForGameHost(
+  add_activity_feed_item_for_game_host: string,
+): void;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>current_character_team_number</td>
 <td><p>
+
+current_character_team_number
+
 
   <img src="./svg/current_character_team_number.svg" width="500" alt="css-in-readme">
 
@@ -554,12 +742,14 @@ function triggeringPlayersTeamNumber(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>triggering_player_score</td>
 <td><p>
+
+triggering_player_score
+
 
   <img src="./svg/triggering_player_score.svg" width="500" alt="css-in-readme">
 
@@ -574,12 +764,14 @@ function triggeringPlayersScore(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>get_team_score</td>
 <td><p>
+
+get_team_score
+
 
   <img src="./svg/get_team_score.svg" width="500" alt="css-in-readme">
 
@@ -594,12 +786,14 @@ function getScoreOfTeam(get_score_of_team: number): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>is_a_live_game</td>
 <td><p>
+
+is_a_live_game
+
 
   <img src="./svg/is_a_live_game.svg" width="500" alt="css-in-readme">
 
@@ -614,12 +808,14 @@ function isALiveGame(): boolean;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>is_an_assignment</td>
 <td><p>
+
+is_an_assignment
+
 
   <img src="./svg/is_an_assignment.svg" width="500" alt="css-in-readme">
 
@@ -634,12 +830,14 @@ function isAnAssignment(): boolean;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>seconds_into_game</td>
 <td><p>
+
+seconds_into_game
+
 
   <img src="./svg/seconds_into_game.svg" width="500" alt="css-in-readme">
 
@@ -654,12 +852,14 @@ function secondsIntoGame(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>set_assignment_objective</td>
 <td><p>
+
+set_assignment_objective
+
 
   <img src="./svg/set_assignment_objective.svg" width="500" alt="css-in-readme">
 
@@ -674,12 +874,14 @@ function setObjectiveTo(set_objective_to: string): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>set_percentage_complete</td>
 <td><p>
+
+set_percentage_complete
+
 
   <img src="./svg/set_percentage_complete.svg" width="500" alt="css-in-readme">
 
@@ -694,12 +896,14 @@ function setPercentageCompleteTo(set_percentage_complete_to: number): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>increment_percentage_complete</td>
 <td><p>
+
+increment_percentage_complete
+
 
   <img src="./svg/increment_percentage_complete.svg" width="500" alt="css-in-readme">
 
@@ -708,18 +912,22 @@ function setPercentageCompleteTo(set_percentage_complete_to: number): void;
 
 
 ```typescript
-function incrementPercentageCompleteBy(increment_percentage_complete_by: number): void;
+function incrementPercentageCompleteBy(
+  increment_percentage_complete_by: number,
+): void;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>send_custom_notification</td>
 <td><p>
+
+send_custom_notification
+
 
   <img src="./svg/send_custom_notification.svg" width="500" alt="css-in-readme">
 
@@ -734,12 +942,14 @@ function sendNotificationTitleContent(title: string, content: string): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>other_character_name</td>
 <td><p>
+
+other_character_name
+
 
   <img src="./svg/other_character_name.svg" width="500" alt="css-in-readme">
 
@@ -754,12 +964,14 @@ function otherPlayersName(): string;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>other_character_team_number</td>
 <td><p>
+
+other_character_team_number
+
 
   <img src="./svg/other_character_team_number.svg" width="500" alt="css-in-readme">
 
@@ -774,12 +986,14 @@ function otherPlayersTeamNumber(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>other_character_get_property</td>
 <td><p>
+
+other_character_get_property
+
 
   <img src="./svg/other_character_get_property.svg" width="500" alt="css-in-readme">
 
@@ -788,18 +1002,22 @@ function otherPlayersTeamNumber(): number;
 
 
 ```typescript
-function getPropertyAsOtherPlayer(get_property_as_other_player: string): string | number | boolean;
+function getPropertyAsOtherPlayer(
+  get_property_as_other_player: string,
+): string | number | boolean;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>other_character_set_property</td>
 <td><p>
+
+other_character_set_property
+
 
   <img src="./svg/other_character_set_property.svg" width="500" alt="css-in-readme">
 
@@ -808,18 +1026,23 @@ function getPropertyAsOtherPlayer(get_property_as_other_player: string): string 
 
 
 ```typescript
-function setPropertyAsOtherPlayerValue(set_property_as_other_player: string, value: string | number | boolean): void;
+function setPropertyAsOtherPlayerValue(
+  set_property_as_other_player: string,
+  value: string | number | boolean,
+): void;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>other_character_message_broadcaster</td>
 <td><p>
+
+other_character_message_broadcaster
+
 
   <img src="./svg/other_character_message_broadcaster.svg" width="500" alt="css-in-readme">
 
@@ -828,18 +1051,22 @@ function setPropertyAsOtherPlayerValue(set_property_as_other_player: string, val
 
 
 ```typescript
-function broadcastMessageAsOtherPlayerOnChannel(broadcast_message_as_other_player_on_channel: string): void;
+function broadcastMessageAsOtherPlayerOnChannel(
+  broadcast_message_as_other_player_on_channel: string,
+): void;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>grant</td>
 <td><p>
+
+grant
+
 
   <img src="./svg/grant.svg" width="500" alt="css-in-readme">
 
@@ -854,12 +1081,14 @@ function grantPlayerSelectedItem(): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>grant_custom</td>
 <td><p>
+
+grant_custom
+
 
   <img src="./svg/grant_custom.svg" width="500" alt="css-in-readme">
 
@@ -874,12 +1103,14 @@ function grantPlayerSelectedItemCustomAmountAmount(amount: number): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>set_billboard_text</td>
 <td><p>
+
+set_billboard_text
+
 
   <img src="./svg/set_billboard_text.svg" width="500" alt="css-in-readme">
 
@@ -894,12 +1125,14 @@ function setText(set_text: string): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>set_text_color</td>
 <td><p>
+
+set_text_color
+
 
   <img src="./svg/set_text_color.svg" width="500" alt="css-in-readme">
 
@@ -914,12 +1147,14 @@ function setTextColorTo(set_text_color_to: Color): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>set_image</td>
 <td><p>
+
+set_image
+
 
   <img src="./svg/set_image.svg" width="500" alt="css-in-readme">
 
@@ -934,12 +1169,14 @@ function setImageUrl(set_image_url: string): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>set_frame_color</td>
 <td><p>
+
+set_frame_color
+
 
   <img src="./svg/set_frame_color.svg" width="500" alt="css-in-readme">
 
@@ -954,12 +1191,14 @@ function setFrameColorTo(set_frame_color_to: Color): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>question_answering_streak</td>
 <td><p>
+
+question_answering_streak
+
 
   <img src="./svg/question_answering_streak.svg" width="500" alt="css-in-readme">
 
@@ -974,12 +1213,14 @@ function questionsAnsweredCorrectlyInARow(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>message_correct_answer</td>
 <td><p>
+
+message_correct_answer
+
 
   <img src="./svg/message_correct_answer.svg" width="500" alt="css-in-readme">
 
@@ -988,18 +1229,22 @@ function questionsAnsweredCorrectlyInARow(): number;
 
 
 ```typescript
-function setMessageShownWhenPlayerAnswersCorrectly(set_message_shown_when_player_answers_correctly: string): void;
+function setMessageShownWhenPlayerAnswersCorrectly(
+  set_message_shown_when_player_answers_correctly: string,
+): void;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>message_incorrect_answer</td>
 <td><p>
+
+message_incorrect_answer
+
 
   <img src="./svg/message_incorrect_answer.svg" width="500" alt="css-in-readme">
 
@@ -1008,18 +1253,22 @@ function setMessageShownWhenPlayerAnswersCorrectly(set_message_shown_when_player
 
 
 ```typescript
-function setMessageShownWhenPlayerAnswersIncorrectly(set_message_shown_when_player_answers_incorrectly: string): void;
+function setMessageShownWhenPlayerAnswersIncorrectly(
+  set_message_shown_when_player_answers_incorrectly: string,
+): void;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>set_header</td>
 <td><p>
+
+set_header
+
 
   <img src="./svg/set_header.svg" width="500" alt="css-in-readme">
 
@@ -1034,12 +1283,14 @@ function setHeader(set_header: string): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>set_content</td>
 <td><p>
+
+set_content
+
 
   <img src="./svg/set_content.svg" width="500" alt="css-in-readme">
 
@@ -1054,12 +1305,14 @@ function setContent(set_content: string): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>get_amount</td>
 <td><p>
+
+get_amount
+
 
   <img src="./svg/get_amount.svg" width="500" alt="css-in-readme">
 
@@ -1074,12 +1327,14 @@ function getAmountOfCurrentItem(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>set_gui_text</td>
 <td><p>
+
+set_gui_text
+
 
   <img src="./svg/set_gui_text.svg" width="500" alt="css-in-readme">
 
@@ -1094,12 +1349,14 @@ function setGuiText(set_text: string): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>get_minutes</td>
 <td><p>
+
+get_minutes
+
 
   <img src="./svg/get_minutes.svg" width="500" alt="css-in-readme">
 
@@ -1114,12 +1371,14 @@ function getMinutes(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>get_seconds</td>
 <td><p>
+
+get_seconds
+
 
   <img src="./svg/get_seconds.svg" width="500" alt="css-in-readme">
 
@@ -1134,12 +1393,14 @@ function getSeconds(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>get_time_left_formatted</td>
 <td><p>
+
+get_time_left_formatted
+
 
   <img src="./svg/get_time_left_formatted.svg" width="500" alt="css-in-readme">
 
@@ -1154,12 +1415,14 @@ function getTimeLeftFormatted(): string;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>get_player_count</td>
 <td><p>
+
+get_player_count
+
 
   <img src="./svg/get_player_count.svg" width="500" alt="css-in-readme">
 
@@ -1174,12 +1437,14 @@ function numberOfPlayersOnTeam(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>knockout_manager_other_character_name</td>
 <td><p>
+
+knockout_manager_other_character_name
+
 
   <img src="./svg/knockout_manager_other_character_name.svg" width="500" alt="css-in-readme">
 
@@ -1194,12 +1459,14 @@ function knockedPlayersName(): string;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>knockout_manager_other_character_team_number</td>
 <td><p>
+
+knockout_manager_other_character_team_number
+
 
   <img src="./svg/knockout_manager_other_character_team_number.svg" width="500" alt="css-in-readme">
 
@@ -1214,12 +1481,14 @@ function knockedPlayersTeamNumber(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>knockout_manager_other_character_get_property</td>
 <td><p>
+
+knockout_manager_other_character_get_property
+
 
   <img src="./svg/knockout_manager_other_character_get_property.svg" width="500" alt="css-in-readme">
 
@@ -1228,18 +1497,22 @@ function knockedPlayersTeamNumber(): number;
 
 
 ```typescript
-function getPropertyAsKnockedOutPlayer(get_property_as_knocked_out_player: string): string | number | boolean;
+function getPropertyAsKnockedOutPlayer(
+  get_property_as_knocked_out_player: string,
+): string | number | boolean;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>knockout_manager_other_character_set_property</td>
 <td><p>
+
+knockout_manager_other_character_set_property
+
 
   <img src="./svg/knockout_manager_other_character_set_property.svg" width="500" alt="css-in-readme">
 
@@ -1248,18 +1521,23 @@ function getPropertyAsKnockedOutPlayer(get_property_as_knocked_out_player: strin
 
 
 ```typescript
-function setPropertyAsKnockedOutPlayerValue(set_property_as_knocked_out_player: string, value: string | number | boolean): void;
+function setPropertyAsKnockedOutPlayerValue(
+  set_property_as_knocked_out_player: string,
+  value: string | number | boolean,
+): void;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>knockout_manager_other_character_message_broadcaster</td>
 <td><p>
+
+knockout_manager_other_character_message_broadcaster
+
 
   <img src="./svg/knockout_manager_other_character_message_broadcaster.svg" width="500" alt="css-in-readme">
 
@@ -1268,18 +1546,22 @@ function setPropertyAsKnockedOutPlayerValue(set_property_as_knocked_out_player: 
 
 
 ```typescript
-function broadcastMessageAsKnockedOutPlayerOnChannel(broadcast_message_as_knocked_out_player_on_channel: string): void;
+function broadcastMessageAsKnockedOutPlayerOnChannel(
+  broadcast_message_as_knocked_out_player_on_channel: string,
+): void;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>tag_zone_other_character_name</td>
 <td><p>
+
+tag_zone_other_character_name
+
 
   <img src="./svg/tag_zone_other_character_name.svg" width="500" alt="css-in-readme">
 
@@ -1294,12 +1576,14 @@ function tagZoneOtherCharacterName(): string;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>tag_zone_other_character_team_number</td>
 <td><p>
+
+tag_zone_other_character_team_number
+
 
   <img src="./svg/tag_zone_other_character_team_number.svg" width="500" alt="css-in-readme">
 
@@ -1314,12 +1598,14 @@ function tagZoneOtherCharacterTeamNumber(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>player_position_detector_player_x_position</td>
 <td><p>
+
+player_position_detector_player_x_position
+
 
   <img src="./svg/player_position_detector_player_x_position.svg" width="500" alt="css-in-readme">
 
@@ -1334,12 +1620,14 @@ function playersXPosition(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>player_position_detector_player_y_position</td>
 <td><p>
+
+player_position_detector_player_y_position
+
 
   <img src="./svg/player_position_detector_player_y_position.svg" width="500" alt="css-in-readme">
 
@@ -1354,12 +1642,14 @@ function playersYPosition(): number;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>damage_custom</td>
 <td><p>
+
+damage_custom
+
 
   <img src="./svg/damage_custom.svg" width="500" alt="css-in-readme">
 
@@ -1374,12 +1664,14 @@ function damagePlayerCustomAmountAmount(amount: number): void;
 
 </td>
 <td>
-
+no sugar
 </td>
 
 <tr>
-<td>number_with_commas</td>
 <td><p>
+
+number_with_commas
+
 
   <img src="./svg/number_with_commas.svg" width="500" alt="css-in-readme">
 
@@ -1388,13 +1680,15 @@ function damagePlayerCustomAmountAmount(amount: number): void;
 
 
 ```typescript
-function convertNumberToTextWithCommas(convert_number_to_text_with_commas: number): string;
+function convertNumberToTextWithCommas(
+  convert_number_to_text_with_commas: number,
+): string;
 ```
 
 
 </td>
 <td>
-
+no sugar
 </td>
 
 </table>

@@ -141,7 +141,11 @@ export function generateFunction(
     out += `<${genericStrings.join(', ')}>`;
   }
   out += `(`;
-  out += argStrings.join(', ');
+  if (def.$codegenCustomFunctionArgs) {
+    out += def.$codegenCustomFunctionArgs;
+  } else {
+    out += argStrings.join(', ');
+  }
   if (style == 'codegen') {
     out += `) => ${generateReturnType(def)};`;
   } else {
