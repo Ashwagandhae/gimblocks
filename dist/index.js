@@ -6620,7 +6620,7 @@ function rootBlockToProgram(rootBlock) {
   };
 }
 function findVariables(block, variablesIdMap) {
-  if (block.type == "variables_set" || block.type == "variables_get") {
+  if (block.type == "variables_set" || block.type == "variables_get" || block.type == "math_change") {
     const blockVar = block.fields.VAR;
     if (blockVar == null) {
       throw new ConvertError("Block must have VAR field");
