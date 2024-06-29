@@ -47,10 +47,10 @@ function run(d, e) {
 
 These requirements can be met easily by wrapping your code in a function that takes a single parameter, and calling `jsToBlocks` on the result of the function's `toString()` method.
 
-Because gimblocks is looking at the JavaScript code as a string, it errors on:
+Because gimblocks looks at the JavaScript code as a string, it errors on:
 
 - most user-defined or global functions (with exceptions like `Math` functions, or `console.log` which is ignored)
-- global variables
+- global variables defined outside the function
 - loops, because gimkit doesn't have loop blocks
 - other irrelevant JavaScript features, like `await` or `import`
 
