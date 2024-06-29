@@ -6726,7 +6726,7 @@ function convertFunctionExpressionTop(expr) {
       if (param.type != "Identifier") {
         throw new ConvertError("Invalid function argument", param);
       }
-      const ctx = { device: param.name, topLevel: true };
+      const ctx = { device: param.name, level: 0 };
       if (expr.body.type == "BlockStatement") {
         return convertBlockStatement(ctx, expr.body);
       } else {
@@ -6966,13 +6966,6 @@ function convertTextJoin(ctx, expr) {
   for (let i = 0; i < expr.arguments.length; i++) {
     let argExpr = expr.arguments[i];
     let block = convertFunctionArg(ctx, argExpr);
-    if (!isMaybeStringValue(block)) {
-      throw new AttachError(
-        `Argument of text_join must be string, got ${block.type}`,
-        argExpr,
-        block
-      );
-    }
     inputs[`ADD${i}`] = { block };
   }
   return {
@@ -7397,7 +7390,10 @@ function convertBinaryOperator(operator) {
   }
 }
 function convertBlockStatement(ctx, blockStatement) {
-  return convertStatementList({ ...ctx, topLevel: false }, blockStatement.body);
+  return convertStatementList(
+    { ...ctx, level: ctx.level + 1 },
+    blockStatement.body
+  );
 }
 function convertStatementList(ctx, statements) {
   const blocks = [];
@@ -7445,7 +7441,7 @@ function convertStatement(ctx, statement) {
 }
 function convertVariableDeclaration(ctx, statement) {
   const declarations = [];
-  if (!ctx.topLevel && (statement.kind == "let" || statement.kind == "const")) {
+  if (ctx.level > 1 && (statement.kind == "let" || statement.kind == "const")) {
     throw new ConvertError(
       "Let and const are only allowed in top level block (Blockly variables don't have block scope)",
       statement
@@ -7552,7 +7548,7 @@ function convertIfStatement(ctx, statement) {
       );
     }
     const doExpr = convertStatement(
-      { ...ctx, topLevel: false },
+      { ...ctx, level: ctx.level + 1 },
       current2.consequent
     );
     if (doExpr.type == "skip") {
@@ -7575,7 +7571,7 @@ function convertIfStatement(ctx, statement) {
   const lastFlattened = flattened[flattened.length - 1];
   if (lastFlattened.alternate != null) {
     const elseExpr = convertStatement(
-      { ...ctx, topLevel: false },
+      { ...ctx, level: ctx.level + 1 },
       lastFlattened.alternate
     );
     if (elseExpr.type == "skip") {

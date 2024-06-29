@@ -115,7 +115,7 @@ type Skip = { type: 'skip' };
 
 type Context = {
   device: string;
-  topLevel: boolean;
+  level: number;
 };
 function convertProgramTop(program: Program): Block.Block {
   const statements: Statement[] = [];
@@ -163,7 +163,7 @@ function convertFunctionExpressionTop(
       if (param.type != 'Identifier') {
         throw new ConvertError('Invalid function argument', param);
       }
-      const ctx: Context = { device: param.name, topLevel: true };
+      const ctx: Context = { device: param.name, level: 0 };
       if (expr.body.type == 'BlockStatement') {
         return convertBlockStatement(ctx, expr.body);
       } else {
@@ -454,13 +454,6 @@ function convertTextJoin(
   for (let i = 0; i < expr.arguments.length; i++) {
     let argExpr = expr.arguments[i]!;
     let block = convertFunctionArg(ctx, argExpr);
-    if (!isMaybeStringValue(block)) {
-      throw new AttachError(
-        `Argument of text_join must be string, got ${block.type}`,
-        argExpr,
-        block
-      );
-    }
     inputs[`ADD${i}`] = { block };
   }
   return {
@@ -940,7 +933,10 @@ function convertBlockStatement(
   ctx: Context,
   blockStatement: BlockStatement
 ): Block.Block {
-  return convertStatementList({ ...ctx, topLevel: false }, blockStatement.body);
+  return convertStatementList(
+    { ...ctx, level: ctx.level + 1 },
+    blockStatement.body
+  );
 }
 
 function convertStatementList(
@@ -1000,7 +996,7 @@ function convertVariableDeclaration(
   statement: VariableDeclaration
 ): Block.VariablesSetBlock {
   const declarations: Block.VariablesSetBlock[] = [];
-  if (!ctx.topLevel && (statement.kind == 'let' || statement.kind == 'const')) {
+  if (ctx.level > 1 && (statement.kind == 'let' || statement.kind == 'const')) {
     throw new ConvertError(
       "Let and const are only allowed in top level block (Blockly variables don't have block scope)",
       statement
@@ -1116,7 +1112,7 @@ function convertIfStatement(
       );
     }
     const doExpr = convertStatement(
-      { ...ctx, topLevel: false },
+      { ...ctx, level: ctx.level + 1 },
       current.consequent
     );
     if (doExpr.type == 'skip') {
@@ -1140,7 +1136,7 @@ function convertIfStatement(
   const lastFlattened = flattened[flattened.length - 1]!;
   if (lastFlattened.alternate != null) {
     const elseExpr = convertStatement(
-      { ...ctx, topLevel: false },
+      { ...ctx, level: ctx.level + 1 },
       lastFlattened.alternate
     );
     if (elseExpr.type == 'skip') {
