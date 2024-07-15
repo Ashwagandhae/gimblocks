@@ -186,31 +186,10 @@ function generateArg(arg: Argument):
         : `@param ${argName} - A field. It must be a literal, non-dynamic value.`,
     };
   }
-  // function generic(
-  //   generic: string,
-  //   bounds: string
-  // ): {
-  //   tag: 'generic';
-  //   create: (varName: string) => {
-  //     argString: string;
-  //     argDesc: string;
-  //     genericString: string;
-  //   };
-  // } {
-  //   return {
-  //     tag: 'generic',
-  //     create: (varName: string) => {
-  //       return {
-  //         argString: `${argName}: ${generic}<${varName}>`,
-  //         argDesc: `@param ${argName} - A field of type \`${bounds}\`. It must be a literal, non-dynamic value.`,
-  //         genericString: `${varName} extends ${bounds}`,
-  //       };
-  //     },
-  //   };
-  // }
+
   switch (arg.type) {
     case 'input_value': {
-      return normal(checkToType(arg.check), true);
+      return normal(`${checkToType(arg.check)} | null`, true);
     }
     case 'input_statement': {
       throw new Error('Statement args not supported');

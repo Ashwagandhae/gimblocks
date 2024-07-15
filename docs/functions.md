@@ -89,9 +89,9 @@ logic_compare
 
 ```typescript
 function logicCompare(
-  A: any,
+  A: any | null,
   OP: "EQ" | "NEQ" | "LT" | "LTE" | "GT" | "GTE",
-  B: any,
+  B: any | null,
 ): boolean;
 ```
 
@@ -125,7 +125,11 @@ logic_operation
 
 
 ```typescript
-function logicOperation(A: boolean, OP: "AND" | "OR", B: boolean): boolean;
+function logicOperation(
+  A: boolean | null,
+  OP: "AND" | "OR",
+  B: boolean | null,
+): boolean;
 ```
 
 
@@ -185,9 +189,9 @@ math_arithmetic
 
 ```typescript
 function mathArithmetic(
-  A: number,
+  A: number | null,
   OP: "ADD" | "MINUS" | "MULTIPLY" | "DIVIDE" | "POWER",
-  B: number,
+  B: number | null,
 ): number;
 ```
 
@@ -222,7 +226,7 @@ math_single
 ```typescript
 function mathSingle(
   OP: "ROOT" | "ABS" | "NEG" | "LN" | "LOG10" | "EXP" | "POW10",
-  NUM: number,
+  NUM: number | null,
 ): number;
 ```
 
@@ -247,7 +251,7 @@ math_trig
 ```typescript
 function mathTrig(
   OP: "SIN" | "COS" | "TAN" | "ASIN" | "ACOS" | "ATAN",
-  NUM: number,
+  NUM: number | null,
 ): number;
 ```
 
@@ -280,7 +284,7 @@ math_number_property
 
 ```typescript
 function mathNumberProperty(
-  NUMBER_TO_CHECK: number,
+  NUMBER_TO_CHECK: number | null,
   PROPERTY:
     | "EVEN"
     | "ODD"
@@ -333,7 +337,10 @@ math_round
 
 
 ```typescript
-function mathRound(OP: "ROUND" | "ROUNDUP" | "ROUNDDOWN", NUM: number): number;
+function mathRound(
+  OP: "ROUND" | "ROUNDUP" | "ROUNDDOWN",
+  NUM: number | null,
+): number;
 ```
 
 
@@ -355,7 +362,7 @@ math_random_int
 
 
 ```typescript
-function randomIntegerFromTo(FROM: number, TO: number): number;
+function randomIntegerFromTo(FROM: number | null, TO: number | null): number;
 ```
 
 
@@ -429,7 +436,7 @@ text_length
 
 
 ```typescript
-function lengthOf(VALUE: string): number;
+function lengthOf(VALUE: string | null): number;
 ```
 
 
@@ -451,7 +458,11 @@ text_indexOf
 
 
 ```typescript
-function inText(VALUE: string, END: "FIRST" | "LAST", FIND: string): number;
+function inText(
+  VALUE: string | null,
+  END: "FIRST" | "LAST",
+  FIND: string | null,
+): number;
 ```
 
 
@@ -474,7 +485,7 @@ text_charAt
 
 ```typescript
 function textCharAt(
-  VALUE: string,
+  VALUE: string | null,
   WHERE: "FROM_START" | "FROM_END" | "FIRST" | "LAST" | "RANDOM",
 ): string;
 ```
@@ -499,11 +510,11 @@ text_getSubstring
 
 ```typescript
 function inTextGetSubstringFromTo(
-  STRING: string,
+  STRING: string | null,
   WHERE1: "FROM_START" | "FROM_END" | "FIRST",
-  AT1: number,
+  AT1: number | null,
   WHERE2: "FROM_START" | "FROM_END" | "LAST",
-  AT2: number,
+  AT2: number | null,
 ): string;
 ```
 
@@ -573,7 +584,9 @@ message_broadcaster
 
 
 ```typescript
-function broadcastMessageOnChannel(broadcast_message_on_channel: string): void;
+function broadcastMessageOnChannel(
+  broadcast_message_on_channel: string | null,
+): void;
 ```
 
 
@@ -596,8 +609,8 @@ set_property
 
 ```typescript
 function setPropertyValue(
-  set_property: string,
-  value: string | number | boolean,
+  set_property: string | null,
+  value: string | number | boolean | null,
 ): void;
 ```
 
@@ -620,7 +633,7 @@ get_property
 
 
 ```typescript
-function getProperty(get_property: string): string | number | boolean;
+function getProperty(get_property: string | null): string | number | boolean;
 ```
 
 
@@ -665,7 +678,7 @@ add_activity_feed_item_for_everyone
 
 ```typescript
 function addActivityFeedItemForEveryone(
-  add_activity_feed_item_for_everyone: string,
+  add_activity_feed_item_for_everyone: string | null,
 ): void;
 ```
 
@@ -689,7 +702,7 @@ add_activity_feed_item_for_triggering_player
 
 ```typescript
 function addActivityFeedItemForTriggeringPlayer(
-  add_activity_feed_item_for_triggering_player: string,
+  add_activity_feed_item_for_triggering_player: string | null,
 ): void;
 ```
 
@@ -713,7 +726,7 @@ add_activity_feed_item_for_game_host
 
 ```typescript
 function addActivityFeedItemForGameHost(
-  add_activity_feed_item_for_game_host: string,
+  add_activity_feed_item_for_game_host: string | null,
 ): void;
 ```
 
@@ -780,7 +793,7 @@ get_team_score
 
 
 ```typescript
-function getScoreOfTeam(get_score_of_team: number): number;
+function getScoreOfTeam(get_score_of_team: number | null): number;
 ```
 
 
@@ -868,7 +881,7 @@ set_assignment_objective
 
 
 ```typescript
-function setObjectiveTo(set_objective_to: string): void;
+function setObjectiveTo(set_objective_to: string | null): void;
 ```
 
 
@@ -890,7 +903,9 @@ set_percentage_complete
 
 
 ```typescript
-function setPercentageCompleteTo(set_percentage_complete_to: number): void;
+function setPercentageCompleteTo(
+  set_percentage_complete_to: number | null,
+): void;
 ```
 
 
@@ -913,7 +928,7 @@ increment_percentage_complete
 
 ```typescript
 function incrementPercentageCompleteBy(
-  increment_percentage_complete_by: number,
+  increment_percentage_complete_by: number | null,
 ): void;
 ```
 
@@ -936,7 +951,10 @@ send_custom_notification
 
 
 ```typescript
-function sendNotificationTitleContent(title: string, content: string): void;
+function sendNotificationTitleContent(
+  title: string | null,
+  content: string | null,
+): void;
 ```
 
 
@@ -1003,7 +1021,7 @@ other_character_get_property
 
 ```typescript
 function getPropertyAsOtherPlayer(
-  get_property_as_other_player: string,
+  get_property_as_other_player: string | null,
 ): string | number | boolean;
 ```
 
@@ -1027,8 +1045,8 @@ other_character_set_property
 
 ```typescript
 function setPropertyAsOtherPlayerValue(
-  set_property_as_other_player: string,
-  value: string | number | boolean,
+  set_property_as_other_player: string | null,
+  value: string | number | boolean | null,
 ): void;
 ```
 
@@ -1052,7 +1070,7 @@ other_character_message_broadcaster
 
 ```typescript
 function broadcastMessageAsOtherPlayerOnChannel(
-  broadcast_message_as_other_player_on_channel: string,
+  broadcast_message_as_other_player_on_channel: string | null,
 ): void;
 ```
 
@@ -1097,7 +1115,7 @@ grant_custom
 
 
 ```typescript
-function grantPlayerSelectedItemCustomAmountAmount(amount: number): void;
+function grantPlayerSelectedItemCustomAmountAmount(amount: number | null): void;
 ```
 
 
@@ -1119,7 +1137,7 @@ set_billboard_text
 
 
 ```typescript
-function setText(set_text: string): void;
+function setText(set_text: string | null): void;
 ```
 
 
@@ -1163,7 +1181,7 @@ set_image
 
 
 ```typescript
-function setImageUrl(set_image_url: string): void;
+function setImageUrl(set_image_url: string | null): void;
 ```
 
 
@@ -1230,7 +1248,7 @@ message_correct_answer
 
 ```typescript
 function setMessageShownWhenPlayerAnswersCorrectly(
-  set_message_shown_when_player_answers_correctly: string,
+  set_message_shown_when_player_answers_correctly: string | null,
 ): void;
 ```
 
@@ -1254,7 +1272,7 @@ message_incorrect_answer
 
 ```typescript
 function setMessageShownWhenPlayerAnswersIncorrectly(
-  set_message_shown_when_player_answers_incorrectly: string,
+  set_message_shown_when_player_answers_incorrectly: string | null,
 ): void;
 ```
 
@@ -1277,7 +1295,7 @@ set_header
 
 
 ```typescript
-function setHeader(set_header: string): void;
+function setHeader(set_header: string | null): void;
 ```
 
 
@@ -1299,7 +1317,7 @@ set_content
 
 
 ```typescript
-function setContent(set_content: string): void;
+function setContent(set_content: string | null): void;
 ```
 
 
@@ -1343,7 +1361,7 @@ set_gui_text
 
 
 ```typescript
-function setGuiText(set_text: string): void;
+function setGuiText(set_text: string | null): void;
 ```
 
 
@@ -1498,7 +1516,7 @@ knockout_manager_other_character_get_property
 
 ```typescript
 function getPropertyAsKnockedOutPlayer(
-  get_property_as_knocked_out_player: string,
+  get_property_as_knocked_out_player: string | null,
 ): string | number | boolean;
 ```
 
@@ -1522,8 +1540,8 @@ knockout_manager_other_character_set_property
 
 ```typescript
 function setPropertyAsKnockedOutPlayerValue(
-  set_property_as_knocked_out_player: string,
-  value: string | number | boolean,
+  set_property_as_knocked_out_player: string | null,
+  value: string | number | boolean | null,
 ): void;
 ```
 
@@ -1547,7 +1565,7 @@ knockout_manager_other_character_message_broadcaster
 
 ```typescript
 function broadcastMessageAsKnockedOutPlayerOnChannel(
-  broadcast_message_as_knocked_out_player_on_channel: string,
+  broadcast_message_as_knocked_out_player_on_channel: string | null,
 ): void;
 ```
 
@@ -1658,7 +1676,7 @@ damage_custom
 
 
 ```typescript
-function damagePlayerCustomAmountAmount(amount: number): void;
+function damagePlayerCustomAmountAmount(amount: number | null): void;
 ```
 
 
@@ -1681,7 +1699,7 @@ number_with_commas
 
 ```typescript
 function convertNumberToTextWithCommas(
-  convert_number_to_text_with_commas: number,
+  convert_number_to_text_with_commas: number | null,
 ): string;
 ```
 

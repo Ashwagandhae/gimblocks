@@ -2035,7 +2035,7 @@ function generateArg(arg) {
   }
   switch (arg.type) {
     case "input_value": {
-      return normal(checkToType(arg.check), true);
+      return normal(`${checkToType(arg.check)} | null`, true);
     }
     case "input_statement": {
       throw new Error("Statement args not supported");

@@ -6731,11 +6731,12 @@ function convertFunctionExpressionTop(expr) {
         return convertBlockStatement(ctx, expr.body);
       } else {
         const ret = convertExpression(ctx, expr.body);
-        if (ret.type == "skip") {
+        if (ret.type == "$placeholder") {
           throw new ConvertError("Invalid function body", expr.body);
+        } else {
         }
+        return ret;
       }
-      throw new ConvertError("Invalid function body", expr.body);
     }
     default:
       throw new ConvertError("Invalid top expression type: " + expr.type, expr);
@@ -6757,6 +6758,8 @@ function convertExpression(ctx, expr) {
       return convertAssignmentExpression(ctx, expr);
     case "CallExpression":
       return convertCallExpression(ctx, expr);
+    case "TemplateLiteral":
+      return convertTemplateLiteral(ctx, expr);
     default:
       throw new ConvertError("Invalid expression type: " + expr.type, expr);
   }
@@ -6777,7 +6780,7 @@ function convertCallExpression(ctx, expr) {
 function convertIdentifierCallExpression(ctx, expr, identifier) {
   switch (identifier.name) {
     case "alert":
-      return { type: "skip" };
+      return { type: "$placeholder", kind: "skip" };
     default: {
       throw new ConvertError(
         "Invalid function call: " + identifier.name,
@@ -6795,7 +6798,7 @@ function convertMemberCallExpression(ctx, expr, member) {
   }
   switch (member.object.name + "." + member.property.name) {
     case "console.log":
-      return { type: "skip" };
+      return { type: "$placeholder", kind: "skip" };
     case "Math.sin":
       return convertTrig(ctx, expr, "SIN");
     case "Math.cos":
@@ -6841,8 +6844,13 @@ function convertFunctionArg(ctx, expr) {
     throw new ConvertError("SpreadElement in function argument not supported");
   }
   const ret = convertExpression(ctx, expr);
-  if (ret.type == "skip") {
-    throw new ConvertError("Invalid function argument", expr);
+  if (ret.type == "$placeholder") {
+    switch (ret.kind) {
+      case "skip":
+        throw new ConvertError("Invalid function argument", expr);
+      case "hole":
+        return ret;
+    }
   }
   if (!isValue(ret)) {
     throw new AttachError(
@@ -6853,6 +6861,12 @@ function convertFunctionArg(ctx, expr) {
   }
   return ret;
 }
+function isHole(block) {
+  return block.type == "$placeholder" && block.kind == "hole";
+}
+function isSkip(block) {
+  return block.type == "$placeholder" && block.kind == "skip";
+}
 function convertTrig(ctx, expr, trigFunc) {
   if (expr.arguments.length != 1) {
     throw new ConvertError(
@@ -6861,7 +6875,7 @@ function convertTrig(ctx, expr, trigFunc) {
     );
   }
   const argBlock = convertFunctionArg(ctx, expr.arguments[0]);
-  if (!isMaybeNumberValue(argBlock)) {
+  if (!isHole(argBlock) && !isMaybeNumberValue(argBlock)) {
     throw new AttachError(
       `Trig function argument must be number, got ${argBlock.type}`,
       expr.arguments[0],
@@ -6869,26 +6883,33 @@ function convertTrig(ctx, expr, trigFunc) {
     );
   }
   if (trigFunc == "SIN" || trigFunc == "COS" || trigFunc == "TAN") {
+    let inputs = {};
+    if (!isHole(argBlock)) {
+      inputs.NUM = {
+        block: withArithmetic(argBlock, 57.2957795131, "MULTIPLY")
+      };
+    }
     return {
       id: randomId(),
       type: "math_trig",
       fields: {
         OP: trigFunc
       },
-      inputs: {
-        NUM: {
-          // 360/(2pi)
-          block: withArithmetic(argBlock, 57.2957795131, "MULTIPLY")
-        }
-      }
+      inputs
     };
   } else {
+    let inputs = {};
+    if (!isHole(argBlock)) {
+      inputs.NUM = {
+        block: argBlock
+      };
+    }
     return withArithmetic(
       {
         id: randomId(),
         type: "math_trig",
         fields: { OP: trigFunc },
-        inputs: { NUM: { block: argBlock } }
+        inputs
       },
       // 2pi/360
       0.01745329251,
@@ -6966,6 +6987,9 @@ function convertTextJoin(ctx, expr) {
   for (let i = 0; i < expr.arguments.length; i++) {
     let argExpr = expr.arguments[i];
     let block = convertFunctionArg(ctx, argExpr);
+    if (isHole(block)) {
+      continue;
+    }
     inputs[`ADD${i}`] = { block };
   }
   return {
@@ -6981,8 +7005,11 @@ function addArgument(ctx, arg, expr, inputs, fields) {
   switch (arg.type) {
     case "input_value": {
       let block = convertExpression(ctx, expr);
-      if (block.type == "skip") {
+      if (isSkip(block)) {
         throw new ConvertError("Invalid argument expression", expr);
+      }
+      if (isHole(block)) {
+        return;
       }
       if (!isValue(block)) {
         throw new AttachError(
@@ -7109,18 +7136,38 @@ function getLiteralNumber(expr) {
   }
   return expr.value;
 }
+function mapMaybeHole(block, f) {
+  if (isHole(block)) {
+    return block;
+  }
+  return f(block);
+}
+function inputsWithMaybeHole(args) {
+  let ret = {};
+  for (let key of Object.keys(args)) {
+    let arg = args[key];
+    if (isHole(arg)) {
+      return ret;
+    }
+    ret[key] = { block: arg };
+  }
+  return ret;
+}
 function convertAssignmentExpression(ctx, expr) {
-  const rightExpr = convertExpression(ctx, expr.right);
-  if (rightExpr.type == "skip") {
-    throw new ConvertError("Invalid right expression", expr.right);
-  }
-  if (!isValue(rightExpr)) {
-    throw new AttachError(
-      `Right of assignment must be expression, got ${rightExpr.type}`,
-      expr,
-      rightExpr
-    );
-  }
+  let rightExpr = convertExpression(ctx, expr.right);
+  let rightExprChecked = mapMaybeHole(rightExpr, (rightExpr2) => {
+    if (isSkip(rightExpr2)) {
+      throw new ConvertError("Invalid right expression", expr.right);
+    }
+    if (!isValue(rightExpr2)) {
+      throw new AttachError(
+        `Right of assignment must be expression, got ${rightExpr2.type}`,
+        expr,
+        rightExpr2
+      );
+    }
+    return rightExpr2;
+  });
   const name = convertPattern(expr.left);
   if (ctx.device != null && name == ctx.device) {
     throw new ConvertError(
@@ -7138,18 +7185,11 @@ function convertAssignmentExpression(ctx, expr) {
             id: name
           }
         },
-        inputs: {
-          VALUE: { block: rightExpr }
-        }
+        inputs: inputsWithMaybeHole({
+          VALUE: rightExprChecked
+        })
       };
     case "+=": {
-      if (!isMaybeNumberValue(rightExpr)) {
-        throw new AttachError(
-          `Right of math_change must be number, got ${rightExpr.type}`,
-          expr.right,
-          rightExpr
-        );
-      }
       return {
         id: randomId(),
         type: "math_change",
@@ -7158,9 +7198,18 @@ function convertAssignmentExpression(ctx, expr) {
             id: name
           }
         },
-        inputs: {
-          DELTA: { block: rightExpr }
-        }
+        inputs: inputsWithMaybeHole({
+          DELTA: mapMaybeHole(rightExprChecked, (blockExpr) => {
+            if (!isMaybeNumberValue(blockExpr)) {
+              throw new AttachError(
+                `Right of math_change must be number, got ${blockExpr.type}`,
+                expr.right,
+                blockExpr
+              );
+            }
+            return blockExpr;
+          })
+        })
       };
     }
     default:
@@ -7180,13 +7229,7 @@ function convertLiteral(expr) {
         }
       };
     case "string":
-      return {
-        id: randomId(),
-        type: "text",
-        fields: {
-          TEXT: expr.value
-        }
-      };
+      return createTextBlock(expr.value);
     case "boolean":
       return {
         id: randomId(),
@@ -7195,12 +7238,122 @@ function convertLiteral(expr) {
           BOOL: expr.value ? "TRUE" : "FALSE"
         }
       };
+    case "object":
+      if (expr.value === null) {
+        return {
+          type: "$placeholder",
+          kind: "hole"
+        };
+      } else {
+        throw new ConvertError("Invalid literal value: " + expr.value, expr);
+      }
     default:
       throw new ConvertError(
         "Invalid literal type: " + typeof expr.value,
         expr
       );
   }
+}
+function convertTemplateLiteral(ctx, expr) {
+  if (expr.expressions.length == 0) {
+    return createTextBlock(expr.quasis[0].value.raw);
+  }
+  let inputs = {};
+  let index = 0;
+  function addToInputs(block) {
+    index += 1;
+    if (isHole(block)) {
+      return;
+    }
+    inputs[`ADD${index - 1}`] = { block };
+  }
+  function addQuasisExpr(quasisExpr) {
+    if (quasisExpr.value.raw == "")
+      return;
+    for (let chunk of chunkStringMaxLength(quasisExpr.value.raw)) {
+      addToInputs({
+        id: randomId(),
+        type: "text",
+        fields: {
+          TEXT: chunk
+        }
+      });
+    }
+  }
+  function addExpr(expr2) {
+    let block = convertExpression(ctx, expr2);
+    addToInputs(
+      mapMaybeHole(block, (block2) => {
+        if (isSkip(block2)) {
+          throw new ConvertError("Invalid template literal expression", expr2);
+        }
+        if (!isValue(block2)) {
+          throw new ConvertError(
+            "Template literal expression must be value",
+            expr2
+          );
+        }
+        return block2;
+      })
+    );
+  }
+  for (let i = 0; i < expr.expressions.length; i++) {
+    let quasisExpr = expr.quasis[i];
+    let exprExpr = expr.expressions[i];
+    addQuasisExpr(quasisExpr);
+    addExpr(exprExpr);
+  }
+  addQuasisExpr(expr.quasis[expr.quasis.length - 1]);
+  return {
+    id: randomId(),
+    type: "text_join",
+    inputs,
+    extraState: {
+      itemCount: Object.keys(inputs).length
+    }
+  };
+}
+var MAX_TEXT_LENGTH = 512;
+function chunkStringMaxLength(string) {
+  let chunks = [];
+  for (let i = 0; i < string.length; i += MAX_TEXT_LENGTH) {
+    chunks.push(string.slice(i, i + MAX_TEXT_LENGTH));
+  }
+  return chunks;
+}
+function createTextBlock(text) {
+  let chunks = chunkStringMaxLength(text);
+  if (chunks.length == 1) {
+    return {
+      id: randomId(),
+      type: "text",
+      fields: {
+        TEXT: text
+      }
+    };
+  }
+  return {
+    id: randomId(),
+    type: "text_join",
+    inputs: chunks.map((chunk, i) => {
+      let textBlock = {
+        id: randomId(),
+        type: "text",
+        fields: {
+          TEXT: chunk
+        }
+      };
+      let ret = {
+        [`ADD${i}`]: {
+          block: textBlock
+        }
+      };
+      return ret;
+    }).reduce((a, b) => ({ ...a, ...b }), {}),
+    extraState: {
+      itemCount: chunks.length
+    }
+  };
 }
 function convertBinaryExpression(ctx, expr) {
   const left = expr.left;
@@ -7212,88 +7365,92 @@ function convertBinaryExpression(ctx, expr) {
     throw new ConvertError("Invalid operator: " + expr.operator, expr);
   }
   const leftExpr = convertExpression(ctx, left);
-  if (leftExpr.type == "skip") {
+  if (isSkip(leftExpr)) {
     throw new ConvertError("Invalid left expression", left);
   }
   const rightExpr = convertExpression(ctx, expr.right);
-  if (rightExpr.type == "skip") {
+  if (isSkip(rightExpr)) {
     throw new ConvertError("Invalid right expression", expr.right);
   }
   if (op.tag == "logic_compare") {
-    if (!isValue(leftExpr)) {
-      throw new AttachError(
-        `Left of logic_compare must be expression, got ${leftExpr.type}`,
-        left,
-        leftExpr
-      );
-    }
-    if (!isValue(rightExpr)) {
-      throw new AttachError(
-        `Right of logic_compare must be expression, got ${rightExpr.type}`,
-        expr.right,
-        rightExpr
-      );
-    }
     return {
-      id: randomId(),
-      inputs: {
-        A: {
-          block: leftExpr
-        },
-        B: {
-          block: rightExpr
-        }
-      },
       type: "logic_compare",
+      id: randomId(),
+      inputs: inputsWithMaybeHole({
+        A: mapMaybeHole(leftExpr, (blockExpr) => {
+          if (!isValue(blockExpr)) {
+            throw new AttachError(
+              `Left of logic_compare must be expression, got ${blockExpr.type}`,
+              left,
+              blockExpr
+            );
+          }
+          return blockExpr;
+        }),
+        B: mapMaybeHole(rightExpr, (blockExpr) => {
+          if (!isValue(blockExpr)) {
+            throw new AttachError(
+              `Right of logic_compare must be expression, got ${blockExpr.type}`,
+              expr.right,
+              blockExpr
+            );
+          }
+          return blockExpr;
+        })
+      }),
       fields: {
         OP: op.operator
       }
     };
   } else {
-    if ((!isMaybeNumberValue(leftExpr) || !isMaybeNumberValue(rightExpr)) && op.operator == "ADD") {
-      if (isMaybeStringValue(leftExpr) && isMaybeStringValue(rightExpr)) {
+    if ((!isHole(leftExpr) && !isMaybeNumberValue(leftExpr) || !isHole(rightExpr) && !isMaybeNumberValue(rightExpr)) && op.operator == "ADD") {
+      if ((isHole(leftExpr) || isMaybeStringValue(leftExpr)) && (isHole(rightExpr) || isMaybeStringValue(rightExpr))) {
         return {
           type: "text_join",
           id: randomId(),
-          inputs: {
-            ADD0: {
-              block: leftExpr
-            },
-            ADD1: {
-              block: rightExpr
-            }
-          },
+          // inputs: {
+          //   ADD0: {
+          //     block: leftExpr,
+          //   },
+          //   ADD1: {
+          //     block: rightExpr,
+          //   },
+          // },
+          inputs: inputsWithMaybeHole({
+            ADD0: leftExpr,
+            ADD1: rightExpr
+          }),
           extraState: {
             itemCount: 2
           }
         };
       }
     }
-    if (!isMaybeNumberValue(leftExpr)) {
-      throw new AttachError(
-        `Left of math_arithmetic must be number, got ${leftExpr.type}`,
-        left,
-        leftExpr
-      );
-    }
-    if (!isMaybeNumberValue(rightExpr)) {
-      throw new AttachError(
-        `Right of math_arithmetic must be number, got ${rightExpr.type}`,
-        expr.right,
-        rightExpr
-      );
-    }
     return {
-      id: randomId(),
-      inputs: {
-        A: {
-          block: leftExpr
-        },
-        B: {
-          block: rightExpr
-        }
-      },
       type: "math_arithmetic",
+      id: randomId(),
+      inputs: inputsWithMaybeHole({
+        A: mapMaybeHole(leftExpr, (blockExpr) => {
+          if (!isMaybeNumberValue(blockExpr)) {
+            throw new AttachError(
+              `Left of math_arithmetic must be number, got ${blockExpr.type}`,
+              left,
+              blockExpr
+            );
+          }
+          return blockExpr;
+        }),
+        B: mapMaybeHole(rightExpr, (blockExpr) => {
+          if (!isMaybeNumberValue(blockExpr)) {
+            throw new AttachError(
+              `Right of math_arithmetic must be number, got ${blockExpr.type}`,
+              expr.right,
+              blockExpr
+            );
+          }
+          return blockExpr;
+        })
+      }),
       fields: {
         OP: op.operator
       }
@@ -7307,38 +7464,38 @@ function convertLogicalExpression(ctx, expr) {
     throw new ConvertError("Invalid operator: " + expr.operator, expr);
   }
   const leftExpr = convertExpression(ctx, left);
-  if (leftExpr.type == "skip") {
-    throw new ConvertError("Invalid left expression", left);
-  }
   const rightExpr = convertExpression(ctx, expr.right);
-  if (rightExpr.type == "skip") {
-    throw new ConvertError("Invalid right expression", expr.right);
-  }
-  if (!isMaybeBooleanValue(leftExpr)) {
-    throw new AttachError(
-      `Left of logical expression must be boolean, got ${leftExpr.type}`,
-      left,
-      leftExpr
-    );
-  }
-  if (!isMaybeBooleanValue(rightExpr)) {
-    throw new AttachError(
-      `Right of logical expression must be boolean, got ${rightExpr.type}`,
-      expr.right,
-      rightExpr
-    );
-  }
   return {
-    id: randomId(),
-    inputs: {
-      A: {
-        block: leftExpr
-      },
-      B: {
-        block: rightExpr
-      }
-    },
     type: "logic_operation",
+    id: randomId(),
+    inputs: inputsWithMaybeHole({
+      A: mapMaybeHole(leftExpr, (blockExpr) => {
+        if (isSkip(blockExpr)) {
+          throw new ConvertError("Invalid left expression", left);
+        }
+        if (!isMaybeBooleanValue(blockExpr)) {
+          throw new AttachError(
+            `Left of logical expression must be boolean, got ${blockExpr.type}`,
+            left,
+            blockExpr
+          );
+        }
+        return blockExpr;
+      }),
+      B: mapMaybeHole(rightExpr, (blockExpr) => {
+        if (isSkip(blockExpr)) {
+          throw new ConvertError("Invalid right expression", expr.right);
+        }
+        if (!isMaybeBooleanValue(blockExpr)) {
+          throw new AttachError(
+            `Right of logical expression must be boolean, got ${blockExpr.type}`,
+            expr.right,
+            blockExpr
+          );
+        }
+        return blockExpr;
+      })
+    }),
     fields: {
       OP: op
     }
@@ -7399,7 +7556,7 @@ function convertStatementList(ctx, statements) {
   const blocks = [];
   for (const statement of statements) {
     const block = convertStatement(ctx, statement);
-    if (block.type == "skip") {
+    if (isSkip(block)) {
       continue;
     }
     blocks.push(block);
@@ -7430,8 +7587,15 @@ function convertStatement(ctx, statement) {
       return convertIfStatement(ctx, statement);
     case "BlockStatement":
       return convertBlockStatement(ctx, statement);
-    case "ExpressionStatement":
-      return convertExpression(ctx, statement.expression);
+    case "ExpressionStatement": {
+      let expr = convertExpression(ctx, statement.expression);
+      if (isHole(expr)) {
+        throw new ConvertError("Can't have hole as a statement", statement);
+      }
+      return expr;
+    }
+    case "ThrowStatement":
+      return { type: "$placeholder", kind: "skip" };
     default:
       throw new ConvertError(
         "Invalid statement type: " + statement.type,
@@ -7455,17 +7619,22 @@ function convertVariableDeclaration(ctx, statement) {
         declaration
       );
     }
-    const initExpr = convertExpression(ctx, declarationInit);
-    if (initExpr.type == "skip") {
-      throw new ConvertError("Invalid init expression", declarationInit);
-    }
-    if (!isValue(initExpr)) {
-      throw new AttachError(
-        `Init of variable declaration must be expression, got ${initExpr.type}`,
-        declaration,
-        initExpr
-      );
-    }
+    const initExpr = mapMaybeHole(
+      convertExpression(ctx, declarationInit),
+      (initExpr2) => {
+        if (isSkip(initExpr2)) {
+          throw new ConvertError("Invalid init expression", declarationInit);
+        }
+        if (!isValue(initExpr2)) {
+          throw new AttachError(
+            `Init of variable declaration must be expression, got ${initExpr2.type}`,
+            declaration,
+            initExpr2
+          );
+        }
+        return initExpr2;
+      }
+    );
     const name = convertPattern(declaration.id);
     if (ctx.device != null && name == ctx.device) {
       throw new ConvertError(
@@ -7481,9 +7650,9 @@ function convertVariableDeclaration(ctx, statement) {
           id: name
         }
       },
-      inputs: {
-        VALUE: { block: initExpr }
-      }
+      inputs: inputsWithMaybeHole({
+        VALUE: initExpr
+      })
     };
     declarations.push(block);
   }
@@ -7536,60 +7705,73 @@ function convertIfStatement(ctx, statement) {
   }
   for (let i = 0; i < flattened.length; i++) {
     const current2 = flattened[i];
-    const testExpr = convertExpression(ctx, current2.test);
-    if (testExpr.type == "skip") {
-      throw new ConvertError("Invalid test expression", current2.test);
-    }
-    if (!isMaybeBooleanValue(testExpr)) {
-      throw new AttachError(
-        `If test must be boolean, got ${testExpr.type}`,
-        current2.test,
-        testExpr
-      );
-    }
-    const doExpr = convertStatement(
-      { ...ctx, level: ctx.level + 1 },
-      current2.consequent
+    const testExpr = mapMaybeHole(
+      convertExpression(ctx, current2.test),
+      (testExpr2) => {
+        if (isSkip(testExpr2)) {
+          throw new ConvertError("Invalid test expression", current2.test);
+        }
+        if (!isMaybeBooleanValue(testExpr2)) {
+          throw new AttachError(
+            `If test must be boolean, got ${testExpr2.type}`,
+            current2.test,
+            testExpr2
+          );
+        }
+        return testExpr2;
+      }
     );
-    if (doExpr.type == "skip") {
-      throw new ConvertError("Invalid do expression", current2.consequent);
+    if (!isHole(testExpr)) {
+      block.inputs[`IF${i}`] = {
+        block: testExpr
+      };
     }
-    if (!isStatement(doExpr)) {
-      throw new AttachError(
-        `Do of if statement must be statement, got ${doExpr.type}`,
-        current2.consequent,
-        doExpr
-      );
+    const doExpr = mapMaybeHole(
+      convertStatement({ ...ctx, level: ctx.level + 1 }, current2.consequent),
+      (doExpr2) => {
+        if (isSkip(doExpr2)) {
+          throw new ConvertError("Invalid do expression", current2.consequent);
+        }
+        if (!isStatement(doExpr2)) {
+          throw new AttachError(
+            `Do of if statement must be statement, got ${doExpr2.type}`,
+            current2.consequent,
+            doExpr2
+          );
+        }
+        return doExpr2;
+      }
+    );
+    if (!isHole(doExpr)) {
+      block.inputs[`DO${i}`] = {
+        block: doExpr
+      };
     }
-    block.inputs[`IF${i}`] = {
-      block: testExpr
-    };
-    block.inputs[`DO${i}`] = {
-      block: doExpr
-    };
   }
   const lastFlattened = flattened[flattened.length - 1];
-  if (lastFlattened.alternate != null) {
-    const elseExpr = convertStatement(
-      { ...ctx, level: ctx.level + 1 },
-      lastFlattened.alternate
+  let alt = lastFlattened.alternate;
+  if (alt != null) {
+    const elseExpr = mapMaybeHole(
+      convertStatement({ ...ctx, level: ctx.level + 1 }, alt),
+      (elseExpr2) => {
+        if (isSkip(elseExpr2)) {
+          throw new ConvertError("Invalid else expression", alt);
+        }
+        if (!isStatement(elseExpr2)) {
+          throw new AttachError(
+            `Else of if statement must be statement, got ${elseExpr2.type}`,
+            alt,
+            elseExpr2
+          );
+        }
+        return elseExpr2;
+      }
     );
-    if (elseExpr.type == "skip") {
-      throw new ConvertError(
-        "Invalid else expression",
-        lastFlattened.alternate
-      );
+    if (!isHole(elseExpr)) {
+      block.inputs["ELSE"] = {
+        block: elseExpr
+      };
     }
-    if (!isStatement(elseExpr)) {
-      throw new AttachError(
-        `Else of if statement must be statement, got ${elseExpr.type}`,
-        lastFlattened.alternate,
-        elseExpr
-      );
-    }
-    block.inputs["ELSE"] = {
-      block: elseExpr
-    };
     if (block.extraState == null) {
       block.extraState = {
         hasElse: true
