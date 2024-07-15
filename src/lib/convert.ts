@@ -568,6 +568,7 @@ function addArgument(
           expr
         );
       }
+      fields[arg.name] = literal;
       break;
     }
     case 'field_number': {
