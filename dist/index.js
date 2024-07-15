@@ -7030,6 +7030,7 @@ function addArgument(ctx, arg, expr, inputs, fields) {
           expr
         );
       }
+      fields[arg.name] = literal2;
       break;
     }
     case "field_number": {
