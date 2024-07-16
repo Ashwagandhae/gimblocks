@@ -6614,7 +6614,26 @@ function isUnknown(block) {
   return isValue(block) && findBlockDefinition(block.type).output === null;
 }
 function blockValueContains(block, check) {
-  return isUnknown(block) || isValue(block) && findBlockDefinition(block.type).output === check;
+  if (isUnknown(block)) {
+    return true;
+  }
+  if (!isValue(block)) {
+    return false;
+  }
+  const def = findBlockDefinition(block.type);
+  switch (typeof def.output) {
+    case "string":
+      return def.output === check;
+    case "object":
+      if (def.output === null || def.output === void 0) {
+        return true;
+      }
+      return def.output.includes(check);
+    case "undefined":
+      return true;
+    default:
+      throw new Error(`Unexpected output type ${def.output}`);
+  }
 }
 function isMaybeNumberValue(block) {
   return isNumberValue(block) || blockValueContains(block, "Number");
