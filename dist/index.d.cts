@@ -196,6 +196,9 @@ type TextCharAtBlock = BlockBase & {
         VALUE?: {
             block: StringValueBlock | MaybeStringValueBlock;
         };
+        AT?: {
+            block: NumberValueBlock | MaybeNumberValueBlock;
+        };
     };
 };
 type TextGetSubstringBlock = BlockBase & {
@@ -914,6 +917,10 @@ declare const blockDefinitions: readonly [{
         readonly type: "field_dropdown";
         readonly name: "WHERE";
         readonly options: readonly [readonly ["%{BKY_TEXT_CHARAT_FROM_START}", "FROM_START"], readonly ["%{BKY_TEXT_CHARAT_FROM_END}", "FROM_END"], readonly ["%{BKY_TEXT_CHARAT_FIRST}", "FIRST"], readonly ["%{BKY_TEXT_CHARAT_LAST}", "LAST"], readonly ["%{BKY_TEXT_CHARAT_RANDOM}", "RANDOM"]];
+    }, {
+        readonly type: "input_value";
+        readonly name: "AT";
+        readonly check: "Number";
     }];
     readonly output: "String";
     readonly style: "text_blocks";

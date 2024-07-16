@@ -110,7 +110,10 @@ export type TextIndexOfBlock = Basic.BlockBase & {
 export type TextCharAtBlock = Basic.BlockBase & {
   type: "text_charAt";
   fields: { WHERE?: "FROM_START" | "FROM_END" | "FIRST" | "LAST" | "RANDOM" };
-  inputs: { VALUE?: { block: StringValueBlock | MaybeStringValueBlock } };
+  inputs: {
+    VALUE?: { block: StringValueBlock | MaybeStringValueBlock };
+    AT?: { block: NumberValueBlock | MaybeNumberValueBlock };
+  };
 };
 export type TextGetSubstringBlock = Basic.BlockBase & {
   type: "text_getSubstring";
@@ -951,6 +954,7 @@ export const blockDefinitions = [
           ["%{BKY_TEXT_CHARAT_RANDOM}", "RANDOM"],
         ],
       },
+      { type: "input_value", name: "AT", check: "Number" },
     ],
     output: "String",
     style: "text_blocks",

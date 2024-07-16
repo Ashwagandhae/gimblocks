@@ -147,10 +147,12 @@ export type Union = {
    *
    * @param VALUE - An input block.
    * @param WHERE - A field. It must be a literal, non-dynamic value.
+   * @param AT - An input block.
    */
   textCharAt: (
     VALUE: string | null,
     WHERE: "FROM_START" | "FROM_END" | "FIRST" | "LAST" | "RANDOM",
+    AT: number | null,
   ) => string;
   /**
    * Function generated for "text_getSubstring" block.

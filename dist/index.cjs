@@ -5770,7 +5770,8 @@ var blockDefinitions = [
           ["%{BKY_TEXT_CHARAT_LAST}", "LAST"],
           ["%{BKY_TEXT_CHARAT_RANDOM}", "RANDOM"]
         ]
-      }
+      },
+      { type: "input_value", name: "AT", check: "Number" }
     ],
     output: "String",
     style: "text_blocks",

@@ -487,6 +487,7 @@ text_charAt
 function textCharAt(
   VALUE: string | null,
   WHERE: "FROM_START" | "FROM_END" | "FIRST" | "LAST" | "RANDOM",
+  AT: number | null,
 ): string;
 ```
 
