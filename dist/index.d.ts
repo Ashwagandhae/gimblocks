@@ -1699,7 +1699,12 @@ type Hole = {
     kind: 'hole';
 };
 type Placeholder = Skip | Hole;
-type CustomConvertExpression = (expression: Expression, convertExpression: (expression: Expression) => Block | Placeholder) => Block;
+type CustomConvertExpression = (expression: Expression, ctx: Context, convertExpression: (expression: Expression) => Block | Placeholder) => Block;
+type Context = {
+    device: string;
+    level: number;
+    customConvertExpression?: CustomConvertExpression;
+};
 
 type Options = Partial<FullOptions>;
 type FullOptions = {

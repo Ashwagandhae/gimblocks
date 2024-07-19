@@ -130,6 +130,7 @@ type Placeholder = Skip | Hole;
 
 export type CustomConvertExpression = (
   expression: Expression,
+  ctx: Context,
   convertExpression: (expression: Expression) => Block.Block | Placeholder
 ) => Block.Block;
 type Context = {
@@ -209,7 +210,7 @@ function convertExpression(
     let convertExpression = function (expr: Expression) {
       return convertExpressionPure(ctx, expr);
     };
-    return ctx.customConvertExpression(expr, convertExpression);
+    return ctx.customConvertExpression(expr, ctx, convertExpression);
   } else {
     return convertExpressionPure(ctx, expr);
   }

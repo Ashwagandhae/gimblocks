@@ -6769,7 +6769,7 @@ function convertExpression(ctx, expr) {
     let convertExpression2 = function(expr2) {
       return convertExpressionPure(ctx, expr2);
     };
-    return ctx.customConvertExpression(expr, convertExpression2);
+    return ctx.customConvertExpression(expr, ctx, convertExpression2);
   } else {
     return convertExpressionPure(ctx, expr);
   }
