@@ -132,7 +132,7 @@ export type CustomConvertExpression = (
   expression: Expression,
   ctx: Context,
   convertExpression: (expression: Expression) => Block.Block | Placeholder
-) => Block.Block;
+) => Block.Block | Placeholder;
 type Context = {
   device: string;
   level: number;
