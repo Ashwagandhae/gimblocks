@@ -1679,8 +1679,8 @@ declare function isMaybeNumberValue(block: Block): block is MaybeNumberValueBloc
 declare function isMaybeStringValue(block: Block): block is MaybeStringValueBlock | StringValueBlock;
 declare function isMaybeBooleanValue(block: Block): block is MaybeBooleanValueBlock | BooleanValueBlock;
 
-declare function functionExpressionToBlocks(functionExpression: Expression): Program;
-declare function programToBlocks(program: Program$1): Program;
+declare function functionExpressionToBlocks(functionExpression: Expression, options: Options): Program;
+declare function programToBlocks(program: Program$1, options: Options): Program;
 declare class ConvertError extends Error {
     node: Node | null;
     constructor(message: string, node?: Node);
@@ -1690,11 +1690,22 @@ declare class AttachError extends Error {
     node: Node;
     constructor(message: string, node: Node, block: Block);
 }
+type Skip = {
+    type: '$placeholder';
+    kind: 'skip';
+};
+type Hole = {
+    type: '$placeholder';
+    kind: 'hole';
+};
+type Placeholder = Skip | Hole;
+type CustomConvertExpression = (expression: Expression, convertExpression: (expression: Expression) => Block | Placeholder) => Block;
 
 type Options = Partial<FullOptions>;
 type FullOptions = {
     jsStringType: 'program' | 'functionExpression';
     acornOptions: Options$1;
+    customConvertExpression?: CustomConvertExpression;
 };
 declare const defaultOptions: FullOptions;
 declare function jsToBlocks(jsString: string, options?: Options): Program;

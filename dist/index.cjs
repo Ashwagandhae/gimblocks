@@ -6646,11 +6646,13 @@ function isMaybeBooleanValue(block) {
 }
 
 // src/lib/convert.ts
-function functionExpressionToBlocks(functionExpression) {
-  return rootBlockToProgram(convertFunctionExpressionTop(functionExpression));
+function functionExpressionToBlocks(functionExpression, options) {
+  return rootBlockToProgram(
+    convertFunctionExpressionTop(functionExpression, options)
+  );
 }
-function programToBlocks(program) {
-  return rootBlockToProgram(convertProgramTop(program));
+function programToBlocks(program, options) {
+  return rootBlockToProgram(convertProgramTop(program, options));
 }
 function rootBlockToProgram(rootBlock) {
   const variablesIdMap = {};
@@ -6713,7 +6715,7 @@ var AttachError = class extends Error {
     this.node = node;
   }
 };
-function convertProgramTop(program) {
+function convertProgramTop(program, options) {
   const statements = [];
   for (const node of program.body) {
     if (node.type != "ImportDeclaration" && node.type != "ExportNamedDeclaration" && node.type != "ExportDefaultDeclaration" && node.type != "ExportAllDeclaration") {
@@ -6723,15 +6725,15 @@ function convertProgramTop(program) {
   if (statements.length == 1) {
     const statement = statements[0];
     if (statement.type == "FunctionDeclaration") {
-      return convertFunctionExpressionTop(statement);
+      return convertFunctionExpressionTop(statement, options);
     }
     if (statement.type == "ExpressionStatement" && (statement.expression.type == "FunctionExpression" || statement.expression.type == "ArrowFunctionExpression")) {
-      return convertFunctionExpressionTop(statement.expression);
+      return convertFunctionExpressionTop(statement.expression, options);
     }
   }
   throw new ConvertError("Program isn't a function", program);
 }
-function convertFunctionExpressionTop(expr) {
+function convertFunctionExpressionTop(expr, options) {
   switch (expr.type) {
     case "FunctionDeclaration":
     case "FunctionExpression":
@@ -6763,6 +6765,16 @@ function convertFunctionExpressionTop(expr) {
   }
 }
 function convertExpression(ctx, expr) {
+  if (ctx.customConvertExpression != null) {
+    let convertExpression2 = function(expr2) {
+      return convertExpressionPure(ctx, expr2);
+    };
+    return ctx.customConvertExpression(expr, convertExpression2);
+  } else {
+    return convertExpressionPure(ctx, expr);
+  }
+}
+function convertExpressionPure(ctx, expr) {
   switch (expr.type) {
     case "FunctionExpression":
       throw new ConvertError("FunctionExpression not supported", expr);
@@ -7832,14 +7844,14 @@ function jsToBlocks(jsString, options = {}) {
   const optionsWithDefaults = { ...defaultOptions2, ...options };
   if (optionsWithDefaults.jsStringType === "program") {
     const ast = parse3(jsString, optionsWithDefaults.acornOptions);
-    return programToBlocks(ast);
+    return programToBlocks(ast, options);
   } else {
     const ast = parseExpressionAt2(
       jsString,
       0,
       optionsWithDefaults.acornOptions
     );
-    return functionExpressionToBlocks(ast);
+    return functionExpressionToBlocks(ast, options);
   }
 }
 // Annotate the CommonJS export names for ESM import in node:
