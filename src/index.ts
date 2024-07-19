@@ -1,7 +1,16 @@
-import { Options as AcornOptions, parse, parseExpressionAt } from 'acorn';
+import {
+  Options as AcornOptions,
+  parse,
+  parseExpressionAt,
+  Expression,
+} from 'acorn';
 
-import type { Program } from './lib/blocks/index';
-import { functionExpressionToBlocks, programToBlocks } from './lib/convert';
+import type { Block, Program } from './lib/blocks/index';
+import {
+  CustomConvertExpression,
+  functionExpressionToBlocks,
+  programToBlocks,
+} from './lib/convert';
 export {
   programToBlocks as acornProgramToBlocks,
   functionExpressionToBlocks as acornFunctionExpressionToBlocks,
@@ -16,6 +25,7 @@ export type Options = Partial<FullOptions>;
 export type FullOptions = {
   jsStringType: 'program' | 'functionExpression';
   acornOptions: AcornOptions;
+  customConvertExpression?: CustomConvertExpression;
 };
 
 export const defaultOptions: FullOptions = {
@@ -29,13 +39,13 @@ export function jsToBlocks(jsString: string, options: Options = {}): Program {
   const optionsWithDefaults = { ...defaultOptions, ...options };
   if (optionsWithDefaults.jsStringType === 'program') {
     const ast = parse(jsString, optionsWithDefaults.acornOptions);
-    return programToBlocks(ast);
+    return programToBlocks(ast, options);
   } else {
     const ast = parseExpressionAt(
       jsString,
       0,
       optionsWithDefaults.acornOptions
     );
-    return functionExpressionToBlocks(ast);
+    return functionExpressionToBlocks(ast, options);
   }
 }

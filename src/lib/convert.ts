@@ -30,15 +30,22 @@ import {
   findBlockDefinition,
 } from './blocks/index';
 import { Argument, Check } from '../../schema/blockDefinitions';
+import { Options } from '..';
 
 export function functionExpressionToBlocks(
-  functionExpression: Expression
+  functionExpression: Expression,
+  options: Options
 ): Block.Program {
-  return rootBlockToProgram(convertFunctionExpressionTop(functionExpression));
+  return rootBlockToProgram(
+    convertFunctionExpressionTop(functionExpression, options)
+  );
 }
 
-export function programToBlocks(program: Program): Block.Program {
-  return rootBlockToProgram(convertProgramTop(program));
+export function programToBlocks(
+  program: Program,
+  options: Options
+): Block.Program {
+  return rootBlockToProgram(convertProgramTop(program, options));
 }
 
 function rootBlockToProgram(rootBlock: Block.Block): Block.Program {
@@ -121,11 +128,16 @@ type Hole = { type: '$placeholder'; kind: 'hole' };
 
 type Placeholder = Skip | Hole;
 
+export type CustomConvertExpression = (
+  expression: Expression,
+  convertExpression: (expression: Expression) => Block.Block | Placeholder
+) => Block.Block;
 type Context = {
   device: string;
   level: number;
+  customConvertExpression?: CustomConvertExpression;
 };
-function convertProgramTop(program: Program): Block.Block {
+function convertProgramTop(program: Program, options: Options): Block.Block {
   const statements: Statement[] = [];
   for (const node of program.body) {
     if (
@@ -141,20 +153,21 @@ function convertProgramTop(program: Program): Block.Block {
   if (statements.length == 1) {
     const statement = statements[0]!;
     if (statement.type == 'FunctionDeclaration') {
-      return convertFunctionExpressionTop(statement);
+      return convertFunctionExpressionTop(statement, options);
     }
     if (
       statement.type == 'ExpressionStatement' &&
       (statement.expression.type == 'FunctionExpression' ||
         statement.expression.type == 'ArrowFunctionExpression')
     ) {
-      return convertFunctionExpressionTop(statement.expression);
+      return convertFunctionExpressionTop(statement.expression, options);
     }
   }
   throw new ConvertError("Program isn't a function", program);
 }
 function convertFunctionExpressionTop(
-  expr: Expression | FunctionDeclaration
+  expr: Expression | FunctionDeclaration,
+  options: Options
 ): Block.Block {
   switch (expr.type) {
     case 'FunctionDeclaration':
@@ -187,7 +200,22 @@ function convertFunctionExpressionTop(
       throw new ConvertError('Invalid top expression type: ' + expr.type, expr);
   }
 }
+
 function convertExpression(
+  ctx: Context,
+  expr: Expression
+): Block.Block | Placeholder {
+  if (ctx.customConvertExpression != null) {
+    let convertExpression = function (expr: Expression) {
+      return convertExpressionPure(ctx, expr);
+    };
+    return ctx.customConvertExpression(expr, convertExpression);
+  } else {
+    return convertExpressionPure(ctx, expr);
+  }
+}
+
+function convertExpressionPure(
   ctx: Context,
   expr: Expression
 ): Block.Block | Placeholder {
