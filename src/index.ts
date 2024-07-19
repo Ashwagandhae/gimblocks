@@ -39,13 +39,13 @@ export function jsToBlocks(jsString: string, options: Options = {}): Program {
   const optionsWithDefaults = { ...defaultOptions, ...options };
   if (optionsWithDefaults.jsStringType === 'program') {
     const ast = parse(jsString, optionsWithDefaults.acornOptions);
-    return programToBlocks(ast, options);
+    return programToBlocks(ast, optionsWithDefaults);
   } else {
     const ast = parseExpressionAt(
       jsString,
       0,
       optionsWithDefaults.acornOptions
     );
-    return functionExpressionToBlocks(ast, options);
+    return functionExpressionToBlocks(ast, optionsWithDefaults);
   }
 }

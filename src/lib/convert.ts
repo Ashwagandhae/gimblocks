@@ -30,11 +30,11 @@ import {
   findBlockDefinition,
 } from './blocks/index';
 import { Argument, Check } from '../../schema/blockDefinitions';
-import { Options } from '..';
+import { FullOptions, Options } from '..';
 
 export function functionExpressionToBlocks(
   functionExpression: Expression,
-  options: Options
+  options: FullOptions
 ): Block.Program {
   return rootBlockToProgram(
     convertFunctionExpressionTop(functionExpression, options)
@@ -43,7 +43,7 @@ export function functionExpressionToBlocks(
 
 export function programToBlocks(
   program: Program,
-  options: Options
+  options: FullOptions
 ): Block.Program {
   return rootBlockToProgram(convertProgramTop(program, options));
 }
@@ -138,7 +138,10 @@ type Context = {
   level: number;
   customConvertExpression?: CustomConvertExpression;
 };
-function convertProgramTop(program: Program, options: Options): Block.Block {
+function convertProgramTop(
+  program: Program,
+  options: FullOptions
+): Block.Block {
   const statements: Statement[] = [];
   for (const node of program.body) {
     if (
@@ -168,7 +171,7 @@ function convertProgramTop(program: Program, options: Options): Block.Block {
 }
 function convertFunctionExpressionTop(
   expr: Expression | FunctionDeclaration,
-  options: Options
+  options: FullOptions
 ): Block.Block {
   switch (expr.type) {
     case 'FunctionDeclaration':
@@ -186,6 +189,9 @@ function convertFunctionExpressionTop(
         throw new ConvertError('Invalid function argument', param);
       }
       const ctx: Context = { device: param.name, level: 0 };
+      if (options.customConvertExpression != null) {
+        ctx.customConvertExpression = options.customConvertExpression;
+      }
       if (expr.body.type == 'BlockStatement') {
         return convertBlockStatement(ctx, expr.body);
       } else {

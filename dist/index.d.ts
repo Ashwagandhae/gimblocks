@@ -1679,8 +1679,8 @@ declare function isMaybeNumberValue(block: Block): block is MaybeNumberValueBloc
 declare function isMaybeStringValue(block: Block): block is MaybeStringValueBlock | StringValueBlock;
 declare function isMaybeBooleanValue(block: Block): block is MaybeBooleanValueBlock | BooleanValueBlock;
 
-declare function functionExpressionToBlocks(functionExpression: Expression, options: Options): Program;
-declare function programToBlocks(program: Program$1, options: Options): Program;
+declare function functionExpressionToBlocks(functionExpression: Expression, options: FullOptions): Program;
+declare function programToBlocks(program: Program$1, options: FullOptions): Program;
 declare class ConvertError extends Error {
     node: Node | null;
     constructor(message: string, node?: Node);
