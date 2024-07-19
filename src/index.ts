@@ -19,6 +19,7 @@ export {
 } from './lib/convert';
 
 export type * from './lib/blocks/index';
+export type * from './lib/count';
 
 export type Options = Partial<FullOptions>;
 
